@@ -2,24 +2,24 @@
     xmlns="http://namespaces.zope.org/zope"
     xmlns:browser="http://namespaces.zope.org/browser"
     xmlns:plone="http://namespaces.plone.org/plone"
-    i18n_domain="hucktheme08">
+    i18n_domain="HuckTheme">
 
-<!-- "hucktheme08" Zope 3 skin layer.
+<!-- "HuckTheme" Zope 3 skin layer.
          Register views, viewlets and resources for this layer to make sure
-         they only apply to the 'hucktheme08' theme.
+         they only apply to the 'HuckTheme' theme.
          You can also use this layer to override default Plone browser views
-         and viewlets only within the 'hucktheme08' theme.
+         and viewlets only within the 'HuckTheme' theme.
       -->
       
     <interface
         interface=".interfaces.IThemeSpecific"
         type="zope.publisher.interfaces.browser.IBrowserSkinType"
-        name="hucktheme08"
+        name="HuckTheme"
         />
 <!-- VIEWLETS --> 
 	<!-- The customized logo -->
     <browser:viewlet
-        name="hucktheme08.logo"
+        name="HuckTheme.logo"
         manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
         class=".viewlets.LogoViewlet"
         layer=".interfaces.IThemeSpecific"
@@ -28,7 +28,7 @@
         
 	<!-- The customized searchbox -->
     <browser:viewlet
-        name="hucktheme08.searchbox"
+        name="HuckTheme.searchbox"
         manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
         class=".viewlets.SearchBoxViewlet"
         layer=".interfaces.IThemeSpecific"
@@ -37,7 +37,7 @@
 
 	<!-- The customized footer -->
     <browser:viewlet
-        name="hucktheme08.footer"
+        name="HuckTheme.footer"
         manager="plone.app.layout.viewlets.interfaces.IPortalFooter"
         class=".viewlets.FooterViewlet"
         layer=".interfaces.IThemeSpecific"
@@ -46,7 +46,7 @@
 
 	<!-- The customized pathbar -->
     <browser:viewlet
-        name="hucktheme08.path_bar"
+        name="HuckTheme.path_bar"
         manager="plone.app.layout.viewlets.interfaces.IPortalTop"
         class=".viewlets.PathBarViewlet"
         layer=".interfaces.IThemeSpecific"
@@ -64,7 +64,7 @@
 
 	<!-- Custom viewlet example. Uncomment if you want it available
     <browser:viewlet
-        name="hucktheme08.custom"
+        name="HuckTheme.custom"
         manager="plone.app.layout.viewlets.interfaces.IPortalFooter"
         class=".viewlets.CustomViewlet"
         layer=".interfaces.IThemeSpecific"
@@ -85,21 +85,21 @@
 <!-- RESOURCE DIRECTORIES -->
 	<!-- Resource directory for stylesheets (that don't use DTML) -->
     <browser:resourceDirectory
-        name="hucktheme08.stylesheets"
+        name="HuckTheme.stylesheets"
         directory="stylesheets"
         layer=".interfaces.IThemeSpecific"
         />
 
 	<!-- Resource directory for images -->
     <browser:resourceDirectory
-        name="hucktheme08.images"
+        name="HuckTheme.images"
         directory="images"
         layer=".interfaces.IThemeSpecific"
         />
 
 	<!-- Resource directory for templates -->
     <browser:resourceDirectory
-        name="hucktheme08.templates"
+        name="HuckTheme.templates"
         directory="templates"
         layer=".interfaces.IThemeSpecific"
         />

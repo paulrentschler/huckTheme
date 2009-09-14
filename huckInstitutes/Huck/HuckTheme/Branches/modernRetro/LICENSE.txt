@@ -1,4 +1,4 @@
-hucktheme08
+HuckTheme
 Copyright (C) 2005-2006  John Doe <john.doe@dev.null>
 
 This program is free software; you can redistribute it and/or

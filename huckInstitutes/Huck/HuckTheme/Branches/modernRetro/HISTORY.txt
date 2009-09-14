@@ -1,8 +1,13 @@
-Changelog for hucktheme08
+Changelog for HuckTheme
 
     Author: Catherine Williams
+            Paul Rentschler
 
-hucktheme08 1.0 - Unreleased
-
+HuckTheme 1.0 - Unreleased
     - Generated skeleton product from DIYPloneStyle 3.0.
       [generator]
+
+HuckTheme 1.1 - Unreleased
+    - Name changed from hucktheme08 to HuckTheme
+    - New author: Paul Rentschler
+    

@@ -1,28 +1,28 @@
 Description
 
-    hucktheme08 is a product that adds a new style to a Plone 3.0.x portal.
+    HuckTheme is a product that adds a new style to a Plone 3.0.x portal.
     It adds a new skin selection to the 'portal_skins' tool
-    (called hucktheme08), and registers a custom stylesheet (called 
+    (called HuckTheme), and registers a custom stylesheet (called 
     main.css) with the 'portal_css' tool.
 
-    hucktheme08 is based on DIYPloneStyle 3.0, a skeleton product
+    HuckTheme is based on DIYPloneStyle 3.0, a skeleton product
     ready for building new graphical designs for Plone.
 
 Installation
 
-    On the file system: place hucktheme08 in the Products directory
+    On the file system: place HuckTheme in the Products directory
     of your Zope instance and restart the server.
 
     In the Plone Web Interface: as portal manager, go to 'Portal > Site Setup
     > Add-on Products'.
-    Select 'hucktheme08' and click the *Install* button.
+    Select 'HuckTheme' and click the *Install* button.
 
     Uninstall -- Can be done from the same page.
 
 Selecting a skin
 
     Depending on the values given in the skins tool profile (see
-    profiles/default/skins.xml), the hucktheme08 skin will be selected (or
+    profiles/default/skins.xml), the HuckTheme skin will be selected (or
     not) as default one while installing the product. If you need to switch
     from a default skin to another, go to the 'Site Setup' page, and choose
     'Themes' (as portal manager).
@@ -34,4 +34,4 @@ Selecting a skin
 
 Written by
 
-    John Doe <john.doe@dev.null>
+    Paul Rentschler <par117@psu.edu>

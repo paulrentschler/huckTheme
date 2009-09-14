@@ -16,7 +16,7 @@
       for the latest list of all available keys and default values.
       -->
 <!-- EXAMPLE (UNCOMMENT TO MAKE AVAILABLE):
- <javascript id="++resource++hucktheme08.javascripts/example.js"
+ <javascript id="++resource++HuckTheme.javascripts/example.js"
     cacheable="False" compression="safe" cookable="False"
     enabled="True" expression="" inline="False"/>
 -->

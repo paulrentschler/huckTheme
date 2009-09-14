@@ -19,7 +19,7 @@
       ResourceRegistries/tools/CSSRegistry.py for the latest list of all
       available keys and default values.
       -->
-	<stylesheet id="hucktheme08.css"
+	<stylesheet id="hucktheme.css"
 		title="" cacheable="True" compression="safe" cookable="True"
 		enabled="1" expression=""  media="screen"
 		rel="stylesheet" rendering="import"/>

@@ -1,22 +1,22 @@
 <configure
     xmlns="http://namespaces.zope.org/zope"
     xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
-    i18n_domain="hucktheme08">
+    i18n_domain="HuckTheme">
 
   <genericsetup:registerProfile
       name="default"
-      title="hucktheme08"
+      title="HuckTheme"
       directory="profiles/default"
-      description="Extension profile for hucktheme08."
+      description="Extension profile for HuckTheme."
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
 
  
   <genericsetup:registerProfile
       name="uninstall"
-      title="hucktheme08 Uninstall Profile"
+      title="HuckTheme Uninstall Profile"
       directory="profiles/uninstall"
-      description="Removes hucktheme08"
+      description="Removes HuckTheme"
       provides="Products.GenericSetup.interfaces.EXTENSION"
       for="Products.CMFPlone.interfaces.IPloneSiteRoot"
       />

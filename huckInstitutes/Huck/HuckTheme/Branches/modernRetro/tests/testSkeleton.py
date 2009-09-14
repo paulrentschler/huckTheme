@@ -1,11 +1,11 @@
 #
-# Skeleton hucktheme08TestCase
+# Skeleton HuckThemeTestCase
 #
 
 from Products.PloneTestCase import PloneTestCase
 
-PloneTestCase.installProduct('hucktheme08')
-PloneTestCase.setupPloneSite(products=['hucktheme08'])
+PloneTestCase.installProduct('HuckTheme')
+PloneTestCase.setupPloneSite(products=['HuckTheme'])
 
 
 class TestSomething(PloneTestCase.PloneTestCase):

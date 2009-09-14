@@ -1,39 +1,39 @@
 <?xml version="1.0"?>
-<!-- Setup configuration of the viewlet managers for the "hucktheme08" skin -->
+<!-- Setup configuration of the viewlet managers for the "HuckTheme" skin -->
 
 <object>
 <!-- hide Plone's defaults -->
- <hidden manager="plone.portaltop" skinname="hucktheme08">
+ <hidden manager="plone.portaltop" skinname="HuckTheme">
     <viewlet name="plone.path_bar" />
     <viewlet name="plone.app.i18n.locales.languageselector" />
  </hidden>
 
- <hidden manager="plone.portalheader" skinname="hucktheme08">
+ <hidden manager="plone.portalheader" skinname="HuckTheme">
     <viewlet name="plone.logo" />
     <viewlet name="plone.site_actions" />
     <viewlet name="plone.searchbox" />
   </hidden>
   
-  <hidden manager="plone.portalfooter" skinname="hucktheme08">
+  <hidden manager="plone.portalfooter" skinname="HuckTheme">
      <viewlet name="plone.footer" />
      <viewlet name="plone.colophon" />
   </hidden>
 
 <!-- insert our own, and make sure everything is in the order we want -->
-	<order manager="plone.portaltop" skinname="hucktheme08">
+	<order manager="plone.portaltop" skinname="HuckTheme">
 		<viewlet name="plone.header" />
 		<viewlet name="plone.personal_bar" />
-		<viewlet name="hucktheme08.path_bar" />
+		<viewlet name="HuckTheme.path_bar" />
 	</order>
 
-	<order manager="plone.portalheader" skinname="hucktheme08">
-		<viewlet name="hucktheme08.logo" />
-		<viewlet name="hucktheme08.searchbox" insert-before="hucktheme08.logo" />
+	<order manager="plone.portalheader" skinname="HuckTheme">
+		<viewlet name="HuckTheme.logo" />
+		<viewlet name="HuckTheme.searchbox" insert-before="HuckTheme.logo" />
 	</order>
 
-	<order manager="plone.portalfooter" skinname="hucktheme08">
-		<viewlet name="hucktheme08.footer" />
-		<viewlet name="plone.site_actions" insert-after="hucktheme08.footer" />
+	<order manager="plone.portalfooter" skinname="HuckTheme">
+		<viewlet name="HuckTheme.footer" />
+		<viewlet name="plone.site_actions" insert-after="HuckTheme.footer" />
 	</order>
 	   
 </object>
