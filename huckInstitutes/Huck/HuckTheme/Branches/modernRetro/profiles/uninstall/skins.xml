@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!-- This file holds the uninstall configuration for the portal_skins tool -->
+<object name="portal_skins" allow_any="False" cookie_persistence="False"
+        default_skin="Plone Default" request_varname="plone_skin">
+
+	<object name="hucktheme08_custom_images"
+		meta_type="Filesystem Directory View"
+		remove="True"/>
+	<object name="hucktheme08_styles"
+		meta_type="Filesystem Directory View"
+		remove="True"/>
+	<object name="hucktheme08_custom_templates"
+		meta_type="Filesystem Directory View"
+		remove="True"/>
+	
+	<skin-path name="hucktheme08" remove="True" />
+
+</object>

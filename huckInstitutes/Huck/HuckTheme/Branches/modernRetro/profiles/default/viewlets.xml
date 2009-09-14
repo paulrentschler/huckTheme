@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!-- Setup configuration of the viewlet managers for the "hucktheme08" skin -->
+
+<object>
+<!-- hide Plone's defaults -->
+ <hidden manager="plone.portaltop" skinname="hucktheme08">
+    <viewlet name="plone.path_bar" />
+    <viewlet name="plone.app.i18n.locales.languageselector" />
+ </hidden>
+
+ <hidden manager="plone.portalheader" skinname="hucktheme08">
+    <viewlet name="plone.logo" />
+    <viewlet name="plone.site_actions" />
+    <viewlet name="plone.searchbox" />
+  </hidden>
+  
+  <hidden manager="plone.portalfooter" skinname="hucktheme08">
+     <viewlet name="plone.footer" />
+     <viewlet name="plone.colophon" />
+  </hidden>
+
+<!-- insert our own, and make sure everything is in the order we want -->
+	<order manager="plone.portaltop" skinname="hucktheme08">
+		<viewlet name="plone.header" />
+		<viewlet name="plone.personal_bar" />
+		<viewlet name="hucktheme08.path_bar" />
+	</order>
+
+	<order manager="plone.portalheader" skinname="hucktheme08">
+		<viewlet name="hucktheme08.logo" />
+		<viewlet name="hucktheme08.searchbox" insert-before="hucktheme08.logo" />
+	</order>
+
+	<order manager="plone.portalfooter" skinname="hucktheme08">
+		<viewlet name="hucktheme08.footer" />
+		<viewlet name="plone.site_actions" insert-after="hucktheme08.footer" />
+	</order>
+	   
+</object>

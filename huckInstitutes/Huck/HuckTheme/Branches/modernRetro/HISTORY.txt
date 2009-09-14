@@ -1,0 +1,8 @@
+Changelog for hucktheme08
+
+    Author: Catherine Williams
+
+hucktheme08 1.0 - Unreleased
+
+    - Generated skeleton product from DIYPloneStyle 3.0.
+      [generator]
