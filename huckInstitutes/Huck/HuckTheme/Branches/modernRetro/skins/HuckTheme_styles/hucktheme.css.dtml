@@ -31,17 +31,16 @@
 /* ----- SEARCH BOXES and SEARCH RESULTS ----- */
 #portal-searchbox {
 	margin:1em 0.25em;
+  text-align: right;
 }
 
-.searchBoxLink {
-	border-left: 1px solid #666;
-	padding-left: 0.5em;
+#portal-advanced-search a {
+  display: block;
 }
 
 #portal-advanced-search a:link, 
 #portal-advanced-search a:visited { 
 	color: &dtml-linkColor;;
-	margin: -2em 0 0 0;
 	text-decoration: underline;
 }
 
