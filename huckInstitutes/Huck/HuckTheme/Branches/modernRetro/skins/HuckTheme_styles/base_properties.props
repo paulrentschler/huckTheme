@@ -1,6 +1,6 @@
 title:string=Huck Institutes color, font, logo and border defaults
 
-plone_skin:string=huckstyles1
+plone_skin:string=HuckTheme
 
 logoName:string=hucklogo.jpg
 

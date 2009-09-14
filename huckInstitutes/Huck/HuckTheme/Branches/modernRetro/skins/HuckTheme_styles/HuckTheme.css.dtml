@@ -1,5 +1,7 @@
 /*
-  This file is based on the ploneCustom.css.dtml shipped with Plone.
+  CSS definitions for the HuckTheme
+  
+  Author: Paul Rentschler <par117@psu.edu>
 
   <dtml-with base_properties> (do not remove this)
   <dtml-call "REQUEST.set('portal_url', portal_url())"> (not this either)
@@ -7,27 +9,29 @@
 
 /* ----- LOGOS AND WORDMARKS --- */
 #psu-logo { 
-    position:relative;
-    top:10px;
-    left:10px;
 	border: 0;
- 	margin: 10px 0 0 10px;
+  height: 58px !important;
+  left: 10px;
+	margin: 10px 0 0 10px;
 	padding: 0;
-    height: 58px !important;
-    width: <dtml-var "_[psuLogo].width">px !important;
+  position: relative;
+  top: 10px;
+  width: <dtml-var "_[psuLogo].width">px !important;
 }
 
 #portal-logo img {
-    position:relative;
-    top:10px;
-    left:5px;
-    height: auto;
+  height: auto;
+  left: 5px;
+  position: relative;
+  top: 10px;
 }
+
+
 
 /* ----- SEARCH BOXES and SEARCH RESULTS ----- */
 #portal-searchbox {
 	margin:1em 0.25em;
-	}
+}
 
 .searchBoxLink {
 	border-left: 1px solid #666;
@@ -36,293 +40,303 @@
 
 #portal-advanced-search a:link, 
 #portal-advanced-search a:visited { 
-	color:&dtml-linkColor;;
+	color: &dtml-linkColor;;
 	margin: -2em 0 0 0;
-	text-decoration:underline;
+	text-decoration: underline;
 }
 
 #portal-advanced-search a:hover, 
 #portal-advanced-search a:active { 
-	color:&dtml-highlightColor;;
+	color: &dtml-highlightColor;;
 }
+
+
 
 /* ----- GLOBAL NAVIGATION (overrides public.css) ----- */
 #portal-globalnav {  
-	margin:1.5em 0 0 0;
-	padding:0.2em 0 0.2em 0.5em;
-	border-bottom:2px solid &dtml-colorZero;;
+	margin: 1.5em 0 0 0;
+	padding: 0.2em 0 0.2em 0.5em;
+	border-bottom: 2px solid &dtml-colorZero;;
 }
 
 #portal-globalnav li { 
-	margin:0;
-	padding:0 0.3em;
-	}
+	margin: 0;
+	padding: 0 0.3em;
+}
 
 #portal-globalnav li a { 
-	padding:0.2em 1em;
-	margin:0;
-	color:#fff;
-	background-color:&dtml-colorZero;;
-	border:&dtml-borderWidth; solid &dtml-colorZero;;
-	text-transform:uppercase;
-	}
+	color: #fff;
+	background-color: &dtml-colorZero;;
+	border: &dtml-borderWidth; solid &dtml-colorZero;;
+	margin: 0;
+	padding: 0.2em 1em;
+	text-transform: uppercase;
+}
 
 #portal-globalnav li a:hover {
-	color:#fff;
-	background-color:&dtml-highlightColor;; 
+	color: #fff;
+	background-color: &dtml-highlightColor;; 
 	border-top: 1px solid &dtml-highlightColor;;
 	border-right: 1px solid &dtml-highlightColor;;
-	border-left: 1px solid &dtml-highlightColor;;
 	border-bottom:2px solid &dtml-highlightColor;;
+	border-left: 1px solid &dtml-highlightColor;;
 }
 
 #portal-globalnav li.selected a {
-	color:&dtml-colorZero;;
-	background:#fff url(global_nav_indicator.gif) left top no-repeat;
+	color: &dtml-colorZero;;
+	background: #fff url(global_nav_indicator.gif) left top no-repeat;
 	border-top: 1px solid &dtml-highlightColor;;
 	border-right: 1px solid &dtml-colorZero;;
+	border-bottom: 2px solid #fff;
 	border-left: 1px solid &dtml-colorZero;;
-	border-bottom:2px solid #fff;
 }
+
+
 
 /* ----- BREADCRUMBS (over-rides public.css) ----- */
 #portal-breadcrumbs a {
-	color:&dtml-linkColor;;
+	color: &dtml-linkColor;;
 	text-decoration: underline;
 }
 
-#portal-breadcrumbs
-	{
+#portal-breadcrumbs {
 	color: #666666;
-	background-color:&dtml-backgroundColor;; 
-	margin:0 0.5em;
-	padding:0.25em 1em;
-	border-bottom:1px solid #ccc;
-	border-left:1px solid #ccc;
-	float:left;
+	background-color: &dtml-backgroundColor;; 
+	border-bottom: 1px solid #ccc;
+	border-left: 1px solid #ccc;
+	float: left;
+	margin: 0 0.5em;
+	padding: 0.25em 1em;
 }
 
 .section-home #portal-breadcrumbs { /* hide the breadcrumbs on the home page */
 	display:none;
 }
 
+
+
 /* -----  PERSONAL BAR ----- */
 #portal-personaltools	{
 	background-color: transparent;
-	border:none;
+	border: none;
 }
+
+
 
 /* ---- SITE ACTIONS  --- */
 #portal-siteactions {
-	float:none;
-	text-align:center;
-	margin:-2em 0 1em 0;
+	float: none;
+	text-align: center;
+	margin: -2em 0 1em 0;
 }
 
 #portal-siteactions li a {
-	color:&dtml-linkColor;;
-	text-decoration:underline;
+	color: &dtml-linkColor;;
+	text-decoration: underline;
 }
 
 #portal-siteactions li a:hover {
-	color:&dtml-highlightColor;;
+	color: &dtml-highlightColor;;
 }
+
+
 
 /* --------- FOOTER (overrides public.css ------- */
 #portal-footer {
-background-color: transparent;
-border-top: &dtml-borderWidth; &dtml-borderStyle; &dtml-globalBorderColor;;
-border-bottom: none;
-float: none;
-line-height: 1.2em;
-margin: 2em 0em 1em 0em;
-padding: 0.5em 0em 1em 0em;
-text-align: center;
+	background-color: transparent;
+	border-top: &dtml-borderWidth; &dtml-borderStyle; &dtml-globalBorderColor;;
+	border-bottom: none;
+	float: none;
+	line-height: 1.2em;
+	margin: 2em 0em 1em 0em;
+	padding: 0.5em 0em 1em 0em;
+	text-align: center;
 }
 
 #portal-footer p {
-margin: 0.25em 0;
+  margin: 0.25em 0;
 }
 
 #portal-footer a:link {
-color: &dtml-linkColor;;
-border: none;
-text-decoration:underline;
+	color: &dtml-linkColor;;
+	border: none;
+	text-decoration: underline;
 }
+
+
 
 /* ----- IMAGES ----- */
 .plain img {
-	border:none;
-	margin:0.25em 0.5em;
+	border: none;
+	margin: 0.25em 0.5em;
 }
+
+
 
 /* ----- GENERAL CONTENT (overrides public.css and base.css) ----- */
 .apply {
-	text-transform:uppercase;
+	text-transform: uppercase;
 }
 
 .contactInfo {
-	font-size:93%;
-	color:#666;
+	color: #666;
+	font-size: 93%;
 }
 
 p.contactInfo {
-	padding-left:1.5em;
+	padding-left: 1.5em;
 }
 
 .documentContent p a,
 .documentContent dd a,
-.documentContent li a
-	{
-	text-decoration: underline;
+.documentContent li a {
 	border-bottom: none;
+	text-decoration: underline;
 }
 
 .documentContent p a:visited 
 .documentContent dd a:visited,
-.documentContent li a:visited
-	{
-	color:&dtml-linkVisitedColor;;
+.documentContent li a:visited {
+	color: &dtml-linkVisitedColor;;
 }
 
 .documentContent p a:active, .documentContent p a:hover,
 .documentContent dd a:active, .documentContent dd a:hover,
-.documentContent li a:active, .documentContent li a:hover
-	{
-	color:&dtml-linkActiveColor;;
+.documentContent li a:active, .documentContent li a:hover {
+	color: &dtml-linkActiveColor;;
 }
 
 .emphasis {
-	text-transform:uppercase;
-	font-weight:bold;
+	font-weight: bold;
+	text-transform: uppercase;
 }
 
 .eventDate {
-	text-transform:uppercase;
-	font-weight:bold;
+	font-weight: bold;
+	text-transform: uppercase;
 }
 
 .eventTable td {
-	padding:12px;
+	padding: 12px;
 }
 
 .formHelp {
-	font-size:100%;
+	font-size: 100%;
 }
 
 fieldset {
-	margin:1em 0 1em 0.25em;
+	margin: 1em 0 1em 0.25em;
 }
 
 h1 {
-	font-weight:bold;
-	font-size:170%;
-	border-bottom:1px solid &dtml-colorTwo;;
+	border-bottom: 1px solid &dtml-colorTwo;;
+	font-size: 170%;
+	font-weight: bold;
 }
 
 h2 {
-	font-weight:bold;
-	font-size:150%;
-	margin-top:1em;
-	margin-bottom:0.5em;
-	border-bottom:none;
+	border-bottom: none;
+	font-size: 150%;
+	font-weight: bold;
+	margin-bottom: 0.5em;
+	margin-top: 1em;
 }
 
 h3 {
-	font-size:110%;
-	font-weight:bold;
-	margin-top:0.75em;
-	border:none;
+	border: none;
+	font-size: 110%;
+	font-weight: bold;
+	margin-top: 0.75em;
 }
 
 h2 a, h3 a, h4 a, h5 a, h6 a {
 	color: &dtml-linkColor; !important;
-	text-decoration:underline;
+	text-decoration: underline;
 }
 
 .tileHeadline a {
-	text-decoration:underline;
+	text-decoration: underline;
 }
 
 h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover {
 	color: &dtml-linkActiveColor; !important;
-	text-decoration:underline;
+	text-decoration: underline;
 }
 
 h2 a:visited, h3 a:visited, h4 a:visited, h5 a:visited, h6 a:visited {
 	color: &dtml-linkVisitedColor; !important;
-	text-decoration:underline;
+	text-decoration: underline;
 }
 
 .hide {
-	display:none;
+	display: none;
 }
 
 input {
-	border:1px solid #ccc;
+	border: 1px solid #ccc;
 }
 
 .itemTitle {
-	text-transform:uppercase;
-	font-weight:bold;
+	font-weight: bold;
+	text-transform: uppercase;
 }
 
 .link-external {
-	background:transparent;
-	padding:0
+	background: transparent;
+	padding: 0
 }
 
 .listing {
-	font-size:100%;
+	font-size: 100%;
 }
 
 .listing th {
-	text-align:left;
+	text-align: left;
 }
 
 .listing a:hover {
-	color:&dtml-linkActiveColor;;
+	color: &dtml-linkActiveColor;;
 }
 
 .listing a {
-	text-decoration:underline;
+	text-decoration: underline;
 }
 
 .listing th img {
-display: none;
+	display: none;
 }
 
 #maincontents {
-	width:70%;
-	float:left;
+	float: left;
+	width: 70%;
 }
 
 .moreInfo {
-	font-size:93%;
+	font-size: 93%;
 }
 
 #nicheOne, #nicheTwo, #nicheThree { /* see also portal-column-content rules for section-home (below) */
-	width: 30%;
+	float: left;
 	margin: 1% 3% 1% 0%;
-	float:left;
+	width: 30%;
 }
 
 .specialtyColumn {
-	width:50%;
+	width: 50%;
 }
 
 table tr {
-	vertical-align:top;
+	vertical-align: top;
 }
 
 table.plain {
-	border-collapse:collapse;
+	border-collapse: collapse;
 }
 
 table.plain th {
 	border: 1px solid #666;
-	text-align:left;
 	padding: 0.25em 0.5em;
+	text-align: left;
 }
 
 table.plain td {
@@ -331,81 +345,85 @@ table.plain td {
 }
 
 .talktitle {
-	font-weight:bold;
+	font-weight: bold;
 }
 
 ul.list {
-	list-style-type:none;
-	list-style-image:none;
-	}
+	list-style-type: none;
+	list-style-image: none;
+}
+
+
 
 /* --- PORTLETS --- */
 
 .portlet {
-	border-bottom:none;
-	font-size:100%;
+	border-bottom: none;
+	font-size: 100%;
 }
 
 .portletItem {
+	border: none;
 	margin: 0;
 	padding: 0.5em;
-	border:none;
 }
 
 /* --- COLORS --- */
 .portletHeader {
-	color:#fff;
-	background-color:&dtml-colorZero;;
+	background-color: &dtml-colorZero;;
 	border: none;
-	text-transform:none;
+	color: #fff;
 	padding: 0.25em 1em;
-	}
+	text-transform: none;
+}
 	
 .portletHeader a:link, .portletHeader a:visited { 
-	color:#fff;
-	display:block;
-	text-decoration:underline;
+	color: #fff;
+	display: block;
+	text-decoration: underline;
 }
 
 
 /* -- Color 1 (blue) headers, footers, backgrounds and icons -- */
 #typeOnePortlet .portletHeader {
-	background:&dtml-colorOne;;
-	color:#fff;
+	background: &dtml-colorOne;;
+	color: #fff;
 }
 
 /* -- Color 2 (green) headers, footers, backgrounds and icons -- */
 #typeTwoPortlet .portletHeader {
-	background:&dtml-colorTwo;;
-	color:#fff;
+	background: &dtml-colorTwo;;
+	color: #fff;
 }
 
 /* -- Color 3 (orange) headers, footers, backgrounds and icons -- */	
 #typeThreePortlet .portletHeader {
-	background:&dtml-highlightColor;;
-	color:#fff;
+	background: &dtml-highlightColor;;
+	color: #fff;
 }
+
+
 
 /* --- NAVIGATION PORTLET --- */
 .navTreeItem a, dd.portletItem .navTreeItem a {
-	margin:0.5em 0.2em;
+	margin: 0.5em 0.2em;
 }
 
 .navTreeItem a:hover, 
-	dd.portletItem .navTreeItem a:hover {
-	color: &dtml-highlightColor;;
+dd.portletItem .navTreeItem a:hover {
 	border: &dtml-borderWidth; &dtml-borderStyle; &dtml-globalBackgroundColor;; /* needed to avoid jiggle on hover */
-	text-decoration:underline;
+	color: &dtml-highlightColor;;
+	text-decoration: underline;
 }
 
 dd.portletItem .navTreeCurrentItem { 
-	color: &dtml-highlightColor;;
+	border-bottom: none !important; 
 	border-left: 2px &dtml-borderStyle; &dtml-highlightColor; !important; 
 	border-right: none !important; 
 	border-top: none !important; 
-	border-bottom: none !important; 
-	padding-left:0.35em;
-	text-decoration:none;
+	color: &dtml-highlightColor;;
+	padding-left: 0.35em;
+	text-decoration: none;
 }
 
 
