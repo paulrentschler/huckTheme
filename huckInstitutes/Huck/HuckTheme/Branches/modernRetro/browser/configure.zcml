@@ -81,6 +81,15 @@
 	   template="templates/navigation.pt"       
 	   layer=".interfaces.IThemeSpecific"
 	   />
+	   
+	<!-- The customized collection portlet  the next "include" and "plone" xml entries are needed for the collection portlet+ -->
+	<include package="plone.portlet.collection" />
+	   <plone:portletRenderer
+	    portlet="plone.portlet.collection.collection.ICollectionPortlet"
+	    layer=".interfaces.IThemeSpecific"
+	    class=".collection.myCollectionRenderer"
+	    />
+
 
 <!-- RESOURCE DIRECTORIES -->
 	<!-- Resource directory for stylesheets (that don't use DTML) -->
