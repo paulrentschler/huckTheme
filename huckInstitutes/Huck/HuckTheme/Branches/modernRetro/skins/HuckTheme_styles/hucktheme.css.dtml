@@ -422,6 +422,22 @@ dd.portletItem .navTreeCurrentItem {
 }
 
 
+
+/* ----- CONTENT WELL PORTLETS ----- */
+
+.portletsBelowContentA {
+  float: left;
+  width: 55%;
+}
+
+.portletsBelowContentB {
+  border-left: 1px solid #DEE7EC;
+  float: right;
+  padding: 0.2em 0.2em 0.2em 1em;
+  width: 40%;
+}
+
+
 /* </dtml-with> */
 
 /* Latest version of the documentation on pre-defined properties from Plone 
