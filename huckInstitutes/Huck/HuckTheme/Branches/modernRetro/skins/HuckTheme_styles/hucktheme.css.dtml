@@ -206,15 +206,6 @@ p.contactInfo {
 	text-transform: uppercase;
 }
 
-.eventDate {
-	font-weight: bold;
-	text-transform: uppercase;
-}
-
-.eventTable td {
-	padding: 12px;
-}
-
 .formHelp {
 	font-size: 100%;
 }
@@ -281,24 +272,49 @@ input {
 	padding: 0
 }
 
-.listing {
+table.listing {
 	font-size: 100%;
 }
 
-.listing th {
+table.listing th, table.data th {
+  background-color: #B6D8EA;
 	text-align: left;
 }
 
-.listing a:hover {
+table.listing th img {
+	display: none;
+}
+
+table.eventTable td {
+  padding: 12px;
+}
+
+table.eventTable td.eventDate {
+	font-weight: bold;
+	text-transform: uppercase;
+  min-width: 8em;
+}
+
+table.eventTable td .eventTitle {
+  font-size: 120%;
+}
+
+table.eventTable td .talktitle {
+	font-weight: bold;
+}
+
+table.eventTable td .eventCanceled {
+  background-color: #336699;
+  color: white;
+  padding: 2px;
+}
+
+table.listing a:hover {
 	color: &dtml-linkActiveColor;;
 }
 
-.listing a {
+table.listing a {
 	text-decoration: underline;
-}
-
-.listing th img {
-	display: none;
 }
 
 #maincontents {
@@ -339,10 +355,6 @@ table.plain td {
 	padding: 0.25em 0.5em;
 }
 
-.talktitle {
-	font-weight: bold;
-}
-
 ul.list {
 	list-style-type: none;
 	list-style-image: none;
@@ -363,7 +375,6 @@ ul.list {
 	padding: 0.5em;
 }
 
-/* --- COLORS --- */
 .portletHeader {
 	background-color: &dtml-colorZero;;
 	border: none;
@@ -378,6 +389,27 @@ ul.list {
 	text-decoration: underline;
 }
 
+.portletAssignments .portletHeader a:link, .portletAssignments .portletHeader a:visited { 
+	color: #00f;
+	display: block;
+	text-decoration: underline;
+}
+
+.section-welcome .portletsAboveContentA,
+.section-welcome .portletsAboveContentB,
+.section-welcome .portletsAboveContentC {
+  float: left;
+  padding: 0.5em;
+  width: 32%;
+}
+
+.section-welcome .portletsAboveContentA .portlet-static-about-us dt.portletHeader { background-color: &dtml-colorOne;; }
+.section-welcome .portletsAboveContentB dt.portletHeader { background-color: &dtml-colorTwo;; }
+.section-welcome .portletsAboveContentC dt.portletHeader { background-color: &dtml-highlightColor;; }
+
+
+
+/* --- COLORS --- */
 
 /* -- Color 1 (blue) headers, footers, backgrounds and icons -- */
 #typeOnePortlet .portletHeader {
