@@ -23,6 +23,7 @@
 
 
 	<body>
+	  <h1>Testing</h1>
 		<div metal:fill-slot="main">
 			<metal:main_macro define-macro="main">
 		    <metal:body define-macro="body_macro"
@@ -75,72 +76,59 @@
 			        </div>
 			
 			        <tal:listing condition="topicContents">
-		            <tal:default condition="not:here/getCustomView|nothing"
-		                         define="folderContents topicContents">
-	                <metal:listing metal:use-macro="here/folder_listing/macros/listing">
-	                  <metal:empty metal:fill-slot="no_items_in_listing"></metal:empty>
-	                </metal:listing>
-		
-		            </tal:default>
-			
-		            <tal:custom condition="here/getCustomView|nothing"
-		                        define="vocab python:here.listMetaDataFields(False)">
-		
-	                <table class="listing eventTable"
-	                       summary="Content listing"
-	                       i18n:attributes="summary summary_content_listing;">
-		                <thead>
-											<tr>
-											  <th class="column">When</th>
-											  <th class="column">Who / What</th>
-											  <th class="column">Where</th>
+                <table class="listing eventTable"
+                       summary="Content listing"
+                       i18n:attributes="summary summary_content_listing;">
+	                <thead>
+										<tr>
+										  <th class="column">When</th>
+										  <th class="column">Who / What</th>
+										  <th class="column">Where</th>
+										</tr>
+	                </thead>
+									<tbody>
+										<tal:brain tal:repeat="obj topicContents">
+											<tr tal:define="url obj/getURL;
+																			whatisthis obj/portal_type;
+																			isTalk python:whatisthis=='TalkEvent' or whatisthis=='TalkEventStudent';
+																			title_or_id obj/pretty_title_or_id;
+																			starts obj/start;
+																			ends obj/end;
+																			startDay python:toLocalizedTime(starts, long_format=0);
+																			endDay python:toLocalizedTime(ends, long_format=0);
+																			where python:obj.location.strip();
+																			object python:obj.getObject();
+																			speakerInst python:object.speakerInstitution.strip()">
+												<td class="eventDate">
+													<tal:sameday tal:condition="python:startDay==endDay">
+														<span tal:replace="python:toLocalizedTime(starts, long_format=1)">[When it starts]</span>									
+													</tal:sameday>
+													<tal:differentday tal:condition="python:startDay!=endDay">
+														<span tal:replace="startDay">[Day the event starts]</span> &#8212; <span tal:replace="endDay">[Day the event ends]</span>
+													</tal:differentday>
+												</td>
+												<td>
+											    <span class="eventCanceled" tal:condition="object/eventCanceled|nothing">CANCELED</span>
+													<a class="eventTitle" tal:attributes="href url"><span tal:replace="title_or_id">[list the name of the speaker if it's a talk or the event if it's something else]</span>
+														<tal:institution tal:condition="speakerInst|nothing">
+															(<span tal:replace="speakerInst">[If the speaker has an institution, list it here]</span>)
+														</tal:institution>
+													</a>
+													<br />
+													<tal:description tal:define="desc obj/Description;
+																											 noTitle python:'o be announced' in desc">
+														<span tal:content="desc" tal:attributes="class python:test(isTalk and not noTitle, 'talktitle', '')">
+															[If the talk has a title or the event has a description, list it here; if it's a talk title, assign it the class "talktitle"]
+														</span>
+													</tal:description>
+												</td>
+												<td>
+													<span tal:condition="where" tal:replace="where">[Event location]</span>
+												</td>
 											</tr>
-		                </thead>
-										<tbody>
-											<tal:brain tal:repeat="obj topicContents">
-												<tr tal:define="url obj/getURL;
-																				whatisthis obj/portal_type;
-																				isTalk python:whatisthis=='TalkEvent' or whatisthis=='TalkEventStudent';
-																				title_or_id obj/pretty_title_or_id;
-																				starts obj/start;
-																				ends obj/end;
-																				startDay python:toLocalizedTime(starts, long_format=0);
-																				endDay python:toLocalizedTime(ends, long_format=0);
-																				where python:obj.location.strip();
-																				object python:obj.getObject();
-																				speakerInst python:object.speakerInstitution.strip()">
-													<td class="eventDate">
-														<tal:sameday tal:condition="python:startDay==endDay">
-															<span tal:replace="python:toLocalizedTime(starts, long_format=1)">[When it starts]</span>									
-														</tal:sameday>
-														<tal:differentday tal:condition="python:startDay!=endDay">
-															<span tal:replace="startDay">[Day the event starts]</span> &#8212; <span tal:replace="endDay">[Day the event ends]</span>
-														</tal:differentday>
-													</td>
-													<td>
-												    <span class="eventCanceled" tal:condition="object/eventCanceled|nothing">CANCELED</span>
-														<a class="eventTitle" tal:attributes="href url"><span tal:replace="title_or_id">[list the name of the speaker if it's a talk or the event if it's something else]</span>
-															<tal:institution tal:condition="speakerInst|nothing">
-																(<span tal:replace="speakerInst">[If the speaker has an institution, list it here]</span>)
-															</tal:institution>
-														</a>
-														<br />
-														<tal:description tal:define="desc obj/Description;
-																												 noTitle python:'o be announced' in desc">
-															<span tal:content="desc" tal:attributes="class python:test(isTalk and not noTitle, 'talktitle', '')">
-																[If the talk has a title or the event has a description, list it here; if it's a talk title, assign it the class "talktitle"]
-															</span>
-														</tal:description>
-													</td>
-													<td>
-														<span tal:condition="where" tal:replace="where">[Event location]</span>
-													</td>
-												</tr>
-											</tal:brain>
-										</tbody>
-	                </table>
-		            </tal:custom>
-			
+										</tal:brain>
+									</tbody>
+                </table>
 	            </tal:listing>
 	
 	            <div class="discreet"
