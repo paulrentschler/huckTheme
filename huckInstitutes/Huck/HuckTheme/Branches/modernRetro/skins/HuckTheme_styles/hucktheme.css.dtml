@@ -285,30 +285,6 @@ table.listing th img {
 	display: none;
 }
 
-table.eventTable td {
-  padding: 12px;
-}
-
-table.eventTable td.eventDate {
-	font-weight: bold;
-	text-transform: uppercase;
-  min-width: 8em;
-}
-
-table.eventTable td .eventTitle {
-  font-size: 120%;
-}
-
-table.eventTable td .talktitle {
-	font-weight: bold;
-}
-
-table.eventTable td .eventCanceled {
-  background-color: #336699;
-  color: white;
-  padding: 2px;
-}
-
 table.listing a:hover {
 	color: &dtml-linkActiveColor;;
 }
@@ -358,6 +334,10 @@ table.plain td {
 ul.list {
 	list-style-type: none;
 	list-style-image: none;
+}
+
+.documentActions {
+  margin-top: 3em;
 }
 
 
@@ -468,6 +448,63 @@ dd.portletItem .navTreeCurrentItem {
   padding: 0.2em 0.2em 0.2em 1em;
   width: 40%;
 }
+
+
+
+/* ----- EVENTS ----- */
+
+table.eventTable td {
+  padding: 12px;
+}
+
+table.eventTable td.eventDate {
+	font-weight: bold;
+	text-transform: uppercase;
+  min-width: 8em;
+}
+
+table.eventTable td .eventTitle {
+  font-size: 120%;
+}
+
+table.eventTable td .talktitle {
+	font-weight: bold;
+}
+
+table.eventTable td .eventCanceled {
+  background-color: #336699;
+  color: white;
+  padding: 2px;
+}
+
+.eventDetails {
+  background-color: #336699;
+  border: 1px solid #336699;
+  padding: 0px 1px 1px 2px;
+}
+
+.eventDetails .eventDetailsLabel {
+  color: white;
+  margin: 1px 5px;
+}
+  
+.eventDetails table {
+  margin: 0;
+  padding: 0;
+}
+
+.eventDetails table th {
+  background-color: white;
+  color: &dtml-discreetColor;;
+  width: 6em;
+}
+
+.eventDetails table td {
+  color: black;
+  width: 16em;
+}
+
+
 
 
 /* </dtml-with> */
