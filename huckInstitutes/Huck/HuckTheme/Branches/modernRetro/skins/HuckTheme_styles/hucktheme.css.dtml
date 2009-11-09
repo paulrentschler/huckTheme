@@ -453,6 +453,11 @@ dd.portletItem .navTreeCurrentItem {
 
 /* ----- EVENTS ----- */
 
+.vevent .speakerInstitution {
+	font-size: 80% !important;
+	font-style: italic !important;
+}
+
 table.eventTable td {
   padding: 12px;
 }
@@ -504,7 +509,11 @@ table.eventTable td .eventCanceled {
   width: 16em;
 }
 
-
+#meetTheSpeaker {
+  background-color: #DEE7EC;
+  margin-top: 2em;
+  padding: 1px 10px;
+}
 
 
 /* </dtml-with> */
