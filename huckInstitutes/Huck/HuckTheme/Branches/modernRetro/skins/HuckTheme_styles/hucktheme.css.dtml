@@ -472,6 +472,11 @@ table.eventTable td .eventTitle {
   font-size: 120%;
 }
 
+table.eventTable td .eventTitle .speakerInstitution {
+  font-size: 100%;
+  font-style: italic;
+}
+
 table.eventTable td .talktitle {
 	font-weight: bold;
 }
