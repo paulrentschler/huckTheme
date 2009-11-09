@@ -521,6 +521,14 @@ table.eventTable td .eventCanceled {
 }
 
 
+
+/* ----- HOLIDAY - OFFICE CLOSED NOTICE ----- */
+.vacation_msg {
+	display: none;
+	visiblity: hidden;
+}
+
+
 /* </dtml-with> */
 
 /* Latest version of the documentation on pre-defined properties from Plone 
