@@ -331,6 +331,26 @@ table.plain td {
 	padding: 0.25em 0.5em;
 }
 
+.data {
+  border-bottom: 1px solid #B6D8EA;
+  border-collapse: collapse;
+  border-left: 1px solid #B6D8EA;
+  font-size: 100%;
+  margin: 1em 0;
+}
+
+.data th {
+  border-right: 1px solid #DEE7EC;
+  font-weight: normal;
+  padding: 0.25em 1em;
+}
+
+.data td {
+  border-bottom: 1px solid #B6D8EA;
+  border-right: 1px solid #B6D8EA;
+  padding: 0.25em 1em;
+}
+
 ul.list {
 	list-style-type: none;
 	list-style-image: none;
@@ -522,8 +542,26 @@ table.eventTable td .eventCanceled {
 
 
 
+/* --- FACILITIES --- */
+.facility-location-image {
+	float: right;
+	font-size: 0.9em;
+	width: 200px;
+}
+
+.facility-location-image img {
+	display: block;
+}
+
+
+
 /* ----- HOLIDAY - OFFICE CLOSED NOTICE ----- */
 .vacation_msg {
+  background-color: #ffcccc;
+  border: 1px solid #FF6633;
+  color: black;
+  padding: 1em;
+
 	display: none;
 	visiblity: hidden;
 }
