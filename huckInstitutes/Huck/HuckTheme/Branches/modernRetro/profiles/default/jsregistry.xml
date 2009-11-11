@@ -20,4 +20,8 @@
     cacheable="False" compression="safe" cookable="False"
     enabled="True" expression="" inline="False"/>
 -->
+
+  <javascript id="webcam.js"
+              cacheable="False" compression="safe" cookable="False"
+              enabled="True" expression="python:here.id=='millennium-science-complex'" inline="False" />
 </object>

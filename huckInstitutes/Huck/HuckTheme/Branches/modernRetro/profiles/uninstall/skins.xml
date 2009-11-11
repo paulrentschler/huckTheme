@@ -12,6 +12,9 @@
 	<object name="HuckTheme_custom_templates"
 		meta_type="Filesystem Directory View"
 		remove="True"/>
+	<object name="HuckTheme_javascripts"
+		meta_type="Filesystem Directory View"
+		remove="True"/>
 	
 	<skin-path name="HuckTheme" remove="True" />
 
