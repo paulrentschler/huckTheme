@@ -108,11 +108,12 @@
 	
       <tal:newsitem tal:condition="is_news"
                     tal:define="newsItemObj python: obj.getObject();">
+                    
         <a href="#" class="imageInPortlet"
            tal:condition="newsItemObj/image|nothing"
            tal:attributes="href string:${obj/getURL}/view;
-                           title obj/Description;">
-          <img src="" tal:replace="structure obj/image_tile|nothing" />
+                           title obj/Title;">
+          <img src="" tal:replace="structure newsItemObj/image_tile|nothing" />
         </a>
         <div class="articleTitle">
           <a href="#"

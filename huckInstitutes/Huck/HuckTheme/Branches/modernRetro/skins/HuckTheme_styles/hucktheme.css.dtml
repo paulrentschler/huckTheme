@@ -424,6 +424,9 @@ ul.list {
 }
 
 .portlet .imageInPortlet {
+  border: medium none;
+  float: right;
+  margin: 0.25em 0.5em;
 }
 
 
