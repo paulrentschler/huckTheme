@@ -407,6 +407,28 @@ ul.list {
 .section-welcome .portletsAboveContentB dt.portletHeader { background-color: &dtml-colorTwo;; }
 .section-welcome .portletsAboveContentC dt.portletHeader { background-color: &dtml-highlightColor;; }
 
+.portlet .eventTitle a, .portlet .articleTitle a {
+  font-size: 120%;
+  font-variant: small-caps;
+  font-weight: bold;
+}
+
+.portlet .eventTitle .speakerInstitution {
+  font-style: italic;
+  font-variant: normal;
+  font-weight: normal;
+}
+
+.portlet .eventDate {
+  font-weight: bold;
+}
+
+.portlet .imageInPortlet {
+}
+
+
+
+
 
 
 /* --- COLORS --- */

@@ -84,10 +84,10 @@
 	   
 	<!-- The customized collection portlet  the next "include" and "plone" xml entries are needed for the collection portlet+ -->
 	<include package="plone.portlet.collection" />
-	   <plone:portletRenderer
+	<plone:portletRenderer
 	    portlet="plone.portlet.collection.collection.ICollectionPortlet"
+	    template="templates/collection.pt"
 	    layer=".interfaces.IThemeSpecific"
-	    class=".collection.myCollectionRenderer"
 	    />
 
 
