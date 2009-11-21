@@ -1,0 +1,135 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="FacultyStaffDirectory">
+
+
+<tal:comment tal:replace="nothing">
+  Created by: Paul Rentschler
+  Description: used to display the collection of people who are in the
+  							administration group
+  Based on: specialty_tabular_view.pt
+  Changes:
+  	- intended for use ONLY on the /huck/people/people collection
+  	- pulls in code that was in FSD/classification_tabular_view.pt so that
+  			the sorting order can be customized
+  	- 
+
+	metal:use-macro="here/specialty_view/macros/master"
+</tal:comment>
+
+<tal:comment tal:replace="nothing">
+  Catherine Williams 
+  - modified what's tabled, and also made this contingent on which section we're in (research-focused or admin-/technology-facility-focused)
+  - added internal hyperlinks enabling jumps within the page (NB this also necessitated modifying  classification_tabular_view.pt)
+  - note: some of the conditions used below are set up in specialty_view.pt
+  - note: I've set up the code to pull small photos in as the first cell of the table, but at the moment, that's disabled because we haven't got enough photos
+</tal:comment>
+
+
+	<body>
+		<metal:block fill-slot="main">
+	    <div class="facultyStaffDirectory classification">
+        <div tal:replace="structure provider:plone.abovecontenttitle" />
+	
+        <h1 tal:content="object_title" class="documentFirstHeading">
+	        Title or id
+        </h1>
+        
+        <div tal:replace="structure provider:plone.belowcontenttitle" />
+
+        <p class="documentDescription"
+           tal:content="here/Description"
+           tal:condition="here/Description">
+          Description
+        </p>
+		
+        <div tal:replace="structure provider:plone.abovecontentbody" />
+
+        <tal:topiccontents define="people python:here.queryCatalog(batch=True);
+                                   batch people">
+					<div metal:define-macro="text-field-view"
+					     id="parent-fieldname-text" class="stx"
+					     tal:define="text here/getText|nothing"
+					     tal:condition="text">
+						<div metal:define-slot="inside" tal:replace="structure text">The body</div>
+					</div>
+					
+	        <div class="tabularView">
+	          <table class="listing"
+	                 summary="Administrative people listing">
+	            <tbody>
+                <tal:block tal:define="peopleByClassification python: people.sort(lambda x,y: cmp(x.classificationName(), y.classificationName()));
+                                       peopleByLastName python: peopleByClassification.sort(lambda x,y: cmp(x.lastName(), y.lastName()));
+                                       peopleByFirstName python: peopleByLastName.sort(lambda x,y: cmp(x.firstName(), y.firstName()));
+                                       peopleByEffectiveDate python: peopleByFirstName.sort(lambda x,y: cmp(y.effective(), x.effective()));
+                                       people peopleByEffectiveDate;"
+                           tal:condition="people">
+	                <metal:block tal:condition="people">
+	                  <tr>
+	                    <th colspan="3" class="classification">
+	                      <metal:block define-macro="classification_header_link">
+	                        <a tal:attributes="name python:normalizeString(classificationContext.Title()); href python:'%s?classification=%s' % (here.absolute_url(), classification.id)" tal:content="classificationContext/Title">[classification]</a>
+	                      </metal:block>  
+	                    </th>
+	                  </tr>
+	                </metal:block>
+	
+                  <metal:block>
+                    <tr class="hide">
+                      <th class="column">Name</th>
+                      <th class="column">Email/phone</th>
+                      <th class="column">
+                        responsibilities...
+                      </th>
+                    </tr>
+                  </metal:block>
+	
+                  <tal:block tal:repeat="person people">
+                    <tr tal:define="oddrow repeat/person/odd" tal:attributes="class python:test(oddrow, 'even', 'odd')">
+                      <metal:block>
+                        <td class="personName">
+                          <a href="" tal:attributes="href person/absolute_url" tal:content="string:${person/getLastName}, ${person/getFirstName}" />
+                        </td>
+                        <td tal:content="person/getOfficePhone" class="officePhone" />
+                        <td><span tal:condition="person/getEmail" tal:replace="structure python:person.spamProtectFSD(person.getEmail())" class="emailAddress" /></td>
+                      </metal:block>
+                    </tr>
+                  </tal:block>
+	
+                </tal:block>
+	            </tbody>
+	          </table>
+	        </div>
+
+<tal:hold tal:replace="nothing">
+        <div class="discreet"
+             tal:define="whereAreWe context/absolute_url;"
+             tal:condition="python: not people and here.listCriteria()"
+             i18n:domain="atcontenttypes">
+         	<div tal:condition="upcomingEventsList">
+         	  <p i18n:translate="description_no_items_in_topic">
+         	  	Sorry, no people in this area.
+         	  </p>
+         	</div> 
+        </div>
+</tal:hold>
+
+	        <tal:onlyforadmins tal:condition="not: isAnon">
+	          <p class="discreet"
+	             tal:condition="not: here/listCriteria"
+	             i18n:domain="atcontenttypes"
+	             i18n:translate="description_no_criteria_in_topic">
+	              There are currently no criteria on which to search.
+	              Please add them using the 'criteria' tab.
+	          </p>
+	        </tal:onlyforadmins>
+
+				</tal:topiccontents>
+      </div>
+
+	    <div tal:replace="structure provider:plone.belowcontentbody" />
+
+		</metal:block>
+	</body>
+</html>

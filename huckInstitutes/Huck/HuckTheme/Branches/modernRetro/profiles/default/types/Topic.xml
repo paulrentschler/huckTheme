@@ -24,6 +24,7 @@
   <element value="atct_album_view"/>
   <element value="atct_topic_view"/>
   <element value="events_topic_view"/>
+  <element value="people_home_view"/>
  </property>
  <alias from="(Default)" to="(dynamic view)"/>
  <alias from="edit" to="atct_edit"/>

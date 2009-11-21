@@ -23,7 +23,6 @@
 
 
 	<body>
-	  <h1>Testing</h1>
 		<div metal:fill-slot="main">
 			<metal:main_macro define-macro="main">
 		    <metal:body define-macro="body_macro"

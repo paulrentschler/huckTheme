@@ -22,6 +22,10 @@
   position: relative;
 }
 
+img.no-photo {
+  border: 0 !important;
+}
+
 
 
 /* ----- SEARCH BOXES and SEARCH RESULTS ----- */
@@ -431,9 +435,6 @@ ul.list {
 
 
 
-
-
-
 /* --- COLORS --- */
 
 /* -- Color 1 (blue) headers, footers, backgrounds and icons -- */
@@ -449,7 +450,8 @@ ul.list {
 }
 
 /* -- Color 3 (orange) headers, footers, backgrounds and icons -- */	
-#typeThreePortlet .portletHeader {
+#typeThreePortlet .portletHeader,
+#subspecialtyList .portletHeader {
 	background: &dtml-highlightColor;;
 	color: #fff;
 }
@@ -577,6 +579,37 @@ table.eventTable td .eventCanceled {
 .facility-location-image img {
 	display: block;
 }
+
+
+
+/* --- PEOPLE --- */
+.facultyStaffDirectory .standardView ul.jobTitle li {
+  font-style: italic;
+}
+
+.facultyStaffDirectory .tabularView th.classification {
+  font-size: 100%;
+}
+
+.facultyStaffDirectory .tabularView ul.jobTitle li {
+  font-size: 93%;
+  line-height: 1.1em;
+  list-style-image: none;
+  list-style-type: none;
+  margin: 0.5em 0 0 1.5em;
+}
+
+.facultyStaffDirectory .tabularView table.noBorders {
+  border: 0;
+  border-collapse: collapse;
+}
+
+.facultyStaffDirectory .tabularView table.noBorders th,
+.facultyStaffDirectory .tabularView table.noBorders td {
+  border: 0;
+  padding: 8px 3px;
+}
+
 
 
 
