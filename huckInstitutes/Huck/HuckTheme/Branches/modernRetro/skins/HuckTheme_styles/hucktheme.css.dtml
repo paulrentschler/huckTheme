@@ -610,6 +610,10 @@ table.eventTable td .eventCanceled {
   padding: 8px 3px;
 }
 
+.hasPhoneNumber {
+	background:transparent url(phone_icon.gif) no-repeat scroll left bottom;
+	padding-left:10px;
+}
 
 
 
