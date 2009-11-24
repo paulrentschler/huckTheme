@@ -1,0 +1,78 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+	  lang="en"
+	  metal:use-macro="here/specialty_view/macros/master"
+	  i18n:domain="FacultyStaffDirectory">
+
+
+<tal:comment tal:replace="nothing">
+  Created by: Paul Rentschler
+  Description: used to display people in a certain specialty
+                one person at a time.
+  Based on: specialty_standard_view.pt (from FSD 2.1.3)
+  Changes:
+  	- removed the link for the classification heading
+  	- changed what information is displayed about each person
+  		- name links to their page
+  		- job title
+  		- research topic
+</tal:comment>
+
+
+	<body>
+		<metal:block fill-slot="listing_section">
+			<div class="standardView">   
+
+        <metal:block use-macro="here/specialty_view/macros/list_classifications">
+
+          <metal:block fill-slot="single_classification">
+
+            <tal:block metal:use-macro="classification/classification_standard_view/macros/list_people">
+
+              <tal:block metal:fill-slot="classification_header"
+                         tal:define="classificationName classificationContext/Title;
+                                     isFacultyClassification python: 'aculty' in classificationName;
+                                     displayAdminClassificationName python:inAdminPeople and not isFacultyClassification;">
+                <h2 tal:condition="python: not inTechFacPeople and not inAdminPeople">
+	                <span tal:replace="classificationContext/Title">[classification]</span>
+                </h2>
+                <h2 tal:condition="python: inAdminPeople and displayAdminClassificationName">
+	                <span tal:replace="classificationContext/Title">[classification]</span>
+                </h2>
+              </tal:block>
+
+              <metal:block fill-slot="person_caption">
+	              <h4 class="personName">
+	                <a tal:attributes="href person/absolute_url"
+	                   tal:content="person/Title">[Name]</a>
+	              </h4>
+	                  
+                <ul tal:condition="person/getJobTitles" class="jobTitle">
+                   <li tal:repeat="jobTitle person/getJobTitles" 
+                       tal:content="jobTitle" />
+                </ul>
+
+	              <div tal:define="personSpecialtyData python:context.getSpecialtyInformation(person);">
+                  <tal:block tal:condition="personSpecialtyData/getResearchTopic" 
+                             tal:replace="structure personSpecialtyData/getResearchTopic">               
+                  </tal:block>
+
+                  <span tal:condition="python:checkPermission('Modify portal content', person)"
+                        class="discreet">[
+	                  <a tal:attributes="href python:'%s/edit' % personSpecialtyData.absolute_url()">
+	                     <tal:block tal:condition="personSpecialtyData/getResearchTopic" i18n:translate="FacultyStaffDirectory_editResearchTopic">Edit research topic</tal:block>
+	                     <tal:block tal:condition="not:personSpecialtyData/getResearchTopic" i18n:translate="FacultyStaffDirectory_assignResearchTopic">Assign a research topic</tal:block>
+	                  </a>
+                  ]</span>                                        
+	              </div>
+              </metal:block>
+
+            </tal:block>
+
+          </metal:block>
+
+        </metal:block>
+
+			</div>
+		</metal:block>
+	</body>
+</html>

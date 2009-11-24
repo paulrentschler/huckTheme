@@ -1,0 +1,32 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="plone">
+
+
+<tal:comment tal:replace="nothing">
+  Created by: Paul Rentschler
+  Description: used to display collections that contain only people 
+                located on the Hershey campus. The output
+                has been customized to display the information about people
+                in a more meaningful way
+  Based on: people_topic_view.pt
+  Requires: findSpecialtyForTopic.py
+  Changes:
+    - uses the existing people_topic_view layout
+    - defines a limit of only Hershey campus people
+</tal:comment>
+
+
+	<body>
+		<div metal:fill-slot="main">
+			<metal:main_macro define-macro="main">
+
+				<tal:block tal:define="limitToCampus string:ershey">
+					<div metal:use-macro="here/people_topic_view/macros/body_macro">[list people at Hershey]</div>
+				</tal:block>
+		
+			</metal:main_macro>
+		</div>
+	</body>
+</html>
