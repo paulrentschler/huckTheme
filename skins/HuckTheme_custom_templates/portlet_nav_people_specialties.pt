@@ -1,0 +1,31 @@
+<html xmlns:tal="http://xml.zope.org/namespaces/tal"
+       xmlns:metal="http://xml.zope.org/namespaces/metal"
+       i18n:domain="plone">
+<body>
+
+<tal:comment tal:replace="nothing">
+For use with ErikRose's CustomNav product, in the people section
+</tal:comment>
+
+<div metal:define-macro="portlet">
+
+	<dl class="portlet" id="typeTwoPortlet"
+		tal:define="basePath string:/people/specialties">
+		 <dt class="portletHeader">
+			<span class="portletTopLeft"></span>
+				Find someone in&hellip;
+		   <span class="portletTopRight"></span>
+		 </dt>
+		 <dd class="portletItem lastItem">
+			<ul class="portletNavigationTree navTreeLevel0">
+				<li tal:define="tree python:context.customNavtree(basePath=basePath)"
+					tal:replace="structure python:context.portlet_navtree_macro(children=tree.get('children', []), show_children=True, isNaviTree=True)">
+					Nav tree is inserted here.
+				</li>
+			</ul>
+		  </dd>
+		</dl>
+
+</div>
+</body>
+</html>

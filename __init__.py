@@ -2,5 +2,5 @@
 
 from Products.CMFCore.DirectoryView import registerDirectory
 
-from config import GLOBALS
+GLOBALS = globals()
 registerDirectory('skins', GLOBALS)
