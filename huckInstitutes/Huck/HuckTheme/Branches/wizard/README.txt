@@ -1,9 +1,6 @@
 Description
 
-    HuckTheme is a product that adds a new style to a Plone 3.0.x site.
-    It adds a new skin selection to the 'portal_skins' tool
-    (called HuckTheme), and registers a custom stylesheet (called 
-    hucktheme.css.dtml) with the 'portal_css' tool.
+    HuckTheme is a product that adds a new style to a Plone 3.x site.
 
     HuckTheme is based on DIYPloneStyle 3.0, a skeleton product
     ready for building new graphical designs for Plone.
@@ -35,4 +32,3 @@ Selecting a skin
 Written by
 
     Paul Rentschler <par117@psu.edu>
-    Catherine Williams
