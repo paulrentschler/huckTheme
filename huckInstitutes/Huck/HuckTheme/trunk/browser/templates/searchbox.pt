@@ -1,0 +1,71 @@
+<!-- the search box -->
+
+<div id="portal-searchbox"
+     i18n:domain="plone">
+  <form name="searchform"
+        action="search"
+        tal:attributes="action string:${view/site_url}/search">
+
+    <label for="searchGadget" class="hiddenStructure"
+                i18n:translate="text_search">Search Site</label>
+
+    <div class="LSBox">
+			<input name="SearchableText"
+					   type="text"
+					   size="20"
+					   value=""
+					   title="Search this site"
+					   accesskey="4"
+					   i18n:attributes="title title_search_site;"
+					   tal:attributes="value request/SearchableText|nothing;
+									           id view/search_input_id"
+					   class="inputLabel" />
+	
+			<input class="searchButton"
+					   type="submit"
+					   value="Go"
+					   i18n:attributes="value label_search;" />
+
+<tal:comment tal:replace="nothing">Leave out the ability to search the current section only
+      <div class="searchSection">
+        <input id="searchbox_currentfolder_only"
+               class="noborder"
+               type="checkbox"
+               name="path"
+               tal:attributes="value view/folder_path"
+               />
+        <label for="searchbox_currentfolder_only"
+               i18n:translate="label_searchbox_currentfolder_only"
+               style="cursor: pointer">
+          restrict search to current section
+        </label>
+      </div>
+</tal:comment> 
+
+			<div class="LSResult" id="LSResult" style="">
+				<div class="LSShadow" id="LSShadow"></div>
+			</div>
+	  </div>
+  </form>
+
+  <div id="portal-advanced-search">
+    <a href="#"
+	     tal:attributes="href string:${view/site_url}/sitemap"
+	     i18n:translate="label_sitemap"
+	     accesskey="3">
+		  site map
+	  </a>
+
+    <a href="#"
+       tal:attributes="href string:${view/site_url}/search_form"
+       i18n:translate="label_advanced_search"
+       accesskey="5">
+      advanced search
+    </a>
+      
+    <a href="http://www.psu.edu/ur/search.html"
+       title="to the main Penn State search facility">
+      Search Penn State
+    </a>
+  </div>
+</div>
