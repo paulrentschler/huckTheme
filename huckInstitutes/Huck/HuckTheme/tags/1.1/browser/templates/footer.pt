@@ -1,0 +1,15 @@
+<div id="portal-footer" i18n:domain="plone">
+	<p>
+		<span i18n:translate="description_copyright" tal:omit-tag="">
+		Copyright
+		<acronym title="Copyright" i18n:name="copyright" i18n:attributes="title title_copyright;">&copy;</acronym>
+		<span i18n:name="current_year" 
+				   tal:define="now modules/DateTime/DateTime" 
+				   tal:content="now/year" />
+		by The Huck Institutes of the Life Sciences at <a href="http://www.psu.edu/" title="Penn State home page">The Pennsylvania State University</a>
+		</span>
+	</p>
+	<p>
+		<a href="http://www.psu.edu/ur/legal.html" title="Official statements on privacy, nondiscrimination, equal opportunity and copyright.">Privacy and legal statements</a>
+	</p>
+</div>

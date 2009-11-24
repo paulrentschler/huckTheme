@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<!-- Uninstall our custom portal_actions -->
+<object name="portal_actions" meta_type="Plone Actions Tool"
+   xmlns:i18n="http://xml.zope.org/namespaces/i18n">
+
+<!-- show the site map -->   
+	  <object name="site_actions" meta_type="CMF Action Category">
+		  <property name="title"></property>
+		  <object name="sitemap" meta_type="CMF Action" i18n:domain="plone">
+		   <property name="title" i18n:translate="">Site Map</property>
+		   <property name="description" i18n:translate=""></property>
+		   <property name="url_expr">string:$portal_url/sitemap</property>
+		   <property name="icon_expr"></property>
+		   <property name="available_expr"></property>
+		   <property name="permissions">
+			<element value="View"/>
+		   </property>
+		   <property name="visible">True</property>
+		  </object>
+		  
+		  <object name="contact" meta_type="CMF Action" i18n:domain="plone">
+			   <property name="title" i18n:translate="">Contact</property>
+			   <property name="description" i18n:translate=""></property>
+			   <property name="url_expr">string:${portal_url}/contact-info</property>
+			   <property name="icon_expr"></property>
+			   <property name="available_expr"></property>
+			   <property name="permissions">
+				<element value="View"/>
+			   </property>
+			   <property name="visible">True</property>
+		  </object>
+
+	  </object>
+  
+<!-- show the links to the login form and the join form -->     
+	 <object name="user" meta_type="CMF Action Category">
+		  <property name="title"></property>
+		  <object name="login" meta_type="CMF Action" i18n:domain="plone">
+			   <property name="title" i18n:translate="">Log in</property>
+			   <property name="description" i18n:translate=""></property>
+			   <property name="url_expr">string:${portal_url}/login_form</property>
+			   <property name="icon_expr"></property>
+			   <property name="available_expr">python:member is None</property>
+			   <property name="permissions">
+				<element value="View"/>
+			   </property>
+			   <property name="visible">True</property>
+		  </object>
+		  <object name="join" meta_type="CMF Action" i18n:domain="plone">
+			   <property name="title" i18n:translate="">Register</property>
+			   <property name="description" i18n:translate=""></property>
+			   <property name="url_expr">string:${portal_url}/join_form</property>
+			   <property name="icon_expr"></property>
+			   <property name="available_expr">python:member is None</property>
+			   <property name="permissions">
+				<element value="Add portal member"/>
+			   </property>
+			   <property name="visible">True</property>
+		  </object>
+	 </object>
+</object>
