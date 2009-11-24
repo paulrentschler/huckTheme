@@ -1,8 +1,0 @@
-Changelog for HuckTheme
-
-    (name of developer listed in brackets)
-
-HuckTheme 1.0 - Unreleased
-
-    - Generated skeleton product from DIYPloneStyle.
-      [generator]
