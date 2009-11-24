@@ -50,7 +50,7 @@
             <li tal:condition="isStudent">
               <tal:gradProgName tal:repeat="specialtyTuple context/getSpecialties">
                 <span tal:define="specialty python: specialtyTuple[0];
-                                  specialtyName specialtyTitle;"
+                                  specialtyName specialty/Title;"
                       tal:content="specialtyName">
                   [name of graduate program]
                 </span>

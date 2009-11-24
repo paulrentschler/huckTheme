@@ -364,6 +364,10 @@ ul.list {
   margin-top: 3em;
 }
 
+table.gradProgs tbody tr td {
+  width: 50%;
+}
+
 
 
 /* --- PORTLETS --- */
