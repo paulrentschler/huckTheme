@@ -9,5 +9,7 @@ HuckTheme 1.0 - Unreleased
 
 HuckTheme 1.1 - Unreleased
     - Name changed from hucktheme08 to HuckTheme
+    - Finished theme product for Plone 3.x that looks like
+       the theme used for the Plone 2.5 site
     - New author: Paul Rentschler
     
