@@ -3,16 +3,7 @@
 <object name="portal_skins" allow_any="False" cookie_persistence="False"
         default_skin="Plone Default" request_varname="plone_skin">
 
-	<object name="HuckTheme_custom_images"
-		meta_type="Filesystem Directory View"
-		remove="True"/>
-	<object name="HuckTheme_styles"
-		meta_type="Filesystem Directory View"
-		remove="True"/>
-	<object name="HuckTheme_custom_templates"
-		meta_type="Filesystem Directory View"
-		remove="True"/>
-	<object name="HuckTheme_javascripts"
+	<object name="HuckTheme"
 		meta_type="Filesystem Directory View"
 		remove="True"/>
 	

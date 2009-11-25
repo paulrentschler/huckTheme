@@ -7,7 +7,7 @@
         tal:attributes="action string:${view/site_url}/search">
 
     <label for="searchGadget" class="hiddenStructure"
-                i18n:translate="text_search">Search Site</label>
+           i18n:translate="text_search">Search Site</label>
 
     <div class="LSBox">
 			<input name="SearchableText"
@@ -46,26 +46,29 @@
 				<div class="LSShadow" id="LSShadow"></div>
 			</div>
 	  </div>
-  </form>
 
-  <div id="portal-advanced-search">
-    <a href="#"
-	     tal:attributes="href string:${view/site_url}/sitemap"
-	     i18n:translate="label_sitemap"
-	     accesskey="3">
-		  site map
-	  </a>
+	  <div id="portal-advanced-search">
+<tal:comment tal:replace="nothing">
+	    <a href="#"
+		     tal:attributes="href string:${view/site_url}/sitemap"
+		     i18n:translate="label_sitemap"
+		     accesskey="3">
+			  site map
+		  </a>
+</tal:comment>
+	
+	    <a href="#"
+	       tal:attributes="href string:${view/site_url}/search_form"
+	       i18n:translate="label_advanced_search"
+	       accesskey="5">
+	      advanced search</a>
+	    
+	    |
+	    
+	    <a href="http://www.psu.edu/ur/search.html"
+	       title="to the main Penn State search facility">
+	      Search Penn State</a>
+	  </div>
+	</form>
 
-    <a href="#"
-       tal:attributes="href string:${view/site_url}/search_form"
-       i18n:translate="label_advanced_search"
-       accesskey="5">
-      advanced search
-    </a>
-      
-    <a href="http://www.psu.edu/ur/search.html"
-       title="to the main Penn State search facility">
-      Search Penn State
-    </a>
-  </div>
 </div>

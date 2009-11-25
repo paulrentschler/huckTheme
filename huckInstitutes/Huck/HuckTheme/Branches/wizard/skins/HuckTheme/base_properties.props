@@ -2,7 +2,7 @@ title:string=Huck Institutes color, font, logo and border defaults
 
 plone_skin:string=HuckTheme
 
-logoName:string=hucklogo.jpg
+logoName:string=huck-logo.png
 
 fontFamily:string="Lucida Grande", Verdana, Lucida, Helvetica, Arial, sans-serif
 fontBaseSize:string=69%
@@ -58,4 +58,3 @@ colorTwo:string=#66cc33
 highlightColor:string=#ff6633
 navLineHeight:string=1.1em
 wideColumnTwo:int=24
-psuLogo:string=logo_second.gif

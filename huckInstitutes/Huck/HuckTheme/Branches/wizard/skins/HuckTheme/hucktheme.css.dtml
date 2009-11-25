@@ -7,6 +7,236 @@
   <dtml-call "REQUEST.set('portal_url', portal_url())"> (not this either)
 */
 
+/* ---- HEADER ---- */
+
+body {
+  background-color: black;
+}
+
+body #portal-columns {
+  background-color: white;
+}
+
+
+
+/* ----- SEARCH BOXES and SEARCH RESULTS ----- */
+#portal-searchbox {
+	margin: 1em 0.25em;
+  text-align: right;
+}
+
+#portal-advanced-search {
+  display: inline;
+  color: #AAA;
+  margin-left: 1em;
+}
+
+#portal-advanced-search a:link, 
+#portal-advanced-search a:active,
+#portal-advanced-search a:visited { 
+	color: #AAA;
+	padding: 0.1em 0.3em;
+	text-decoration: underline;
+}
+
+#portal-advanced-search a:hover {
+  background-color: #AAA; 
+	color: black;
+	text-decoration: none;
+}
+
+
+
+
+
+
+
+
+/* ---- FOOTER ---- */
+#portal-footer {
+  background-color: black;
+	border: none;
+	color: #AAA;
+	float: none;
+	font-weight: normal;
+	line-height: 1.2em;
+	margin: 2em 0em 1em 0em;
+	padding: 0.5em 0em 1em 2em;
+	text-align: left;
+}
+
+#portal-footer {
+  float: left;
+}
+
+#siteActions {
+  float: right;
+	margin: 2em 0 1em 0;
+  padding: 0.5em 2em 1em 0;
+  text-align: right;
+}
+
+#partnerLogo {
+  clear: both;
+  margin-bottom: 2em;
+  text-align: center;
+}
+
+
+#portal-footer p {
+  margin: 0.25em 0;
+}
+
+#portal-footer acronym {
+  color: white;
+}
+
+#portal-footer a,
+#portal-footer a:link,
+#portal-footer a:visited {
+	background-color: black;
+	border: none;
+	color: #AAA;
+	text-decoration: underline;
+}
+
+#portal-footer a:hover {
+  background-color: #AAA;
+  color: black;
+}
+
+#portal-siteactions {
+  background-color: black;
+  border: none;
+  color: #AAA;
+  margin: 0;
+  padding: 0;
+  text-align: right;
+}
+
+#portal-siteactions li {
+  display: block;
+  margin: 0.25em 0;
+}
+
+#portal-siteactions li a,
+#portal-siteactions li a:link,
+#portal-siteactions li a:visited {
+	background-color: black;
+	border: none;
+	color: #AAA;
+	text-decoration: underline;
+	text-transform: none;
+}
+
+#portal-siteactions li a:hover {
+  background-color: #AAA;
+  color: black;
+}
+
+	
+
+
+/* ---- FOOTER PORTLETS ---- */
+
+#footer-portlets {
+  margin: 1em 0 0 0;
+}
+
+#footer-portlets dl.portlet {
+  background-color: black;
+  border: none;
+}
+
+#footer-portlets .FooterPortletA,
+#footer-portlets .FooterPortletB,
+#footer-portlets .FooterPortletC,
+#footer-portlets .FooterPortletD,
+#footer-portlets .FooterPortletE {
+  float: left;
+  width: 20%;
+}
+
+#footer-portlets .FooterPortletF {
+  display: none;
+  visiblity: hidden;
+}
+
+#footer-portlets .portletHeader {
+  background-color: black;
+  text-transform: uppercase;
+}
+
+#footer-portlets .FooterPortletA .portletHeader a { background-color: #0099FF;  color; #FFFFFF; }
+#footer-portlets .FooterPortletB .portletHeader a { background-color: #66CC33;  color; #FFFFFF; }
+#footer-portlets .FooterPortletC .portletHeader a { background-color: #FF6633;  color; #FFFFFF; }
+#footer-portlets .FooterPortletD .portletHeader a { background-color: #FF6633;  color; #FFFFFF; }
+#footer-portlets .FooterPortletE .portletHeader a { background-color: #336699;  color; #FFFFFF; }
+
+#footer-portlets .portletHeader a,
+#footer-portlets .portletHeader a:link,
+#footer-portlets .portletHeader a:visited {
+  color: white;
+  padding: 0.2em 0.5em;
+  text-decoration: none;
+}
+
+#footer-portlets .portletHeader a:hover {
+  background-color: #AAA;
+  color: black;
+}
+
+
+#footer-portlets .portletItem {
+  padding: 0 0.5em 0.5em 1.5em;
+}
+
+#footer-portlets .portletItem a,
+#footer-portlets .portletItem a:link,
+#footer-portlets .portletItem a:visited,
+#footer-portlets .portletItem a.state-published,
+#footer-portlets .portletItem a.state-published:link,
+#footer-portlets .portletItem a.state-published:visited {
+  background-color: black;
+  border: none;
+  color: #AAA !important;
+  font-size: 0.88em;
+  margin: 0 1em 0 0;
+  padding: 0.5em 0.2em;
+  text-decoration: none;
+}
+
+#footer-portlets dl.portletCollection dd {
+  line-height: 1em;
+  margin: 0;
+  padding: 0 0.5em 0 1.5em;
+}
+
+#footer-portlets dl.portletCollection .even {
+  background-color: black;
+  border: 0;
+}
+
+#footer-portlets dl.portlet dd.portletItem a.tile:hover,
+#footer-portlets dl.portlet dd.portletItem ul li a:hover {
+  background-color: #AAA !important;
+  color: black !important;
+}
+
+#footer-portlets .portletItem a.state-private {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+
+
+
+
+
+/**** ------------------------------------ NOT VETTED BEYOND HERE ------------------------------------ ****/ 
+
+
+
 /* ----- LOGOS AND WORDMARKS --- */
 #psu-logo { 
 	border: 0;
@@ -14,7 +244,6 @@
 	margin: 10px 0 0 10px;
 	padding: 0;
   position: relative;
-  width: <dtml-var "_[psuLogo].width">px !important;
 }
 
 #portal-logo img {
@@ -24,29 +253,6 @@
 
 img.no-photo {
   border: 0 !important;
-}
-
-
-
-/* ----- SEARCH BOXES and SEARCH RESULTS ----- */
-#portal-searchbox {
-	margin:1em 0.25em;
-  text-align: right;
-}
-
-#portal-advanced-search a {
-  display: block;
-}
-
-#portal-advanced-search a:link, 
-#portal-advanced-search a:visited { 
-	color: &dtml-linkColor;;
-	text-decoration: underline;
-}
-
-#portal-advanced-search a:hover, 
-#portal-advanced-search a:active { 
-	color: &dtml-highlightColor;;
 }
 
 
@@ -122,47 +328,7 @@ img.no-photo {
 
 
 
-/* ---- SITE ACTIONS  --- */
-#portal-siteactions {
-	float: none;
-	text-align: center;
-	margin: -2em 0 1em 0;
-}
-
-#portal-siteactions li a {
-	color: &dtml-linkColor;;
-	text-decoration: underline;
-}
-
-#portal-siteactions li a:hover {
-	color: &dtml-highlightColor;;
-}
-
-
-
-/* --------- FOOTER (overrides public.css ------- */
-#portal-footer {
-	background-color: transparent;
-	border-top: &dtml-borderWidth; &dtml-borderStyle; &dtml-globalBorderColor;;
-	border-bottom: none;
-	float: none;
-	line-height: 1.2em;
-	margin: 2em 0em 1em 0em;
-	padding: 0.5em 0em 1em 0em;
-	text-align: center;
-}
-
-#portal-footer p {
-  margin: 0.25em 0;
-}
-
-#portal-footer a:link {
-	color: &dtml-linkColor;;
-	border: none;
-	text-decoration: underline;
-}
-
-
+  
 
 /* ----- IMAGES ----- */
 .plain img {

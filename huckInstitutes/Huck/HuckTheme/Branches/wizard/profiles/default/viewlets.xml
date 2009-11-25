@@ -32,8 +32,8 @@
 	</order>
 
 	<order manager="plone.portalfooter" skinname="HuckTheme">
-		<viewlet name="HuckTheme.footer" />
-		<viewlet name="plone.site_actions" insert-after="HuckTheme.footer" />
+		<viewlet name="HuckTheme.footer" insert-before="plone.analytics"/>
+		<viewlet name="HuckTheme.site_actions" insert-before="HuckTheme.footer" />
 	</order>
 	   
 </object>

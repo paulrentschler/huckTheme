@@ -55,11 +55,11 @@
 
 	<!-- Move site actions  --> 
     <browser:viewlet
-        name="plone.site_actions"
+        name="HuckTheme.site_actions"
         manager="plone.app.layout.viewlets.interfaces.IPortalFooter"
-        class="plone.app.layout.viewlets.common.SiteActionsViewlet"
-        permission="zope2.View"
+        class=".viewlets.SiteActionsViewlet"
         layer=".interfaces.IThemeSpecific"
+        permission="zope2.View"
         />
 
 	<!-- Custom viewlet example. Uncomment if you want it available
