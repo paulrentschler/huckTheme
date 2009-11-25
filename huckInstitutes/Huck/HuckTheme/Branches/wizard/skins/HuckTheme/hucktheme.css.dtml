@@ -7,7 +7,8 @@
   <dtml-call "REQUEST.set('portal_url', portal_url())"> (not this either)
 */
 
-/* ---- HEADER ---- */
+
+/* ---- GENERAL ---- */
 
 body {
   background-color: black;
@@ -16,6 +17,11 @@ body {
 body #portal-columns {
   background-color: white;
 }
+
+img.no-photo {
+  border: 0 !important;
+}
+
 
 
 
@@ -45,6 +51,105 @@ body #portal-columns {
 	text-decoration: none;
 }
 
+
+
+
+/* ----- LOGOS AND WORDMARKS --- */
+#psu-logo { 
+	border: 0;
+  left: 0px;
+	margin: 0;
+	padding: 0;
+  position: absolute;
+	top: 0px;
+}
+
+#logos {
+  clear: both;
+	height: 160px;
+  margin: 0;
+  padding: 0;
+}
+
+#logos #section-logo {
+	background-color: white;
+	float: right;
+	height: 150px;
+	margin: 0 20px 2px 2px;
+	padding: 4px;
+	width: 470px;
+}
+
+#logos #section-logo img {
+  border: 0;
+}
+
+#logos #portal-logo {
+	display: block;
+	margin-right: 500px;
+	padding-top: 60px;
+}
+
+#logos #portal-logo img {
+	border: 0;
+	display: block;
+	margin: 0 auto;
+}
+
+
+
+
+/* ---- GLOBAL NAVIGATION ---- */
+#portal-globalnav {  
+  float: right;
+	margin: 0 17px 0 0;
+	padding: 3px 0 0 0;
+	white-space: normal;
+	width: 480px;
+}
+
+#portal-globalnav li {
+  border: 0 none;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+}
+
+#portal-globalnav li a { 
+	background-color: #336699;
+	border-top: 2px solid #336699;
+  border-right: 0 none;
+  border-bottom: 0 none;
+  border-left: 0 none;
+	color: white;
+  display: block;
+  float: left;
+	font-size: 10px;
+  height: 40px; 
+	margin: 0;
+	padding: 5px 2px;
+	text-transform: capitalize;
+	vertical-align: bottom;
+	width: 64px;
+}
+
+#portal-globalnav li a:hover {
+	background-color: #0099FF;
+	border-top: 2px solid #0099FF;
+  border-right: 0 none;
+  border-bottom: 0 none;
+  border-left: 0 none;
+	color: white;
+} 
+
+#portal-globalnav li.selected a {
+	background-color: white;
+	border-top: 2px solid #FF6633;
+  border-right: 0 none;
+  border-bottom: 0 none;
+  border-left: 0 none;
+	color: black;
+}
 
 
 
@@ -237,64 +342,8 @@ body #portal-columns {
 
 
 
-/* ----- LOGOS AND WORDMARKS --- */
-#psu-logo { 
-	border: 0;
-  height: 58px !important;
-	margin: 10px 0 0 10px;
-	padding: 0;
-  position: relative;
-}
-
-#portal-logo img {
-  height: auto;
-  position: relative;
-}
-
-img.no-photo {
-  border: 0 !important;
-}
 
 
-
-/* ----- GLOBAL NAVIGATION (overrides public.css) ----- */
-#portal-globalnav {  
-	margin: 1.5em 0 0 0;
-	padding: 0.2em 0 0.2em 0.5em;
-	border-bottom: 2px solid &dtml-colorZero;;
-}
-
-#portal-globalnav li { 
-	margin: 0;
-	padding: 0 0.3em;
-}
-
-#portal-globalnav li a { 
-	color: #fff;
-	background-color: &dtml-colorZero;;
-	border: &dtml-borderWidth; solid &dtml-colorZero;;
-	margin: 0;
-	padding: 0.2em 1em;
-	text-transform: uppercase;
-}
-
-#portal-globalnav li a:hover {
-	color: #fff;
-	background-color: &dtml-highlightColor;; 
-	border-top: 1px solid &dtml-highlightColor;;
-	border-right: 1px solid &dtml-highlightColor;;
-	border-bottom:2px solid &dtml-highlightColor;;
-	border-left: 1px solid &dtml-highlightColor;;
-}
-
-#portal-globalnav li.selected a {
-	color: &dtml-colorZero;;
-	background: #fff url(global_nav_indicator.gif) left top no-repeat;
-	border-top: 1px solid &dtml-highlightColor;;
-	border-right: 1px solid &dtml-colorZero;;
-	border-bottom: 2px solid #fff;
-	border-left: 1px solid &dtml-colorZero;;
-}
 
 
 
