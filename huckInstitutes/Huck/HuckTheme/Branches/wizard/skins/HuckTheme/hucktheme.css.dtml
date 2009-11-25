@@ -18,6 +18,15 @@ body #portal-columns {
   background-color: white;
 }
 
+
+
+
+/* ----- IMAGES ----- */
+.plain img {
+	border: none;
+	margin: 0.25em 0.5em;
+}
+
 img.no-photo {
   border: 0 !important;
 }
@@ -27,12 +36,24 @@ img.no-photo {
 
 /* ----- SEARCH BOXES and SEARCH RESULTS ----- */
 #portal-searchbox {
+  float: none;
 	margin: 1em 0.25em;
   text-align: right;
 }
 
-#portal-advanced-search {
-  display: inline;
+#portal-searchbox .LSBox {
+	clear: none;
+	float: none;
+	padding-right: 1px;
+	text-align: right;
+}
+
+#portal-searchbox #LSResult {
+  padding-top: 0;
+}
+
+#portal-searchbox #portal-advanced-search {
+  clear: none;
   color: #AAA;
   margin-left: 1em;
 }
@@ -151,6 +172,70 @@ img.no-photo {
 	color: black;
 }
 
+
+
+
+/* ---- BREADCRUMBS ---- */
+#portal-breadcrumbs {
+	background-color: white; 
+	border: 0 none;
+	clear: both;
+	color: #666;
+	margin: 0;
+	padding: 0.25em 1em;
+}
+
+#portal-breadcrumbs a,
+#portal-breadcrumbs a:link,
+#portal-breadcrumbs a:visited {
+	color: #336699;
+	text-decoration: underline;
+}
+
+#portal-breadcrumbs a:hover {
+	background-color: #336699;
+	color: white;
+	text-decoration: none;
+}
+
+
+
+/* -----  PERSONAL BAR ----- */
+#portal-personaltools	{
+	border-top: 0 none;
+	border-right: 0 none;
+	border-bottom: 0 none;
+	border-left: 0 none;
+	float: left;
+	margin: 37px 0 0 0;
+	padding: 0;
+	text-align: left;
+}
+
+#portal-personaltools	li {
+	background-color: white;
+	font-size: 12px;
+  margin-top: 0;
+  margin-right: 0;
+  margin-bottom: 0;
+  margin-left: 0;
+  padding: 0;
+}
+
+#portal-personaltools	li a,
+#portal-personaltools li a:link,
+#portal-personaltools li a:visited {
+  background-color: white;
+  color: #666;
+  padding: 1px 7px;
+  text-decoration: underline;
+}
+
+#portal-personaltools li a:hover {
+  background-color: #666;
+  color: white;
+  text-decoration: none;
+}
 
 
 
@@ -347,43 +432,8 @@ img.no-photo {
 
 
 
-/* ----- BREADCRUMBS (over-rides public.css) ----- */
-#portal-breadcrumbs a {
-	color: &dtml-linkColor;;
-	text-decoration: underline;
-}
-
-#portal-breadcrumbs {
-	color: #666666;
-	background-color: &dtml-backgroundColor;; 
-	border-bottom: 1px solid #ccc;
-	border-left: 1px solid #ccc;
-	float: left;
-	margin: 0 0.5em;
-	padding: 0.25em 1em;
-}
-
-.section-home #portal-breadcrumbs { /* hide the breadcrumbs on the home page */
-	display:none;
-}
-
-
-
-/* -----  PERSONAL BAR ----- */
-#portal-personaltools	{
-	background-color: transparent;
-	border: none;
-}
-
-
 
   
-
-/* ----- IMAGES ----- */
-.plain img {
-	border: none;
-	margin: 0.25em 0.5em;
-}
 
 
 
