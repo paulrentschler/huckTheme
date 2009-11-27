@@ -3,10 +3,13 @@
 </a>
 
 <div id="logos">
-  <div id="section-logo">
-    <img src=""
-         tal:replace="structure context/logos/home-logo.jpg" />
-  </div>
+
+  <div id="section-logo"
+       tal:define="sectionLogo context/findSectionLogo">
+
+	  <img src="" alt="" width="470" height="150"
+	       tal:attributes="src sectionLogo" />
+	</div>
 
 	<a metal:define-macro="portal_logo"
 	   id="portal-logo"
