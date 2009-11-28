@@ -3,7 +3,6 @@
 </a>
 
 <div id="logos">
-
   <div id="section-logo"
        tal:define="sectionLogo context/findSectionLogo">
 
