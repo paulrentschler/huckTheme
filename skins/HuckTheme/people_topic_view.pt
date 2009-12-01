@@ -84,10 +84,10 @@
 			            
 										<table class="noBorders" 
 										       tal:define="specialtyObj context/findSpecialtyForTopic;
-            														 specialtyName context/Title;
-            														 whereAreWe context/absolute_url;
-            														 inContactUs python:'contact' in whereAreWe;
-            														 inEducation python:'education' in whereAreWe">
+           														 specialtyName context/Title;
+           														 whereAreWe context/absolute_url;
+           														 inContactUs python:'contact' in whereAreWe;
+           														 inEducation python:'education' in whereAreWe">
           						<thead>        
           						  <metal:headings define-slot="table_headings">
             							<tr class="hide">

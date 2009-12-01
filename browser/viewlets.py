@@ -20,3 +20,6 @@ class SearchBoxViewlet(common.SearchBoxViewlet):
 
 class PathBarViewlet(common.PathBarViewlet):
     render = ViewPageTemplateFile('templates/path_bar.pt')
+    
+class SiteActionsViewlet(common.SiteActionsViewlet):
+    render = ViewPageTemplateFile('templates/site_actions.pt')
