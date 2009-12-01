@@ -20,7 +20,7 @@
 	    <metal:fill fill-slot="main">
         <div class="facultyStaffDirectory"
              tal:define="whereAreWe context/absolute_url;
-                         inTechFacPeople python:('acilities' in whereAreWe) or ('nstitutes' in whereAreWe);
+                         inTechFacPeople python:('acilities' in whereAreWe) or ('nstitute' in whereAreWe);
                          inAdminPeople  python:'admin' in whereAreWe;
                          inCofunded python:'funded' in whereAreWe;
                          inResearchSpecialty python:not inTechFacPeople and not inAdminPeople;

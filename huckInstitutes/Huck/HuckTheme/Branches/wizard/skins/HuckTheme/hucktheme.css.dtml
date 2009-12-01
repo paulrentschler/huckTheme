@@ -77,6 +77,7 @@ img.no-photo {
 
 
 /* ----- LOGOS AND WORDMARKS --- */
+
 #psu-logo { 
 	border: 0;
   left: 0px;
@@ -122,6 +123,7 @@ img.no-photo {
 
 
 /* ---- GLOBAL NAVIGATION ---- */
+
 #portal-globalnav {  
   float: right;
 	margin: 0 17px 0 0;
@@ -177,6 +179,7 @@ img.no-photo {
 
 
 /* ---- BREADCRUMBS ---- */
+
 #portal-breadcrumbs {
 	background-color: white; 
 	border: 0 none;
@@ -202,6 +205,7 @@ img.no-photo {
 
 
 /* -----  PERSONAL BAR ----- */
+
 #portal-personaltools	{
 	border-top: 0 none;
 	border-right: 0 none;
@@ -747,6 +751,13 @@ table.eventTable td .eventCanceled {
 
 /* --- PEOPLE --- */
 
+.facultyStaffDirectory.personView .headshot {
+  background-color: white;
+  border-left: 2em solid white;
+  border-right: 2em solid white;
+  margin: 5em 0 0 0;
+}
+
 .facultyStaffDirectory .standardView ul.jobTitle li {
   font-style: italic;
 }
@@ -975,23 +986,29 @@ table.eventTable td .eventCanceled {
 /* --- COLORS --- */
 
 /* -- Color 1 (blue) headers, footers, backgrounds and icons -- */
+/*
 #typeOnePortlet .portletHeader {
 	background: &dtml-colorOne;;
 	color: #fff;
 }
+*/
 
 /* -- Color 2 (green) headers, footers, backgrounds and icons -- */
+/*
 #typeTwoPortlet .portletHeader {
 	background: &dtml-colorTwo;;
 	color: #fff;
 }
+*/
 
-/* -- Color 3 (orange) headers, footers, backgrounds and icons -- */	
+/* -- Color 3 (orange) headers, footers, backgrounds and icons -- */
+/*	
 #typeThreePortlet .portletHeader,
 #subspecialtyList .portletHeader {
 	background: &dtml-highlightColor;;
 	color: #fff;
 }
+*/
 
 
 
