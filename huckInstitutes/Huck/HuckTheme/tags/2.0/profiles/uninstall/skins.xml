@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<!-- This file holds the uninstall configuration for the portal_skins tool -->
+<object name="portal_skins" allow_any="False" cookie_persistence="False"
+        default_skin="Plone Default" request_varname="plone_skin">
+
+	<object name="HuckTheme"
+		meta_type="Filesystem Directory View"
+		remove="True"/>
+	
+	<skin-path name="HuckTheme" remove="True" />
+
+</object>

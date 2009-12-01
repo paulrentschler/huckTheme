@@ -1,0 +1,23 @@
+<a id="psu-logo" href="http://www.psu.edu" title="The Pennsylvania State University">
+	<img tal:replace="structure context/psu-logo.png" />
+</a>
+
+<div id="logos">
+  <div id="section-logo"
+       tal:define="sectionLogo context/findSectionLogo">
+
+	  <img src="" alt="" width="470" height="150"
+	       tal:attributes="src sectionLogo" />
+	</div>
+
+	<a metal:define-macro="portal_logo"
+	   id="portal-logo"
+		 accesskey="1"
+		 tal:attributes="href context/portal_url"
+		 i18n:domain="plone">
+		<img src="huck-logo.jpg" alt=""
+				 tal:replace="structure context/huck-logo.jpg" />
+	</a>
+</div>
+
+<div id="visualClear"><!--  --></div>

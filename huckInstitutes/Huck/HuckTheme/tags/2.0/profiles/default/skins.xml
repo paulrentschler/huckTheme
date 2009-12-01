@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!-- This file holds the setup configuration for the portal_skins tool -->
+<object name="portal_skins" allow_any="False" cookie_persistence="False"
+        default_skin="HuckTheme" request_varname="plone_skin">
+
+	<object name="HuckTheme"
+		meta_type="Filesystem Directory View"
+		directory="Products.HuckTheme:skins/HuckTheme"/>
+	
+	<skin-path name="HuckTheme" based-on="Plone Default">
+		<layer name="HuckTheme"
+			 insert-after="custom"/>
+	</skin-path>
+</object>
