@@ -36,6 +36,7 @@ img.no-photo {
 
 
 /* ----- SEARCH BOXES and SEARCH RESULTS ----- */
+
 #portal-searchbox {
   float: none;
 	margin: 1em 0.25em;
@@ -299,6 +300,10 @@ h1 {
 	font-weight: bold;
 }
 
+h1 abbr {
+  color: #336699;
+}
+
 h2 {
 	border-bottom: 1px solid #CCC;
 	color: #FF6633;
@@ -306,6 +311,10 @@ h2 {
 	font-weight: bold;
 	margin-bottom: 0.5em;
 	margin-top: 1em;
+}
+
+h2 abbr {
+  color: #FF6633;
 }
 
 h2 a,
@@ -326,6 +335,10 @@ h3 {
 	font-size: 110%;
 	font-weight: bold;
 	margin-top: 0.75em;
+}
+
+h3 abbr {
+  color: #336699;
 }
 
 h3 a, h4 a, h5 a, h6 a {
@@ -412,7 +425,7 @@ ul.list {
   font-size: 100%;
 }
 
-#content .documentByLine {
+#content #plone-document-byline {
   background-color: #EAEAEA;
 	color: black;
 	font-size: 85%;
@@ -421,7 +434,7 @@ ul.list {
 	padding: 0.25em;
 }
 
-#content a.link-parent {
+#documentEditable #content a.link-parent {
   background-color: #EAEAEA;
 }
 
@@ -498,6 +511,10 @@ table.gradProgs tbody tr td {
 
 
 /* --- PORTLETS --- */
+
+#portal-column-two {
+  width: 20em;
+}
 
 .portlet {
 	border: 2px solid #336699;
@@ -970,6 +987,12 @@ table.eventTable td .eventCanceled {
   visibility: hidden !important;
 }
 
+#footer-portlets dd.portletItem .navTreeCurrentItem { 
+	border-bottom: none !important; 
+	border-left: none !important; 
+	border-right: none !important; 
+	border-top: none !important; 
+}
 
 
 
