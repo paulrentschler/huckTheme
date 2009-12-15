@@ -27,6 +27,7 @@
   <element value="people_topic_view"/>
   <element value="people_up_topic_view"/>
   <element value="people_hershey_topic_view"/>
+  <element value="course_syllabi_topic_view"/>
  </property>
  <alias from="(Default)" to="(dynamic view)"/>
  <alias from="edit" to="atct_edit"/>
