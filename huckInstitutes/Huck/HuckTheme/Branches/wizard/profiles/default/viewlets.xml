@@ -14,6 +14,10 @@
     <viewlet name="plone.searchbox" />
   </hidden>
   
+  <hidden manager="plone.belowcontentbody" skinname="HuckTheme">
+    <viewlet name="plone.abovecontenttitle.documentactions" />
+  </hidden>
+  
   <hidden manager="plone.portalfooter" skinname="HuckTheme">
      <viewlet name="plone.footer" />
      <viewlet name="plone.colophon" />
