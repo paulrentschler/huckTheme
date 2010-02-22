@@ -18,6 +18,10 @@ body #portal-columns {
   background-color: white;
 }
 
+body.popup {
+	background-color: white;
+}
+
 
 
 
