@@ -1,7 +1,7 @@
 <!-- Inserts the Penn State logo  -->
 
 <a id="psu-logo" href="http://www.psu.edu" title="The Pennsylvania State University">
-	<img tal:replace="structure context/logo_second.gif" />
+	<img tal:replace="structure context/psulogo.gif" />
 </a>
 
 <!-- Inserts the Huck Institutes wordmark  -->

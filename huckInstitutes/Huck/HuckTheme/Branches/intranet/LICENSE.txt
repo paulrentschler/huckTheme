@@ -1,5 +1,5 @@
 HuckTheme
-Copyright (C) 2005-2009 The Huck Institutes of the Life Sciences at Penn State <webteam@huck.psu.edu>
+Copyright (C) 2005-2010 The Huck Institutes of the Life Sciences at Penn State <webteam@huck.psu.edu>
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License

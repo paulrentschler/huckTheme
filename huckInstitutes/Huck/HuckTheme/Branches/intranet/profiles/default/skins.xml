@@ -3,28 +3,13 @@
 <object name="portal_skins" allow_any="False" cookie_persistence="False"
         default_skin="HuckTheme" request_varname="plone_skin">
 
-	<object name="HuckTheme_custom_images"
+	<object name="HuckTheme"
 		meta_type="Filesystem Directory View"
-		directory="Products.HuckTheme:skins/HuckTheme_custom_images"/>
-	<object name="HuckTheme_styles"
-		meta_type="Filesystem Directory View"
-		directory="Products.HuckTheme:skins/HuckTheme_styles"/>
-	<object name="HuckTheme_custom_templates"
-		meta_type="Filesystem Directory View"
-		directory="Products.HuckTheme:skins/HuckTheme_custom_templates"/>
-	<object name="HuckTheme_javascripts"
-		meta_type="Filesystem Directory View"
-		directory="Products.HuckTheme:skins/HuckTheme_javascripts"/>
+		directory="Products.HuckTheme:skins/HuckTheme"/>
 	
 	<skin-path name="HuckTheme" based-on="Plone Default">
 
-		<layer name="HuckTheme_styles"
+		<layer name="HuckTheme"
 			 insert-after="custom"/>
-		<layer name="HuckTheme_custom_images"
-			 insert-after="HuckTheme_styles"/>
-		<layer name="HuckTheme_custom_templates"
-			 insert-after="HuckTheme_custom_images"/>
-		<layer name="HuckTheme_javascripts"
-			 insert-after="HuckTheme_custom_templates"/>
 	</skin-path>
 </object>

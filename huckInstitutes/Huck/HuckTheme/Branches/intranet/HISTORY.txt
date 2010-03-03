@@ -1,7 +1,6 @@
-Changelog for HuckTheme
+Changelog for HuckTheme (Intranet branch)
 
-    Author: Catherine Williams
-            Paul Rentschler
+    Author: Paul Rentschler
 
 HuckTheme 1.0 - Unreleased
     - Generated skeleton product from DIYPloneStyle 3.0.
@@ -12,4 +11,7 @@ HuckTheme 1.1 - Unreleased
     - Finished theme product for Plone 3.x that looks like
        the theme used for the Plone 2.5 site
     - New author: Paul Rentschler
+    
+HuckTheme 1.2 - Unreleased
+    - Modified for use on the intranet at home.huck.psu.edu
     

@@ -18,7 +18,6 @@
  <property name="view_methods">
   <element value="document_view"/>
   <element value="document_portletsonly_view"/>
-  <element value="people_home_view"/>
  </property>
  <alias from="(Default)" to="(dynamic view)"/>
  <alias from="edit" to="atct_edit"/>

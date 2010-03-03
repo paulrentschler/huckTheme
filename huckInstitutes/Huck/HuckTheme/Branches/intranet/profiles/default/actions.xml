@@ -34,19 +34,8 @@
 	  </object>
  
 <!-- USER ACTIONS -->
-<!-- Hide the links to the login form and the join form -->     
+<!-- Hide the links to the join form -->     
 	 <object name="user" meta_type="CMF Action Category">
-		  <object name="login" meta_type="CMF Action" i18n:domain="plone">
-			   <property name="title" i18n:translate="">Log in</property>
-			   <property name="description" i18n:translate=""></property>
-			   <property name="url_expr">string:${portal_url}/login_form</property>
-			   <property name="icon_expr"></property>
-			   <property name="available_expr">python:member is None</property>
-			   <property name="permissions">
-					<element value="View"/>
-			   </property>
-			   <property name="visible">False</property>
-		  </object>
 		  <object name="join" meta_type="CMF Action" i18n:domain="plone">
 			   <property name="title" i18n:translate="">Register</property>
 			   <property name="description" i18n:translate=""></property>
