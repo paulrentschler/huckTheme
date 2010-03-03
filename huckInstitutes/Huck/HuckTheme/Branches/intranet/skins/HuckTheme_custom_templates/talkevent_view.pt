@@ -1,0 +1,242 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="plone">
+
+
+<tal:comment tal:replace="nothing">
+  Created by: Paul Rentschler
+  Description: used to display talk/seminar events. The output has been customized
+                to downplay the event type and provide links to maps
+  Based on: event_view.pt (the theme customized version, not the base Plone version)
+  Changes:
+    - added the speaker's institution as part of the H1 title
+    - made the talk title (description) an H2 tag
+    - added a box about who to contact regarding questions and to meet the speaker at the
+    	bottom of the page
+    - moved the event url link up to just under the talk title and renamed it to 
+    	reference that the link is for more information about the presenter
+</tal:comment>
+
+
+	<body>
+		<div metal:fill-slot="main">
+			<tal:main-macro metal:define-macro="main" 
+				tal:define="kssClassesView context/@@kss_field_decorator_view;
+										getKssClasses nocall:kssClassesView/getKssClassesInlineEditable;
+										templateId template/getId">
+
+        <div metal:use-macro="here/document_byline/macros/byline">
+          Get the byline - contains details about author and modification date.
+        </div>
+
+        <div tal:replace="structure provider:plone.abovecontenttitle" />
+
+        <div class="vevent">
+	        <h1 class="documentFirstHeading">
+            <span tal:content="here/Title">[Speaker's Name]</span>
+		        <span class="speakerInstitution" tal:condition="here/speakerInstitution">
+		          (<span tal:replace="here/speakerInstitution">[Speaker's Institution]</span>)
+		        </span>
+	        </h1>
+
+          <tal:remove tal:replace="nothing">
+	        	<div tal:replace="structure provider:plone.belowcontenttitle" />
+	        </tal:remove>
+
+	        <h2 class="documentDescription">
+            <metal:field use-macro="python:here.widget('description', mode='view')">
+    	        [Talk Title]
+            </metal:field>
+  	      </h2>
+        
+	        <div class="portalMessage" tal:condition="here/eventCanceled|nothing">
+		        PLEASE NOTE: This event has been canceled!
+	        </div>
+
+      	  <div tal:replace="structure provider:plone.abovecontentbody" />
+
+        	<div class="eventDetails vcard">
+        	  <div class="eventDetailsLabel">Event details</div>
+		        <table class="vertical listing" summary="Event details" i18n:attributes="summary summary_event_details;">
+	            <tbody>
+                <tr>
+	                <th i18n:translate="event_when">When</th>
+	                <td>
+                    <tal:differentday tal:condition="python:not here.start().Date() == here.end().Date()">
+                      <abbr metal:define-macro="startdate-field-view"
+                            class="dtstart"
+                            tal:define="kss_class python:getKssClasses('startDate',
+                                        templateId=templateId, macro='startdate-field-view');"
+                            id="parent-fieldname-startDate"
+                            tal:attributes="class string:summary$kss_class;
+																					 title python:here.start()">
+											 <span metal:define-slot="inside" 
+												     class="explain"
+												     tal:attributes="title python:here.start()"
+												     tal:content="python:here.toLocalizedTime(here.start(),
+																					long_format=1)">Start Date Time</span>
+                      </abbr>
+                      <span i18n:translate="event_to">to</span> <br />
+                      <abbr metal:define-macro="enddate-field-view"
+                            class="dtend"
+                            tal:define="kss_class python:getKssClasses('endDate',
+                                        templateId=templateId, macro='enddate-field-view');"
+                            id="parent-fieldname-endDate"
+                            tal:attributes="class string:summary$kss_class;
+                            								title python:here.end()">
+	                      <span metal:define-slot="inside" 
+	                              class="explain"
+	                              tal:attributes="title python:here.end()"
+	                              tal:content="python:here.toLocalizedTime(here.end(),
+	                              						 long_format=1)">End Date Time</span>
+                      </abbr>
+                    </tal:differentday>
+
+                    <tal:sameday tal:condition="python:here.start().Date() == here.end().Date()"
+                                 tal:define="ampm python:site_properties.getProperty('localLongTimeFormat').find('%p') >= 0">
+	                    <span tal:replace="python:toLocalizedTime(here.start())">
+                        Start Date Time</span> <br />
+	                    <tal:remove tal:replace="nothing">
+		                    <span i18n:translate="event_from">from</span>
+		                  </tal:remove>  
+	                    <span metal:define-macro="startdatesame-field-view"
+	                          class="dtstart"
+	                          tal:define="ampm python:site_properties.getProperty('localLongTimeFormat').find('%p') >= 0;
+	                                      kss_class python:getKssClasses('startDate',
+	                                      templateId=templateId, macro='startdatesame-field-view');"
+	                          id="parent-fieldname-startDate"
+	                          tal:attributes="class string:summary$kss_class;
+	                          								title python:test(ampm, here.start().AMPMMinutes(), here.start().TimeMinutes())">
+	                      <span metal:define-slot="inside" 
+	                            tal:replace="python:test(ampm, here.start().AMPMMinutes(), here.start().TimeMinutes())">Start Time</span>
+	                    </span>
+	                    <tal:remove tal:replace="nothing">
+	                    	<span i18n:translate="event_to">to</span>
+	                    </tal:remove>
+	                    &#151;
+	                    <span metal:define-macro="enddatesame-field-view"
+	                          class="dtend"
+	                          tal:define="ampm python:site_properties.getProperty('localLongTimeFormat').find('%p') >= 0;
+	                                      kss_class python:getKssClasses('endDate',
+	                                      templateId=templateId, macro='enddatesame-field-view');"
+	                          id="parent-fieldname-endDate"
+	                          tal:attributes="class string:summary$kss_class;
+									                          title python:test(ampm, here.end().AMPMMinutes(), here.end().TimeMinutes())">
+	                      <span metal:define-slot="inside" 
+	                            tal:replace="python:test(ampm, here.end().AMPMMinutes(), here.end().TimeMinutes())">End Time</span>
+	                    </span>
+                    </tal:sameday>
+	                </td>
+                </tr>
+                <tr tal:condition="here/location">
+	                <th i18n:translate="event_where">Where</th>
+	                <td class="location">
+                    <metal:field use-macro="python:here.widget('location', mode='view')">
+	                    Location
+                    </metal:field>
+                    <br />
+                    <div class="mapLink">
+                      <a href="http://www.psu.edu/ur/campusmaps.html">Campus maps</a>
+                    </div>
+                    <div class="mapLink">
+                      <a href="http://maps.google.com">Google maps</a>
+                    </div>
+	                </td>
+                </tr>
+                <tr tal:condition="here/contact_name">
+                  <th i18n:translate="contact_name">Contact Person</th>
+                  <td class="fn">
+                    <metal:field use-macro="python:here.widget('contactName', mode='view')">
+                      Contact Name
+                    </metal:field>
+		                <div tal:define="contact_email here/contact_email"
+		                     tal:condition="here/contact_email">
+											<span class="email">
+										    <a tal:content="structure python: here.spamProtect(contact_email)"
+											     id="parent-fieldname-contactEmail" />
+											</span>
+                    </div>
+		                <div tal:condition="here/contact_phone">
+			                <span class="tel">
+		                    <metal:field use-macro="python:here.widget('contactPhone', mode='view')">
+			                    Phone number
+		                    </metal:field>
+			                </span>
+		                </div>
+                  </td>
+                </tr>
+                <tr tal:condition="here/getAttendees|nothing">
+	                <th i18n:translate="contact_attendees">Attendees</th>
+	                <td class="attendees">
+                    <metal:field use-macro="python:here.widget('attendees', mode='view')">
+	                    Attendees
+                    </metal:field>
+	                </td>
+                </tr>
+                <tr>
+	                <th i18n:translate="heading_add_to_calendar">Add event to calendar</th>
+	                <td>
+	                  <a href="#"
+	                     tal:attributes="href string:$here_url/vcs_view"
+	                     title="Add this item to your vCal calendar"
+	                     i18n:attributes="title title_add_to_vcal;">
+	                    <img tal:replace="structure here/icon_export_vcal.png" src="" alt="" />
+	                    <span i18n:translate="label_add_to_vcal">vCal</span></a><br />
+	                  <a href="#"
+	                     tal:attributes="href string:$here_url/ics_view"
+	                     title="Add this item to your iCal calendar"
+	                     i18n:attributes="title title_add_to_ical;">
+                      <img tal:replace="structure here/icon_export_ical.png" src="" alt="" />
+                      <span i18n:translate="label_add_to_ical">iCal</span></a>
+	                </td>
+                </tr>
+	            </tbody>
+  		      </table>
+		      </div>
+
+	        <p tal:condition="here/event_url|nothing">
+            <a class="url"
+               href="event_url"
+               tal:attributes="href here/event_url"
+               i18n:translate="event_more_information">
+              More information about <span tal:content="here/Title">[speaker name]</span>&hellip;</a>
+	        </p>
+
+	        <metal:field use-macro="python:here.widget('text', mode='view')">
+  		      Body text
+     		  </metal:field>
+
+          <div id="meetTheSpeaker" tal:condition="here/contact_name">
+            <h3>Questions? Want to meet with the speaker?</h3>
+            <p>
+              Contact
+              <span tal:content="here/contactName">[Contact Name]</span>
+              <span tal:define="contact_email here/contact_email"
+                    tal:condition="here/contact_email">
+								<span class="email">
+							    <a tal:content="structure python: here.spamProtect(contact_email)"
+								     id="parent-fieldname-contactEmail" />
+								</span>
+							</span>
+							<span tal:condition="python: here.contact_email and here.contact_phone"> or </span>
+							<span tal:condition="here/contact_phone">
+	              <span class="tel" tal:content="here/contactPhone">[Phone Number]</span>
+              </span>
+            </p>
+          </div>
+
+        </div>
+
+        <div metal:use-macro="here/document_relateditems/macros/relatedItems">
+	        show related items if they exist
+        </div>
+        
+        <span class="visualClear"></span>
+
+        <div tal:replace="structure provider:plone.belowcontentbody" />
+	    </tal:main-macro>
+		</div>
+
+	</body>
+</html>

@@ -1,0 +1,15 @@
+Changelog for HuckTheme
+
+    Author: Catherine Williams
+            Paul Rentschler
+
+HuckTheme 1.0 - Unreleased
+    - Generated skeleton product from DIYPloneStyle 3.0.
+      [generator]
+
+HuckTheme 1.1 - Unreleased
+    - Name changed from hucktheme08 to HuckTheme
+    - Finished theme product for Plone 3.x that looks like
+       the theme used for the Plone 2.5 site
+    - New author: Paul Rentschler
+    
