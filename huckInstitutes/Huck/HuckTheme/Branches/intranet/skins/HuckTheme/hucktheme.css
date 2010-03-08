@@ -381,9 +381,11 @@ table.gradProgs tbody tr td {
   padding: 1em 0 !important;
 }
 
-.mceEditor .mceIframeContainer .mceContentBody {
+/*
+.mceContentBody {
 	font-size: 69% !important;
 }
+*/
 
 
 
