@@ -10,12 +10,13 @@
   height: 50px !important;
 	margin: 10px 0 0 10px;
 	padding: 0;
-  position: relative;
-  width: 100px !important;
+  position: absolute;
+	width: 100px !important;
 }
 
 #portal-logo img {
   height: auto;
+  margin: 30px 0 0 140px;
   position: relative;
 }
 
@@ -363,6 +364,21 @@ ul.list {
 
 table.gradProgs tbody tr td {
   width: 50%;
+}
+
+
+
+/* ----- EDITING CONTENT ----- */
+.documentEditable .documentContent {
+	border: 0;
+}
+
+.contentActions {
+  border-bottom: 1px solid #74AE0B;
+}
+
+.documentContent {
+  padding: 1em 0 !important;
 }
 
 
