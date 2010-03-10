@@ -4,6 +4,7 @@
 <object>
 <!-- hide Plone's defaults -->
  <hidden manager="plone.portaltop" skinname="HuckTheme">
+		<viewlet name="plone.personal_bar" />
     <viewlet name="plone.path_bar" />
     <viewlet name="plone.app.i18n.locales.languageselector" />
  </hidden>
@@ -22,7 +23,7 @@
 <!-- insert our own, and make sure everything is in the order we want -->
 	<order manager="plone.portaltop" skinname="HuckTheme">
 		<viewlet name="plone.header" />
-		<viewlet name="plone.personal_bar" />
+		<viewlet name="HuckTheme.personal_bar" />
 		<viewlet name="HuckTheme.path_bar" />
 	</order>
 

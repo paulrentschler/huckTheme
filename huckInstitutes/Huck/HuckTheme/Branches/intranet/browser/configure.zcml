@@ -44,6 +44,15 @@
         permission="zope2.View"
         />
 
+	<!-- The customized personalbar -->
+    <browser:viewlet
+        name="HuckTheme.personal_bar"
+        manager="plone.app.layout.viewlets.interfaces.IPortalTop"
+        class=".viewlets.PersonalBarViewlet"
+        layer=".interfaces.IThemeSpecific"
+        permission="zope2.View"
+        />
+
 	<!-- The customized pathbar -->
     <browser:viewlet
         name="HuckTheme.path_bar"
