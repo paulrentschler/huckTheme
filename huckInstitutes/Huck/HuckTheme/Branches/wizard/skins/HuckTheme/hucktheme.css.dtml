@@ -19,7 +19,7 @@ body #portal-columns {
 }
 
 body.popup {
-	background-color: white;
+  background-color: white;
 }
 
 
@@ -28,8 +28,8 @@ body.popup {
 /* ----- IMAGES ----- */
 
 .plain img {
-	border: none;
-	margin: 0.25em 0.5em;
+  border: none;
+  margin: 0.25em 0.5em;
 }
 
 img.no-photo {
@@ -43,15 +43,15 @@ img.no-photo {
 
 #portal-searchbox {
   float: none;
-	margin: 1em 0.25em;
+  margin: 1em 0.25em;
   text-align: right;
 }
 
 #portal-searchbox .LSBox {
-	clear: none;
-	float: none;
-	padding-right: 1px;
-	text-align: right;
+  clear: none;
+  float: none;
+  padding-right: 1px;
+  text-align: right;
 }
 
 #portal-searchbox #LSResult {
@@ -67,15 +67,15 @@ img.no-photo {
 #portal-advanced-search a:link, 
 #portal-advanced-search a:active,
 #portal-advanced-search a:visited { 
-	color: #AAA;
-	padding: 0.1em 0.3em;
-	text-decoration: underline;
+  color: #AAA;
+  padding: 0.1em 0.3em;
+  text-decoration: underline;
 }
 
 #portal-advanced-search a:hover {
   background-color: #AAA; 
-	color: black;
-	text-decoration: none;
+  color: black;
+  text-decoration: none;
 }
 
 
@@ -84,28 +84,28 @@ img.no-photo {
 /* ----- LOGOS AND WORDMARKS --- */
 
 #psu-logo { 
-	border: 0;
+  border: 0;
   left: 0px;
-	margin: 0;
-	padding: 0;
+  margin: 0;
+  padding: 0;
   position: absolute;
-	top: 0px;
+  top: 0px;
 }
 
 #logos {
   clear: both;
-	height: 160px;
+  height: 160px;
   margin: 0;
   padding: 0;
 }
 
 #logos #section-logo {
-	background-color: white;
-	float: right;
-	height: 150px;
-	margin: 0 20px 2px 2px;
-	padding: 4px;
-	width: 470px;
+  background-color: white;
+  float: right;
+  height: 150px;
+  margin: 0 20px 2px 2px;
+  padding: 4px;
+  width: 470px;
 }
 
 #logos #section-logo img {
@@ -113,15 +113,15 @@ img.no-photo {
 }
 
 #logos #portal-logo {
-	display: block;
-	margin-right: 500px;
-	padding-top: 60px;
+  display: block;
+  margin-right: 500px;
+  padding-top: 60px;
 }
 
 #logos #portal-logo img {
-	border: 0;
-	display: block;
-	margin: 0 auto;
+  border: 0;
+  display: block;
+  margin: 0 auto;
 }
 
 
@@ -131,53 +131,53 @@ img.no-photo {
 
 #portal-globalnav {  
   float: right;
-	margin: 0 17px 0 0;
-	padding: 3px 0 0 0;
-	white-space: normal;
-	width: 480px;
+  margin: 0 17px 0 0;
+  padding: 3px 0 0 0;
+  white-space: normal;
+  width: 480px;
 }
 
 #portal-globalnav li {
   border: 0 none;
-	margin: 0;
-	padding: 0;
-	text-align: center;
+  margin: 0;
+  padding: 0;
+  text-align: center;
 }
 
 #portal-globalnav li a { 
-	background-color: #336699;
-	border-top: 2px solid #336699;
+  background-color: #336699;
+  border-top: 2px solid #336699;
   border-right: 0 none;
   border-bottom: 0 none;
   border-left: 0 none;
-	color: white;
+  color: white;
   display: block;
   float: left;
-	font-size: 10px;
+  font-size: 10px;
   height: 40px; 
-	margin: 0;
-	padding: 5px 2px;
-	text-transform: capitalize;
-	vertical-align: bottom;
-	width: 64px;
+  margin: 0;
+  padding: 5px 2px;
+  text-transform: capitalize;
+  vertical-align: bottom;
+  width: 64px;
 }
 
 #portal-globalnav li a:hover {
-	background-color: #0099FF;
-	border-top: 2px solid #0099FF;
+  background-color: #0099FF;
+  border-top: 2px solid #0099FF;
   border-right: 0 none;
   border-bottom: 0 none;
   border-left: 0 none;
-	color: white;
+  color: white;
 } 
 
 #portal-globalnav li.selected a {
-	background-color: white;
-	border-top: 2px solid #FF6633;
+  background-color: white;
+  border-top: 2px solid #FF6633;
   border-right: 0 none;
   border-bottom: 0 none;
   border-left: 0 none;
-	color: black;
+  color: black;
 }
 
 
@@ -186,45 +186,45 @@ img.no-photo {
 /* ---- BREADCRUMBS ---- */
 
 #portal-breadcrumbs {
-	background-color: white; 
-	border: 0 none;
-	clear: both;
-	color: #666;
-	margin: 0;
-	padding: 0.25em 1em;
+  background-color: white; 
+  border: 0 none;
+  clear: both;
+  color: #666;
+  margin: 0;
+  padding: 0.25em 1em;
 }
 
 #portal-breadcrumbs a,
 #portal-breadcrumbs a:link,
 #portal-breadcrumbs a:visited {
-	color: #336699;
-	text-decoration: underline;
+  color: #336699;
+  text-decoration: underline;
 }
 
 #portal-breadcrumbs a:hover {
-	background-color: #336699;
-	color: white;
-	text-decoration: none;
+  background-color: #336699;
+  color: white;
+  text-decoration: none;
 }
 
 
 
 /* -----  PERSONAL BAR ----- */
 
-#portal-personaltools	{
-	border-top: 0 none;
-	border-right: 0 none;
-	border-bottom: 0 none;
-	border-left: 0 none;
-	float: left;
-	margin: 37px 0 0 0;
-	padding: 0;
-	text-align: left;
+#portal-personaltools {
+  border-top: 0 none;
+  border-right: 0 none;
+  border-bottom: 0 none;
+  border-left: 0 none;
+  float: left;
+  margin: 37px 0 0 0;
+  padding: 0;
+  text-align: left;
 }
 
-#portal-personaltools	li {
-	background-color: white;
-	font-size: 12px;
+#portal-personaltools li {
+  background-color: white;
+  font-size: 12px;
   margin-top: 0;
   margin-right: 0;
   margin-bottom: 0;
@@ -232,7 +232,7 @@ img.no-photo {
   padding: 0;
 }
 
-#portal-personaltools	li a,
+#portal-personaltools li a,
 #portal-personaltools li a:link,
 #portal-personaltools li a:visited {
   background-color: white;
@@ -253,55 +253,55 @@ img.no-photo {
 /* ---- GENERAL CONTENT ---- */
 
 .apply {
-	text-transform: uppercase;
+  text-transform: uppercase;
 }
 
 .contactInfo {
-	color: #666;
-	font-size: 93%;
+  color: #666;
+  font-size: 93%;
 }
 
 p.contactInfo {
-	padding-left: 1.5em;
+  padding-left: 1.5em;
 }
 
 .documentContent p a,
 .documentContent dd a,
 .documentContent li a {
-	border-bottom: none;
-	text-decoration: underline;
+  border-bottom: none;
+  text-decoration: underline;
 }
 
 .documentContent p a:visited 
 .documentContent dd a:visited,
 .documentContent li a:visited {
-	color: &dtml-linkVisitedColor;;
+  color: &dtml-linkVisitedColor;;
 }
 
 .documentContent p a:active, .documentContent p a:hover,
 .documentContent dd a:active, .documentContent dd a:hover,
 .documentContent li a:active, .documentContent li a:hover {
-	color: &dtml-linkActiveColor;;
+  color: &dtml-linkActiveColor;;
 }
 
 .emphasis {
-	font-weight: bold;
-	text-transform: uppercase;
+  font-weight: bold;
+  text-transform: uppercase;
 }
 
 .formHelp {
-	font-size: 100%;
+  font-size: 100%;
 }
 
 fieldset {
-	margin: 1em 0 1em 0.25em;
+  margin: 1em 0 1em 0.25em;
 }
 
 h1 {
-	border-bottom: 0 none;
-	color: #336699;
-	font-size: 170%;
-	font-weight: bold;
+  border-bottom: 0 none;
+  color: #336699;
+  font-size: 170%;
+  font-weight: bold;
 }
 
 h1 abbr {
@@ -309,12 +309,12 @@ h1 abbr {
 }
 
 h2 {
-	border-bottom: 1px solid #CCC;
-	color: #FF6633;
-	font-size: 150%;
-	font-weight: bold;
-	margin-bottom: 0.5em;
-	margin-top: 1em;
+  border-bottom: 1px solid #CCC;
+  color: #FF6633;
+  font-size: 150%;
+  font-weight: bold;
+  margin-bottom: 0.5em;
+  margin-top: 1em;
 }
 
 h2 abbr {
@@ -324,21 +324,21 @@ h2 abbr {
 h2 a,
 h2 a:link,
 h2 a:visited {
-	color: #FF6633 !important;
-	text-decoration: underline;
+  color: #FF6633 !important;
+  text-decoration: underline;
 }
 
 h2 a:hover {
-	color: #336699 !important;
-	text-decoration: none;
+  color: #336699 !important;
+  text-decoration: none;
 }
 
 h3 {
-	border: none;
-	color: #336699;
-	font-size: 110%;
-	font-weight: bold;
-	margin-top: 0.75em;
+  border: none;
+  color: #336699;
+  font-size: 110%;
+  font-weight: bold;
+  margin-top: 0.75em;
 }
 
 h3 abbr {
@@ -346,67 +346,67 @@ h3 abbr {
 }
 
 h3 a, h4 a, h5 a, h6 a {
-	color: &dtml-linkColor; !important;
-	text-decoration: underline;
+  color: &dtml-linkColor; !important;
+  text-decoration: underline;
 }
 
 .tileHeadline a {
-	text-decoration: underline;
+  text-decoration: underline;
 }
 
 h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover {
-	color: &dtml-linkActiveColor; !important;
-	text-decoration: underline;
+  color: &dtml-linkActiveColor; !important;
+  text-decoration: underline;
 }
 
 h3 a:visited, h4 a:visited, h5 a:visited, h6 a:visited {
-	color: &dtml-linkVisitedColor; !important;
-	text-decoration: underline;
+  color: &dtml-linkVisitedColor; !important;
+  text-decoration: underline;
 }
 
 .hide {
-	display: none;
-	visibility: hidden;
+  display: none;
+  visibility: hidden;
 }
 
 input {
-	border: 1px solid #ccc;
+  border: 1px solid #ccc;
 }
 
 .itemTitle {
-	font-weight: bold;
-	text-transform: uppercase;
+  font-weight: bold;
+  text-transform: uppercase;
 }
 
 .link-external {
-	background: transparent;
-	padding: 0
+  background: transparent;
+  padding: 0
 }
 
 #maincontents {
-	float: left;
-	width: 70%;
+  float: left;
+  width: 70%;
 }
 
 .moreInfo {
-	font-size: 93%;
+  font-size: 93%;
 }
 
 /*
 #nicheOne, #nicheTwo, #nicheThree {
-	float: left;
-	margin: 1% 3% 1% 0%;
-	width: 30%;
+  float: left;
+  margin: 1% 3% 1% 0%;
+  width: 30%;
 }
 */
 
 .specialtyColumn {
-	width: 50%;
+  width: 50%;
 }
 
 ul.list {
-	list-style-type: none;
-	list-style-image: none;
+  list-style-type: none;
+  list-style-image: none;
 }
 
 .documentActions {
@@ -431,11 +431,11 @@ ul.list {
 
 #content #plone-document-byline {
   background-color: #EAEAEA;
-	color: black;
-	font-size: 85%;
-	font-weight: normal;
-	margin: 0;
-	padding: 0.25em;
+  color: black;
+  font-size: 85%;
+  font-weight: normal;
+  margin: 0;
+  padding: 0.25em;
 }
 
 #documentEditable #content a.link-parent {
@@ -445,46 +445,74 @@ ul.list {
 
 
 
+/* ---- IMAGE LISTS ---- */
+ul.imageList {
+  list-style-type: none;
+  list-style-image: none;
+  margin: 0;
+  padding: 0;
+}
+
+ul.imageList li {
+  float: left;
+  height: 200px;
+  margin: 0 5px;
+  width: 200px;
+}
+
+ul.imageList li img {
+  margin: 0;
+}
+
+ul.imageList div.caption {
+  color: #76797C;
+  font-size: 85%;
+  font-weight: normal;
+}
+
+
+
+
 /* ---- TABLES ---- */
 
 table.listing {
-	font-size: 100%;
+  font-size: 100%;
 }
 
 table.listing th, table.data th {
   background-color: #B6D8EA;
-	text-align: left;
+  text-align: left;
 }
 
 table.listing th img {
-	display: none;
+  display: none;
 }
 
 table.listing a:hover {
-	color: &dtml-linkActiveColor;;
+  color: &dtml-linkActiveColor;;
 }
 
 table.listing a {
-	text-decoration: underline;
+  text-decoration: underline;
 }
 
 table tr {
-	vertical-align: top;
+  vertical-align: top;
 }
 
 table.plain {
-	border-collapse: collapse;
+  border-collapse: collapse;
 }
 
 table.plain th {
-	border: 1px solid #666;
-	padding: 0.25em 0.5em;
-	text-align: left;
+  border: 1px solid #666;
+  padding: 0.25em 0.5em;
+  text-align: left;
 }
 
 table.plain td {
-	border: 1px solid #666;
-	padding: 0.25em 0.5em;
+  border: 1px solid #666;
+  padding: 0.25em 0.5em;
 }
 
 .data {
@@ -521,34 +549,34 @@ table.gradProgs tbody tr td {
 }
 
 .portlet {
-	border: 2px solid #336699;
-	font-size: 100%;
+  border: 2px solid #336699;
+  font-size: 100%;
 }
 
 .portletItem {
-	border: none;
-	margin: 0;
-	padding: 0.5em;
+  border: none;
+  margin: 0;
+  padding: 0.5em;
 }
 
 .portletHeader {
-	background-color: &dtml-colorZero;;
-	border: none;
-	color: #fff;
-	padding: 0.25em 1em;
-	text-transform: none;
+  background-color: &dtml-colorZero;;
+  border: none;
+  color: #fff;
+  padding: 0.25em 1em;
+  text-transform: none;
 }
-	
+  
 .portletHeader a:link, .portletHeader a:visited { 
-	color: #fff;
-	display: block;
-	text-decoration: underline;
+  color: #fff;
+  display: block;
+  text-decoration: underline;
 }
 
 .portletAssignments .portletHeader a:link, .portletAssignments .portletHeader a:visited { 
-	color: #00f;
-	display: block;
-	text-decoration: underline;
+  color: #00f;
+  display: block;
+  text-decoration: underline;
 }
 
 .portlet .eventTitle a, .portlet .articleTitle a {
@@ -573,30 +601,47 @@ table.gradProgs tbody tr td {
   margin: 0.25em 0.5em 0.25em 0;
 }
 
+.portlet .person .headshot {
+  float: left;
+}
+
+.portlet .person .personName a {
+  font-size: 110%;
+}
+
+.portlet .person .personDetails {
+  margin-left: 60px;
+  min-height: 70px;
+}
+
+.portletCollection .portletItem {
+  clear: both;
+}
+
 
 
 
 /* --- NAVIGATION PORTLET --- */
 
 .navTreeItem a, dd.portletItem .navTreeItem a {
-	margin: 0.5em 0.2em;
+  margin: 0.5em 0.2em;
 }
 
 .navTreeItem a:hover, 
 dd.portletItem .navTreeItem a:hover {
-	border: &dtml-borderWidth; &dtml-borderStyle; &dtml-globalBackgroundColor;; /* needed to avoid jiggle on hover */
-	color: &dtml-highlightColor;;
-	text-decoration: underline;
+  border: &dtml-borderWidth; &dtml-borderStyle; &dtml-globalBackgroundColor;; /* needed to avoid jiggle on hover */
+  color: &dtml-highlightColor;;
+  text-decoration: underline;
 }
 
 dd.portletItem .navTreeCurrentItem { 
-	border-bottom: none !important; 
-	border-left: 2px &dtml-borderStyle; &dtml-highlightColor; !important; 
-	border-right: none !important; 
-	border-top: none !important; 
-	color: &dtml-highlightColor;;
-	padding-left: 0.35em;
-	text-decoration: none;
+  border-bottom: none !important; 
+  border-left: 2px &dtml-borderStyle; &dtml-highlightColor; !important; 
+  border-right: none !important; 
+  border-top: none !important; 
+  color: &dtml-highlightColor;;
+  padding-left: 0.35em;
+  text-decoration: none;
 }
 
 
@@ -644,8 +689,8 @@ dd.portletItem .navTreeCurrentItem {
 .section-welcome #portlets-above .portlet dt.portletHeader {
   background-color: transparent;
   color: #FF6633;
-	font-size: 170%;
-	font-weight: bold;
+  font-size: 170%;
+  font-weight: bold;
   padding: 0.25em 0.25em;
 }
 
@@ -655,7 +700,7 @@ dd.portletItem .navTreeCurrentItem {
 .section-welcome #portlets-above .portlet dt.portletHeader a:visited {
   background-color: transparent;
   color: #FF6633;
-	text-decoration: none;
+  text-decoration: none;
 }
 
 .section-welcome #portlets-above .portlet dt.portletHeader a:hover {
@@ -686,8 +731,8 @@ dd.portletItem .navTreeCurrentItem {
 /* ----- EVENTS ----- */
 
 .vevent .speakerInstitution {
-	font-size: 80% !important;
-	font-style: italic !important;
+  font-size: 80% !important;
+  font-style: italic !important;
 }
 
 table.eventTable td {
@@ -695,8 +740,8 @@ table.eventTable td {
 }
 
 table.eventTable td.eventDate {
-	font-weight: bold;
-	text-transform: uppercase;
+  font-weight: bold;
+  text-transform: uppercase;
   min-width: 8em;
 }
 
@@ -710,7 +755,7 @@ table.eventTable td .eventTitle .speakerInstitution {
 }
 
 table.eventTable td .talktitle {
-	font-weight: bold;
+  font-weight: bold;
 }
 
 table.eventTable td .eventCanceled {
@@ -758,13 +803,13 @@ table.eventTable td .eventCanceled {
 /* --- FACILITIES --- */
 
 .facility-location-image {
-	float: right;
-	font-size: 0.9em;
-	width: 200px;
+  float: right;
+  font-size: 0.9em;
+  width: 200px;
 }
 
 .facility-location-image img {
-	display: block;
+  display: block;
 }
 
 
@@ -807,8 +852,8 @@ table.eventTable td .eventCanceled {
 }
 
 .hasPhoneNumber {
-	background:transparent url(phone_icon.gif) no-repeat scroll left bottom;
-	padding-left:10px;
+  background:transparent url(phone_icon.gif) no-repeat scroll left bottom;
+  padding-left:10px;
 }
 
 
@@ -818,14 +863,14 @@ table.eventTable td .eventCanceled {
 
 #portal-footer {
   background-color: black;
-	border: none;
-	color: #AAA;
-	float: none;
-	font-weight: normal;
-	line-height: 1.2em;
-	margin: 2em 0em 1em 0em;
-	padding: 0.5em 0em 1em 2em;
-	text-align: left;
+  border: none;
+  color: #AAA;
+  float: none;
+  font-weight: normal;
+  line-height: 1.2em;
+  margin: 2em 0em 1em 0em;
+  padding: 0.5em 0em 1em 2em;
+  text-align: left;
 }
 
 #portal-footer {
@@ -834,7 +879,7 @@ table.eventTable td .eventCanceled {
 
 #siteActions {
   float: right;
-	margin: 2em 0 1em 0;
+  margin: 2em 0 1em 0;
   padding: 0.5em 2em 1em 0;
   text-align: right;
 }
@@ -857,10 +902,10 @@ table.eventTable td .eventCanceled {
 #portal-footer a,
 #portal-footer a:link,
 #portal-footer a:visited {
-	background-color: black;
-	border: none;
-	color: #AAA;
-	text-decoration: underline;
+  background-color: black;
+  border: none;
+  color: #AAA;
+  text-decoration: underline;
 }
 
 #portal-footer a:hover {
@@ -885,11 +930,11 @@ table.eventTable td .eventCanceled {
 #portal-siteactions li a,
 #portal-siteactions li a:link,
 #portal-siteactions li a:visited {
-	background-color: black;
-	border: none;
-	color: #AAA;
-	text-decoration: underline;
-	text-transform: none;
+  background-color: black;
+  border: none;
+  color: #AAA;
+  text-decoration: underline;
+  text-transform: none;
 }
 
 #portal-siteactions li a:hover {
@@ -897,7 +942,7 @@ table.eventTable td .eventCanceled {
   color: black;
 }
 
-	
+  
 
 
 /* ---- FOOTER PORTLETS ---- */
@@ -992,10 +1037,10 @@ table.eventTable td .eventCanceled {
 }
 
 #footer-portlets dd.portletItem .navTreeCurrentItem { 
-	border-bottom: none !important; 
-	border-left: none !important; 
-	border-right: none !important; 
-	border-top: none !important; 
+  border-bottom: none !important; 
+  border-left: none !important; 
+  border-right: none !important; 
+  border-top: none !important; 
 }
 
 
@@ -1015,25 +1060,25 @@ table.eventTable td .eventCanceled {
 /* -- Color 1 (blue) headers, footers, backgrounds and icons -- */
 /*
 #typeOnePortlet .portletHeader {
-	background: &dtml-colorOne;;
-	color: #fff;
+  background: &dtml-colorOne;;
+  color: #fff;
 }
 */
 
 /* -- Color 2 (green) headers, footers, backgrounds and icons -- */
 /*
 #typeTwoPortlet .portletHeader {
-	background: &dtml-colorTwo;;
-	color: #fff;
+  background: &dtml-colorTwo;;
+  color: #fff;
 }
 */
 
 /* -- Color 3 (orange) headers, footers, backgrounds and icons -- */
-/*	
+/*  
 #typeThreePortlet .portletHeader,
 #subspecialtyList .portletHeader {
-	background: &dtml-highlightColor;;
-	color: #fff;
+  background: &dtml-highlightColor;;
+  color: #fff;
 }
 */
 
@@ -1054,8 +1099,8 @@ table.eventTable td .eventCanceled {
   color: black;
   padding: 1em;
 
-	display: none;
-	visiblity: hidden;
+  display: none;
+  visiblity: hidden;
 }
 
 

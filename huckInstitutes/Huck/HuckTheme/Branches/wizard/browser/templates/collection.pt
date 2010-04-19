@@ -6,6 +6,7 @@
     - for links: make the url point to the remote url and not the local object url
     - for events: added description (talk title) and date/time
     - for news items: added description, image, and custom more link
+    - for people: added photo and job title
     - added the portlet id as a CSS ID attribute on the dl tag
     - removed the condition that does not display a link in the header if the
     	 "more" option is not selected
@@ -20,32 +21,32 @@
                 getIcon nocall:plone_view/getIcon;"
     tal:attributes="id view/data/id" >
 
-	<dt class="portletHeader">
+  <dt class="portletHeader">
     <span class="portletTopLeft"></span>
     <a tal:attributes="href collection_url">
       <span tal:content="view/data/header" />
     </a>
     <span class="portletTopRight"></span>
-	</dt>
+  </dt>
 	
-	<tal:items tal:repeat="obj view/results">
-		<dd class="portletItem"
-		    tal:define="oddrow repeat/obj/odd;
-		                item_icon python:getIcon(obj);
-		                item_type python: here.plone_utils.normalizeString(obj.portal_type);
-		                is_event_talk python: 'talkevent' in item_type;
-		                is_event_conference python: 'conference' in item_type;
-		                is_event_training python: 'training' in item_type;
-		                is_event_other python: 'event' in item_type;
-		                is_event python: is_event_talk or is_event_conference or is_event_training or is_event_other;
-		                is_news python: 'news' in item_type;
-		                is_link python: 'link' in item_type;
-		                is_other python: not is_news and not is_event and not is_link;"
-		    tal:attributes="class python:oddrow and 'portletItem even' or 'portletItem odd'">
+  <tal:items tal:repeat="obj view/results">
+    <dd class="portletItem"
+	    tal:define="oddrow repeat/obj/odd;
+	                item_icon python:getIcon(obj);
+	                item_type python: here.plone_utils.normalizeString(obj.portal_type);
+	                is_event_talk python: 'talkevent' in item_type;
+	                is_event_conference python: 'conference' in item_type;
+	                is_event_training python: 'training' in item_type;
+	                is_event_other python: 'event' in item_type;
+	                is_event python: is_event_talk or is_event_conference or is_event_training or is_event_other;
+	                is_news python: 'news' in item_type;
+	                is_link python: 'link' in item_type;
+                  is_person python: 'person' in item_type;
+	                is_other python: not is_news and not is_event and not is_link and not is_person;"
+	    tal:attributes="class python:oddrow and 'portletItem even' or 'portletItem odd'">
 
-
-	    <a tal:condition="is_link"
-	       href="#"
+      <a tal:condition="is_link"
+         href="#"
 	       class="tile"
 	       tal:attributes="href obj/getRemoteUrl;
 	                       title obj/Description">
@@ -132,14 +133,63 @@
                            title obj/Title" >
           &raquo;&nbsp;Full article&hellip;
         </a>
-      </tal:newsitem>	
+      </tal:newsitem>
+	  
+	  
+      <tal:person tal:condition="is_person"
+                  tal:define="personObj python: obj.getObject();">
+
+        <div class="person">
+          <a href="#"
+             class="headshot"
+             tal:define="noPhoto context/no-photo-available.png;
+                         width python: 50;
+                         height python:int(width * (float(noPhoto.height)/float(noPhoto.width)));"
+             tal:attributes="href personObj/absolute_url">
+            <tal:block condition="not: personObj/image_thumb|nothing">
+              <img src="" alt="No photo available for this person"
+                   class="no-photo"
+                   tal:attributes="src noPhoto/absolute_url;
+                                   width width;
+                                   height height;" />
+            </tal:block>
+  
+            <tal:block condition="personObj/image_thumb|nothing">
+              <img src="" alt=""
+                   tal:replace="structure python:personObj.getScaledImageByWidth(width)" />
+            </tal:block>
+          </a>
+
+          <div class="personDetails">
+            <div class="personName">
+              <a tal:attributes="href personObj/absolute_url" 
+                  tal:content="string:${personObj/getLastName}, ${personObj/getFirstName}">
+                 [person's name]
+              </a>
+            </div>
+            <div class="jobTitle contactInfo"
+                 tal:condition="personObj/getJobTitles"
+                 tal:content="python:personObj.getJobTitles()[0]">
+              [job title]
+            </div>
+            <div class="emailAddress">
+              <span tal:condition="personObj/getEmail"
+                    tal:replace="structure python:personObj.spamProtectFSD(personObj.getEmail())" />
+            </div>
+            <div class="hasPhoneNumber"
+                 tal:condition="personObj/getOfficePhone">
+              <span tal:content="personObj/getOfficePhone">[phone number]</span>
+            </div>
+          </div>
+        </div>
+	    </tal:person>	
 	
 	
-	    <a tal:condition="is_other"
-	       href="#"
-	       class="tile"
-	       tal:attributes="href obj/getURL;
-	                       title obj/Description">
+  	  <a tal:condition="is_other"
+  	     href="#"
+  	     class="tile"
+  	     tal:attributes="href obj/getURL;
+  	                     title obj/Description">
         <img tal:replace="structure item_icon/html_tag" />
         <span tal:replace="obj/pretty_title_or_id">
           [title]
@@ -149,17 +199,17 @@
               tal:content="python:toLocalizedTime(obj.Date)">
           [effective date]
         </span>
-	    </a>
-		</dd>
-	</tal:items>
+  	  </a>
+    </dd>
+  </tal:items>
 	
-	<dd class="portletFooter" tal:condition="view/data/show_more">
+  <dd class="portletFooter" tal:condition="view/data/show_more">
     <span class="portletBottomLeft"></span>
     <span>
-	    <a tal:attributes="href collection_url" i18n:translate="more_url">
+	  <a tal:attributes="href collection_url" i18n:translate="more_url">
         More&hellip;
       </a>
     </span>
     <span class="portletBottomRight"></span>
-	</dd>
+  </dd>
 </dl>

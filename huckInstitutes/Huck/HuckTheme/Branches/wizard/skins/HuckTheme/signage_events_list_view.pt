@@ -2,7 +2,7 @@
       lang="en"
       i18n:domain="plone">
 
-	<metal:block use-macro="here/global_defines/macros/defines" />
+  <metal:block use-macro="here/global_defines/macros/defines" />
 
 <tal:comment tal:replace="nothing">
   Created by: Paul Rentschler
@@ -22,6 +22,7 @@
     
     <style>
       body {
+        background-color: white;
         font-family: Arial, Helvetica, Verdana, San-serif;
         margin: 0;
         padding: 0;
@@ -33,7 +34,7 @@
       }
       
       #screenCaptureBox {
-        background: url('signage-building-footer.jpg') bottom left no-repeat;
+        background: url('signage-building-footer.gif') bottom left no-repeat;
         height: 1360px;
         width: 768px;
       }
@@ -80,69 +81,69 @@
     </style>
   </head>
 
-	<body>
- 		<div id="screenCaptureBox">
- 		  <h1>Upcoming Events in Berg Auditorium</h1>
- 		
- 			<tal:topiccontents define="topicContents python:here.queryCatalog(batch=True);
+  <body>
+    <div id="screenCaptureBox">
+      <h1>Upcoming Events in Berg Auditorium</h1>
+    
+      <tal:topiccontents define="topicContents python:here.queryCatalog(batch=True);
                                  batch topicContents">
-        	
-				<tal:listing condition="topicContents">	
-      	
-	        <tal:brain tal:repeat="event topicContents">
-	          <div class="signageEvent"
-	               tal:define="url event/getURL;
-	                           whatisthis event/portal_type;
-	                           isTalk python:whatisthis=='TalkEvent';
-	                           title_or_id event/pretty_title_or_id;
-	                           obj python:event.getObject();
-	                           starts obj/start;
-	                           ends obj/end;
-	                           startDay python:toLocalizedTime(starts, long_format=0);
-	                           endDay python:toLocalizedTime(ends, long_format=0);" >
-	          
-					    <tal:cancelled tal:condition="not: obj/eventCanceled">
-					    
-					      <h1>
-					        <a href="#"
-					           tal:attributes="href url"
-					           tal:content="title_or_id">
-					          [speaker / event title]</a>
-					      </h1>
-	              <tal:institution tal:condition="obj/speakerInstitution">
-						      <h2 tal:content="obj/speakerInstitution">[speaker's institution]</h2>
-	              </tal:institution>
-	              <h3 class="eventDate">
-									<tal:sameday tal:condition="python:startDay==endDay">
-										<span tal:replace="python:toLocalizedTime(starts, long_format=1)">[When it starts]</span>									
-									</tal:sameday>
-									<tal:differentday tal:condition="python:startDay!=endDay">
-										<span tal:replace="startDay">[Day the event starts]</span> &#8212; <span tal:replace="endDay">[Day the event ends]</span>
-									</tal:differentday>
-	              </h3>
-	              <div class="eventDesc"
+          
+        <tal:listing condition="topicContents"> 
+        
+          <tal:brain tal:repeat="event topicContents">
+            <div class="signageEvent"
+                 tal:define="url event/getURL;
+                             whatisthis event/portal_type;
+                             isTalk python:whatisthis=='TalkEvent';
+                             title_or_id event/pretty_title_or_id;
+                             obj python:event.getObject();
+                             starts obj/start;
+                             ends obj/end;
+                             startDay python:toLocalizedTime(starts, long_format=0);
+                             endDay python:toLocalizedTime(ends, long_format=0);" >
+            
+              <tal:cancelled tal:condition="not: obj/eventCanceled">
+              
+                <h1>
+                  <a href="#"
+                     tal:attributes="href url"
+                     tal:content="title_or_id">
+                    [speaker / event title]</a>
+                </h1>
+                <tal:institution tal:condition="obj/speakerInstitution">
+                  <h2 tal:content="obj/speakerInstitution">[speaker's institution]</h2>
+                </tal:institution>
+                <h3 class="eventDate">
+                  <tal:sameday tal:condition="python:startDay==endDay">
+                    <span tal:replace="python:toLocalizedTime(starts, long_format=1)">[When it starts]</span>                 
+                  </tal:sameday>
+                  <tal:differentday tal:condition="python:startDay!=endDay">
+                    <span tal:replace="startDay">[Day the event starts]</span> &#8212; <span tal:replace="endDay">[Day the event ends]</span>
+                  </tal:differentday>
+                </h3>
+                <div class="eventDesc"
                      tal:define="desc obj/Description;
-			                           noTitle python:'o be announced' in desc">
-									<span tal:condition="not: noTitle"
-									      tal:replace="desc">
-										[talk title]
-									</span>
-	              </div>
+                                 noTitle python:'o be announced' in desc">
+                  <span tal:condition="not: noTitle"
+                        tal:replace="desc">
+                    [talk title]
+                  </span>
+                </div>
 
-	            </tal:cancelled>
-	          </div>
-	        </tal:brain>
-	      </tal:listing>
-	    </tal:topiccontents>
-	  </div>
-      	
-		<p class="discreet"
-		   tal:condition="not: here/listCriteria"
-		   i18n:domain="atcontenttypes"
-		   i18n:translate="description_no_criteria_in_topic">
-			There are currently no criteria on which to search.
-			Please add them using the 'criteria' tab.
-		</p>
+              </tal:cancelled>
+            </div>
+          </tal:brain>
+        </tal:listing>
+      </tal:topiccontents>
+    </div>
+        
+    <p class="discreet"
+       tal:condition="not: here/listCriteria"
+       i18n:domain="atcontenttypes"
+       i18n:translate="description_no_criteria_in_topic">
+      There are currently no criteria on which to search.
+      Please add them using the 'criteria' tab.
+    </p>
 
-	</body>
+  </body>
 </html>
