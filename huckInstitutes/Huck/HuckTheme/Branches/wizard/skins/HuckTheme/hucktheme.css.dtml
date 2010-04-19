@@ -793,6 +793,7 @@ table.eventTable td .eventCanceled {
 
 #meetTheSpeaker {
   background-color: #DEE7EC;
+  clear: both;
   margin-top: 2em;
   padding: 1px 10px;
 }

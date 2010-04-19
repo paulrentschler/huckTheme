@@ -219,7 +219,7 @@
 								     id="parent-fieldname-contactEmail" />
 								</span>
 							</span>
-							<span tal:condition="python: here.contact_email and here.contact_phone"> or </span>
+							<span tal:condition="python: here.contact_email() != '' and here.contact_phone() != ''"> or </span>
 							<span tal:condition="here/contact_phone">
 	              <span class="tel" tal:content="here/contactPhone">[Phone Number]</span>
               </span>
