@@ -47,16 +47,6 @@
             <span class="honorific-suffix" tal:content="context/getSuffix">[ suffix i.e. Dr]</span>
           </h1>
           <ul class="jobTitle">
-            <li tal:condition="isStudent">
-              <tal:gradProgName tal:repeat="specialtyTuple context/getSpecialties">
-                <span tal:define="specialty python: specialtyTuple[0];
-                                  specialtyName specialty/Title;"
-                      tal:content="specialtyName">
-                  [name of graduate program]
-                </span>
-              </tal:gradProgName>
-              Graduate Student
-            </li>
             <li class="title" tal:condition="context/getJobTitles" 
                               tal:repeat="jobTitle context/getJobTitles"
                               tal:content="jobTitle">

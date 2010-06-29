@@ -40,7 +40,8 @@
                                        people python: peopleByEffective.sort(lambda x,y: cmp(y.effective(), x.effective()));
                                        people peopleByEffective;"
                            tal:condition="people">
-                           
+                  
+                    
                   <tal:block__classification_header tal:condition="classificationExists">
                     <tr tal:condition="python: not inTechFacPeople and not inAdminPeople">
 	                    <th colspan="3" class="classification">
