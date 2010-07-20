@@ -17,7 +17,7 @@ function getEventDate(dateType)
 
         // grab all the fields for the date
         year = jq("#edit_form_" + dateType + "_year").val();
-        month = jq("#edit_form_" + dateType + "_month").val();
+        month = jq("#edit_form_" + dateType + "_month").val() - 1;
         day = jq("#edit_form_" + dateType + "_day").val();
         hour = jq("#edit_form_" + dateType + "_hour").val();
         minute = jq("#edit_form_" + dateType + "_minute").val();
@@ -27,7 +27,7 @@ function getEventDate(dateType)
         if (hour == 12 && ampm == "AM") {
             hour = 0;
         } else if (hour < 12 && ampm == "PM") {
-            hour = parseInt(hour) + 12;
+            hour = parseInt(hour, 10) + 12;
         }
 
         // convert the date fields to a javascript date object and return it
@@ -53,7 +53,7 @@ function setEventDate(dateType, dateObj)
     if (dateType != "") {
         // set the fields
         jq("#edit_form_" + dateType + "_year").val( dateObj.getFullYear() );
-        jq("#edit_form_" + dateType + "_month").val( formatNumberForSelectBox(dateObj.getMonth()) );
+        jq("#edit_form_" + dateType + "_month").val( formatNumberForSelectBox(dateObj.getMonth() + 1) );
         jq("#edit_form_" + dateType + "_day").val( formatNumberForSelectBox(dateObj.getDate()) );
         jq("#edit_form_" + dateType + "_minute").val( formatNumberForSelectBox(dateObj.getMinutes()) );
 
@@ -138,7 +138,6 @@ jq(document).ready(
             // set the end date to be one hour from now
             eventOriginalEndDate.setTime(eventStartDate.getTime() + (60*60*1000));
             setEventDate("endDate", eventOriginalEndDate);
-
 
             // assign change events for all the start date fields
             jq("#edit_form_startDate_0_year").change( function () { onStartDateChange(); } );
