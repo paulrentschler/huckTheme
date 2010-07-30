@@ -836,6 +836,28 @@ table.eventTable td .eventCanceled {
   margin: 5em 0 0 0;
 }
 
+.facultyStaffDirectory.personView #administrativeInformation {
+  margin-top: 5em;
+}
+
+.facultyStaffDirectory.personView #administrativeInformation h3 {
+  color: #FF6633;
+}
+
+.facultyStaffDirectory.personView #administrativeInformation .labs dl {
+  margin: 0 0 0 1em;
+}
+
+.facultyStaffDirectory.personView #administrativeInformation .defList dd {
+  font-size: 0.85em;
+  line-height: 1em;
+  margin: 0 0 2em 0.25em;
+}
+
+.facultyStaffDirectory.personView #administrativeInformation .defList dd p {
+  margin: 0;
+}
+
 .facultyStaffDirectory .standardView ul.jobTitle li {
   font-style: italic;
 }
