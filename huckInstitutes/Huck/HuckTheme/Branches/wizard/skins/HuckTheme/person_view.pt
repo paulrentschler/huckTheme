@@ -148,32 +148,32 @@
         </div>
 
         <div class="advisors"
-             tal:define="advisors python:context.getReferences(relationship='people_advisors');
-                         mtool python:context.portal_membership"
-             tal:condition="python: advisors and mtool.checkPermission('Add portal content', here)">
+             tal:define="advisors python:context.getReferences(relationship='people_advisors')"
+             tal:condition="python: showExpired and advisors">
           <h2>Faculty advisors</h2> 
-          <ul tal:repeat="advisor advisors">
-            <li tal:define="url advisor/absolute_url;
-                            name advisor/Title">
-              <a tal:attributes="href url"
+          <ul>
+            <li tal:repeat="advisor advisors">
+              <a tal:define="url advisor/absolute_url;
+                             name advisor/Title"
+                 tal:attributes="href url"
                  tal:content="name">[Advisor's Full Name]</a>
             </li>
           </ul>
         </div>
 
         <div class="advisees"
-             tal:define="advisees python:context.getReferences(relationship='advisors_people');
-                         mtool python:context.portal_membership"
-             tal:condition="python: advisees and mtool.checkPermission('Add portal content', here)">
-          <h2 tal:define="myName context/Title">
+             tal:define="advisees python:context.getReferences(relationship='advisors_people')"
+             tal:condition="python: showExpired and advisees">
+          <h2>
             <span>
               Students I advise
             </span>
           </h2> 
-          <ul tal:repeat="advisee advisees">
-            <li tal:define="url advisee/absolute_url;
-                            name advisee/Title">
-              <a tal:attributes="href url"
+          <ul>
+            <li tal:repeat="advisee advisees">
+              <a tal:define="url advisee/absolute_url;
+                             name advisee/Title"
+                 tal:attributes="href url"
                  tal:content="name">Advisee's Full Name</a>
             </li>
           </ul>
