@@ -149,7 +149,11 @@
                                       <tal:nickname tal:condition="person/nickName">
                                         "<span tal:replace="person/nickName">[person's nickname]</span>"
                                       </tal:nickname>
-           													</a>
+                                    </a>
+                                    <tal:expired tal:condition="python: person.contentExpired()">
+                                      &mdash;
+                                      <span class="state-expired">expired</span>
+                                    </tal:expired>
             												
             												<ul tal:condition="person/getJobTitles" class="jobTitle contactInfo">
             													<li tal:repeat="jobTitle person/getJobTitles">
@@ -185,21 +189,18 @@
                                   
             												<tal:incontactus tal:condition="python: inContactUs and inEducation">
             													<tal:adminstaff tal:condition="isGradAdmin">												
-                                        <span tal:condition="nocall:specialtyObj"
-                                              tal:replace="structure python:specialtyObj.getSpecialtyInformation(person).getResearchTopic()">
-                                          [summary of research or responsibilities]
-                                        </span>
             													</tal:adminstaff>
             												</tal:incontactus>
             												<tal:notincontactus tal:condition="python: not(inContactUs and inEducation)">
-                                      <span tal:condition="nocall:specialtyObj"
-                                            tal:replace="structure python:specialtyObj.getSpecialtyInformation(person).getResearchTopic()">
-                                        [summary of research or responsibilities]
-                                      </span>
             												</tal:notincontactus>
+                                    <span tal:condition="nocall:specialtyObj"
+                                          tal:replace="structure python:specialtyObj.getSpecialtyInformation(person).getResearchTopic()">
+                                      [summary of research or responsibilities]
+                                    </span>
             												
                                     <dl tal:define="advisors python:person.getReferences(relationship='people_advisors')"
-                                        tal:condition="advisors" class="advisors contactInfo">
+                                        tal:condition="python: advisors and not inContactUs"
+                                        class="advisors contactInfo">
                                       <dt>
                                         <tal:solo tal:condition="python: len(advisors) == 1">Advisor:</tal:solo>
                                         <tal:multiple tal:condition="python: len(advisors) > 1">Advisors:</tal:multiple>
