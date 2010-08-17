@@ -1,13 +1,16 @@
 <configure xmlns="http://namespaces.zope.org/zope"
            xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+           xmlns:cmf="http://namespaces.zope.org/cmf"
            i18n_domain="Products.HuckTheme">
 
+    <include package=".browser" />
     <genericsetup:registerProfile
         name="default"
         title="HuckTheme"
         directory="profiles/default"
         description="A Plone Theme for the Huck Institutes"
-        provides="Products.GenericSetup.interfaces.EXTENSION"
-    />
+        provides="Products.GenericSetup.interfaces.EXTENSION" />
 
+    <cmf:registerDirectory name="HuckTheme"/>
+    
 </configure>
