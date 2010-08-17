@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!-- Setup configuration of the viewlet managers for the "HuckTheme" skin -->
+
+<object>
+  <!-- HIDE THE DEFAULT PLONE VIEWLETS WE DON'T WANT -->
+  
+  <hidden manager="plone.portaltop" skinname="HuckTheme">
+    <viewlet name="plone.path_bar" />
+    <viewlet name="plone.app.i18n.locales.languageselector" />
+  </hidden>
+
+  <hidden manager="plone.portalheader" skinname="HuckTheme">
+    <viewlet name="plone.logo" />
+    <viewlet name="plone.site_actions" />
+    <viewlet name="plone.searchbox" />
+  </hidden>
+  
+  <hidden manager="plone.belowcontentbody" skinname="HuckTheme">
+    <viewlet name="plone.abovecontenttitle.documentactions" />
+  </hidden>
+  
+  <hidden manager="plone.portalfooter" skinname="HuckTheme">
+    <viewlet name="plone.footer" />
+    <viewlet name="plone.colophon" />
+  </hidden>
+
+
+
+  <!-- INSERT OUR OWN VIEWLETS AND ORDER THEM APPROPRIATELY -->
+  <order manager="plone.portaltop" skinname="HuckTheme">
+    <viewlet name="plone.header" />
+    <viewlet name="HuckTheme.personal_bar" />
+  </order>
+
+  <order manager="plone.portalheader" skinname="HuckTheme">
+    <viewlet name="HuckTheme.psulogo" />
+    <viewlet name="plone.global_sections" />
+    <viewlet name="HuckTheme.logo" />
+    <viewlet name="HuckTheme.searchbox" />
+  </order>
+
+  <order manager="plone.portalfooter" skinname="HuckTheme">
+    <viewlet name="HuckTheme.weblion" insert-before="plone.analytics" />
+    <viewlet name="HuckTheme.footer" insert-before="HuckTheme.weblion" />
+    <viewlet name="HuckTheme.site_actions" insert-before="HuckTheme.footer" />
+  </order>
+ 
+</object>
