@@ -1,0 +1,44 @@
+Changelog
+=========
+
+HuckTheme 1.0 (Unreleased)
+-------------------------------------
+* Generated skeleton product from DIYPloneStyle 3.0.
+* Author: Catherine Williams
+
+
+HuckTheme 1.1 (Unreleased)
+-------------------------------------
+* Name changed from hucktheme08 to HuckTheme
+* Finished theme product for Plone 3.x that looks like
+   the theme used for the Plone 2.5 site
+* New author: Paul Rentschler
+
+
+HuckTheme 2.0 (29 November 2009)
+-------------------------------------
+* Release name: wizard
+* Theme product for Plone 3.x
+* The look is based on the 1.1 theme for the content areas
+   but changes the header and footer to provide better
+   navigation and branding for each unit.
+
+
+HuckTheme 3.0 (Unreleased)
+-------------------------------------
+* Release name: fadeToBlue
+* Theme product converted to an egg using the Product from
+   Scratch documentation:
+   http://weblion.psu.edu/documentation/plone-documentation/products-from-scratch
+* New look to the site using faded blue images in the header
+   and footer along with some significant rearranging of the
+   header and global navigation
+* Unit branding created in the 2.0 version is preserved, but
+   moved to a different, more suitable area
+* This release combines a lot of other improvements to 
+   FSD Person objects and their associated views
+* This release coincides with a drastic re-architecting
+   of the institutes and centers into a "research" category
+   and the introduction of Products.HuckEntities to provide
+   custom content types to represent Institutes, Centers,
+   Graduate Programs, Facilities, and Equipment
