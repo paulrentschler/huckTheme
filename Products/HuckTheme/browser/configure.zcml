@@ -18,17 +18,59 @@
       />
 
 
-  <!-- Viewlets registration -->
-  
-  <!-- StartingPoint Footer -->
-  <!--
-  <browser:viewlet
-     name="Products.StartingPoint.footer"
-     manager="plone.app.layout.viewlets.interfaces.IPortalFooter"
-     layer=".interfaces.IThemeSpecific"
-     template="templates/footer.pt"
-     permission="zope2.View"
-   />
-   -->
+  <!-- VIEWLETS --> 
+    <!-- The customized logo -->
+      <browser:viewlet
+          name="HuckTheme.logo"
+          manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
+          class=".viewlets.LogoViewlet"
+          layer=".interfaces.IThemeSpecific"
+          permission="zope2.View"
+          />
+
+    <!-- The PSU logo -->
+      <browser:viewlet
+          name="HuckTheme.psulogo"
+          manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
+          layer=".interfaces.IThemeSpecific"
+          template="templates/psulogo.pt"
+          permission="zope2.View"
+          />
+
+    <!-- The customized searchbox -->
+      <browser:viewlet
+          name="HuckTheme.searchbox"
+          manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
+          layer=".interfaces.IThemeSpecific"
+          template="templates/searchbox.pt"
+          permission="zope2.View"
+          />
+
+    <!-- The customized footer -->
+      <browser:viewlet
+          name="HuckTheme.footer"
+          manager="plone.app.layout.viewlets.interfaces.IPortalFooter"
+          layer=".interfaces.IThemeSpecific"
+          template="templates/footer.pt"
+          permission="zope2.View"
+          />
+
+    <!-- The WebLion logo -->
+      <browser:viewlet
+          name="HuckTheme.weblion"
+          manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
+          layer=".interfaces.IThemeSpecific"
+          template="templates/weblion.pt"
+          permission="zope2.View"
+          />
+
+    <!-- Move site actions  --> 
+      <browser:viewlet
+          name="HuckTheme.site_actions"
+          manager="plone.app.layout.viewlets.interfaces.IPortalFooter"
+          layer=".interfaces.IThemeSpecific"
+          template="templates/site_actions.pt"
+          permission="zope2.View"
+          />
 
 </configure>
