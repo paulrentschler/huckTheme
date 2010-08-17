@@ -1,0 +1,34 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    i18n_domain="Products.HuckTheme">
+
+  <!-- HuckTheme Zope 3 browser layer -->
+  <interface
+      interface=".interfaces.IThemeSpecific"
+      type="zope.publisher.interfaces.browser.IBrowserSkinType"
+      name="HuckTheme"
+      />
+
+  <!-- Resource directory for templates -->
+  <browser:resourceDirectory
+      name="Products.HuckTheme.templates"
+      directory="templates"
+      layer=".interfaces.IThemeSpecific"
+      />
+
+
+  <!-- Viewlets registration -->
+  
+  <!-- StartingPoint Footer -->
+  <!--
+  <browser:viewlet
+     name="Products.StartingPoint.footer"
+     manager="plone.app.layout.viewlets.interfaces.IPortalFooter"
+     layer=".interfaces.IThemeSpecific"
+     template="templates/footer.pt"
+     permission="zope2.View"
+   />
+   -->
+
+</configure>
