@@ -34,14 +34,14 @@
 
   <!-- INSERT OUR OWN VIEWLETS AND ORDER THEM APPROPRIATELY -->
   <order manager="plone.portaltop" skinname="HuckTheme">
+    <viewlet name="Products.HuckTheme.psulogo" />
     <viewlet name="plone.header" />
+    <viewlet name="Products.HuckTheme.searchbox" />
   </order>
 
   <order manager="plone.portalheader" skinname="HuckTheme">
-    <viewlet name="Products.HuckTheme.psulogo" />
     <viewlet name="plone.global_sections" />
     <viewlet name="Products.HuckTheme.logo" />
-    <viewlet name="Products.HuckTheme.searchbox" />
   </order>
 
   <order manager="plone.contentviews" skinname="HuckTheme">

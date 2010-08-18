@@ -19,19 +19,10 @@
 
 
   <!-- VIEWLETS --> 
-    <!-- The customized logo -->
-      <browser:viewlet
-          name="Products.HuckTheme.logo"
-          manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
-          class=".viewlets.LogoViewlet"
-          layer=".interfaces.IThemeSpecific"
-          permission="zope2.View"
-          />
-
     <!-- The PSU logo -->
       <browser:viewlet
           name="Products.HuckTheme.psulogo"
-          manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
+          manager="plone.app.layout.viewlets.interfaces.IPortalTop"
           layer=".interfaces.IThemeSpecific"
           template="templates/psulogo.pt"
           permission="zope2.View"
@@ -40,8 +31,17 @@
     <!-- The customized searchbox -->
       <browser:viewlet
           name="Products.HuckTheme.searchbox"
-          manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
+          manager="plone.app.layout.viewlets.interfaces.IPortalTop"
           class=".viewlets.SearchBoxViewlet"
+          layer=".interfaces.IThemeSpecific"
+          permission="zope2.View"
+          />
+
+    <!-- The customized logo -->
+      <browser:viewlet
+          name="Products.HuckTheme.logo"
+          manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
+          class=".viewlets.LogoViewlet"
           layer=".interfaces.IThemeSpecific"
           permission="zope2.View"
           />
