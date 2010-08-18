@@ -16,7 +16,8 @@
         title="HuckTheme"
         directory="profiles/uninstall"
         description="A Plone Theme for the Huck Institutes"
-        provides="Products.GenericSetup.interfaces.EXTENSION" />
+        provides="Products.GenericSetup.interfaces.EXTENSION"
+        for="Products.CMFPlone.interfaces.IPloneSiteRoot" />
 
     <cmf:registerDirectory name="HuckTheme"/>
     

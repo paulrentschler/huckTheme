@@ -29,20 +29,20 @@
   <!-- INSERT OUR OWN VIEWLETS AND ORDER THEM APPROPRIATELY -->
   <order manager="plone.portaltop" skinname="HuckTheme">
     <viewlet name="plone.header" />
-    <viewlet name="HuckTheme.personal_bar" />
+    <viewlet name="Products.HuckTheme.personal_bar" insert-before="plone.path_bar" />
   </order>
 
   <order manager="plone.portalheader" skinname="HuckTheme">
-    <viewlet name="HuckTheme.psulogo" />
+    <viewlet name="Products.HuckTheme.psulogo" />
     <viewlet name="plone.global_sections" />
-    <viewlet name="HuckTheme.logo" />
-    <viewlet name="HuckTheme.searchbox" />
+    <viewlet name="Products.HuckTheme.logo" />
+    <viewlet name="Products.HuckTheme.searchbox" />
   </order>
 
   <order manager="plone.portalfooter" skinname="HuckTheme">
-    <viewlet name="HuckTheme.weblion" insert-before="plone.analytics" />
-    <viewlet name="HuckTheme.footer" insert-before="HuckTheme.weblion" />
-    <viewlet name="HuckTheme.site_actions" insert-before="HuckTheme.footer" />
+    <viewlet name="Products.HuckTheme.weblion" insert-before="plone.analytics" />
+    <viewlet name="Products.HuckTheme.footer" insert-before="Products.HuckTheme.weblion" />
+    <viewlet name="Products.HuckTheme.site_actions" insert-before="Products.HuckTheme.footer" />
   </order>
  
 </object>
