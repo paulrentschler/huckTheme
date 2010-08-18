@@ -55,6 +55,15 @@
           permission="zope2.View"
           />
 
+    <!-- The customized document byline -->
+      <browser:viewlet
+          name="Products.HuckTheme.document_byline"
+          manager="plone.app.layout.viewlets.interfaces.IContentViews"
+          class=".viewlets.DocumentBylineViewlet"
+          layer=".interfaces.IThemeSpecific"
+          permission="zope2.View"
+          />
+
     <!-- The customized footer -->
       <browser:viewlet
           name="Products.HuckTheme.footer"
