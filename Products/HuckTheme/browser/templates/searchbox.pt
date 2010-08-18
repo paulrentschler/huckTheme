@@ -1,3 +1,5 @@
+<div class="visualClear"><!-- --></div>
+
 <div id="portal-searchbox" i18n:domain="plone">
   
   <div id="portal-advanced-search">
@@ -27,7 +29,7 @@
         action="search"
         tal:attributes="action string:${view/navigation_root_url}/search">
         
-    <label for="searchGadget" class="hiddenStructure"
+    <label for="searchGadget" class=""
            i18n:translate="text_search">Search:</label>
            
     <div class="LSBox">

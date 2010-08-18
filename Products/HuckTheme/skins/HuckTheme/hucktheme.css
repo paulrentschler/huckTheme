@@ -118,16 +118,28 @@
 /* ----------------------- SEARCH ------------------------- */
 /* -------------------------------------------------------- */
 
-/*
   #portal-searchbox {
+    clear: none;
+    float: none;
     height: 30px;
-    padding-top: 3px;
-    padding-right: 10px;
+    margin: 0;
+    padding: 5px 5px 0 0;
     text-align: right;
   }
 
   #portal-searchbox a {
     color: black;
+    text-decoration: underline;
+  }
+  
+  #portal-searchbox .LSBox {
+    clear: none;
+    float: none;
+    padding: 0;
+  }
+  
+  #portal-searchbox label {
+    font-weight: normal;
   }
 
   #portal-searchbox form,
@@ -137,7 +149,6 @@
   #portal-searchbox div#portal-advanced-search {
     display: inline;
   }
-*/
 
 
 
@@ -193,7 +204,7 @@
 
     #portal-logo {
       float: right;
-      margin: 15px 15px 5px 0;
+      margin: 15px 15px 6px 0;
     }
     
     #portal-logo img {
