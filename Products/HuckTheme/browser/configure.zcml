@@ -21,7 +21,7 @@
   <!-- VIEWLETS --> 
     <!-- The customized logo -->
       <browser:viewlet
-          name="HuckTheme.logo"
+          name="Products.HuckTheme.logo"
           manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
           class=".viewlets.LogoViewlet"
           layer=".interfaces.IThemeSpecific"
@@ -30,7 +30,7 @@
 
     <!-- The PSU logo -->
       <browser:viewlet
-          name="HuckTheme.psulogo"
+          name="Products.HuckTheme.psulogo"
           manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
           layer=".interfaces.IThemeSpecific"
           template="templates/psulogo.pt"
@@ -39,16 +39,16 @@
 
     <!-- The customized searchbox -->
       <browser:viewlet
-          name="HuckTheme.searchbox"
+          name="Products.HuckTheme.searchbox"
           manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
+          class=".viewlets.SearchBoxViewlet"
           layer=".interfaces.IThemeSpecific"
-          template="templates/searchbox.pt"
           permission="zope2.View"
           />
 
     <!-- The customized footer -->
       <browser:viewlet
-          name="HuckTheme.footer"
+          name="Products.HuckTheme.footer"
           manager="plone.app.layout.viewlets.interfaces.IPortalFooter"
           layer=".interfaces.IThemeSpecific"
           template="templates/footer.pt"
@@ -57,7 +57,7 @@
 
     <!-- The WebLion logo -->
       <browser:viewlet
-          name="HuckTheme.weblion"
+          name="Products.HuckTheme.weblion"
           manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
           layer=".interfaces.IThemeSpecific"
           template="templates/weblion.pt"
@@ -66,10 +66,10 @@
 
     <!-- Move site actions  --> 
       <browser:viewlet
-          name="HuckTheme.site_actions"
+          name="Products.HuckTheme.site_actions"
           manager="plone.app.layout.viewlets.interfaces.IPortalFooter"
+          class=".viewlets.SiteActionsViewlet"
           layer=".interfaces.IThemeSpecific"
-          template="templates/site_actions.pt"
           permission="zope2.View"
           />
 
