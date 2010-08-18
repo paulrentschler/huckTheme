@@ -11,17 +11,34 @@
 
 
 
+
+
+
 /* -------------------------------------------------------- */
 /* ----------------------- LAYOUT ------------------------- */
 /* -------------------------------------------------------- */
 
-  #visual-portal-wrapper,
+  #visual-header-wrapper,
+  table#portal-columns,
   #visual-footer-wrapper {
     margin: 0 auto;
-    width: 980px;
+    width: 980px !important;
   }
 
   /* ----- HEADER ----- */
+    #portal-top {
+      background: url(header-bg.png) 0 -24px repeat-x;
+    }
+
+/*
+    #portal-header {
+      background-color: #336699;
+      float: right;
+      margin: 0;
+      padding: 0;
+      width: 602px;
+    }
+*/
 
   /* ----- FOOTER ----- */
 
@@ -45,6 +62,46 @@
 /* --------------------- GLOBAL NAV ----------------------- */
 /* -------------------------------------------------------- */
 
+/*
+  #portal-globalnav {
+    line-height: normal;
+    list-style: none outside none;
+    margin: 0;
+    padding: 0;
+    white-space:normal;
+  }
+
+  #portal-globalnav li {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+  }
+
+  #portal-globalnav li a {
+    background-color: #CFE4EF;
+    border-color: #336699;
+    border-style: solid;
+    border-width: 0 1px 1px 1px;
+    color: black;
+    display: block;
+    float: left;
+    font-size: 10px;
+    font-weight: normal;
+    margin: 0;
+    padding: 22px 2px 2px 2px;
+    text-decoration: none;
+    vertical-align: bottom;
+    width: 80px;
+  }
+
+  #portal-globalnav li.selected a {
+    background-color: #336699;
+    color: white;
+  }
+*/
+
+
+
 /* -------------------------------------------------------- */
 /* -------------------- PERSONAL BAR ---------------------- */
 /* -------------------------------------------------------- */
@@ -54,7 +111,26 @@
 /* ----------------------- SEARCH ------------------------- */
 /* -------------------------------------------------------- */
 
+/*
+  #portal-searchbox {
+    height: 30px;
+    padding-top: 3px;
+    padding-right: 10px;
+    text-align: right;
+  }
 
+  #portal-searchbox a {
+    color: black;
+  }
+
+  #portal-searchbox form,
+  #portal-searchbox label, 
+  #portal-searchbox div.LSBox,
+  #portal-searchbox div.LSBox input,
+  #portal-searchbox div#portal-advanced-search {
+    display: inline;
+  }
+*/
 
 
 
@@ -101,9 +177,19 @@
 
 
 
-/* -------------------------------------------------------- */
-/* ------------------------ LOGOS ------------------------- */
-/* -------------------------------------------------------- */
+  /* ----- LOGOS ----- */
+/*
+    #psu-logo {
+      position: relative;
+      top: 0px;
+      left: 0px;
+    }
+
+    #portal-logo {
+      float: right;
+      margin: 15px 15px 5px 0;
+    }
+*/
 
 
 
