@@ -46,6 +46,15 @@
           permission="zope2.View"
           />
 
+    <!-- The customized personalbar -->
+      <browser:viewlet
+          name="Products.HuckTheme.personal_bar"
+          manager="plone.app.layout.viewlets.interfaces.IContentViews"
+          class=".viewlets.PersonalBarViewlet"
+          layer=".interfaces.IThemeSpecific"
+          permission="zope2.View"
+          />
+
     <!-- The customized footer -->
       <browser:viewlet
           name="Products.HuckTheme.footer"
