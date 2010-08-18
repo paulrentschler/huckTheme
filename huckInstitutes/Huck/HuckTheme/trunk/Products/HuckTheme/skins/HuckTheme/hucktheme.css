@@ -42,6 +42,7 @@
     }
 
 
+
   /* ----- FOOTER ----- */
     #footer {
       background: url("footer-bg.png") repeat-x scroll left top #336699;
@@ -117,6 +118,7 @@
       color: black;
       text-decoration: underline;
     }
+
 
 
 
@@ -221,9 +223,14 @@
     }
 
 
+
   /* ----- CONTENT WELL PORTLETS ----- */
 
+
+
   /* ----- CONTENT WELL PORTLETS (HOME PAGE) ----- */
+
+
 
   /* ----- FOOTER PORTLETS ----- */
     #footer-portlets {
@@ -311,9 +318,57 @@
 
 
 
+
 /* -------------------------------------------------------- */
 /* -------------------- PERSONAL BAR ---------------------- */
 /* -------------------------------------------------------- */
+
+  #portal-personaltools {
+    background-color: transparent;
+    border: 0 none;
+    float: right;
+    margin-right: -28px;
+    margin-top: -9px;
+  }
+
+  #portal-personaltools li {
+    display: list-item;
+    float: right;
+  }
+
+  #portal-personaltools li a {
+    color: #666666;
+  }
+
+  #portal-personaltools li a:hover {
+    text-decoration: underline;
+  }
+
+  #portal-personaltools .contentActions a {
+  }
+
+  #portal-personaltools .actionMenu .actionMenuContent li {
+    display: inline;
+    float: none;
+  	text-align: left;
+  }
+
+  #portal-personaltools .actionMenu .actionMenuContent li a {
+  	color: #666666;
+  	padding-left: 0.2em;
+  	padding-right: 0.2em;
+  }
+
+  #portal-personaltools .actionMenu .actionMenuContent li a:hover {
+  	color: #FFFFFF;
+  	text-decoration: none;
+  }
+
+  #portal-personaltools .actionMenu .actionMenuContent .actionSeparator a {
+  	border-top: 1px solid #797979;
+  }
+
+
 
 
 /* -------------------------------------------------------- */
@@ -358,6 +413,81 @@
 /* -------------------------------------------------------- */
 /* ---------------------- CONTENT ------------------------- */
 /* -------------------------------------------------------- */
+
+
+  /* ----- MANAGE PORTLET LINKS ----- */
+    .managePortletsLink,
+    .managePortletsFallback,
+    .managePortletsAboveLink,
+    .managePortletsBelowLink,
+    .manageFooterPortletsLink {
+      display: none;
+    }
+
+
+  /* ----- EDITING CONTENT ----- */
+    .documentEditable .documentContent {
+      border: 0;
+    }
+
+    .contentViews {
+      border-color: #797979;
+    }
+
+    .contentViews li a {
+      border: 1px solid #797979;
+      color: #666666;
+    }
+
+    .contentViews li a:hover {
+      background-color: #CCCCCC;
+      color: #666666;
+    }
+
+    .contentViews .selected a {
+      background-color: #CCCCCC;
+      border-bottom: 1px solid #CCCCCC;
+      color: #666666;
+    }
+
+    .contentActions {
+      border-bottom: 1px solid #797979;
+      background-color: #CCCCCC;
+      border-left: 1px solid #797979;
+      border-right: 1px solid #797979;
+      color: #666666;
+    }
+
+    .contentActions li {
+      border-left: 1px solid #797979;
+    }
+
+    .contentActions a {
+      color: #666666;
+    }
+
+    .actionMenu .actionMenuContent ul {
+      background: #CCCCCC none repeat scroll 0 0;
+      border-color: #797979;
+    }
+
+    .actionMenu .actionMenuContent li a:hover {
+      background-color: #797979;
+    }
+
+    .actionMenu .actionMenuContent .actionSeparator a {
+      border-top: 1px solid #797979;
+    }
+
+    .documentContent {
+      padding: 1em 0 !important;
+    }
+
+    .documentByLine {
+      color: #666666;
+      margin-left: 1em;
+    }
+
 
 
 
