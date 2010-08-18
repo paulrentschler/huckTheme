@@ -30,7 +30,6 @@
       background: url(header-bg.png) 0 -24px repeat-x;
     }
 
-/*
     #portal-header {
       background-color: #336699;
       float: right;
@@ -38,7 +37,7 @@
       padding: 0;
       width: 602px;
     }
-*/
+
 
   /* ----- FOOTER ----- */
 
@@ -62,7 +61,6 @@
 /* --------------------- GLOBAL NAV ----------------------- */
 /* -------------------------------------------------------- */
 
-/*
   #portal-globalnav {
     line-height: normal;
     list-style: none outside none;
@@ -72,33 +70,42 @@
   }
 
   #portal-globalnav li {
+    display: block;
     margin: 0;
+    margin-bottom: 0;
     padding: 0;
     text-align: center;
   }
 
   #portal-globalnav li a {
     background-color: #CFE4EF;
-    border-color: #336699;
-    border-style: solid;
-    border-width: 0 1px 1px 1px;
+    border-bottom-style: none;
+    border-bottom-width: 0;
+    border-left-color: #336699;
+    border-left-style: solid;
+    border-left-width: 1px;
+    border-right-style: none;
+    border-right-width: 0;
+    border-top-style: none;
+    border-top-width: 0;
     color: black;
     display: block;
     float: left;
     font-size: 10px;
     font-weight: normal;
     margin: 0;
+    margin-right: 0;
     padding: 22px 2px 2px 2px;
     text-decoration: none;
     vertical-align: bottom;
-    width: 80px;
+    width: 81px;
   }
 
   #portal-globalnav li.selected a {
     background-color: #336699;
+    border: 0 none;
     color: white;
   }
-*/
 
 
 
@@ -178,7 +185,6 @@
 
 
   /* ----- LOGOS ----- */
-/*
     #psu-logo {
       position: relative;
       top: 0px;
@@ -189,7 +195,10 @@
       float: right;
       margin: 15px 15px 5px 0;
     }
-*/
+    
+    #portal-logo img {
+      margin: 0;
+    }
 
 
 
