@@ -14,6 +14,9 @@
 
 
 
+
+
+
 /* -------------------------------------------------------- */
 /* ----------------------- LAYOUT ------------------------- */
 /* -------------------------------------------------------- */
@@ -40,19 +43,218 @@
 
 
   /* ----- FOOTER ----- */
+    #footer {
+      background: url("footer-bg.png") repeat-x scroll left top #336699;
+      margin-top: 5em;
+      padding-bottom: 2em;
+    }
+
+    #footer a {
+      color: black;
+    }
+
+    #footer-titlebar {
+      background: url("footer-titlebar-bg.png") repeat-x scroll left top transparent;
+      height: 30px;
+    }
+
+    #siteActions {
+      float: right;
+      margin: 2em 0 1em;
+      padding-right: 0.5em;
+      text-align: right;
+    }
+
+    #siteActions #portal-siteactions {
+      float: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    #siteActions #portal-siteactions li {
+      display: block;
+      margin: 0;
+    }
+
+    #siteActions #portal-siteactions li a {
+      background-color: transparent;
+      border: 0 none;
+      color: black;
+      display: block;
+      padding: 0.1em;
+      text-decoration: underline;
+    }
+
+    #siteActions #portal-siteactions li a:hover {
+      background-color: transparent;
+      border: 0 none;
+      color: black;
+      text-decoration: underline;
+    }
+
+    #portal-footer {
+      background-color: transparent;
+      border: 0 none;
+      float: left;
+      font-weight: normal;
+      line-height: 1em;
+      padding: 0 0 0 0.5em;
+      text-align: left;
+    }
+
+    #portal-footer p {
+      line-height: 1.3em;
+      margin-bottom: 0.3em;
+      margin-top: 0.3em;
+    }
+    
+    #portal-footer a,
+    #portal-footer a:hover,
+    #portal-footer a:active,
+    #portal-footer a:visited {
+      background-color: transparent;
+      border: 0 none;
+      color: black;
+      text-decoration: underline;
+    }
+
 
 
 /* -------------------------------------------------------- */
 /* ---------------------- PORTLETS ------------------------ */
 /* -------------------------------------------------------- */
 
+  .portlet  {
+    background-color: White;
+    font-size: 100%;
+    margin: 1px 0 1em;
+  }
+
+  dl.portlet {
+    padding: 0.5em;
+  }
+
+  .portlet a.tile {
+    display: block;
+  }
+
+  .portlet a {
+    text-decoration: none;
+  }
+
+  .portlet a:hover {
+    color: #EE8547;
+    text-decoration: underline;
+  }
+
+  dt {
+    font-weight: bold;
+  }
+
+  .portletHeader {
+    background-color: transparent;
+    border: 0 none;
+    color: black;
+    font-size: 130%;
+    margin-bottom: 10px;
+    padding: 0;
+    text-transform: none;
+  }
+
+  .portletHeader a:link,
+  .portletHeader a:visited {
+    color: black;
+    display: block;
+    text-decoration: underline;
+  }
+
+
+  dd {
+    margin-bottom: 1em;
+  }
+
+  .portletItem  {
+    border: 0 none;
+    margin: 0;
+    padding: 0 0.5em 0.5em 0.5em;
+  }
+
+  .portletItem ul {
+    list-style-type: none;
+  }
+
+
+
   /* ----- NAVIGATION PORTLET ----- */
+    .portletNavigationTree {
+      list-style: none outside none !important;
+      padding: 0;
+    }
+
+    ul.navTree {
+      line-height: 1.3em;
+    }
+    
+    .navTreeItem  {
+      display: block;
+      margin: 0.5em 0.2em;
+      padding: 0;
+    }
+
+    .navTreeItem a,
+    dd.portletItem .navTreeItem a {
+      background-color: transparent;
+      border: 0 none;
+      margin: 0;
+      text-decoration: none;
+    }
+
+    .navTreeItem a,
+    dd.portletItem .navTreeItem a:hover {
+      background-color: transparent;
+      border: 0 none;
+      text-decoration: underline;
+    }
+
+    .navTreeLevel0 {
+      margin: 0;
+    }
+
 
   /* ----- CONTENT WELL PORTLETS ----- */
 
   /* ----- CONTENT WELL PORTLETS (HOME PAGE) ----- */
 
   /* ----- FOOTER PORTLETS ----- */
+    #footer-portlets {
+      margin-top: -33px;
+    }
+
+    #footer-portlets .portlet {
+      background-color: transparent;
+      border: 0 none;
+    }
+
+    #footer-portlets .portlet .portletHeader {
+      font-weight: bold;
+    }
+    
+    #footer-portlets dd.portletItem .navTreeItem a {
+      color: black !important;
+    }
+    
+    #footer-portlets .even {
+      background-color: transparent;
+    }
+
+    #footer-portlets .FooterPortletA,
+    #footer-portlets .FooterPortletB,
+    #footer-portlets .FooterPortletC,
+    #footer-portlets .FooterPortletD,
+    #footer-portlets .FooterPortletE {
+      float: left;
+      width: 20%;
+    }
 
 
 
@@ -211,6 +413,10 @@
       margin: 0;
     }
 
+    #partnerLogo  {
+      clear: both;
+      text-align: center;
+    }
 
 
 
