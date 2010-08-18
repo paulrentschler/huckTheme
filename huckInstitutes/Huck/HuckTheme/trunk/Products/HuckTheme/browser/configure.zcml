@@ -1,6 +1,7 @@
 <configure
     xmlns="http://namespaces.zope.org/zope"
     xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:plone="http://namespaces.plone.org/plone"
     i18n_domain="Products.HuckTheme">
 
   <!-- HuckTheme Zope 3 browser layer -->
@@ -90,5 +91,24 @@
           layer=".interfaces.IThemeSpecific"
           permission="zope2.View"
           />
+
+
+  <!-- PORTLETS (as per http://plone.org/documentation/how-to/override-the-portlets-in-plone-3.0) -->
+    <include package="plone.app.portlets" />
+    <include package="plone.portlet.collection" />
+
+    <!-- Customize the navigation portlet -->
+      <plone:portletRenderer
+           portlet="plone.app.portlets.portlets.navigation.INavigationPortlet"
+           template="templates/navigation.pt"       
+           layer=".interfaces.IThemeSpecific"
+           />
+
+    <!-- Customize the collection portlet -->
+      <plone:portletRenderer
+            portlet="plone.portlet.collection.collection.ICollectionPortlet"
+            template="templates/collection.pt"
+            layer=".interfaces.IThemeSpecific"
+            />
 
 </configure>
