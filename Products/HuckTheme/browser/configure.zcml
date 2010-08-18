@@ -58,7 +58,7 @@
     <!-- The WebLion logo -->
       <browser:viewlet
           name="Products.HuckTheme.weblion"
-          manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
+          manager="plone.app.layout.viewlets.interfaces.IPortalFooter"
           layer=".interfaces.IThemeSpecific"
           template="templates/weblion.pt"
           permission="zope2.View"
