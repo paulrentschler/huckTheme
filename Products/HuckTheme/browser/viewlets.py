@@ -1,7 +1,7 @@
 from zope.component import getMultiAdapter
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from plone.app.layout.viewlets.common import ViewletBase
-from plone.app.layout.viewlets import common
+from plone.app.layout.viewlets import common, content
 from Products.CMFCore.utils import getToolByName
 
 class LogoViewlet(ViewletBase):
@@ -25,4 +25,12 @@ class PersonalBarViewlet(common.PersonalBarViewlet):
         common.PersonalBarViewlet.update(self)
         mt = getToolByName(self.context, 'portal_membership')
         self.canManagePortlets = mt.checkPermission('Portlets: Manage portlets', self.context)
+        self.canManagePortal = mt.checkPermission('Manage portal', self.context)
+
+class DocumentBylineViewlet(content.DocumentBylineViewlet):
+    index = ViewPageTemplateFile('templates/document_byline.pt')
+
+    def update(self):
+        content.DocumentBylineViewlet.update(self)
+        mt = getToolByName(self.context, 'portal_membership')
         self.canManagePortal = mt.checkPermission('Manage portal', self.context)

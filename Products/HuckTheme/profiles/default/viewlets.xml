@@ -16,10 +16,13 @@
     <viewlet name="plone.searchbox" />
   </hidden>
   
-  <hidden manager="plone.belowcontentbody" skinname="HuckTheme">
-    <viewlet name="plone.abovecontenttitle.documentactions" />
+  <hidden manager="plone.belowcontenttitle" skinname="HuckTheme">
     <viewlet name="plone.belowcontenttitle.documentbyline" />
     <viewlet name="plone.belowcontenttitle.keywords" />
+  </hidden>
+  
+  <hidden manager="plone.belowcontentbody" skinname="HuckTheme">
+    <viewlet name="plone.abovecontenttitle.documentactions" />
   </hidden>
   
   <hidden manager="plone.portalfooter" skinname="HuckTheme">
@@ -42,10 +45,12 @@
   </order>
 
   <order manager="plone.contentviews" skinname="HuckTheme">
-    <viewlet name="Products.HuckTheme.personal_bar" insert-before="contentwellportlets.portletsabovecontent" />
+    <viewlet name="Products.HuckTheme.personal_bar"
+             insert-before="contentwellportlets.portletsabovecontent" />
     <viewlet name="plone.contentviews" />
     <viewlet name="plone.contentactions" />
-    <viewlet name="plone.belowcontenttitle.documentbyline" insert-after="plone.contactactions" />
+    <viewlet name="Products.HuckTheme.documentbyline"
+             insert-before="contentwellportlets.portletsabovecontent" />
     <viewlet name="contentwellportlets.portletsabovecontent" />
   </order>
 
