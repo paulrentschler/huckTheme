@@ -50,7 +50,7 @@
     <viewlet name="plone.contentviews" />
     <viewlet name="plone.contentactions" />
     <viewlet name="Products.HuckTheme.documentbyline"
-             insert-before="contentwellportlets.portletsabovecontent" />
+             insert-after="plone.contentactions" />
     <viewlet name="contentwellportlets.portletsabovecontent" />
   </order>
 
