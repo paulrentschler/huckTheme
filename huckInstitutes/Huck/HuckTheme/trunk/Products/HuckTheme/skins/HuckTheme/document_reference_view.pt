@@ -1,0 +1,62 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="plone">
+
+
+<tal:comment tal:replace="nothing">
+  Created by: Paul Rentschler
+  Description: used to pull in the How-to-apply main page content when an
+                individual program needs to have a separate how-to-apply
+                page because of a custom portlet.
+  Based on: document_view.pt
+  Changes:
+    - replacing the body of the active page with the cooked body of the
+       main how-to-apply page's body
+</tal:comment>
+
+
+  <body>
+    <metal:main fill-slot="main">
+      <tal:main-macro metal:define-macro="main"
+                      tal:define="kssClassesView context/@@kss_field_decorator_view;
+                                  getKssClasses nocall:kssClassesView/getKssClassesInlineEditable;
+                                  templateId template/getId;
+                                  text here/getText;">
+    
+        <div tal:replace="structure provider:plone.abovecontenttitle" />
+  
+        <h1 class="documentFirstHeading"> 
+            <metal:field use-macro="python:here.widget('title', mode='view')">
+            Title
+            </metal:field>
+        </h1>
+  
+        <div tal:replace="structure provider:plone.belowcontenttitle" />
+    
+        <p class="documentDescription">
+            <metal:field use-macro="python:here.widget('description', mode='view')">
+            Description
+            </metal:field>
+        </p>
+
+        <div tal:replace="structure provider:plone.abovecontentbody" />
+
+        <tal:body tal:define="applyPage python: context.restrictedTraverse('/huck/education/apply/how-to-apply')"
+                  tal:replace="structure applyPage/CookedBody">
+            referenced page's body text
+        </tal:body>
+
+        <div metal:use-macro="here/document_relateditems/macros/relatedItems">
+            show related items if they exist
+        </div>
+    
+        <div tal:replace="structure provider:plone.belowcontentbody" />
+    
+      </tal:main-macro>
+    </metal:main>
+  </body>
+</html>
