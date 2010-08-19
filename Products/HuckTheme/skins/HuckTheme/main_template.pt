@@ -95,8 +95,10 @@
                     <td id="portal-column-one"
                         metal:define-slot="column_one_slot">
                       
-                      <div class="portletSectionLogo">
-                        <img class="image-inline" src="section-logo-default.jpg" />
+                      <div class="portletSectionLogo"
+                           tal:define="sectionLogo context/findSectionLogo">
+                        <img class="image-inline" width="246"
+                            tal:attributes="src sectionLogo" />
                       </div>
                       
                       <div class="visualPadding">
