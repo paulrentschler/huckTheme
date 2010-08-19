@@ -6,6 +6,13 @@
 /* ----------------------- GLOBAL ------------------------- */
 /* -------------------------------------------------------- */
 
+  a {
+    color: #336699;
+  }
+  
+  .state-published {
+    color: #336699 !important;
+  }
 
 
 
@@ -45,7 +52,7 @@
 
   /* ----- CONTENT ----- */
   table#portal-columns {
-    margin-left: 128px;
+    margin-left: 126px;
     margin-top: -100px;
     width: 852px !important;
   }
@@ -60,7 +67,11 @@
   table#portal-columns td#portal-column-one {
     background-color: white;
     padding-top: 0;
-    width: 250px;
+    width: 252px;
+  }
+  
+  table#portal-columns td#portal-column-one .visualPadding {
+    padding: 0 0 2em 0;
   }
 
   table#portal-columns td#portal-column-content {
@@ -164,6 +175,7 @@
 
   .portlet  {
     background-color: White;
+    border: 0 none;
     font-size: 100%;
     margin: 1px 0 1em;
   }
@@ -194,7 +206,7 @@
     border: 0 none;
     color: black;
     font-size: 130%;
-    margin-bottom: 10px;
+    font-weight: bold;
     padding: 0;
     text-transform: none;
   }
@@ -221,6 +233,10 @@
     list-style-type: none;
   }
 
+  .portletItem  a {
+    line-height: 1.3em;
+  }
+
 
 
   /* ----- NAVIGATION PORTLET ----- */
@@ -228,14 +244,10 @@
       list-style: none outside none !important;
       padding: 0;
     }
-
-    ul.navTree {
-      line-height: 1.3em;
-    }
     
     .navTreeItem  {
       display: block;
-      margin: 0.5em 0.2em;
+      margin: 0.15em 0.2em;
       padding: 0;
     }
 
@@ -279,7 +291,7 @@
     }
 
     #footer-portlets .portlet .portletHeader {
-      font-weight: bold;
+      margin-bottom: 10px;
     }
     
     #footer-portlets dd.portletItem .navTreeItem a {
@@ -606,7 +618,7 @@
 
     .portletSectionLogo {
       margin-top: 3px;
-      margin-left: 2px;
+      margin-left: 3px;
     }
 
 
