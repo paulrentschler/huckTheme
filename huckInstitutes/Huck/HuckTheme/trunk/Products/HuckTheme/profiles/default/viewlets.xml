@@ -42,11 +42,10 @@
   <order manager="plone.portalheader" skinname="HuckTheme">
     <viewlet name="plone.global_sections" />
     <viewlet name="Products.HuckTheme.logo" />
+    <viewlet name="Products.HuckTheme.personal_bar" />
   </order>
 
   <order manager="plone.contentviews" skinname="HuckTheme">
-    <viewlet name="Products.HuckTheme.personal_bar"
-             insert-before="contentwellportlets.portletsabovecontent" />
     <viewlet name="plone.contentviews" />
     <viewlet name="plone.contentactions" />
     <viewlet name="Products.HuckTheme.documentbyline"

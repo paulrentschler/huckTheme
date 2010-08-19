@@ -6,6 +6,36 @@
       tal:condition="python:view.user_actions or not view.anonymous"
       class="visualInline">
 
+    <tal:block condition="not: view/anonymous">
+      <li>
+        <a id="user-name"
+           tal:attributes="href view/homelink_url"
+          ><img src="" tal:replace="structure here/user.gif" />
+          <span class="visualCaseSensitive"
+                tal:content="view/user_name">
+            [username]
+          </span
+        ></a>
+      </li>
+    </tal:block>
+
+    <tal:actions tal:repeat="action view/user_actions">
+      <li tal:define="icon action/icon | nothing;
+                      icon python:icon is not None and icon or view.getIconFor(action['category'], action['id'], None);
+                      class_name string:visualIcon actionicon-${action/category}-${action/id};
+                      class_name python:icon is not None and class_name or nothing;
+                      action_id python:action['id'];"
+          tal:attributes="class class_name">
+        <a href=""
+           tal:attributes="href action/url;
+                           class python:icon is not None and 'visualIconPadding' or nothing;
+                           id action/id;"
+          ><tal:actionname i18n:translate="" 
+                           tal:content="action/title">[action title]</tal:actionname
+        ></a>
+      </li>
+    </tal:actions>
+
     <tal:block condition="python:view.canManagePortal or view.canManagePortlets">
       <li>
         <dl class="actionMenu"
@@ -67,36 +97,6 @@
             </ul>
           </dd>
         </dl>
-      </li>
-    </tal:block>
-
-    <tal:actions tal:repeat="action view/user_actions">
-      <li tal:define="icon action/icon | nothing;
-                      icon python:icon is not None and icon or view.getIconFor(action['category'], action['id'], None);
-                      class_name string:visualIcon actionicon-${action/category}-${action/id};
-                      class_name python:icon is not None and class_name or nothing;
-                      action_id python:action['id'];"
-          tal:attributes="class class_name">
-        <a href=""
-           tal:attributes="href action/url;
-                           class python:icon is not None and 'visualIconPadding' or nothing;
-                           id action/id;"
-          ><tal:actionname i18n:translate="" 
-                           tal:content="action/title">[action title]</tal:actionname
-        ></a>
-      </li>
-    </tal:actions>
-
-    <tal:block condition="not: view/anonymous">
-      <li>
-        <a id="user-name"
-           tal:attributes="href view/homelink_url"
-          ><img src="" tal:replace="structure here/user.gif" />
-          <span class="visualCaseSensitive"
-                tal:content="view/user_name">
-            [username]
-          </span
-        ></a>
       </li>
     </tal:block>
 
