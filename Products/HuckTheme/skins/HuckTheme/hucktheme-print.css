@@ -1,0 +1,41 @@
+/**************************************************
+  CSS definitions for the HuckTheme (print only)
+***************************************************/
+
+
+/* format the data tables */
+  table.data {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  table.data thead tr th {
+    background: #CCC;
+    border: 1px solid #CCC;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 2px;
+  }
+
+  table.data tbody tr td {
+    border: 1px solid #CCC;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 2px;
+  }
+
+
+
+/* Hide all the elements that are irrelevant for printing */
+  #psu-logo,
+  #logos,
+  .managePortletsAboveLink,
+  .managePortletsBelowLink,
+  .manageFooterPortletsLink,
+  #footer-portlets,
+  #partnerLogo {
+    display: none;
+  }
+  
+/* Hide the images that are floated right because there is now "float" concept in print */
+  .image-right {
+    display: none;
+  }
