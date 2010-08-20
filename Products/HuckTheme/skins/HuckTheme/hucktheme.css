@@ -13,9 +13,26 @@
   .state-published {
     color: #336699 !important;
   }
-
-
-
+  
+  
+  
+  /* ----- FOLDER SUMMARY VIEW ENTRIES ----- */
+    .tileItem {
+      border-top: 0 none;
+    }
+  
+    .tileImage {
+      margin: 2.2em 0 2.5em 0.5em;
+    }
+  
+    .tileHeadline a {
+      text-decoration: underline;
+    }
+  
+    .tileHeadline a:hover {
+      color: #FF6633 !important;
+      text-decoration: none;
+    }
 
 
 
