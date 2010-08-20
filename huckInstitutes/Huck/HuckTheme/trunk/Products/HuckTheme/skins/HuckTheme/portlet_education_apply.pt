@@ -1,0 +1,77 @@
+<html xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      i18n:domain="plone">
+
+  <tal:comment tal:replace="nothing">
+    Created by: Catherine Williams / Paul Rentschler
+    Description: used to display graduate program related links
+    Notes:
+      - make a portlet containing links that should appear on all Huck Institutes grad program pages below the education section
+      - if it can't find an faq or how-to-apply page/folder at the current level, it'll keep going up until it finds one
+      - This portlet should be used within each graduate program, in left_slots, under the navigation portlet
+      - This use assumes that there is a single application form for all graduate programs
+      - And a single FAQ folder (which might contain subfolders...)
+      - This will render an error if there is no "apply", "faq" or "education" folder in the path from context to portal root
+  </tal:comment>
+
+  <body>
+    <metal:portlet define-macro="portlet">
+
+      <dl class="portlet portletNavigationTree"
+          tal:define="whereAreWe context/absolute_url;
+                      inFAQ python:'faq' in whereAreWe;
+                      inApply python:'apply' in whereAreWe;
+                      inPreApp python:'preapplication' in whereAreWe;
+                      preAppExists exists:context/preapplication;">
+        <dt class="portletHeader">
+          <span class="portletTopLeft"></span>
+          <span class="visualIconPadding tile">
+            Apply
+          </span>
+          <span class="portletTopRight"></span>
+        </dt>
+
+        <dd class="portletItem lastItem">
+          <ul class="portletNavigationTree navTreeLevel0">
+            <li class="navTreeItem visualNoMarker"
+                tal:condition="python: preAppExists and not inPreApp">
+              <div>
+                <a href=""
+                   class="state-published navTreeFolderish visualIconPadding"
+                   tal:attributes="href context/preapplication/absolute_url;
+                                   title context/preapplication/Description">
+                  <span>Pre-application review</span>
+                </a>
+              </div>
+            </li>
+
+            <li class="navTreeItem visualNoMarker"
+                tal:condition="not:inApply">
+              <div>
+                <a href=""
+                   class="state-published navTreeFolderish visualIconPadding"
+                   tal:attributes="href context/apply/absolute_url;
+                                   title context/apply/Description">
+                  <span>How to apply</span>
+                </a>
+              </div>
+            </li>
+
+            <li class="navTreeItem visualNoMarker"
+                tal:condition="not:inFAQ">
+              <div>
+                <a href=""
+                   class="state-published navTreeFolderish visualIconPadding"
+                   tal:attributes="href context/faq/absolute_url;
+                                   title context/faq/Description">
+                  <span>Frequently-asked questions</span>
+                </a>
+              </div>
+            </li>
+          </ul>
+        </dd>
+      </dl>
+
+    </metal:portlet>
+  </body>
+</html>
