@@ -11,6 +11,11 @@
     </a>
     &nbsp;&nbsp;&#149;&nbsp;&nbsp;
 
+    <a href="http://www.psu.edu/ur/search.html"
+       title="to the main Penn State search facility">
+      Search Penn State</a>
+    &nbsp;&nbsp;&#149;&nbsp;&nbsp;
+
     <a href="#"
        tal:attributes="href string:${view/navigation_root_url}/search_form"
        i18n:translate="label_advanced_search"
@@ -18,10 +23,6 @@
       Advanced Search</a>
     &nbsp;&nbsp;&#149;&nbsp;&nbsp;
 
-    <a href="http://www.psu.edu/ur/search.html"
-       title="to the main Penn State search facility">
-      Search Penn State</a>
-    &nbsp;&nbsp;&#149;&nbsp;&nbsp;
   </div>
 
 
