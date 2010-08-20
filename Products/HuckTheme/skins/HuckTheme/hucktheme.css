@@ -14,6 +14,10 @@
     color: #336699 !important;
   }
   
+  .documentContent dd a {
+    border: 0 none;
+  }
+  
   
   
   /* ----- FOLDER SUMMARY VIEW ENTRIES ----- */
@@ -32,6 +36,13 @@
     .tileHeadline a:hover {
       color: #FF6633 !important;
       text-decoration: none;
+    }
+  
+  
+  
+  /* ----- WATERMARK ----- */
+    .watermark {
+      background: url("draft.png") repeat scroll 0 0 #FAFAFA;
     }
 
 
@@ -191,13 +202,14 @@
 /* -------------------------------------------------------- */
 
   .portlet  {
-    background-color: White;
+    background-color: transparent;
     border: 0 none;
-    font-size: 100%;
+    font-size: 90%;
     margin: 1px 0 1em;
   }
-
-  dl.portlet {
+  
+  dl.portlet,
+  div.portletStaticText {
     padding: 0.5em;
   }
 
@@ -235,7 +247,6 @@
     text-decoration: underline;
   }
 
-
   dd {
     margin-bottom: 1em;
   }
@@ -253,6 +264,78 @@
   .portletItem  a {
     line-height: 1.3em;
   }
+
+  .portletCollection .portletItem {
+    clear: both;
+  }
+
+  .portletFooter {
+    background-color: transparent;
+    border: 0 none;
+  }
+
+
+
+  /* ----- LEFT COLUMN PORTLETS ----- */
+    #portal-column-one .portlet {
+      font-size: 100%;
+    }
+    
+    #portal-column-one .portlet .even {
+      background-color: transparent;
+    }
+    
+    #portal-column-one .portlet .portletItem {
+      margin-bottom: 0.3em;
+    }
+
+
+
+  /* ----- EVENTS PORTLET ----- */
+    .portlet .eventTitle a, .portlet .articleTitle a {
+      font-size: 120%;
+      font-variant: small-caps;
+      font-weight: bold;
+    }
+
+    .portlet .eventTitle .speakerInstitution {
+      font-style: italic;
+      font-variant: normal;
+      font-weight: normal;
+    }
+
+    .portlet .eventDate {
+      font-weight: bold;
+    }
+
+
+
+  /* ----- NEWS PORTLET ----- */
+    .portlet .imageInPortlet {
+      border: medium none;
+      float: left;
+      margin: 0.25em 0.5em 0.25em 0;
+    }
+    
+    #newsPortletProof {
+      margin-top: 4em;
+    }
+
+
+
+  /* ----- PEOPLE PORTLET ----- */
+    .portlet .person .headshot {
+      float: left;
+    }
+
+    .portlet .person .personName a {
+      font-size: 110%;
+    }
+
+    .portlet .person .personDetails {
+      margin-left: 60px;
+      min-height: 70px;
+    }
 
 
 
@@ -290,10 +373,90 @@
 
 
   /* ----- CONTENT WELL PORTLETS ----- */
+    .portletsBelowContentA { width: 99%; }
+    .portletsBelowContentB { width: 49%; }
+    .portletsBelowContentC { width: 49%; }
+    .portletsBelowContentD { width: 32%; }
+    .portletsBelowContentE { width: 32%; }
+    .portletsBelowContentF { width: 32%; }
+
+    .portletsBelowContentA .portlet,
+    .portletsBelowContentB .portlet,
+    .portletsBelowContentC .portlet,
+    .portletsBelowContentD .portlet,
+    .portletsBelowContentE .portlet,
+    .portletsBelowContentF .portlet {
+      border: 0 none;
+    }
+
+    .portletsBelowContentA {
+      padding: 0.5em;
+    }
+
+    .portletsBelowContentB,
+    .portletsBelowContentC,
+    .portletsBelowContentD,
+    .portletsBelowContentE,
+    .portletsBelowContentF {
+      float: left;
+      padding: 0;
+    }
+
+    #portlets-below .even {
+      background-color: transparent;
+    }
+    
+    #portlets-below .portlet {
+      padding: 0;
+    }
+    
+    #portlets-below .portlet dt.portletHeader {
+      background-color: transparent;
+      font-size: 150%;
+      font-weight: normal;
+      padding: 0.25em 0.25em;
+    }
+
+    #portlets-below .portlet dt.portletHeader a,
+    #portlets-below .portlet dt.portletHeader a:link,
+    #portlets-below .portlet dt.portletHeader a:active,
+    #portlets-below .portlet dt.portletHeader a:visited {
+      background-color: transparent;
+      text-decoration: underline;
+    }
+
+    #portlets-below .portlet dt.portletHeader a:hover {
+      color: #FF6633;
+      text-decoration: none;
+    }
+
+    #portlets-below .portlet dd.portletItem {
+      /* min-height: 70px;    this was because of the images in news items */
+      padding: 0 0.5em 2em 0.5em;
+    }
+
+    #portlets-below #research-labs.portlet dd.portletItem {
+      /* min-height: 70px;    this was because of the images in news items */
+      padding: 0 0.5em 0.5em 0.5em;
+    }
 
 
 
   /* ----- CONTENT WELL PORTLETS (HOME PAGE) ----- */
+    .section-welcome #content-history {
+      display: none;
+    }
+  
+    .section-welcome #portlets-below {
+      margin-top: -2em;
+    }
+    .section-welcome #portal-column-two {
+      width: 170px;
+    }
+
+    .section-welcome #portal-column-two div.portletStaticText {
+      margin-bottom: 1.5em;
+    }
 
 
 
@@ -305,6 +468,7 @@
     #footer-portlets .portlet {
       background-color: transparent;
       border: 0 none;
+      font-size: 100%;
     }
 
     #footer-portlets .portlet .portletHeader {
@@ -587,6 +751,74 @@
 /* ----------------------- TABLES ------------------------- */
 /* -------------------------------------------------------- */
 
+  /* undo the column padding for the three column layout */
+  table#portal-columns td table td {
+    padding-top: 0.5em;
+  }
+
+  table.listing {
+    font-size: 100%;
+  }
+
+  table.listing th, table.data th {
+    background-color: #B6D8EA;
+    text-align: left;
+  }
+
+  table.listing th img {
+    display: none;
+  }
+
+  table.listing a:hover {
+    color: &dtml-linkActiveColor;;
+  }
+
+  table.listing a {
+    text-decoration: underline;
+  }
+
+  table tr {
+    vertical-align: top;
+  }
+
+  table.plain {
+    border-collapse: collapse;
+  }
+
+  table.plain th {
+    border: 1px solid #666;
+    padding: 0.25em 0.5em;
+    text-align: left;
+  }
+
+  table.plain td {
+    border: 1px solid #666;
+    padding: 0.25em 0.5em;
+  }
+
+  .data {
+    border-bottom: 1px solid #B6D8EA;
+    border-collapse: collapse;
+    border-left: 1px solid #B6D8EA;
+    font-size: 100%;
+    margin: 1em 0;
+  }
+
+  .data th {
+    border-right: 1px solid #DEE7EC;
+    font-weight: normal;
+    padding: 0.25em 1em;
+  }
+
+  .data td {
+    border-bottom: 1px solid #B6D8EA;
+    border-right: 1px solid #B6D8EA;
+    padding: 0.25em 1em;
+  }
+
+  table.gradProgs tbody tr td {
+    width: 50%;
+  }
 
 
 
@@ -600,6 +832,73 @@
 /* ----------------------- EVENTS ------------------------- */
 /* -------------------------------------------------------- */
 
+  .vevent .speakerInstitution {
+    font-size: 80% !important;
+    font-style: italic !important;
+  }
+
+  table.eventTable td {
+    padding: 12px;
+  }
+
+  table.eventTable td.eventDate {
+    font-weight: bold;
+    text-transform: uppercase;
+    min-width: 8em;
+  }
+
+  table.eventTable td .eventTitle {
+    font-size: 120%;
+  }
+
+  table.eventTable td .eventTitle .speakerInstitution {
+    font-size: 100%;
+    font-style: italic;
+  }
+
+  table.eventTable td .talktitle {
+    font-weight: bold;
+  }
+
+  table.eventTable td .eventCanceled {
+    background-color: #336699;
+    color: white;
+    padding: 2px;
+  }
+
+  .eventDetails {
+    background-color: #336699;
+    border: 1px solid #336699;
+    padding: 0px 1px 1px 2px;
+  }
+
+  .eventDetails .eventDetailsLabel {
+    color: white;
+    margin: 1px 5px;
+  }
+  
+  .eventDetails table {
+    margin: 0;
+    padding: 0;
+  }
+
+  .eventDetails table th {
+    background-color: white;
+    color: &dtml-discreetColor;;
+    width: 6em;
+  }
+
+  .eventDetails table td {
+    color: black;
+    width: 16em;
+  }
+
+  #meetTheSpeaker {
+    background-color: #DEE7EC;
+    clear: both;
+    margin-top: 2em;
+    padding: 1px 10px;
+  }
 
 
 
