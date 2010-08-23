@@ -1,0 +1,178 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="FacultyStaffDirectory">
+
+
+<tal:comment tal:replace="nothing">
+  Created by: Paul Rentschler
+  Description: used to display the Administration specialty as
+                the default page for /people.
+  Based on: document_view.pt and specialty_tabular_view.pt (from this product)
+  Notes:
+    - intended for use ONLY on the /huck/people/people page
+    - removed the related items entry from the normal document_view.pt
+    - 
+</tal:comment>
+
+
+  <body>
+    <metal:main fill-slot="main">
+      <tal:main-macro metal:define-macro="main"
+                      tal:define="kssClassesView context/@@kss_field_decorator_view;
+                                  getKssClasses nocall:kssClassesView/getKssClassesInlineEditable;
+                                  templateId template/getId;
+                                  text here/getText;">
+
+        <div tal:replace="structure provider:plone.abovecontenttitle" />
+
+        <h1 class="documentFirstHeading"> 
+          <metal:field use-macro="python:here.widget('title', mode='view')">
+            Title
+          </metal:field>
+        </h1>
+
+        <div tal:replace="structure provider:plone.belowcontenttitle" />
+
+        <p class="documentDescription">
+          <metal:field use-macro="python:here.widget('description', mode='view')">
+            Description
+          </metal:field>
+        </p>
+
+        <div tal:replace="structure provider:plone.abovecontentbody" />
+
+        <p tal:condition="python: not text and is_editable"
+           i18n:translate="no_body_text"
+           class="discreet">
+            This item does not have any body text, click the edit tab to change it.
+        </p>
+
+        <metal:field use-macro="python:here.widget('text', mode='view')">
+          Body text
+        </metal:field>
+
+
+        <div class="facultyStaffDirectory">
+          <div class="listPeople">
+            <div class="tabularView"
+                 tal:define="admin python: context.portal_catalog(portal_type='FSDSpecialty', id='admin')[0];
+                             adminObj python: admin.getObject();
+                             classifications python:adminObj.getClassifications();">
+              <table class="noBorders">
+                <tbody>
+                  <tal:classification tal:repeat="classification classifications">
+                    <tal:block tal:define="classificationContext python:adminObj.contextualClassification(classification);
+                                           classificationName classificationContext/Title;
+                                           peopleByEffective classificationContext/getSortedPeople;
+                                           people python: peopleByEffective.sort(lambda x,y: cmp(y.effective(), x.effective()));
+                                           people peopleByEffective;"
+                               tal:condition="people">
+                      <tr>
+                        <th colspan="4" class="classification">
+                          <h2 tal:condition="python: classification.id == 'faculty'">
+                            Huck Institutes administrative personnel</h2>
+
+                          <h2 tal:condition="python: classification.id != 'faculty'"
+                              tal:content="classificationName">[classification name]</h2>
+                        </th>
+                      </tr>
+
+                      <tr class="hide">
+                        <th class="column">Photo</th>
+                        <th class="column" i18n:translate="FacultyStaffDirectory_name">
+                          Name / job title
+                        </th>
+                        <th class="column">E-mail / phone / campus</th>
+                        <th class="column">
+                          Responsibilities include:
+                        </th>
+                      </tr>
+              
+                      <tal:person tal:repeat="person people">
+                        <tr tal:define="oddrow repeat/person/odd" tal:attributes="class python:test(oddrow, 'even', 'odd')">
+                          <td class="personPhoto">
+                            <a href=""
+                               tal:define="noPhoto here/no-photo-available.png;
+                                           width python: 50;
+                                           height python:int(width * (float(noPhoto.height)/float(noPhoto.width)));"
+                               tal:attributes="href person/absolute_url">
+                              <tal:block condition="not: person/image_thumb|nothing">
+                                  <img src="" alt="No photo available for this person"
+                                       class="no-photo"
+                                       tal:attributes="src noPhoto/absolute_url;
+                                                       width width;
+                                                       height height;" />
+                              </tal:block>
+
+                              <tal:block condition="person/image_thumb|nothing">
+                                  <img src="" alt=""
+                                       tal:replace="structure python:person.getScaledImageByWidth(width)" />
+                              </tal:block>
+                            </a>
+                          </td>
+                          <td class="personName">
+                            <a href="" 
+                               tal:attributes="href person/absolute_url"
+                               tal:content="string:${person/getLastName}, ${person/getFirstName}" />
+                            <ul tal:condition="person/getJobTitles" class="jobTitle contactInfo">
+                              <li tal:repeat="jobTitle person/getJobTitles">
+                                <span tal:replace="jobTitle">[job title]</span>
+                              </li>
+                            </ul>
+                          </td>
+                          <td class="contactDetails">
+                            <div class="emailAddress">
+                              <span tal:condition="person/getEmail"
+                                    tal:replace="structure python:person.spamProtectFSD(person.getEmail())" />
+                            </div>
+                            <div class="hasPhoneNumber"
+                                 tal:condition="person/getOfficePhone">
+                              <span tal:content="person/getOfficePhone">[phone number]</span>
+                            </div>
+                            <tal:campus tal:repeat="whatCampus person/campus">
+                              <span class="contactInfo"
+                                    tal:condition="whatCampus">
+                                &nbsp;&nbsp; (<span tal:replace="whatCampus">[campus]</span>)
+                              </span>
+                            </tal:campus>
+                          </td>
+                          <td class="specialtyColumn"
+                              tal:define="personSpecialtyData python:adminObj.getSpecialtyInformation(person);">
+
+                            <tal:specialty tal:condition="personSpecialtyData/getResearchTopic"
+                                           tal:replace="structure personSpecialtyData/getResearchTopic">
+                              [summary of research or responsibilities]
+                            </tal:specialty>
+
+                            <span tal:condition="python:checkPermission('Modify portal content', person)"
+                                  class="discreet">[
+                                <a tal:attributes="href python:'%s/edit' % personSpecialtyData.absolute_url()">
+                                  <tal:block tal:condition="personSpecialtyData/getResearchTopic"
+                                             i18n:translate="FacultyStaffDirectory_editResearchTopic">
+                                    Edit research topic</tal:block>
+                                  <tal:block tal:condition="not:personSpecialtyData/getResearchTopic"
+                                             i18n:translate="FacultyStaffDirectory_assignResearchTopic">
+                                    Assign a research topic</tal:block>
+                                </a>
+                            ]</span>
+                          </td>
+                        </tr>
+                      </tal:person>
+                    </tal:block>
+                  </tal:classification>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+
+
+
+        <div tal:replace="structure provider:plone.belowcontentbody" />
+
+      </tal:main-macro>
+    </metal:main>
+  </body>
+</html>

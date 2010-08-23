@@ -18,6 +18,11 @@
     border: 0 none;
   }
   
+  .hide {
+    display: none;
+    visibility: hidden;
+  }
+  
   
   
   /* ----- FOLDER SUMMARY VIEW ENTRIES ----- */
@@ -744,6 +749,38 @@
 /* ----------------------- LISTS -------------------------- */
 /* -------------------------------------------------------- */
 
+  ul.list {
+    list-style-type: none;
+    list-style-image: none;
+  }
+
+
+
+  /* ----- IMAGE LISTS ----- */
+    ul.imageList {
+      list-style-type: none;
+      list-style-image: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    ul.imageList li {
+      float: left;
+      height: 200px;
+      margin: 0 5px;
+      width: 200px;
+    }
+
+    ul.imageList li img {
+      margin: 0;
+    }
+
+    ul.imageList div.caption {
+      color: #76797C;
+      font-size: 85%;
+      font-weight: normal;
+    }
+
 
 
 
@@ -825,6 +862,120 @@
 /* -------------------------------------------------------- */
 /* ----------------------- PEOPLE ------------------------- */
 /* -------------------------------------------------------- */
+
+  .hasPhoneNumber {
+    background:transparent url(phone_icon.gif) no-repeat scroll left bottom;
+    padding-left:10px;
+  }
+
+
+
+  /* ----- PERSON VIEW ----- */
+    .facultyStaffDirectory.personView .headshot {
+      background-color: white;
+      border-left: 2em solid white;
+      border-right: 2em solid white;
+      margin: 5em 0 0 0;
+    }
+
+    .facultyStaffDirectory.personView #administrativeInformation {
+      margin-top: 5em;
+    }
+
+    .facultyStaffDirectory.personView #administrativeInformation h3 {
+      color: #FF6633;
+    }
+
+    .facultyStaffDirectory.personView #administrativeInformation .labs dl {
+      margin: 0 0 0 1em;
+    }
+
+    .facultyStaffDirectory.personView #administrativeInformation .defList dd {
+      font-size: 0.85em;
+      line-height: 1em;
+      margin: 0 0 2em 0.25em;
+    }
+
+    .facultyStaffDirectory.personView #administrativeInformation .defList dd p {
+      margin: 0;
+    }
+
+
+
+  /* ----- STANDARD VIEW ----- */
+    .facultyStaffDirectory .standardView .headshot img {
+      border: 0 none;
+    }
+    .facultyStaffDirectory .standardView ul.jobTitle li {
+      font-style: italic;
+    }
+
+
+
+  /* ----- TABULAR VIEW ----- */
+    .facultyStaffDirectory .tabularView th.classification {
+      font-size: 100%;
+    }
+
+    .facultyStaffDirectory .tabularView ul.jobTitle li {
+      font-size: 93%;
+      line-height: 1.1em;
+      list-style-image: none;
+      list-style-type: none;
+      margin: 0.5em 0 0 0;
+    }
+    
+    .facultyStaffDirectory .tabularView td.contactDetails .contactInfo {
+      font-size: 85%;
+    }
+
+
+
+  /* ----- TABULAR VIEW (NO BORDERS) ----- */
+    .facultyStaffDirectory .tabularView table.noBorders {
+      border: 0;
+      border-collapse: collapse;
+    }
+
+    .facultyStaffDirectory .tabularView table.noBorders th,
+    .facultyStaffDirectory .tabularView table.noBorders td {
+      border: 0;
+      padding: 8px 3px;
+    }
+    
+    .facultyStaffDirectory .tabularView table td.personPhoto {      width: 50px;  }
+    .facultyStaffDirectory .tabularView table td.personName {       width: 30%;  }
+    .facultyStaffDirectory .tabularView table td.contactDetails {   width: 20%;  }
+    .facultyStaffDirectory .tabularView table td.specialtyColumn {  width: 50%;  }
+
+
+
+  /* ----- TABULAR VIEW (ADVISORS) ----- */
+    .facultyStaffDirectory .tabularView dl.advisors {
+      font-size: 93%;
+      margin-top: -0.5em;
+    }
+
+    .facultyStaffDirectory .tabularView dl.advisors dt {
+      font-weight: normal;
+    }
+
+    .facultyStaffDirectory .tabularView dl.advisors dd {
+      margin: -1.1em 0 0 4.6em;
+    }
+
+    .facultyStaffDirectory .tabularView dl.advisors ul {
+      margin: 0;
+    }
+
+    .facultyStaffDirectory .tabularView dl.advisors ul li {
+      display: inline;
+      line-height: 1.1em;
+      list-style-image: none;
+      list-style-type: none;
+      margin: 0;
+    }
+
 
 
 
