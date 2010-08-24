@@ -14,6 +14,10 @@ jq(document).ready(
        
     function () {
         // make all the select boxes a height of 15
-        jq('table.listing select').attr('size', '15')
+        jq('table.listing select').each( function(index, box) {
+            if (box.size > 2) {
+                box.size = 15;
+            }
+        });
     }
 );
