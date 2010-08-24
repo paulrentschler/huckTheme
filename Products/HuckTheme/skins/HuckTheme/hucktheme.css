@@ -23,6 +23,24 @@
     visibility: hidden;
   }
   
+  .state-expired {
+    font-weight: normal;
+  }
+  
+  
+  
+  /* ----- HOLIDAY - OFFICE CLOSED NOTICE ----- */
+  .vacation_msg {
+    background-color: #ffcccc;
+    border: 1px solid #FF6633;
+    color: black;
+    padding: 1em;
+/*
+    display: none;
+    visiblity: hidden;
+*/
+  }
+  
   
   
   /* ----- FOLDER SUMMARY VIEW ENTRIES ----- */
@@ -49,7 +67,13 @@
     .watermark {
       background: url("draft.png") repeat scroll 0 0 #FAFAFA;
     }
-
+  
+  
+  
+  /* ----- TODAY/NOW BUTTONS ----- */
+    .plone_jscalendar input.standalone {
+      margin-left: 0.3em;
+    }
 
 
 
@@ -374,6 +398,15 @@
     .navTreeLevel0 {
       margin: 0;
     }
+    
+    dd.portletItem .portletNavigationTree .navTreeItemInPath {
+      background-color: #EEF3F5;
+    }
+    
+    dd.portletItem .navTreeCurrentNode a.navTreeCurrentItem {
+      color: #FF6633 !important;
+      border: 0 none !important;
+    }
 
 
 
@@ -656,7 +689,7 @@
     margin-bottom: 0.4em;
   }
 
-  p.documentDescription {
+  .documentDescription {
     color: #336699;
     font-weight: bold;
     margin-top: 0;
@@ -665,6 +698,11 @@
 
   h2 {
     border-bottom: 1px solid #CCCCCC;
+  }
+
+  h2.documentDescription {
+    border: 0 none;
+    font-size: 100%;
   }
 
 
@@ -1087,6 +1125,49 @@
       margin-top: 3px;
       margin-left: 3px;
     }
+
+
+
+  /* ----- IMAGES ----- */
+    .image-caption-right {
+      border: none;
+      float: right;
+      width: 200px;
+    }
+
+    .plain img {
+      border: none;
+      margin: 0.25em 0.5em;
+    }
+
+
+
+  /* ----- FACILITY IMAGES ----- */
+
+    .facility-location-image {
+      float: right;
+      font-size: 0.9em;
+      margin: 0 0 0.3em 0.2em;
+      width: 200px;
+    }
+
+    .facility-location-image img {
+      display: block;
+    }
+
+
+  /* ----- VIDEOS ----- */
+    .video-right {
+      border: none;
+      float: right;
+      width: 300px;
+    }
+
+    .video-right object {
+      border: 1px solid black;
+      display: block;
+    }
+
 
 
 
