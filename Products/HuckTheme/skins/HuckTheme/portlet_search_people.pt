@@ -41,10 +41,10 @@
 
             <tal:comment tal:replace="nothing">
               Restrict the search path to the people section, and only look at people's names
-            </tal:comment>				   
+            </tal:comment>
             <input type="hidden" name="path"
-                   tal:define="portal_id python: portal.getId()"
-                   tal:attributes="value string: ${portal_id}/people" />
+                   tal:define="portal_id python:portal.getId()"
+                   tal:attributes="value string:${portal_id}/people" />
 
             <input type="hidden" name="Type" value="Person" />
 
