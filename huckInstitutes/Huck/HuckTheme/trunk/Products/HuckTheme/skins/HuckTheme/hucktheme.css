@@ -385,6 +385,7 @@
       background-color: transparent;
       border: 0 none;
       margin: 0;
+      padding-left: 0.3em;
       text-decoration: none;
     }
 
@@ -399,13 +400,15 @@
       margin: 0;
     }
     
+    dd.portletItem .portletNavigationTree .navTreeCurrentNode,
     dd.portletItem .portletNavigationTree .navTreeItemInPath {
       background-color: #EEF3F5;
     }
     
     dd.portletItem .navTreeCurrentNode a.navTreeCurrentItem {
-      color: #FF6633 !important;
+      /*color: #FF6633 !important;*/
       border: 0 none !important;
+      border-left: 2px solid #FF6633 !important;
     }
 
 
