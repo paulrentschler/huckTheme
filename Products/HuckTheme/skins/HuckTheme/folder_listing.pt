@@ -13,7 +13,7 @@
   Based on: folder_listing.pt
   Changes:
     - removed the document byline
-    - removed the "more" link display all together
+    - added an expired notice to the object title
 </tal:comment>
 
 
@@ -97,6 +97,12 @@
                            tal:content="item_title_or_id">
                           Item Title
                         </a>
+                        
+                        <tal:expired tal:condition="item/isExpired">
+                          &mdash;
+                          <span class="state-expired"
+                                i18n:translate="time_expired">expired</span>
+                        </tal:expired>
                       </span>
 
                       <tal:remove tal:replace="nothing"> THE BYLINE IS ANNOYING AND DISTRACTING
