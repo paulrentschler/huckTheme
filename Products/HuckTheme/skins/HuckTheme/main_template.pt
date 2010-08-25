@@ -105,31 +105,28 @@
                         </tal:image>
                         
                         <tal:highlight tal:condition="python:section == 'welcome'"
-                                       tal:define="highlights python: context.portal_catalog.searchResults(Subject = 'spotlight: highlight');">
-                          <div tal:attributes="id string:highlight-${section}-window;"
-                               class="highlight-window">
+                                       tal:define="highlights python: context.portal_catalog.searchResults(Subject = 'spotlight: highlight');
+                                                   firstObj python: highlights[0].getObject();">
+                          <div class="highlight-window"
+                               tal:attributes="id string:highlight-${section}-window;">
+                            <a href=""
+                               class="highlight-image"
+                               tal:attributes="href firstObj/absolute_url;">
+                              <img src=""
+                                   width="246"
+                                   tal:attributes="src firstObj/image/absolute_url;
+                                                   title firstObj/Title;
+                                                   alt firstObj/Title;" />
+                            </a>
                             <div class="highlight-list">
                               <ul>
                                 <tal:items tal:repeat="item highlights">
                                   <tal:item tal:define="itemObj python:item.getObject();">
                               
-                                    <a href=""
-                                       tal:attributes="href itemObj/absolute_url;">
-                                      <li class="highlight-item first-item"
-                                          tal:condition="repeat/item/start"
-                                          tal:attributes="id string:highlight-${section}-item${repeat/item/number}">
-                                          <img src=""
-                                               width="246"
-                                               tal:attributes="src itemObj/image/absolute_url;
-                                                               title itemObj/Title;
-                                                               alt itemObj/Title;" />
-                                          <div class="highlight-caption"
-                                               tal:content="itemObj/Title">[item title]</div>
-                                      </li>
-                              
-                                      <li class="highlight-item"
-                                          tal:condition="not:repeat/item/start"
-                                          tal:attributes="id string:highlight-${section}-item${repeat/item/number}">
+                                    <li class="highlight-item first-item"
+                                        tal:condition="repeat/item/start"
+                                        tal:attributes="id string:highlight-${section}-item${repeat/item/number};
+                                                        link itemObj/absolute_url;">
                                         <img src=""
                                              width="246"
                                              tal:attributes="src itemObj/image/absolute_url;
@@ -137,18 +134,28 @@
                                                              alt itemObj/Title;" />
                                         <div class="highlight-caption"
                                              tal:content="itemObj/Title">[item title]</div>
-                                      </li>
-                                    </a>
+                                    </li>
+                            
+                                    <li class="highlight-item"
+                                        tal:condition="not:repeat/item/start"
+                                        tal:attributes="id string:highlight-${section}-item${repeat/item/number}">
+                                      <img src=""
+                                           width="246"
+                                           tal:attributes="src itemObj/image/absolute_url;
+                                                           title itemObj/Title;
+                                                           alt itemObj/Title;" />
+                                      <div class="highlight-caption"
+                                           tal:content="itemObj/Title">[item title]</div>
+                                    </li>
                                     
                                   </tal:item>
                                 </tal:items>
                               </ul>
                             </div>
                           </div>
-                          <div tal:attributes="id string:highlight-${section}-caption-box"
-                               class="highlight-caption-box">
-                            <!-- -->
-                          </div>
+                          <div class="highlight-caption-box"
+                               tal:attributes="id string:highlight-${section}-caption-box"
+                               tal:content="firstObj/Title">[item title]</div>
                           <div tal:attributes="id string:highlight-${section}-paging;"
                                class="highlight-paging">
                             <tal:items tal:repeat="item highlights">
