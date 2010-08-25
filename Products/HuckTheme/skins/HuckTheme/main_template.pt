@@ -95,10 +95,63 @@
                     <td id="portal-column-one"
                         metal:define-slot="column_one_slot">
                       
-                      <div class="portletSectionLogo"
-                           tal:define="sectionLogo context/findSectionLogo">
-                        <img class="image-inline" width="246"
-                            tal:attributes="src sectionLogo" />
+                      <div class="portletSectionLogo highlight-container"
+                           tal:define="sectionLogo context/findSectionLogo;
+                                       section python:context.getSectionFromURL()[8:];">
+                                       
+                        <tal:image tal:condition="python:section != 'welcome'">
+                          <img class="image-inline" width="246"
+                              tal:attributes="src sectionLogo" />
+                        </tal:image>
+                        
+                        <tal:highlight tal:condition="python:section == 'welcome'"
+                                       tal:define="highlights python: context.portal_catalog.searchResults(Subject = 'spotlight: highlight');">
+                          <div tal:attributes="id string:highlight-${section}-window;"
+                               class="highlight-window">
+                            <div class="highlight-list">
+                              <ul>
+                                <tal:items tal:repeat="item highlights">
+                                  <tal:item tal:define="itemObj python:item.getObject();">
+                              
+                                    <a href=""
+                                       tal:attributes="href itemObj/absolute_url;">
+                                      <li class="highlight-item first-item"
+                                          tal:condition="repeat/item/start">
+                                          <img src=""
+                                               width="246"
+                                               tal:attributes="src itemObj/image/absolute_url;
+                                                               title itemObj/Title;
+                                                               alt itemObj/Title;" />
+                                          <div tal:content="itemObj/Title">[item title]</div>
+                                      </li>
+                              
+                                      <li class="highlight-item"
+                                          tal:condition="not:repeat/item/start"
+                                          tal:define="itemObj python:item.getObject()">
+                                        <img src=""
+                                             width="246"
+                                             tal:attributes="src itemObj/image/absolute_url;
+                                                             title itemObj/Title;
+                                                             alt itemObj/Title;" />
+                                        <div tal:content="itemObj/Title">[item title]</div>
+                                      </li>
+                                    </a>
+                                    
+                                  </tal:item>
+                                </tal:items>
+                              </ul>
+                            </div>
+                          </div>
+                          <div tal:attributes="id string:highlight-${section}-paging;"
+                               class="highlight-paging">
+                            <tal:items tal:repeat="item highlights">
+                              <a href="#"
+                                 tal:attributes="rel repeat/item/number"
+                                 tal:content="repeat/item/number" />
+                            </tal:items>
+                          </div>
+                          
+                        </tal:highlight>
                       </div>
                       
                       <div class="visualPadding">
