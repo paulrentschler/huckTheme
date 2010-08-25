@@ -116,24 +116,27 @@
                                     <a href=""
                                        tal:attributes="href itemObj/absolute_url;">
                                       <li class="highlight-item first-item"
-                                          tal:condition="repeat/item/start">
+                                          tal:condition="repeat/item/start"
+                                          tal:attributes="id string:highlight-${section}-item${repeat/item/number}">
                                           <img src=""
                                                width="246"
                                                tal:attributes="src itemObj/image/absolute_url;
                                                                title itemObj/Title;
                                                                alt itemObj/Title;" />
-                                          <div tal:content="itemObj/Title">[item title]</div>
+                                          <div class="highlight-caption"
+                                               tal:content="itemObj/Title">[item title]</div>
                                       </li>
                               
                                       <li class="highlight-item"
                                           tal:condition="not:repeat/item/start"
-                                          tal:define="itemObj python:item.getObject()">
+                                          tal:attributes="id string:highlight-${section}-item${repeat/item/number}">
                                         <img src=""
                                              width="246"
                                              tal:attributes="src itemObj/image/absolute_url;
                                                              title itemObj/Title;
                                                              alt itemObj/Title;" />
-                                        <div tal:content="itemObj/Title">[item title]</div>
+                                        <div class="highlight-caption"
+                                             tal:content="itemObj/Title">[item title]</div>
                                       </li>
                                     </a>
                                     
@@ -142,11 +145,16 @@
                               </ul>
                             </div>
                           </div>
+                          <div tal:attributes="id string:highlight-${section}-caption-box"
+                               class="highlight-caption-box">
+                            <!-- -->
+                          </div>
                           <div tal:attributes="id string:highlight-${section}-paging;"
                                class="highlight-paging">
                             <tal:items tal:repeat="item highlights">
                               <a href="#"
-                                 tal:attributes="rel repeat/item/number"
+                                 tal:attributes="rel repeat/item/number;
+                                                 container string:highlight-${section};"
                                  tal:content="repeat/item/number" />
                             </tal:items>
                           </div>
