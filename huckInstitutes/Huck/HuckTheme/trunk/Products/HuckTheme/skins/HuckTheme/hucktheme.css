@@ -1095,13 +1095,9 @@
 
 
 
-
-
 /* -------------------------------------------------------- */
 /* ------------------------ MEDIA ------------------------- */
 /* -------------------------------------------------------- */
-
-
 
   /* ----- LOGOS ----- */
     #psu-logo {
@@ -1174,4 +1170,93 @@
 
 
 
+/* -------------------------------------------------------- */
+/* ----------------- HOME PAGE HIGHLIGHT ------------------ */
+/* -------------------------------------------------------- */
 
+  .highlight-container {
+    position: relative;
+  }
+  
+  /* ----- WINDOW/MASKING ----- */
+    .highlight-window {
+      height: 250px;
+      overflow: hidden;
+      position: relative;
+      width: 246px;
+    }
+    
+    .highlight-list {
+      left: 0;
+      margin: 0;
+      padding: 0;
+      position: absolute;
+      top: 0;
+      width: 10px;
+    }
+    
+    .highlight-list ul {
+      line-height: 1em;
+      margin: 0;
+      padding: 0;
+    }
+
+    .highlight-list ul li.highlight-item {
+      display: block;
+      float: left;
+      position: relative;
+    }
+
+    .highlight-list ul li.highlight-item.first-item {
+      display: block;
+    }
+
+    .highlight-list ul li.highlight-item img {
+      display: block;
+    }
+  
+    .highlight-list ul li.highlight-item div {
+      background-color: #111;
+      bottom: 0;
+      color: white;
+      font-size: 120%;
+      left: 0;
+      opacity: 0.80;
+      padding: 10px;
+      position: absolute;
+      width: 226px;
+    }
+    
+    
+    
+  /* ----- PAGING LINKS ----- */
+    .highlight-paging {
+      background-color: #CFE4EF;
+      display: none;
+      padding: 7px 5px;
+      position: absolute;
+      right: 3px;
+      text-align: center;
+      top: 0px;
+      z-index: 100;
+    }
+    
+    .highlight-paging a {
+      color: black;
+      padding: 3px;
+      text-decoration: none;
+    }
+    
+    .highlight-paging a.active {
+      background-color: #336699;
+      border: 1px solid black;
+      color: white;
+      font-weight: bold;
+      -moz-border-radius: 3px;
+      -khtml-border-radius: 3px;
+      -webkit-border-radius: 3px;
+    }
+    
+    .highlight-paging a:hover {
+      font-weight: bold;
+    }
