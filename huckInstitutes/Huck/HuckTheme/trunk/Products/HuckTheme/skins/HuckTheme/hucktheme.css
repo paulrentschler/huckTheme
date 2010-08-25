@@ -89,6 +89,7 @@
   #visual-content-wrapper,
   #visual-footer-wrapper {
     margin: 0 auto;
+    position: relative;
     width: 980px;
   }
 
@@ -1101,7 +1102,7 @@
 
   /* ----- LOGOS ----- */
     #psu-logo {
-      position: relative;
+      position: absolute;
       top: 0px;
       left: 0px;
     }
