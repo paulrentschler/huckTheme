@@ -91,18 +91,23 @@
     margin: 0 auto;
     position: relative;
     width: 980px;
+
+    border: 1px solid transparent;
   }
 
   /* ----- HEADER ----- */
     #portal-top {
       background: url(header-bg.png) 0 -24px repeat-x;
+      height: 150px;
     }
 
     #portal-header {
       background-color: #336699;
-      float: right;
       margin: 0;
       padding: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
       width: 602px;
     }
 
@@ -542,15 +547,12 @@
 /* -------------------------------------------------------- */
 
   #portal-globalnav {
-    line-height: normal;
-    list-style: none outside none;
-    margin: 0;
     padding: 0;
-    white-space:normal;
   }
 
   #portal-globalnav li {
     display: block;
+    float: left;
     margin: 0;
     margin-bottom: 0;
     padding: 0;
@@ -570,7 +572,6 @@
     border-top-width: 0;
     color: black;
     display: block;
-    float: left;
     font-size: 10px;
     font-weight: normal;
     margin: 0;
@@ -651,7 +652,9 @@
     float: none;
     height: 30px;
     margin: 0;
+    margin-top: 117px;
     padding: 5px 5px 0 0;
+    position: relative;
     text-align: right;
   }
 
