@@ -138,7 +138,8 @@
                             
                                     <li class="highlight-item"
                                         tal:condition="not:repeat/item/start"
-                                        tal:attributes="id string:highlight-${section}-item${repeat/item/number}">
+                                        tal:attributes="id string:highlight-${section}-item${repeat/item/number};
+                                                        link itemObj/absolute_url;">
                                       <img src=""
                                            width="246"
                                            tal:attributes="src itemObj/image/absolute_url;

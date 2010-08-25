@@ -43,7 +43,9 @@ jq(document).ready(function() {
         
         // update the caption
         var $activeCaption = jq('#' + $active.attr('container') + '-item' + $active.attr('rel') + ' div.highlight-caption');
-        var activeImageSrc = jq('#' + $active.attr('container') + '-item' + $active.attr('rel') + ' img').attr('src');
+        var $activeImage = jq('#' + $active.attr('container') + '-item' + $active.attr('rel') + ' img');
+        var activeImageSrc = $activeImage.attr('src');
+        var activeTitle = $activeImage.attr('title');
         var activeLink = jq('#' + $active.attr('container') + '-item' + $active.attr('rel')).attr('link');
         var $captionBox = jq('.highlight-caption-box');
         var currentHeight = $captionBox.height();
@@ -58,8 +60,9 @@ jq(document).ready(function() {
                 // hide the individual captions
                 jq('.highlight-list .highlight-caption').hide();
             }
-            jq('.highlight-image img').attr({src: activeImageSrc});
+            jq('.highlight-image img').attr({src: activeImageSrc, title: activeTitle, alt: activeTitle});
             jq('.highlight-image').attr({href: activeLink});
+            
         });
     };
 
@@ -124,6 +127,7 @@ jq(document).ready(function() {
     
     // show the paging box and activate the first link
     jq('.highlight-paging').show();
+    jq('.highlight-paging').css('display', 'block');
     $active = jq('.highlight-paging a:first');
     rotate();
     
