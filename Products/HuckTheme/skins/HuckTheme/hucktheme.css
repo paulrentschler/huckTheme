@@ -1124,6 +1124,10 @@
       margin-top: 3px;
       margin-left: 3px;
     }
+    
+    .section-welcome .portletSectionLogo {
+      margin-bottom: 2em;
+    }
 
 
 
@@ -1178,7 +1182,7 @@
     position: relative;
   }
   
-  /* ----- WINDOW/MASKING ----- */
+  /* ----- WINDOW/MASKING AND ITEMS ----- */
     .highlight-window {
       height: 250px;
       overflow: hidden;
@@ -1207,26 +1211,30 @@
       position: relative;
     }
 
-    .highlight-list ul li.highlight-item.first-item {
-      display: block;
-    }
-
     .highlight-list ul li.highlight-item img {
       display: block;
     }
   
-    .highlight-list ul li.highlight-item div {
+    .highlight-caption-box,
+    .highlight-list ul li.highlight-item div.highlight-caption {
       background-color: #111;
+      border-top: 1px solid black;
       bottom: 0;
       color: white;
-      font-size: 120%;
+      display: block;
+      font-size: 1.2em;
       left: 0;
+      line-height: 1.2em;
       opacity: 0.80;
       padding: 10px;
       position: absolute;
       width: 226px;
     }
     
+    .highlight-caption-box {
+      display: none;
+    }
+
     
     
   /* ----- PAGING LINKS ----- */
@@ -1239,6 +1247,10 @@
       text-align: center;
       top: 0px;
       z-index: 100;
+      -moz-border-radius-bottomleft: 3px;
+      -khtml-border-radius-bottomleft: 3px;
+      -webkit-border-bottom-left-radius: 3px;
+      border-bottom-left-radius: 3px;
     }
     
     .highlight-paging a {
@@ -1255,6 +1267,7 @@
       -moz-border-radius: 3px;
       -khtml-border-radius: 3px;
       -webkit-border-radius: 3px;
+      border-radius: 3px;
     }
     
     .highlight-paging a:hover {
