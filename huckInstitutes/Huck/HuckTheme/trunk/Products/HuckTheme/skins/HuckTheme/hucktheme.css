@@ -1191,6 +1191,7 @@
     }
     
     .highlight-list {
+      display: none;
       left: 0;
       margin: 0;
       padding: 0;
@@ -1232,7 +1233,7 @@
     }
     
     .highlight-caption-box {
-      display: none;
+/*      display: none; */
     }
 
     

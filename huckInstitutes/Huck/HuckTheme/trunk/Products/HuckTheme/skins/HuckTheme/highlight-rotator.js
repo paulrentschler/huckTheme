@@ -32,15 +32,19 @@ jq(document).ready(function() {
         $active.addClass('active');
         
         // perform the slider animation
+/*
         if (imageReelPosition == 0) {
             //jq('.highlight-list').css('left', 0);
             jq('.highlight-list').animate( {left: -imageReelPosition}, 200 );
         } else {
             jq('.highlight-list').animate( {left: -imageReelPosition}, 600 );
         }
+*/
         
         // update the caption
         var $activeCaption = jq('#' + $active.attr('container') + '-item' + $active.attr('rel') + ' div.highlight-caption');
+        var activeImageSrc = jq('#' + $active.attr('container') + '-item' + $active.attr('rel') + ' img').attr('src');
+        var activeLink = jq('#' + $active.attr('container') + '-item' + $active.attr('rel')).attr('link');
         var $captionBox = jq('.highlight-caption-box');
         var currentHeight = $captionBox.height();
         $captionBox.animate( {opacity: 0}, 250, function() {
@@ -54,6 +58,8 @@ jq(document).ready(function() {
                 // hide the individual captions
                 jq('.highlight-list .highlight-caption').hide();
             }
+            jq('.highlight-image img').attr({src: activeImageSrc});
+            jq('.highlight-image').attr({href: activeLink});
         });
     };
 
@@ -81,7 +87,7 @@ jq(document).ready(function() {
 
 
     /*** Set the hover event handler ***/
-    jq(".highlight-list a").hover(function() {
+    jq(".highlight-image").hover(function() {
         // stop the rotation
         clearInterval(play);
     }, function() {
