@@ -1,24 +1,33 @@
 Description
 
-    A Plone product to provide a Plone 3.x compatible theme 
-    for the Huck Institutes web site.
+    HuckTheme is a product that adds a new style to a Plone 3.x site.
+
+    HuckTheme is based on DIYPloneStyle 3.0, a skeleton product
+    ready for building new graphical designs for Plone.
 
 Installation
 
-    On the file system:
-        - Place HuckTheme in the src/Products.HuckTheme directory
-           of your Zope instance.
-        - Edit your buildout.cfg file and add Products.HuckTheme to
-           the eggs= directive and add src/Products.HuckTheme to the
-           develop= directive
-        - Rerun buildout (suggest: ./bin/buildout -N)
-        - Start your Plone instance
+    On the file system: place HuckTheme in the Products directory
+    of your Zope instance and restart the server.
 
-    In the Plone Web Interface:
-        - As portal manager, go to 'Portal > Site Setup > Add-on Products'.
-        - Select 'HuckTheme' and click the *Install* button.
+    In the Plone Web Interface: as portal manager, go to 'Portal > Site Setup
+    > Add-on Products'.
+    Select 'HuckTheme' and click the *Install* button.
 
     Uninstall -- Can be done from the same page.
+
+Selecting a skin
+
+    Depending on the values given in the skins tool profile (see
+    profiles/default/skins.xml), the HuckTheme skin will be selected (or
+    not) as default one while installing the product. If you need to switch
+    from a default skin to another, go to the 'Site Setup' page, and choose
+    'Themes' (as portal manager).
+
+    Note -- Don't forget to perform a full refresh of the page or reload all
+    images (not from browser cache) after selecting a skin. In Firefox, you
+    can do so by pressing the 'shift' key while reloading the page. In IE, use
+    the key combination <Ctrl-F5>.
 
 Written by
 

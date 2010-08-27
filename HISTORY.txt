@@ -1,77 +1,45 @@
-Changelog
-=========
+Changelog for HuckTheme
 
-HuckTheme 1.0 (October 2008)
--------------------------------------
-* Generated skeleton product from DIYPloneStyle 3.0.
-* Author: Catherine Williams
+    Author: Catherine Williams
+            Paul Rentschler
 
+HuckTheme 1.0 - October 2008 (estimate)
+    - Generated skeleton product from DIYPloneStyle 3.0.
+      [generator]
 
-HuckTheme 1.1 (Unreleased)
--------------------------------------
-* Name changed from hucktheme08 to HuckTheme
-* Finished theme product for Plone 3.x that looks like
-   the theme used for the Plone 2.5 site
-* New author: Paul Rentschler
+HuckTheme 1.1 - Unreleased
+    - Name changed from hucktheme08 to HuckTheme
+    - Finished theme product for Plone 3.x that looks like
+       the theme used for the Plone 2.5 site
+    - New author: Paul Rentschler
 
+HuckTheme 2.0 - 29 November 2009
+    - Release name: wizard
+    - Theme product for Plone 3.x
+    - The look is based on the 1.1 theme for the content areas
+       but changes the header and footer to provide better
+       navigation and branding for each unit.
 
-HuckTheme 2.0 (29 November 2009)
--------------------------------------
-* Release name: wizard
-* Theme product for Plone 3.x
-* The look is based on the 1.1 theme for the content areas
-   but changes the header and footer to provide better
-   navigation and branding for each unit.
-
-
-HuckTheme 2.1 (27 August 2010)
--------------------------------------
-* Release name: wizard
-* Various improvements to over the last year to the base
-   2.0 theme.
-  - added digital signage views
-  - added favicon
-  - added course/syllabus collection and page views
-  - removed document actions
-  - added more default logos
-  - styled the popup windows to be more readable
-  - added event date javascript for handling start/end dates
-  - updated the collection portlet to display people
-  - added document_reference_view.pt for the How to Apply pages
-  - fixed css for printing
-  - added css formatting for embedded videos
-  - added the news item proofing view
-  - removed the default job title for graduate students
-  - fixed the December edge case in eventdates.js
-  - updated person_view.pt to handle the new schemata changes
-  - added support for the new advisors field on FSDPerson
-  - updated the search results template to display nicknames
-     and job titles
-  - added setdates.js for now and today buttons
-
-
-HuckTheme 3.0 (Unreleased)
--------------------------------------
-* Release name: fadeToBlue
-* Theme product converted to an egg using the Product from
-   Scratch documentation:
-   http://weblion.psu.edu/documentation/plone-documentation/products-from-scratch
-* New look to the site using faded blue images in the header
-   and footer along with some significant rearranging of the
-   header and global navigation
-* Unit branding created in the 2.0 version is preserved, but
-   moved to a different, more suitable area
-* This release combines a lot of other improvements to 
-   FSD Person objects and their associated views
-* This release coincides with a drastic re-architecting
-   of the institutes and centers into a "research" category
-   and the introduction of Products.HuckEntities to provide
-   custom content types to represent Institutes, Centers,
-   Graduate Programs, Facilities, and Equipment
-  - most of this re-architecting did not make it into the
-     actual release due to content limitations and time
-     constraints, but the code and styling is there to
-     support it as we move forward.
-* Added support for a javascript powered image rotator on
-   the home page that displays selected news items
-
+HuckTheme 2.1 - 27 August 2010
+    - Release name: wizard
+    - Various improvements to over the last year to the base
+       2.0 theme.
+       - added digital signage views
+       - added favicon
+       - added course/syllabus collection and page views
+       - removed document actions
+       - added more default logos
+       - styled the popup windows to be more readable
+       - added event date javascript for handling start/end dates
+       - updated the collection portlet to display people
+       - added document_reference_view.pt for the How to Apply pages
+       - fixed css for printing
+       - added css formatting for embedded videos
+       - added the news item proofing view
+       - removed the default job title for graduate students
+       - fixed the December edge case in eventdates.js
+       - updated person_view.pt to handle the new schemata changes
+       - added support for the new advisors field on FSDPerson
+       - updated the search results template to display nicknames
+          and job titles
+       - added setdates.js for now and today buttons

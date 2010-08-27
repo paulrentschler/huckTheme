@@ -1,4 +1,0 @@
-<div id="partnerLogo">
-  <a href="http://weblion.psu.edu">
-    <img tal:replace="structure context/weblion-partner-logo.png" /></a>
-</div>
