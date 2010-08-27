@@ -91,8 +91,12 @@
     margin: 0 auto;
     position: relative;
     width: 980px;
+  }
 
-    border: 1px solid transparent;
+  #visual-header-wrapper {
+    /* this is needed otherwise the entire header blows up
+       in most browsers except for IE7 */
+    border-top: 1px solid white;
   }
 
   /* ----- HEADER ----- */
