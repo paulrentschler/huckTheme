@@ -65,7 +65,8 @@
         </object>
 
     </object>
-    <!-- Not sure why this is here (might create the My Profile link)-->
+    <!-- Not sure why this is here (might create the My Profile link) -->
+    <!--   hiding this assuming it controls the My Profile link cause we need the space
     <action-provider name="portal_membership">
       <action title="My Profile" action_id="fsdmystuff" category="user"
               condition_expr="python:member is not None and portal.facultystaffdirectory_tool.fsdShowMyFolder()"
@@ -73,6 +74,7 @@
         <permission>View</permission>
       </action>
     </action-provider>
+    -->
 
   <!-- DOCUMENT ACTIONS -->
     <object name="document_actions" meta_type="CMF Action Category">

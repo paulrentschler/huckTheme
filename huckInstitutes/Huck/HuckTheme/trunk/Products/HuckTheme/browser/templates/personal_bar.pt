@@ -70,10 +70,20 @@
                   </a>
                 </li>
                 <li>
+                  <a href="@@manage-portlets"
+                     class=""
+                     id="config-menu-manage-default-page-portlets"
+                     title=""
+                     tal:attributes="href string:${view/contextUrl}/@@manage-portlets;">
+                    <span class="subMenuTitle">Manage default page portlets</span>
+                  </a>
+                </li>
+                <li>
                   <a href="@@manage-portletsabovecontent"
                      class=""
                      id="config-menu-manage-portlets-above-content"
-                     title="">
+                     title=""
+                     tal:attributes="href string:${view/contextUrl}/@@manage-portletsabovecontent;">
                     <span class="subMenuTitle">Manage portlets above the content</span>
                   </a>
                 </li>
@@ -81,7 +91,8 @@
                   <a href="@@manage-portletsbelowcontent"
                      class=""
                      id="config-menu-manage-portlets-below-content"
-                     title="">
+                     title=""
+                     tal:attributes="href string:${view/contextUrl}/@@manage-portletsbelowcontent;">
                     <span class="subMenuTitle">Manage portlets below the content</span>
                   </a>
                 </li>
@@ -89,7 +100,8 @@
                   <a href="@@manage-footerportlets"
                      class=""
                      id="config-menu-manage-footer-portlets"
-                     title="">
+                     title=""
+                     tal:attributes="href string:${view/contextUrl}/@@manage-footerportlets;">
                     <span class="subMenuTitle">Manage portlets in the footer</span>
                   </a>
                 </li>
