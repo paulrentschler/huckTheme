@@ -35,10 +35,8 @@
     border: 1px solid #FF6633;
     color: black;
     padding: 1em;
-/*
     display: none;
     visiblity: hidden;
-*/
   }
   
   
@@ -113,6 +111,7 @@
       right: 0;
       top: 0;
       width: 602px;
+      z-index: 10;
     }
 
 

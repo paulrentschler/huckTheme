@@ -76,6 +76,8 @@ HuckTheme 3.0 (27 August 2010)
    the home page that displays selected news items
 
 
-HuckTheme 3.1 (Unreleased)
+HuckTheme 3.0.1 (Unreleased)
 -------------------------------------
 * Release name: fadeToBlue
+* Turned off the vacation message by default with the CSS
+* 
