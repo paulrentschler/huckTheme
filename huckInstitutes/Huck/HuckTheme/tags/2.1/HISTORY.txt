@@ -43,5 +43,3 @@ HuckTheme 2.1 - 27 August 2010
        - updated the search results template to display nicknames
           and job titles
        - added setdates.js for now and today buttons
-
-HuckTheme 2.2 - Unreleased

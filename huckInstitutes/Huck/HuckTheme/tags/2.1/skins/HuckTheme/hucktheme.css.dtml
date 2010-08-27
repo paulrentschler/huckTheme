@@ -1,0 +1,1178 @@
+/*
+  CSS definitions for the HuckTheme
+  
+  Author: Paul Rentschler <par117@psu.edu>
+
+  <dtml-with base_properties> (do not remove this)
+  <dtml-call "REQUEST.set('portal_url', portal_url())"> (not this either)
+*/
+
+
+/* ---- GENERAL ---- */
+
+body {
+  background-color: black;
+}
+
+body #portal-columns {
+  background-color: white;
+}
+
+body.popup {
+  background-color: white;
+}
+
+
+
+
+/* ----- IMAGES and VIDEOS ----- */
+
+.plain img {
+  border: none;
+  margin: 0.25em 0.5em;
+}
+
+img.no-photo {
+  border: 0 !important;
+}
+
+.video-right {
+  border: none;
+  float: right;
+  width: 300px;
+}
+
+.video-right object {
+  border: 1px solid black;
+  display: block;
+}
+
+.image-caption-right {
+  border: none;
+  float: right;
+  width: 200px;
+}
+
+
+
+
+/* ----- SEARCH BOXES and SEARCH RESULTS ----- */
+
+#portal-searchbox {
+  float: none;
+  margin: 1em 0.25em;
+  text-align: right;
+}
+
+#portal-searchbox .LSBox {
+  clear: none;
+  float: none;
+  padding-right: 1px;
+  text-align: right;
+}
+
+#portal-searchbox #LSResult {
+  padding-top: 0;
+}
+
+#portal-searchbox #portal-advanced-search {
+  clear: none;
+  color: #AAA;
+  margin-left: 1em;
+}
+
+#portal-advanced-search a:link, 
+#portal-advanced-search a:active,
+#portal-advanced-search a:visited { 
+  color: #AAA;
+  padding: 0.1em 0.3em;
+  text-decoration: underline;
+}
+
+#portal-advanced-search a:hover {
+  background-color: #AAA; 
+  color: black;
+  text-decoration: none;
+}
+
+
+
+
+/* ----- LOGOS AND WORDMARKS --- */
+
+#psu-logo { 
+  border: 0;
+  left: 0px;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 0px;
+}
+
+#logos {
+  clear: both;
+  height: 160px;
+  margin: 0;
+  padding: 0;
+}
+
+#logos #section-logo {
+  background-color: white;
+  float: right;
+  height: 150px;
+  margin: 0 20px 2px 2px;
+  padding: 4px;
+  width: 470px;
+}
+
+#logos #section-logo img {
+  border: 0;
+}
+
+#logos #portal-logo {
+  display: block;
+  margin-right: 500px;
+  padding-top: 60px;
+}
+
+#logos #portal-logo img {
+  border: 0;
+  display: block;
+  margin: 0 auto;
+}
+
+
+
+
+/* ---- GLOBAL NAVIGATION ---- */
+
+#portal-globalnav {  
+  float: right;
+  margin: 0 17px 0 0;
+  padding: 3px 0 0 0;
+  white-space: normal;
+  width: 480px;
+}
+
+#portal-globalnav li {
+  border: 0 none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+#portal-globalnav li a { 
+  background-color: #336699;
+  border-top: 2px solid #336699;
+  border-right: 0 none;
+  border-bottom: 0 none;
+  border-left: 0 none;
+  color: white;
+  display: block;
+  float: left;
+  font-size: 10px;
+  height: 40px; 
+  margin: 0;
+  padding: 5px 2px;
+  text-transform: capitalize;
+  vertical-align: bottom;
+  width: 64px;
+}
+
+#portal-globalnav li a:hover {
+  background-color: #0099FF;
+  border-top: 2px solid #0099FF;
+  border-right: 0 none;
+  border-bottom: 0 none;
+  border-left: 0 none;
+  color: white;
+} 
+
+#portal-globalnav li.selected a {
+  background-color: white;
+  border-top: 2px solid #FF6633;
+  border-right: 0 none;
+  border-bottom: 0 none;
+  border-left: 0 none;
+  color: black;
+}
+
+
+
+
+/* ---- BREADCRUMBS ---- */
+
+#portal-breadcrumbs {
+  background-color: white; 
+  border: 0 none;
+  clear: both;
+  color: #666;
+  margin: 0;
+  padding: 0.25em 1em;
+}
+
+#portal-breadcrumbs a,
+#portal-breadcrumbs a:link,
+#portal-breadcrumbs a:visited {
+  color: #336699;
+  text-decoration: underline;
+}
+
+#portal-breadcrumbs a:hover {
+  background-color: #336699;
+  color: white;
+  text-decoration: none;
+}
+
+
+
+/* -----  PERSONAL BAR ----- */
+
+#portal-personaltools {
+  border-top: 0 none;
+  border-right: 0 none;
+  border-bottom: 0 none;
+  border-left: 0 none;
+  float: left;
+  margin: 37px 0 0 0;
+  padding: 0;
+  text-align: left;
+}
+
+#portal-personaltools li {
+  background-color: white;
+  font-size: 12px;
+  margin-top: 0;
+  margin-right: 0;
+  margin-bottom: 0;
+  margin-left: 0;
+  padding: 0;
+}
+
+#portal-personaltools li a,
+#portal-personaltools li a:link,
+#portal-personaltools li a:visited {
+  background-color: white;
+  color: #666;
+  padding: 1px 7px;
+  text-decoration: underline;
+}
+
+#portal-personaltools li a:hover {
+  background-color: #666;
+  color: white;
+  text-decoration: none;
+}
+
+
+
+
+/* ---- GENERAL CONTENT ---- */
+
+.apply {
+  text-transform: uppercase;
+}
+
+.contactInfo {
+  color: #666;
+  font-size: 93%;
+}
+
+p.contactInfo {
+  padding-left: 1.5em;
+}
+
+.documentContent p a,
+.documentContent dd a,
+.documentContent li a {
+  border-bottom: none;
+  text-decoration: underline;
+}
+
+.documentContent p a:visited 
+.documentContent dd a:visited,
+.documentContent li a:visited {
+  color: &dtml-linkVisitedColor;;
+}
+
+.documentContent p a:active, .documentContent p a:hover,
+.documentContent dd a:active, .documentContent dd a:hover,
+.documentContent li a:active, .documentContent li a:hover {
+  color: &dtml-linkActiveColor;;
+}
+
+.emphasis {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.formHelp {
+  font-size: 100%;
+}
+
+fieldset {
+  margin: 1em 0 1em 0.25em;
+}
+
+h1 {
+  border-bottom: 0 none;
+  color: #336699;
+  font-size: 170%;
+  font-weight: bold;
+}
+
+h1 abbr {
+  color: #336699;
+}
+
+h2 {
+  border-bottom: 1px solid #CCC;
+  color: #FF6633;
+  font-size: 150%;
+  font-weight: bold;
+  margin-bottom: 0.5em;
+  margin-top: 1em;
+}
+
+h2 abbr {
+  color: #FF6633;
+}
+
+h2 a,
+h2 a:link,
+h2 a:visited {
+  color: #FF6633 !important;
+  text-decoration: underline;
+}
+
+h2 a:hover {
+  color: #336699 !important;
+  text-decoration: none;
+}
+
+h3 {
+  border: none;
+  color: #336699;
+  font-size: 110%;
+  font-weight: bold;
+  margin-top: 0.75em;
+}
+
+h3 abbr {
+  color: #336699;
+}
+
+h3 a, h4 a, h5 a, h6 a {
+  color: &dtml-linkColor; !important;
+  text-decoration: underline;
+}
+
+.tileHeadline a {
+  text-decoration: underline;
+}
+
+h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover {
+  color: &dtml-linkActiveColor; !important;
+  text-decoration: underline;
+}
+
+h3 a:visited, h4 a:visited, h5 a:visited, h6 a:visited {
+  color: &dtml-linkVisitedColor; !important;
+  text-decoration: underline;
+}
+
+.hide {
+  display: none;
+  visibility: hidden;
+}
+
+input {
+  border: 1px solid #ccc;
+}
+
+.itemTitle {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.link-external {
+  background: transparent;
+  padding: 0
+}
+
+#maincontents {
+  float: left;
+  width: 70%;
+}
+
+.moreInfo {
+  font-size: 93%;
+}
+
+/*
+#nicheOne, #nicheTwo, #nicheThree {
+  float: left;
+  margin: 1% 3% 1% 0%;
+  width: 30%;
+}
+*/
+
+.specialtyColumn {
+  width: 50%;
+}
+
+ul.list {
+  list-style-type: none;
+  list-style-image: none;
+}
+
+.documentActions {
+  margin-top: 3em;
+}
+
+#content h1.documentFirstHeading {
+  background-color: #EAEAEA;
+  margin: 0;
+  padding: 0.25em;
+}
+
+#content .documentDescription {
+  background-color: #EAEAEA;
+  padding: 0.25em;
+}
+
+#content h2.documentDescription {
+  color: black;
+  font-size: 100%;
+}
+
+#content #plone-document-byline {
+  background-color: #EAEAEA;
+  color: black;
+  font-size: 85%;
+  font-weight: normal;
+  margin: 0;
+  padding: 0.25em;
+}
+
+#documentEditable #content a.link-parent {
+  background-color: #EAEAEA;
+}
+
+
+
+
+/* ---- IMAGE LISTS ---- */
+ul.imageList {
+  list-style-type: none;
+  list-style-image: none;
+  margin: 0;
+  padding: 0;
+}
+
+ul.imageList li {
+  float: left;
+  height: 200px;
+  margin: 0 5px;
+  width: 200px;
+}
+
+ul.imageList li img {
+  margin: 0;
+}
+
+ul.imageList div.caption {
+  color: #76797C;
+  font-size: 85%;
+  font-weight: normal;
+}
+
+
+
+
+/* ---- TABLES ---- */
+
+table.listing {
+  font-size: 100%;
+}
+
+table.listing th, table.data th {
+  background-color: #B6D8EA;
+  text-align: left;
+}
+
+table.listing th img {
+  display: none;
+}
+
+table.listing a:hover {
+  color: &dtml-linkActiveColor;;
+}
+
+table.listing a {
+  text-decoration: underline;
+}
+
+table tr {
+  vertical-align: top;
+}
+
+table.plain {
+  border-collapse: collapse;
+}
+
+table.plain th {
+  border: 1px solid #666;
+  padding: 0.25em 0.5em;
+  text-align: left;
+}
+
+table.plain td {
+  border: 1px solid #666;
+  padding: 0.25em 0.5em;
+}
+
+.data {
+  border-bottom: 1px solid #B6D8EA;
+  border-collapse: collapse;
+  border-left: 1px solid #B6D8EA;
+  font-size: 100%;
+  margin: 1em 0;
+}
+
+.data th {
+  border-right: 1px solid #DEE7EC;
+  font-weight: normal;
+  padding: 0.25em 1em;
+}
+
+.data td {
+  border-bottom: 1px solid #B6D8EA;
+  border-right: 1px solid #B6D8EA;
+  padding: 0.25em 1em;
+}
+
+table.gradProgs tbody tr td {
+  width: 50%;
+}
+
+
+
+
+/* --- PORTLETS --- */
+
+#portal-column-two {
+  width: 20em;
+}
+
+.portlet {
+  border: 2px solid #336699;
+  font-size: 100%;
+}
+
+.portletItem {
+  border: none;
+  margin: 0;
+  padding: 0.5em;
+}
+
+.portletHeader {
+  background-color: &dtml-colorZero;;
+  border: none;
+  color: #fff;
+  padding: 0.25em 1em;
+  text-transform: none;
+}
+  
+.portletHeader a:link, .portletHeader a:visited { 
+  color: #fff;
+  display: block;
+  text-decoration: underline;
+}
+
+.portletAssignments .portletHeader a:link, .portletAssignments .portletHeader a:visited { 
+  color: #00f;
+  display: block;
+  text-decoration: underline;
+}
+
+.portlet .eventTitle a, .portlet .articleTitle a {
+  font-size: 120%;
+  font-variant: small-caps;
+  font-weight: bold;
+}
+
+.portlet .eventTitle .speakerInstitution {
+  font-style: italic;
+  font-variant: normal;
+  font-weight: normal;
+}
+
+.portlet .eventDate {
+  font-weight: bold;
+}
+
+.portlet .imageInPortlet {
+  border: medium none;
+  float: left;
+  margin: 0.25em 0.5em 0.25em 0;
+}
+
+.portlet .person .headshot {
+  float: left;
+}
+
+.portlet .person .personName a {
+  font-size: 110%;
+}
+
+.portlet .person .personDetails {
+  margin-left: 60px;
+  min-height: 70px;
+}
+
+.portletCollection .portletItem {
+  clear: both;
+}
+
+
+
+
+/* --- NAVIGATION PORTLET --- */
+
+.navTreeItem a, dd.portletItem .navTreeItem a {
+  margin: 0.5em 0.2em;
+}
+
+.navTreeItem a:hover, 
+dd.portletItem .navTreeItem a:hover {
+  border: &dtml-borderWidth; &dtml-borderStyle; &dtml-globalBackgroundColor;; /* needed to avoid jiggle on hover */
+  color: &dtml-highlightColor;;
+  text-decoration: underline;
+}
+
+dd.portletItem .navTreeCurrentItem { 
+  border-bottom: none !important; 
+  border-left: 2px &dtml-borderStyle; &dtml-highlightColor; !important; 
+  border-right: none !important; 
+  border-top: none !important; 
+  color: &dtml-highlightColor;;
+  padding-left: 0.35em;
+  text-decoration: none;
+}
+
+
+
+
+/* ----- CONTENT WELL PORTLETS ----- */
+
+.portletsBelowContentA {
+  float: left;
+  width: 55%;
+}
+
+.portletsBelowContentB {
+  border-left: 1px solid #DEE7EC;
+  float: right;
+  padding: 0.2em 0.2em 0.2em 1em;
+  width: 40%;
+}
+
+
+
+
+/* ---- CONTENT WELL PORTLETS (HOME PAGE) ---- */
+
+.section-welcome .portletsAboveContentA { width: 99%; }
+.section-welcome .portletsAboveContentB { width: 48%; }
+.section-welcome .portletsAboveContentC { width: 48%; }
+
+.section-welcome .portletsAboveContentA .portlet,
+.section-welcome .portletsAboveContentB .portlet,
+.section-welcome .portletsAboveContentC .portlet {
+  border: 0 none;
+}
+
+.section-welcome .portletsAboveContentA {
+  padding: 0.5em;
+}
+
+.section-welcome .portletsAboveContentB,
+.section-welcome .portletsAboveContentC {
+  float: left;
+  padding: 0.5em;
+}
+
+.section-welcome #portlets-above .portlet dt.portletHeader {
+  background-color: transparent;
+  color: #FF6633;
+  font-size: 170%;
+  font-weight: bold;
+  padding: 0.25em 0.25em;
+}
+
+.section-welcome #portlets-above .portlet dt.portletHeader a,
+.section-welcome #portlets-above .portlet dt.portletHeader a:link,
+.section-welcome #portlets-above .portlet dt.portletHeader a:active,
+.section-welcome #portlets-above .portlet dt.portletHeader a:visited {
+  background-color: transparent;
+  color: #FF6633;
+  text-decoration: none;
+}
+
+.section-welcome #portlets-above .portlet dt.portletHeader a:hover {
+  color: #0099FF;
+  text-decoration: underline;
+}
+
+.section-welcome .portletsAboveContentA dt,
+.section-welcome .portletsAboveContentA dd {
+  background-color: #EAEAEA;
+}
+
+.section-welcome #portlets-above .portlet dd.portletItem {
+  min-height: 70px;
+}
+
+.section-welcome #portal-column-two {
+  width: 170px;
+}
+
+.section-welcome #portal-column-two div.portletStaticText {
+  margin-bottom: 1.5em;
+}
+
+
+
+
+/* ----- EVENTS ----- */
+
+.vevent .speakerInstitution {
+  font-size: 80% !important;
+  font-style: italic !important;
+}
+
+table.eventTable td {
+  padding: 12px;
+}
+
+table.eventTable td.eventDate {
+  font-weight: bold;
+  text-transform: uppercase;
+  min-width: 8em;
+}
+
+table.eventTable td .eventTitle {
+  font-size: 120%;
+}
+
+table.eventTable td .eventTitle .speakerInstitution {
+  font-size: 100%;
+  font-style: italic;
+}
+
+table.eventTable td .talktitle {
+  font-weight: bold;
+}
+
+table.eventTable td .eventCanceled {
+  background-color: #336699;
+  color: white;
+  padding: 2px;
+}
+
+.eventDetails {
+  background-color: #336699;
+  border: 1px solid #336699;
+  padding: 0px 1px 1px 2px;
+}
+
+.eventDetails .eventDetailsLabel {
+  color: white;
+  margin: 1px 5px;
+}
+  
+.eventDetails table {
+  margin: 0;
+  padding: 0;
+}
+
+.eventDetails table th {
+  background-color: white;
+  color: &dtml-discreetColor;;
+  width: 6em;
+}
+
+.eventDetails table td {
+  color: black;
+  width: 16em;
+}
+
+#meetTheSpeaker {
+  background-color: #DEE7EC;
+  clear: both;
+  margin-top: 2em;
+  padding: 1px 10px;
+}
+
+
+
+
+/* --- FACILITIES --- */
+
+.facility-location-image {
+  float: right;
+  font-size: 0.9em;
+  width: 200px;
+}
+
+.facility-location-image img {
+  display: block;
+}
+
+
+
+
+/* --- PEOPLE --- */
+
+.facultyStaffDirectory.personView .headshot {
+  background-color: white;
+  border-left: 2em solid white;
+  border-right: 2em solid white;
+  margin: 5em 0 0 0;
+}
+
+.facultyStaffDirectory.personView #administrativeInformation {
+  margin-top: 5em;
+}
+
+.facultyStaffDirectory.personView #administrativeInformation h3 {
+  color: #FF6633;
+}
+
+.facultyStaffDirectory.personView #administrativeInformation .labs dl {
+  margin: 0 0 0 1em;
+}
+
+.facultyStaffDirectory.personView #administrativeInformation .defList dd {
+  font-size: 0.85em;
+  line-height: 1em;
+  margin: 0 0 2em 0.25em;
+}
+
+.facultyStaffDirectory.personView #administrativeInformation .defList dd p {
+  margin: 0;
+}
+
+.facultyStaffDirectory .standardView ul.jobTitle li {
+  font-style: italic;
+}
+
+.facultyStaffDirectory .tabularView th.classification {
+  font-size: 100%;
+}
+
+.facultyStaffDirectory .tabularView ul.jobTitle li {
+  font-size: 93%;
+  line-height: 1.1em;
+  list-style-image: none;
+  list-style-type: none;
+  margin: 0.5em 0 0 1.5em;
+}
+
+.facultyStaffDirectory .tabularView dl.advisors {
+  font-size: 93%;
+  margin-top: -0.5em;
+}
+
+.facultyStaffDirectory .tabularView dl.advisors dt {
+  font-weight: normal;
+}
+
+.facultyStaffDirectory .tabularView dl.advisors dd {
+  margin: -1.1em 0 0 4.6em;
+}
+
+.facultyStaffDirectory .tabularView dl.advisors ul {
+  margin: 0;
+}
+
+.facultyStaffDirectory .tabularView dl.advisors ul li {
+  display: inline;
+  line-height: 1.1em;
+  list-style-image: none;
+  list-style-type: none;
+  margin: 0;
+}
+
+
+
+
+.facultyStaffDirectory .tabularView table.noBorders {
+  border: 0;
+  border-collapse: collapse;
+}
+
+.facultyStaffDirectory .tabularView table.noBorders th,
+.facultyStaffDirectory .tabularView table.noBorders td {
+  border: 0;
+  padding: 8px 3px;
+}
+
+.hasPhoneNumber {
+  background:transparent url(phone_icon.gif) no-repeat scroll left bottom;
+  padding-left:10px;
+}
+
+
+
+
+/* ---- FOOTER ---- */
+
+#portal-footer {
+  background-color: black;
+  border: none;
+  color: #AAA;
+  float: none;
+  font-weight: normal;
+  line-height: 1.2em;
+  margin: 2em 0em 1em 0em;
+  padding: 0.5em 0em 1em 2em;
+  text-align: left;
+}
+
+#portal-footer {
+  float: left;
+}
+
+#siteActions {
+  float: right;
+  margin: 2em 0 1em 0;
+  padding: 0.5em 2em 1em 0;
+  text-align: right;
+}
+
+#partnerLogo {
+  clear: both;
+  margin-bottom: 2em;
+  text-align: center;
+}
+
+
+#portal-footer p {
+  margin: 0.25em 0;
+}
+
+#portal-footer acronym {
+  color: white;
+}
+
+#portal-footer a,
+#portal-footer a:link,
+#portal-footer a:visited {
+  background-color: black;
+  border: none;
+  color: #AAA;
+  text-decoration: underline;
+}
+
+#portal-footer a:hover {
+  background-color: #AAA;
+  color: black;
+}
+
+#portal-siteactions {
+  background-color: black;
+  border: none;
+  color: #AAA;
+  margin: 0;
+  padding: 0;
+  text-align: right;
+}
+
+#portal-siteactions li {
+  display: block;
+  margin: 0.25em 0;
+}
+
+#portal-siteactions li a,
+#portal-siteactions li a:link,
+#portal-siteactions li a:visited {
+  background-color: black;
+  border: none;
+  color: #AAA;
+  text-decoration: underline;
+  text-transform: none;
+}
+
+#portal-siteactions li a:hover {
+  background-color: #AAA;
+  color: black;
+}
+
+  
+
+
+/* ---- FOOTER PORTLETS ---- */
+
+#footer-portlets {
+  margin: 1em 0 0 0;
+}
+
+#footer-portlets dl.portlet {
+  background-color: black;
+  border: none;
+}
+
+#footer-portlets .FooterPortletA,
+#footer-portlets .FooterPortletB,
+#footer-portlets .FooterPortletC,
+#footer-portlets .FooterPortletD,
+#footer-portlets .FooterPortletE {
+  float: left;
+  width: 20%;
+}
+
+#footer-portlets .FooterPortletF {
+  display: none;
+  visiblity: hidden;
+}
+
+#footer-portlets .portletHeader {
+  background-color: black;
+  text-transform: uppercase;
+}
+
+#footer-portlets .FooterPortletA .portletHeader a { background-color: #0099FF;  color; #FFFFFF; }
+#footer-portlets .FooterPortletB .portletHeader a { background-color: #66CC33;  color; #FFFFFF; }
+#footer-portlets .FooterPortletC .portletHeader a { background-color: #FF6633;  color; #FFFFFF; }
+#footer-portlets .FooterPortletD .portletHeader a { background-color: #FF6633;  color; #FFFFFF; }
+#footer-portlets .FooterPortletE .portletHeader a { background-color: #336699;  color; #FFFFFF; }
+
+#footer-portlets .portletHeader a,
+#footer-portlets .portletHeader a:link,
+#footer-portlets .portletHeader a:visited {
+  color: white;
+  padding: 0.2em 0.5em;
+  text-decoration: none;
+}
+
+#footer-portlets .portletHeader a:hover {
+  background-color: #AAA;
+  color: black;
+}
+
+
+#footer-portlets .portletItem {
+  padding: 0 0.5em 0.5em 1.5em;
+}
+
+#footer-portlets .portletItem a,
+#footer-portlets .portletItem a:link,
+#footer-portlets .portletItem a:visited,
+#footer-portlets .portletItem a.state-published,
+#footer-portlets .portletItem a.state-published:link,
+#footer-portlets .portletItem a.state-published:visited {
+  background-color: black;
+  border: none;
+  color: #AAA !important;
+  font-size: 0.88em;
+  margin: 0 1em 0 0;
+  padding: 0.5em 0.2em;
+  text-decoration: none;
+}
+
+#footer-portlets dl.portletCollection dd {
+  line-height: 1em;
+  margin: 0;
+  padding: 0 0.5em 0 1.5em;
+}
+
+#footer-portlets dl.portletCollection .even {
+  background-color: black;
+  border: 0;
+}
+
+#footer-portlets dl.portlet dd.portletItem a.tile:hover,
+#footer-portlets dl.portlet dd.portletItem ul li a:hover {
+  background-color: #AAA !important;
+  color: black !important;
+}
+
+#footer-portlets .portletItem a.state-private {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+#footer-portlets dd.portletItem .navTreeCurrentItem { 
+  border-bottom: none !important; 
+  border-left: none !important; 
+  border-right: none !important; 
+  border-top: none !important; 
+}
+
+
+
+
+
+/**** ------------------------------------ NOT VETTED BEYOND HERE ------------------------------------ ****/ 
+
+
+
+
+
+
+
+/* --- COLORS --- */
+
+/* -- Color 1 (blue) headers, footers, backgrounds and icons -- */
+/*
+#typeOnePortlet .portletHeader {
+  background: &dtml-colorOne;;
+  color: #fff;
+}
+*/
+
+/* -- Color 2 (green) headers, footers, backgrounds and icons -- */
+/*
+#typeTwoPortlet .portletHeader {
+  background: &dtml-colorTwo;;
+  color: #fff;
+}
+*/
+
+/* -- Color 3 (orange) headers, footers, backgrounds and icons -- */
+/*  
+#typeThreePortlet .portletHeader,
+#subspecialtyList .portletHeader {
+  background: &dtml-highlightColor;;
+  color: #fff;
+}
+*/
+
+
+
+
+
+
+
+
+
+
+
+/* ----- HOLIDAY - OFFICE CLOSED NOTICE ----- */
+.vacation_msg {
+  background-color: #ffcccc;
+  border: 1px solid #FF6633;
+  color: black;
+  padding: 1em;
+
+  display: none;
+  visiblity: hidden;
+}
+
+
+/* </dtml-with> */
+
+/* Latest version of the documentation on pre-defined properties from Plone 
+   can be found in CMFPlone/skins/plone_styles/ploneCustom.css.dtml */

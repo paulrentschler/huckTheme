@@ -1,0 +1,405 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xml:lang="en"
+      lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="FacultyStaffDirectory">
+
+
+<tal:comment tal:replace="nothing">
+  Created by: Paul Rentschler
+  Description: used to replace the standard person view provided by
+                Faculty/Staff Directory. This includes additional
+                fields added by the huckPersonExtender product
+  Based on: person_view.pt (from FSD 2.1.3)
+  Requires: huckPersonExtender 2.x
+  Changes:
+  	- reordered the individual pieces of information
+  	- change certain details depending on the person's classification
+  	- changes the display of the page if the person's expiration date has passed
+  Notes:
+  	- the emptyBiography condition is necessary because Kupu
+  	   automatically populates rich text fields with "<p>&nbsp;</p>"
+</tal:comment>
+
+  
+  <body>
+  
+    <metal:fill fill-slot="main">
+      <div id="hcard" class="vcard facultyStaffDirectory personView"
+           tal:define = "classificationList python:[c.id for c in context.getClassifications()];
+                         isFaculty python: 'faculty' in classificationList;
+                         isPostdoc python: 'postdocs' in classificationList;
+                         isStudent python: 'gradstudents' in classificationList;
+                         isResearcher python: isFaculty or isPostdoc or isStudent;
+                         isAdmin python: 'dmin' in classificationList;
+                         isExpired python:context.contentExpired();
+                         isEditor python:checkPermission('Modify portal content', context);
+                         showExpired python: not isExpired or (isExpired and isEditor)" >
+
+        <div class="caption">
+          <dl class="portalMessage info"
+              tal:condition="python: isExpired and isEditor">
+            <dt i18n:translate="FacultyStaffDirectory_expired_notice_editor_label">Note</dt>
+            <dd i18n:translate="FacultyStaffDirectory_expired_notice_editor">
+              This person is no longer associated with the organization.
+              You are seeing all their information because you have editing rights,
+              regular site visitors will only see the person's name.
+            </dd>
+          </dl>
+
+          <tal:block tal:condition="showExpired">
+            <div class="headshot" tal:condition="context/image_normal|nothing">
+              <img src="" alt="" tal:replace="structure python:context.getWrappedField('image').tag(context, scale='normal',  css_class='photo')" />
+            </div>
+          </tal:block>
+
+          <h1 class="fn n">
+            <span class="given-name" tal:content="context/getFirstName">[First Name]</span>
+            <span class="additional-name" tal:content="context/getMiddleName | nothing">[Middle Name]</span>
+            <tal:nickname tal:condition="context/nickName">
+              "<span class="nick-name" tal:content="context/nickName">[Nick Name]</span>"
+            </tal:nickname>
+            <span class="family-name" tal:content="context/getLastName">[Last Name]</span>
+            <span class="honorific-suffix" tal:content="context/getSuffix">[ suffix i.e. Dr]</span>
+          </h1>
+
+          <ul class="jobTitle"
+              tal:condition="python: showExpired and context.getJobTitles()">
+            <li class="title" tal:condition="context/getJobTitles" 
+                              tal:repeat="jobTitle context/getJobTitles"
+                              tal:content="jobTitle">
+              [job title]
+            </li>
+          </ul>
+          <p tal:condition="python:not showExpired"
+             i18n:translate="FacultyStaffDirectory_expired_notice">
+            This person is no longer associated with the Huck Institutes.
+          </p>
+          
+          <ul class="list"
+              tal:condition="showExpired">
+            <li tal:condition="context/getEmail">
+              E-mail: 
+              <span tal:attributes="class string:email"
+                    tal:content="structure python:context.spamProtect(context.getEmail())" />
+            </li>
+            <li class="tel officePhone"
+                tal:condition="context/getOfficePhone">
+              <span class="type">Phone</span>: 
+              <span class="value" tal:content="context/getOfficePhone">[phone number]</span>
+            </li>
+            <li class="tel fax" tal:define="fax python: context.get('fax')" tal:condition="context/fax">
+              <span class="type">Fax</span>:
+              <span class="value" tal:content="context/fax">[fax number]</span>
+            </li>
+            <li class="campus" tal:define="where context/campus" tal:condition="python:len(where)>1" >
+              <span class="type">Campus</span>:
+              <span class="value" tal:repeat="campus context/campus" tal:content="campus">[campus]</span>
+            </li>
+            <li class="street-address" tal:condition="context/getOfficeAddress" >
+              <span class="type">Office</span>:
+              <span class="value street-address"
+                    tal:content="structure python:context.getOfficeAddress().replace('\n', ', ')">
+                [office address]</span><tal:city tal:condition="context/getOfficeCity">,</tal:city>
+              <span class="value locality" tal:content="context/getOfficeCity">
+                [office city]</span><tal:state tal:condition="context/getOfficeState">, </tal:state>
+              <span class="value region" tal:content="context/getOfficeState">
+                [office state]</span>
+              <span class="value postal-code" tal:content="context/getOfficePostalCode">[postal zip code]</span>
+            </li>
+          </ul>
+                             
+          <div tal:condition="python: showExpired and context.getEducation()"
+               class="education">
+            <h2 i18n:translate="FacultyStaffDirectory_label_education">Education</h2>
+            <ul class="list">
+              <li tal:repeat="degree context/getEducation">
+                <span tal:content="degree" />
+              </li>
+            </ul>
+          </div>
+
+          <tal:biography tal:define="biography context/getBiography;
+                                     emptyBiography python: len(biography) <= 11;"
+                         tal:condition="showExpired">
+            <div tal:condition="not: emptyBiography" class="biography">
+              <h2>
+                <span tal:condition="isResearcher">Research interests</span>
+                <span tal:condition="not:isResearcher">Contact regarding&hellip;</span>
+              </h2>
+              <div tal:content="structure context/getBiography">[biography]</div>
+            </div>
+          </tal:biography>
+          
+          <div tal:condition="python: showExpired and context.getWebsites()"
+               class="websites">
+            <h2>For more about me, see:</h2>
+            <ul class="list websites">
+              <li tal:repeat="website context/getWebsites">
+                <a class='url' href="" 
+                   tal:attributes="href website"
+                   tal:content="website" />
+              </li>
+            </ul>              
+          </div>
+        </div>
+
+        <div class="advisors"
+             tal:define="advisors python:context.getReferences(relationship='people_advisors')"
+             tal:condition="python: showExpired and advisors">
+          <h2>Faculty advisors</h2> 
+          <ul>
+            <li tal:repeat="advisor advisors">
+              <a tal:define="url advisor/absolute_url;
+                             name advisor/Title"
+                 tal:attributes="href url"
+                 tal:content="name">[Advisor's Full Name]</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="advisees"
+             tal:define="advisees python:context.getReferences(relationship='advisors_people')"
+             tal:condition="python: showExpired and advisees">
+          <h2>
+            <span>
+              Students I advise
+            </span>
+          </h2> 
+          <ul>
+            <li tal:repeat="advisee advisees">
+              <a tal:define="url advisee/absolute_url;
+                             name advisee/Title"
+                 tal:attributes="href url"
+                 tal:content="name">Advisee's Full Name</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="courselisting" 
+             tal:define="courses context/getCourses"
+             tal:condition="python: showExpired and courses">
+          <h2 i18n:translate="FacultyStaffDirectory_label_courses">Courses</h2>
+          <dl tal:repeat="course courses">
+            <dt>
+              <a tal:attributes="href course/getRemoteUrl"
+                 tal:content="course/Title" 
+                 tal:condition="course/getRemoteUrl" />
+              <span tal:replace="course/Title"
+                    tal:condition="not: course/getRemoteUrl" />
+            </dt>
+            <dd tal:content="structure course/Description" />
+          </dl>
+        </div>
+
+
+        <tal:comment tal:replace="nothing">
+          ** removing this for now, may want to use it later for the CEGR lab members **
+
+                <div class="departments" tal:define="departmentsList context/getDepartments" tal:condition="departmentsList">
+                  <h2 i18n:translate="FacultyStaffDirectory_label_departments">Departments:</h2>
+                  <dl>
+                    <tal:block tal:repeat="eachDepartment departmentsList">
+                      <dt>
+                        <a tal:attributes="href python:eachDepartment.absolute_url()">
+                          <span tal:content="eachDepartment/Title" />:
+                        </a>
+                      </dt>
+                      <dd tal:define="personMembershipInformation python:eachDepartment.getMembershipInformation(context);">
+                        <tal:block tal:condition="personMembershipInformation/getPosition" 
+                                   tal:replace="structure personMembershipInformation/getPosition">               
+                        </tal:block>                                
+                        <span tal:condition="python:checkPermission('Modify portal content', context)"
+                              class="discreet">[
+                          <a tal:attributes="href python:'%s/edit' % personMembershipInformation.absolute_url()">
+                            <tal:block tal:condition="personMembershipInformation/getPosition" i18n:translate="FacultyStaffDirectory_editPosition">Edit position</tal:block>
+                            <tal:block tal:condition="not:personMembershipInformation/getPosition" i18n:translate="FacultyStaffDirectory_assignPosition">Assign a position</tal:block>
+                          </a>
+                        ]</span>                           
+                      </dd>
+                    </tal:block>
+                  </dl>
+                </div>
+        </tal:comment>
+
+
+
+        <div class="visualClear"><!-- --></div>
+            
+        <div id="administrativeInformation" tal:condition="isEditor">
+          <h2>Administrative information</h2>
+          <dl class="portalMessage info">
+            <dt>Note</dt>
+            <dd>You are seeing all their information because you have editing rights.</dd>
+          </dl>
+          
+          <div class="publishExpireDates">
+            <dl>
+              <dt>
+                <span class="label">Effective date:</span>
+                <span tal:content="context/EffectiveDate">[Effective Date]</span>
+              </dt>
+              <dd class="discreet">
+                Used to control the order of people in certain lists.
+              </dd>
+              <dt>
+                <span class="label">Expiration date:</span>
+                <span tal:content="context/ExpirationDate">[Expiration Date]</span>
+              </dt>
+              <dd class="discreet">
+                Used to indicate when the person has left the Huck Institutes.
+              </dd>
+            </dl>
+          </div>
+          
+          <div class="classifications">
+            <tal:block tal:define="classifications context/getClassifications"
+                       tal:condition="classifications">
+              <h3>Classifications</h3>
+              <ul class="list classifications">
+                <li tal:repeat="classification classifications"
+                    tal:content="classification/Title">
+                  [Classification]
+                </li>
+              </ul>
+            </tal:block>
+          </div>
+          
+          <div class="categories"
+               tal:define="categories context/Subject|nothing"
+               tal:condition="categories">
+            <h3>Categories (keywords)</h3>
+            <ul class="list categories">
+              <li tal:repeat="category categories"
+                  tal:content="category">
+                [Category]
+              </li>
+            </ul>
+          </div>
+          
+          <div class="specialties defList">
+            <tal:block tal:define="specialtyTuples context/getSpecialties" 
+                       tal:condition="specialtyTuples">
+              <h3>Specialties</h3>
+              <p class="discreet">
+                Any text to the right of each area listed below is what appears against 
+                <span tal:content="title_string | context/title_or_id">
+                  [The person's name, plus any suffixes]</span>'s 
+                name when s/he is listed in that area / graduate program. 
+                For researchers (faculty, postdocs, students), this is a summary of their research 
+                interests as relevant to the area / graduate program in question. Different areas 
+                can have different summaries associated with them.
+              </p>
+
+              <dl>
+                <tal:block tal:repeat="eachSpecialtyTuple specialtyTuples">
+                  <tal:block tal:define="specialtyBrain python:eachSpecialtyTuple[0];
+                                         personSpecialtyData python:eachSpecialtyTuple[1].getContentObject();">
+                    <dt>
+                      <a tal:attributes="href specialtyBrain/getURL">
+                        <span tal:content="specialtyBrain/Title" />
+                      </a>
+                    </dt>
+                    <dd tal:define="researchTopic personSpecialtyData/getResearchTopic">
+                      <tal:block tal:condition="researchTopic"
+                                 tal:replace="structure researchTopic">
+                      </tal:block>
+                      <span class="discreet">[
+                        <a tal:attributes="href python:'%s/edit' % personSpecialtyData.absolute_url()">
+                          <tal:block tal:condition="researchTopic"
+                                     i18n:translate="FacultyStaffDirectory_editResearchTopic">
+                            Edit research topic</tal:block>
+                          <tal:block tal:condition="not:researchTopic"
+                                     i18n:translate="FacultyStaffDirectory_assignResearchTopic">
+                            Assign a research topic</tal:block>
+                        </a>
+                      ]</span>
+                    </dd>
+                  </tal:block>
+                </tal:block>
+              </dl>
+            </tal:block>
+          </div>
+
+          <div class="labs defList"
+               tal:define="labsList context/getCommittees"
+               tal:condition="labsList">
+            <h3>Labs</h3>
+            <dl>
+              <tal:block tal:repeat="eachLab labsList">
+                <dt>
+                  <a tal:attributes="href python:eachLab.absolute_url()">
+                    <span tal:content="eachLab/Description" />
+                  </a>
+                </dt>
+                <dd tal:define="personMembershipInformation
+                                python:eachLab.getMembershipInformation(context);">
+                  <p tal:condition="personMembershipInformation/getPosition" 
+                     tal:content="structure personMembershipInformation/getPosition">               
+                  </p>                                
+                  <span tal:condition="isEditor"
+                        class="discreet">[
+                    <a tal:attributes="href python:'%s/edit' % personMembershipInformation.absolute_url()">
+                     <tal:block tal:condition="personMembershipInformation/getPosition"
+                                i18n:translate="FacultyStaffDirectory_editPosition">
+                       Edit position</tal:block>
+                     <tal:block tal:condition="not:personMembershipInformation/getPosition"
+                                i18n:translate="FacultyStaffDirectory_assignPosition">
+                       Assign a position</tal:block></a>
+                  ]</span>                           
+                </dd>
+              </tal:block>
+            </dl>
+          </div>
+          
+          <div class="assistants"
+               tal:define="assistants context/getAssistants;
+                           mtool python:context.portal_membership"
+               tal:condition="python: assistants and mtool.checkPermission('Add portal content', here)">
+            <h3 i18n:translate="FacultyStaffDirectory_label_assistants">Assistants</h3> 
+            <ul tal:repeat="assistant assistants">
+              <li tal:define="url assistant/absolute_url;
+                              name assistant/Title">
+                <a tal:attributes="href url"
+                   tal:content="name">[Assistant's Full Name]</a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="bosses"
+               tal:define="bosses python:context.getReferences(relationship='assistants_people');
+                           mtool python:context.portal_membership"
+               tal:condition="python: bosses and mtool.checkPermission('Add portal content', here)">
+            <h3 tal:define="myName context/Title">
+              <span i18n:translate="FacultyStaffDirectory_label_bosses">
+                <span tal:replace="myName" i18n:name="fullName">[My Name]</span>
+                is an assistant to
+              </span>:
+            </h3> 
+            <ul tal:repeat="boss bosses">
+              <li tal:define="url boss/absolute_url;
+                              name boss/Title">
+                <a tal:attributes="href url"
+                   tal:content="name">Boss' Full Name</a>
+              </li>
+            </ul>
+          </div>
+          
+          <tal:todo tal:replace="nothing">
+            ADD: Groups assigned to
+          </tal:todo>
+          
+        </div>
+          
+        <div metal:use-macro="context/document_actions/macros/document_actions">
+          [Document actions (print, sendto etc)]
+        </div>
+
+      </div>
+    </metal:fill>
+  
+  </body>
+</html>

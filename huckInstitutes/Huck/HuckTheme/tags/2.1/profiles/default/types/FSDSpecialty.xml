@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<object name="Specialty" meta_type="Factory-based Type Information with dynamic views"
+   xmlns:i18n="http://xml.zope.org/namespaces/i18n">
+ <property name="default_view">specialty_tabular_view</property>
+ <property name="view_methods">
+  <element value="specialty_standard_view"/>
+  <element value="specialty_sortable_standard_view"/>
+  <element value="specialty_tabular_view"/>
+  <element value="specialty_sortable_tabular_view"/>
+ </property>
+ <action title="Properties" action_id="metadata" category="object"
+    condition_expr="python:0" url_expr="string:${object_url}/base_metadata"
+    visible="False">
+  <permission value="Modify portal content"/>
+ </action>
+ <action title="Sharing" action_id="local_roles" category="object"
+    condition_expr="python:0"
+    url_expr="string:${object_url}/folder_localrole_form" visible="False">
+  <permission value="View"/>
+ </action>
+</object>
