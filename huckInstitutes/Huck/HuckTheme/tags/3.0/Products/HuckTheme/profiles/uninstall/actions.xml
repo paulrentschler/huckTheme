@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<!-- Uninstall our custom portal_actions -->
+
+<object name="portal_actions" meta_type="Plone Actions Tool"
+        xmlns:i18n="http://xml.zope.org/namespaces/i18n">
+
+  <!-- SITE ACTIONS -->
+    <object name="site_actions" meta_type="CMF Action Category">
+      <!-- Change the text of the "contact" link back -->   
+        <object name="contact" meta_type="CMF Action" i18n:domain="plone">
+          <property name="title" i18n:translate="">Contact</property>
+          <property name="description" i18n:translate=""></property>
+          <property name="url_expr">string:${portal_url}/contact-info</property>
+          <property name="icon_expr"></property>
+          <property name="available_expr"></property>
+          <property name="permissions">
+            <element value="View"/>
+          </property>
+          <property name="visible">True</property>
+        </object>
+
+    </object>
+
+
+
+  <!-- USER ACTIONS -->
+    <object name="user" meta_type="CMF Action Category">
+      <!-- Show the login link -->
+        <object name="login" meta_type="CMF Action" i18n:domain="plone">
+          <property name="title" i18n:translate="">Log in</property>
+          <property name="description" i18n:translate=""></property>
+          <property name="url_expr">string:${portal_url}/login_form</property>
+          <property name="icon_expr"></property>
+          <property name="available_expr">python:member is None</property>
+          <property name="permissions">
+            <element value="View"/>
+          </property>
+          <property name="visible">True</property>
+        </object>
+
+      <!-- Show the join link -->
+        <object name="join" meta_type="CMF Action" i18n:domain="plone">
+          <property name="title" i18n:translate="">Register</property>
+          <property name="description" i18n:translate=""></property>
+          <property name="url_expr">string:${portal_url}/join_form</property>
+          <property name="icon_expr"></property>
+          <property name="available_expr">python:member is None</property>
+          <property name="permissions">
+            <element value="Add portal member"/>
+          </property>
+          <property name="visible">True</property>
+        </object>
+
+    </object>
+
+  <!-- DOCUMENT ACTIONS -->
+    <object name="document_actions" meta_type="CMF Action Category">
+      <!-- Show the link to the send form -->     
+        <object name="sendto" meta_type="CMF Action" i18n:domain="plone">
+          <property name="title" i18n:translate="">Send this</property>
+          <property name="description" i18n:translate=""></property>
+          <property name="url_expr">string:$object_url/sendto_form</property>
+          <property name="icon_expr"></property>
+          <property name="available_expr"></property>
+          <property name="permissions">
+            <element value="Allow sendto"/>
+          </property>
+          <property name="visible">True</property>
+        </object>
+    </object>
+
+</object>

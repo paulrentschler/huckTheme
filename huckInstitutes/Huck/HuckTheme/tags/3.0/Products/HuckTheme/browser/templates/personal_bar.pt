@@ -1,0 +1,104 @@
+<div id="portal-personaltools-wrapper" i18n:domain="plone">
+
+  <h5 class="hiddenStructure" i18n:translate="heading_personal_tools">Personal tools</h5>
+
+  <ul id="portal-personaltools"
+      tal:condition="python:view.user_actions or not view.anonymous"
+      class="visualInline">
+
+    <tal:block condition="not: view/anonymous">
+      <li>
+        <a id="user-name"
+           tal:attributes="href view/homelink_url"
+          ><img src="" tal:replace="structure here/user.gif" />
+          <span class="visualCaseSensitive"
+                tal:content="view/user_name">
+            [username]
+          </span
+        ></a>
+      </li>
+    </tal:block>
+
+    <tal:actions tal:repeat="action view/user_actions">
+      <li tal:define="icon action/icon | nothing;
+                      icon python:icon is not None and icon or view.getIconFor(action['category'], action['id'], None);
+                      class_name string:visualIcon actionicon-${action/category}-${action/id};
+                      class_name python:icon is not None and class_name or nothing;
+                      action_id python:action['id'];"
+          tal:attributes="class class_name">
+        <a href=""
+           tal:attributes="href action/url;
+                           class python:icon is not None and 'visualIconPadding' or nothing;
+                           id action/id;"
+          ><tal:actionname i18n:translate="" 
+                           tal:content="action/title">[action title]</tal:actionname
+        ></a>
+      </li>
+    </tal:actions>
+
+    <tal:block condition="python:view.canManagePortal or view.canManagePortlets">
+      <li>
+        <dl class="actionMenu"
+            id="portal-personaltools-config">
+          <dt class="actionMenuHeader label-">
+            <a href="plone_control_panel"
+               title="Configure the site and portlets.">
+              <span>Config</span>
+              <span class="arrowDownAlternative">&#9660;</span>
+            </a>
+          </dt>
+          <dd class="actionMenuContent">
+            <ul>
+              <tal:block tal:condition="view/canManagePortal">
+                <li>
+                  <a href="plone_control_panel"
+                     class=""
+                     id="config-menu-site-setup"
+                     title="">
+                    <span class="subMenuTitle">Site Setup</span>
+                  </a>
+                </li>
+              </tal:block>
+
+              <tal:block tal:condition="view/canManagePortlets">
+                <li class="actionSeparator">
+                  <a href="@@manage-portlets"
+                     class=""
+                     id="config-menu-manage-portlets"
+                     title="">
+                    <span class="subMenuTitle">Manage portlets</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="@@manage-portletsabovecontent"
+                     class=""
+                     id="config-menu-manage-portlets-above-content"
+                     title="">
+                    <span class="subMenuTitle">Manage portlets above the content</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="@@manage-portletsbelowcontent"
+                     class=""
+                     id="config-menu-manage-portlets-below-content"
+                     title="">
+                    <span class="subMenuTitle">Manage portlets below the content</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="@@manage-footerportlets"
+                     class=""
+                     id="config-menu-manage-footer-portlets"
+                     title="">
+                    <span class="subMenuTitle">Manage portlets in the footer</span>
+                  </a>
+                </li>
+              </tal:block>
+            </ul>
+          </dd>
+        </dl>
+      </li>
+    </tal:block>
+
+  </ul>
+</div>

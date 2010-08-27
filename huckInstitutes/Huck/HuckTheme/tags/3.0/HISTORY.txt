@@ -74,8 +74,3 @@ HuckTheme 3.0 (27 August 2010)
      support it as we move forward.
 * Added support for a javascript powered image rotator on
    the home page that displays selected news items
-
-
-HuckTheme 3.1 (Unreleased)
--------------------------------------
-* Release name: fadeToBlue

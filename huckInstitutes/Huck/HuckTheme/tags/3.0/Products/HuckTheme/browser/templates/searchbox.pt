@@ -1,0 +1,54 @@
+<div class="visualClear"><!-- --></div>
+
+<div id="portal-searchbox" i18n:domain="plone">
+  
+  <div id="portal-advanced-search">
+    <a href="#"
+       tal:attributes="href string:${view/navigation_root_url}/sitemap"
+       i18n:translate="label_sitemap"
+       accesskey="3">
+      Site Map
+    </a>
+    &nbsp;&nbsp;&#149;&nbsp;&nbsp;
+
+    <a href="http://www.psu.edu/ur/search.html"
+       title="to the main Penn State search facility">
+      Search Penn State</a>
+    &nbsp;&nbsp;&#149;&nbsp;&nbsp;
+
+    <a href="#"
+       tal:attributes="href string:${view/navigation_root_url}/search_form"
+       i18n:translate="label_advanced_search"
+       accesskey="5">
+      Advanced Search</a>
+    &nbsp;&nbsp;&#149;&nbsp;&nbsp;
+
+  </div>
+
+
+  <form name="searchform"
+        action="search"
+        tal:attributes="action string:${view/navigation_root_url}/search">
+        
+    <label for="searchGadget" class=""
+           i18n:translate="text_search">Search:</label>
+           
+    <div class="LSBox">
+      <input name="SearchableText"
+             type="text"
+             size="20"
+             title="Search this site"
+             accesskey="4"
+             class="inputLabel"
+             i18n:attributes="title title_search_site;"
+             tal:attributes="value request/SearchableText|nothing;
+                             id view/search_input_id" />
+
+      <input class="searchButton" type="submit" value="Go" i18n:attributes="value label_search;" />
+
+      <div class="LSResult" id="LSResult" style="">
+        <div class="LSShadow" id="LSShadow"></div>
+      </div>
+    </div>
+  </form>
+</div>

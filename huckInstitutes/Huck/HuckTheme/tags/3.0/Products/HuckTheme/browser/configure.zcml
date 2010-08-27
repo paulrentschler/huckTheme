@@ -1,0 +1,114 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:plone="http://namespaces.plone.org/plone"
+    i18n_domain="Products.HuckTheme">
+
+  <!-- HuckTheme Zope 3 browser layer -->
+  <interface
+      interface=".interfaces.IThemeSpecific"
+      type="zope.publisher.interfaces.browser.IBrowserSkinType"
+      name="HuckTheme"
+      />
+
+  <!-- Resource directory for templates -->
+  <browser:resourceDirectory
+      name="Products.HuckTheme.templates"
+      directory="templates"
+      layer=".interfaces.IThemeSpecific"
+      />
+
+
+  <!-- VIEWLETS --> 
+    <!-- The PSU logo -->
+      <browser:viewlet
+          name="Products.HuckTheme.psulogo"
+          manager="plone.app.layout.viewlets.interfaces.IPortalTop"
+          layer=".interfaces.IThemeSpecific"
+          template="templates/psulogo.pt"
+          permission="zope2.View"
+          />
+
+    <!-- The customized searchbox -->
+      <browser:viewlet
+          name="Products.HuckTheme.searchbox"
+          manager="plone.app.layout.viewlets.interfaces.IPortalTop"
+          class=".viewlets.SearchBoxViewlet"
+          layer=".interfaces.IThemeSpecific"
+          permission="zope2.View"
+          />
+
+    <!-- The customized logo -->
+      <browser:viewlet
+          name="Products.HuckTheme.logo"
+          manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
+          class=".viewlets.LogoViewlet"
+          layer=".interfaces.IThemeSpecific"
+          permission="zope2.View"
+          />
+
+    <!-- The customized personalbar -->
+      <browser:viewlet
+          name="Products.HuckTheme.personal_bar"
+          manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
+          class=".viewlets.PersonalBarViewlet"
+          layer=".interfaces.IThemeSpecific"
+          permission="zope2.View"
+          />
+
+    <!-- The customized document byline -->
+      <browser:viewlet
+          name="Products.HuckTheme.document_byline"
+          manager="plone.app.layout.viewlets.interfaces.IContentViews"
+          class=".viewlets.DocumentBylineViewlet"
+          layer=".interfaces.IThemeSpecific"
+          permission="zope2.View"
+          />
+
+    <!-- The customized footer -->
+      <browser:viewlet
+          name="Products.HuckTheme.footer"
+          manager="plone.app.layout.viewlets.interfaces.IPortalFooter"
+          layer=".interfaces.IThemeSpecific"
+          template="templates/footer.pt"
+          permission="zope2.View"
+          />
+
+    <!-- The WebLion logo -->
+      <browser:viewlet
+          name="Products.HuckTheme.weblion"
+          manager="plone.app.layout.viewlets.interfaces.IPortalFooter"
+          layer=".interfaces.IThemeSpecific"
+          template="templates/weblion.pt"
+          permission="zope2.View"
+          />
+
+    <!-- Move site actions  --> 
+      <browser:viewlet
+          name="Products.HuckTheme.site_actions"
+          manager="plone.app.layout.viewlets.interfaces.IPortalFooter"
+          class=".viewlets.SiteActionsViewlet"
+          layer=".interfaces.IThemeSpecific"
+          permission="zope2.View"
+          />
+
+
+  <!-- PORTLETS (as per http://plone.org/documentation/how-to/override-the-portlets-in-plone-3.0) -->
+    <include package="plone.app.portlets" />
+    <include package="plone.portlet.collection" />
+
+    <!-- Customize the navigation portlet -->
+      <plone:portletRenderer
+           portlet="plone.app.portlets.portlets.navigation.INavigationPortlet"
+           template="templates/navigation.pt"       
+           layer=".interfaces.IThemeSpecific"
+           />
+
+    <!-- Customize the collection portlet -->
+      <plone:portletRenderer
+            portlet="plone.portlet.collection.collection.ICollectionPortlet"
+            template="templates/collection.pt"
+            layer=".interfaces.IThemeSpecific"
+            />
+
+</configure>

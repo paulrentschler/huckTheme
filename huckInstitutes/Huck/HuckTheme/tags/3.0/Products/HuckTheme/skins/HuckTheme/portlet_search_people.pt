@@ -1,0 +1,69 @@
+<html xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      i18n:domain="plone">
+
+  <tal:comment tal:replace="nothing">
+    Created by: Catherine Williams / Paul Rentschler
+    Description: used to create a custom search box portlet for the people section
+    Notes:
+      - based on code from http://plone.org/documentation/how-to/how-to-limit-search/
+  </tal:comment>
+
+  <body>
+    <metal:portlet define-macro="portlet">
+
+      <dl class="portlet portletSearch" 
+          id="people-search">
+        <dt class="portletHeader" >
+          <span class="portletTopLeft"></span>
+          Search for a person
+          <span class="portletTopRight"></span>
+        </dt>
+
+        <dd class="portletItem">
+          <form name="searchform"
+                action="search"
+                tal:attributes="action string:${portal_url}/people/search"
+                style="white-space:nowrap">
+            <label for="searchGadget" class="hiddenStructure"
+                   i18n:translate="text_search">search for: </label>
+            <input id="peopleSearchbox"
+                   tabindex=""
+                   name="Title"
+                   type="text"
+                   size="20"
+                   value=""
+                   alt="search"
+                   title="search"
+                   tal:attributes="value request/Title|nothing;
+                                   tabindex tabindex/next"
+                   class="visibility:visible" />
+
+            <tal:comment tal:replace="nothing">
+              Restrict the search path to the people section, and only look at people's names
+            </tal:comment>
+            <input type="hidden" name="path"
+                   tal:define="portal_id python:portal.getId()"
+                   tal:attributes="value string:${portal_id}/people" />
+
+            <input type="hidden" name="Type" value="Person" />
+
+            <input class="searchButton"
+                   type="submit"
+                   value="go"
+                   accesskey="accesskeys-search"
+                   tal:attributes="tabindex tabindex/next"
+                   i18n:attributes="value; accesskey" />
+          </form>
+          <div class="formHelp">
+            Unsure how the name's spelled? Use an asterisk (*) in place of letters you're not sure of 
+            (e.g. &quot;ma*&quot; will find &quot;ma&quot;, &quot;mark&quot;, &quot;mary&quot;, etc.)
+          </div>
+        </dd>
+      </dl>
+
+      <div class="visualClear"><!-- --></div>
+
+    </metal:portlet>
+  </body>
+</html>

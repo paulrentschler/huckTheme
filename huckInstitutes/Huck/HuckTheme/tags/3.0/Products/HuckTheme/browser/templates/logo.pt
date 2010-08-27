@@ -1,0 +1,8 @@
+<a metal:define-macro="portal_logo"
+   id="portal-logo"
+   accesskey="1"
+   tal:attributes="href context/portal_url"
+   i18n:domain="plone">
+  <img src="huck-logo.png" alt=""
+       tal:replace="structure context/huck-logo.png" />
+</a>
