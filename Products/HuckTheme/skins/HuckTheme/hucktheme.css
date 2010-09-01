@@ -529,6 +529,15 @@
       color: black !important;
     }
     
+    #footer-portlets dd.portletItem .portletNavigationTree .navTreeCurrentNode,
+    #footer-portlets dd.portletItem .portletNavigationTree .navTreeItemInPath {
+      background-color: transparent;
+    }
+    
+    #footer-portlets dd.portletItem .navTreeCurrentNode a.navTreeCurrentItem {
+      border: 0 none !important;
+    }
+    
     #footer-portlets .even {
       background-color: transparent;
     }
