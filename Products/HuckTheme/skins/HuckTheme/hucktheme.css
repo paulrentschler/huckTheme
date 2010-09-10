@@ -27,6 +27,13 @@
     font-weight: normal;
   }
   
+  .alert {
+    background-color: #EEF3F5;
+    border: 1px solid #336699;
+    margin-bottom: 0.5em;
+    padding: 5px;
+  }
+  
   
   
   /* ----- HOLIDAY - OFFICE CLOSED NOTICE ----- */
