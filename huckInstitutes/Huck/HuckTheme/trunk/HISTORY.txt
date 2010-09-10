@@ -80,4 +80,12 @@ HuckTheme 3.0.1 (Unreleased)
 -------------------------------------
 * Release name: fadeToBlue
 * Turned off the vacation message by default with the CSS
-* 
+* Fixed the personal bar
+  - the links can be clicked on now
+  - removed the "My Folder" link
+  - made the name link to the person's FSD page
+* Fixed the live search box so it's not covered by the
+   editing bar
+* Fixed the footer navigation portlets so they don't show
+   the active item
+* Added CSS styling for an "alert" box
