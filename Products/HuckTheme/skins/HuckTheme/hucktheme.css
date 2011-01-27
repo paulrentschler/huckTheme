@@ -35,7 +35,6 @@
   }
   
   
-  
   /* ----- HOLIDAY - OFFICE CLOSED NOTICE ----- */
   .vacation_msg {
     background-color: #ffcccc;
@@ -703,6 +702,7 @@
 
 
 
+
 /* -------------------------------------------------------- */
 /* ---------------------- CONTENT ------------------------- */
 /* -------------------------------------------------------- */
@@ -1042,6 +1042,20 @@
 
 
 
+  /* ----- TWO COLUMN COLLECTION VIEW ----- */
+    #people-column-one {
+      float: left;
+      margin-right: 20px;
+      width: 55%;
+    }
+    
+    #people-column-two {
+      float: left;
+      width: 40%;
+    }
+
+
+
 
 /* -------------------------------------------------------- */
 /* ----------------------- EVENTS ------------------------- */
@@ -1304,3 +1318,4 @@
     .highlight-paging a:hover {
       font-weight: bold;
     }
+
