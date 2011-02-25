@@ -1220,6 +1220,10 @@
       border: 1px solid black;
       display: block;
     }
+    
+    .video-right em {
+      background-color: white;
+    }
 
 
   /* ----- PHYSIOLOGY SHOWCASE ----- */
