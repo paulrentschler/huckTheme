@@ -1210,7 +1210,9 @@
   /* ----- VIDEOS ----- */
     .video-right {
       border: none;
+      border-left: 10px solid white;
       float: right;
+      padding-bottom: 0.2em;
       width: 300px;
     }
 
