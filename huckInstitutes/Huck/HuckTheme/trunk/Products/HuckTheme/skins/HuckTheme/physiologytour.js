@@ -11,7 +11,22 @@
 jq(document).ready( function () {
 
   // test for flash support
+  var flashSupported = false;
   if (navigator.mimeTypes && navigator.mimeTypes["application/x-shockwave-flash"]) {
+    flashSupported = true;
+  } else if (navigator.plugins && navigator.plugins["Shockwave Flash"]) {
+    flashSupported = true;
+  } else {
+    // if the two easy checks don't work (i'm talking to you IE), 
+    //  use the Adobe Flash detection script
+    var requiredMajorVersion = 0;
+    var requiredMinorVersion = 0;
+    var requiredRevision = 0;
+    
+    flashSupported = DetectFlashVer(requiredMajorVersion, requiredMinorVersion, requiredRevision);
+  }
+  
+  if (flashSupported) {
     // insert the launching image
     jq("div.video-right").prepend('<a id="tour-launcher" href=""><img src="/education/physiology/images/interactive-tour.jpg" width="300" height="50" alt="Image of a translucent head on a DNA strand background used to launch a flash-based interactive tour of the Physiology Graduate program. All content is also available through the various pages of this web site." /></a>');
 
