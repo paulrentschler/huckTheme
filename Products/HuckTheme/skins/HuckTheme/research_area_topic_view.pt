@@ -13,7 +13,7 @@
   Based on: people_topic_view.pt
   Requires: findSpecialtyForTopic.py
   Changes:
-    - put the body text on the left and a list of faculty (with a heading of "Faculty") on
+    - put the body text on the left and a list of faculty (with a heading of "Researchers") on
        the right.
     - limit the amount of faculty information to reduce space requirements and maximize
        the number of faculty shown
@@ -78,13 +78,24 @@
           </metal:subtopiclist>
 
           <metal:listingmacro define-macro="listing">
-            <tal:topiccontents define="topicContents python:here.queryCatalog(batch=True);
+            <tal:topiccontents define="topicContents python:here.queryCatalog(batch=False);
                                        batch topicContents;">
 
               <tal:listing condition="topicContents">
                 <div id="people-column-two" class="facultyStaffDirectory">
                   <div class="tabularView">
-                    <h2>Faculty</h2>
+                    <h2>Researchers</h2>
+
+                    <tal:onlyforadmins tal:condition="not: isAnon">
+                      <p class="discreet"
+                         tal:condition="not: here/listCriteria"
+                         i18n:domain="atcontenttypes"
+                         i18n:translate="description_no_criteria_in_topic">
+                        There are currently no criteria on which to search.
+                        Please add them using the 'criteria' tab.
+                      </p>
+                    </tal:onlyforadmins>
+                    
                     <table class="noBorders"
                            tal:define="specialtyObj context/findSpecialtyForTopic;
                                        specialtyName context/Title;
@@ -166,27 +177,53 @@
                 </div>
                 <div class="visualClear"><!-- --></div>
               </tal:listing>
+              
+              <div id="associated-researchers"
+                   class="facultyStaffDirectory"
+                   tal:define="folderContents python:context.getFolderContents(contentFilter={'id': 'affiliates'});">
+                <tal:affiliates tal:condition="python:len(folderContents) > 0">
+                  <h2>Affiliated researchers</h2>
+                  <p class="discreet">
+                    Researchers who are interested in this area of research but who's primary research is in a different area.
+                  </p>
+                  <tal:listing tal:define="affiliateObj python:folderContents[0].getObject();
+                                           affiliates python:affiliateObj.queryCatalog(batch=False);"
+                               tal:condition="affiliates">
 
-              <p class="discreet"
-                 tal:condition="python: not topicContents and here.listCriteria()"
-                 i18n:domain="atcontenttypes"
-                 i18n:translate="description_no_items_in_topic">
-                Oops. We didn't find anyone in this category.
-              </p>
+                    <dl>
+                      <tal:rows tal:repeat="affiliate affiliates">
+                        <tal:person tal:define="person affiliate/getObject;">
+                          <dt>
+                            <a tal:attributes="href person/absolute_url">
+                              <span tal:replace="string:${person/getLastName}, ${person/getFirstName}">
+                               [person's name]</span>
+                              <tal:nickname tal:condition="person/nickName">
+                               "<span tal:replace="person/nickName">[person's nickname]</span>"
+                              </tal:nickname>
+                            </a>
+                            <tal:expired tal:condition="python: person.contentExpired()">
+                              &mdash;
+                              <span class="state-expired">expired</span>
+                            </tal:expired>
+                          </dt>
+                          <dd>
+                            <ul tal:condition="person/getJobTitles" class="jobTitle contactInfo">
+                              <li tal:repeat="jobTitle person/getJobTitles">
+                                <span tal:replace="jobTitle">[make a list of job titles]</span>
+                              </li>
+                            </ul>
+                          </dd>
+                        </tal:person>
+                      </tal:rows>
+                    </dl>
 
-              <tal:onlyforadmins tal:condition="not: isAnon">
-                <p class="discreet"
-                   tal:condition="not: here/listCriteria"
-                   i18n:domain="atcontenttypes"
-                   i18n:translate="description_no_criteria_in_topic">
-                  There are currently no criteria on which to search.
-                  Please add them using the 'criteria' tab.
-                </p>
-              </tal:onlyforadmins>
 
-              <!-- Navigation -->
-              <div metal:use-macro="here/batch_macros/macros/navigation" />
 
+                  </tal:listing>
+                  
+                </tal:affiliates>
+              </div>
+              
             </tal:topiccontents>
           </metal:listingmacro>
         </metal:body>

@@ -932,6 +932,14 @@
     padding-left:10px;
   }
 
+  .facultyStaffDirectory ul.jobTitle li {
+    font-size: 93%;
+    line-height: 1.1em;
+    list-style-image: none;
+    list-style-type: none;
+    margin: 0.5em 0 0 0;
+  }
+
 
 
   /* ----- PERSON VIEW ----- */
@@ -981,14 +989,6 @@
       font-size: 100%;
     }
 
-    .facultyStaffDirectory .tabularView ul.jobTitle li {
-      font-size: 93%;
-      line-height: 1.1em;
-      list-style-image: none;
-      list-style-type: none;
-      margin: 0.5em 0 0 0;
-    }
-    
     .facultyStaffDirectory .tabularView td.contactDetails .contactInfo {
       font-size: 85%;
     }
