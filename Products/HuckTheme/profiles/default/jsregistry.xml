@@ -56,6 +56,15 @@
               inline="False" 
               />
 
+  <javascript id="AC_OETags.js"
+              cacheable="False"
+              compression="safe" 
+              cookable="False"
+              enabled="True" 
+              expression="python:here.id=='physiology'" 
+              inline="False" 
+              />
+              
   <javascript id="physiologytour.js"
               cacheable="False"
               compression="safe" 
