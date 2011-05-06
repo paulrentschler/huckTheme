@@ -68,6 +68,19 @@
       color: #FF6633 !important;
       text-decoration: none;
     }
+
+    /* Styles for Sub-Folder View */
+    .tileItem dl {
+      margin-left: 2em;
+    }
+
+    .tileItem dl dt {
+      margin-bottom: 0.5em;
+    }
+
+    .tileItem dl dd {
+      display: none;
+    }
   
   
   
