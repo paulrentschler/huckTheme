@@ -89,3 +89,12 @@ HuckTheme 3.0.1 (Unreleased)
 * Fixed the footer navigation portlets so they don't show
    the active item
 * Added CSS styling for an "alert" box
+
+
+HuckTheme 3.1.0 (Unreleased)
+-------------------------------------
+* Release name: fadeToBlue
+* Converted the layout to a tableless format to fix a
+   problem with the search bar not being accessible
+   in IE 7. (Ticket #1632)
+* 

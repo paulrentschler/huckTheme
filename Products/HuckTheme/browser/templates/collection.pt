@@ -67,6 +67,11 @@
                              ends python: toLocalizedTime(hasattr(obj, 'end') and obj.end, long_format=1);
                              startDay python: toLocalizedTime(hasattr(obj, 'start') and obj.start, long_format=0);
                              endDay python: toLocalizedTime(hasattr(obj, 'end') and obj.end, long_format=0);">
+                             
+        <tal:setToday tal:condition="python: startDay == endDay"
+                      tal:define="classToday string:today" />
+        <tal:setPast>
+        </tal:setPast>
         
         <tal:talkevent tal:condition="is_event_talk">
           <tal:comment tal:replace="nothing">
