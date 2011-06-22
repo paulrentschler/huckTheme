@@ -154,36 +154,36 @@
     width: 852px !important;
   }
 
+/*
   table#portal-columns td {
     background-color: transparent;
     padding-top: 110px;
     vertical-align: top;
   }
+*/
 
-
-  #portal-columns #portal-column-one,
-  table#portal-columns td#portal-column-one {
+  #portal-columns #portal-column-one {
     background-color: white;
     margin-top: -100px;
     padding-top: 0;
     width: 252px;
   }
   
-  table#portal-columns td#portal-column-one .visualPadding {
+  #portal-columns #portal-column-one .visualPadding {
     padding: 0 0 2em 0;
   }
 
-  table#portal-columns td#portal-column-content {
+  #portal-columns #portal-column-content {
     padding-bottom: 1em;
     padding-left: 1em;
     padding-right: 1em;
   }
 
-  table#portal-columns td#portal-column-two {
+  #portal-columns #portal-column-two {
     width: 150px;
   }
 
-  table#portal-columns td#portal-column-two .visualPadding {
+  #portal-columns #portal-column-two .visualPadding {
     margin-top: 1.5em;
   }
 
@@ -885,10 +885,11 @@
 /* ----------------------- TABLES ------------------------- */
 /* -------------------------------------------------------- */
 
-  /* undo the column padding for the three column layout */
+  /* undo the column padding for the three column layout
   table#portal-columns td table td {
     padding-top: 0.5em;
   }
+  */
 
   table.listing {
     font-size: 100%;
