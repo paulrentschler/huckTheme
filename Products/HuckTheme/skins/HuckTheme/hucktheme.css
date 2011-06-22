@@ -166,7 +166,6 @@
     background-color: white;
     margin-top: -100px;
     padding-top: 0;
-    width: 252px;
   }
   
   #portal-columns #portal-column-one .visualPadding {
@@ -177,10 +176,6 @@
     padding-bottom: 1em;
     padding-left: 1em;
     padding-right: 1em;
-  }
-
-  #portal-columns #portal-column-two {
-    width: 150px;
   }
 
   #portal-columns #portal-column-two .visualPadding {
