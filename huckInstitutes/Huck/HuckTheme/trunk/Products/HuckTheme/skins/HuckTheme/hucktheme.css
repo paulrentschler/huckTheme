@@ -106,6 +106,12 @@
 /* ----------------------- LAYOUT ------------------------- */
 /* -------------------------------------------------------- */
 
+  body {
+    background: url(header-bg.png) 0 -24px repeat-x;
+    width: 100%;
+  }
+
+  #visual-portal-wrapper,
   #visual-header-wrapper,
   #visual-content-wrapper,
   #visual-footer-wrapper {
@@ -121,28 +127,30 @@
   }
 
   /* ----- HEADER ----- */
-    #portal-top {
-      background: url(header-bg.png) 0 -24px repeat-x;
-      height: 150px;
-    }
+  #portal-top {
+    /*
+    background: url(header-bg.png) 0 -24px repeat-x; */
+    height: 150px;
+  }
 
-    #portal-header {
-      background-color: #336699;
-      margin: 0;
-      padding: 0;
-      position: absolute;
-      right: 0;
-      top: 0;
-      width: 602px;
-      z-index: 10;
-    }
+  #portal-header {
+    background-color: #336699;
+    float: right;
+    margin: 0;
+    padding: 0;
+    /*
+    position: absolute;
+    right: 0;
+    top: 0; */
+    width: 602px;
+    z-index: 10;
+  }
 
 
 
   /* ----- CONTENT ----- */
-  table#portal-columns {
+  #portal-columns {
     margin-left: 126px;
-    margin-top: -100px;
     width: 852px !important;
   }
 
@@ -153,8 +161,10 @@
   }
 
 
+  #portal-columns #portal-column-one,
   table#portal-columns td#portal-column-one {
     background-color: white;
+    margin-top: -100px;
     padding-top: 0;
     width: 252px;
   }
@@ -687,7 +697,9 @@
     float: none;
     height: 30px;
     margin: 0;
+/*
     margin-top: 117px;
+    */
     padding: 5px 5px 0 0;
     position: relative;
     text-align: right;
@@ -801,6 +813,10 @@
       color: #666666;
     }
 
+    .actionMenu .actionMenuContent {
+      z-index: 10;
+    }
+    
     .actionMenu .actionMenuContent ul {
       background: #CCCCCC none repeat scroll 0 0;
       border-color: #797979;
