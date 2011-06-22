@@ -86,8 +86,7 @@
       <div id="portal-columns">
         <tal:comment replace="nothing"> Start of the left column </tal:comment>
         <div id="portal-column-one"
-             metal:define-slot="column_one_slot"
-             tal:condition="sl">
+             metal:define-slot="column_one_slot">
              
            <div class="portletSectionLogo highlight-container"
                 tal:define="section python:context.getSectionFromURL()[8:];">
