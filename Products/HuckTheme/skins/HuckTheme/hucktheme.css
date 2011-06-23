@@ -1122,18 +1122,18 @@
     font-weight: bold;
   }
 
-  table.eventTable td.eventDate.canceled .eventDateTime,
-  table.eventTable td.eventDate.postponed .eventDateTime,
-  table.eventTable td.eventDate.rescheduled .eventDateTime {
+  .eventDate.canceled .eventDateTime,
+  .eventDate.postponed .eventDateTime,
+  .eventDate.rescheduled .eventDateTime {
     text-decoration: line-through;
   }
   
-  table.eventTable td.eventDate .eventStatus {
+  .eventDate .eventStatus {
     margin: 0.2em;
     text-align: center;
   }
   
-  table.eventTable td .eventStatus span {
+  .eventStatus span {
     background-color: #B6D8EA; /* #336699; */
     color: #336699;
     display: inline-block;
