@@ -91,10 +91,18 @@ HuckTheme 3.0.1 (Unreleased)
 * Added CSS styling for an "alert" box
 
 
-HuckTheme 3.1.0 (Unreleased)
+HuckTheme 3.1.0 (23 June 2011)
 -------------------------------------
 * Release name: fadeToBlue
 * Converted the layout to a tableless format to fix a
    problem with the search bar not being accessible
    in IE 7. (Ticket #1632)
-* 
+* Updated the talkevent_view template to go with the
+   new 3.0 version of Products.TalkEventType.
+* Updated the events_topic_view to show "canceled",
+   "postponed", or "rescheduled" under the event date.
+* Updated the collection portlet view to also handle
+   showing "canceled", "postponed", or "rescheduled"
+   when showing a talk event.
+* Updated the Berg Signage view to support the
+   "canceled", "postponed", or "rescheduled" indicators.
