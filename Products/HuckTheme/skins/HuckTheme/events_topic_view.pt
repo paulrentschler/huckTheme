@@ -97,16 +97,24 @@
                                       where         python:obj.location.strip();
                                       object        python:obj.getObject()">
 
-                        <td class="eventDate">
-                          <tal:sameday tal:condition="python:startDay==endDay">
-                            <span tal:replace="python:toLocalizedTime(starts, long_format=1)">[When it starts]</span>									
-                          </tal:sameday>
-                          <tal:differentday tal:condition="python:startDay!=endDay">
-                            <span tal:replace="startDay">[Day the event starts]</span> &#8212; <span tal:replace="endDay">[Day the event ends]</span>
-                          </tal:differentday>
+                        <td tal:attributes="class python:object.getEventStatus() + ' eventDate'">
+                          <span class="eventDateTime">
+                            <tal:sameday tal:condition="python:startDay==endDay">
+                              <span tal:replace="python:toLocalizedTime(starts, long_format=1)">[When it starts]</span>
+                            </tal:sameday>
+                            <tal:differentday tal:condition="python:startDay!=endDay">
+                              <span tal:replace="startDay">[Day the event starts]</span> &#8212; <span tal:replace="endDay">[Day the event ends]</span>
+                            </tal:differentday>
+                          </span>
+                          <div class="eventStatus">
+                            <span tal:condition="python: object.getEventStatus() != 'scheduled'"
+                                  tal:attributes="class python:object.getEventStatus()"
+                                  tal:content="python: object.getEventStatus().capitalize()">
+                              Event status
+                            </span>
+                          </div>
                         </td>
                         <td>
-                          <span class="eventCanceled" tal:condition="object/eventCanceled|nothing">CANCELED</span>
                           <a class="eventTitle" tal:attributes="href url">
                             <span tal:replace="title_or_id">[list the name of the speaker if it's a talk or the event if it's something else]</span>
                             <tal:institution tal:condition="object/speakerInstitution|nothing">

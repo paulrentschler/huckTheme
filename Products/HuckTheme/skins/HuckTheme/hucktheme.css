@@ -1122,12 +1122,33 @@
     font-weight: bold;
   }
 
-  table.eventTable td .eventCanceled {
-    background-color: #336699;
-    color: white;
-    padding: 2px;
+  table.eventTable td.eventDate.canceled .eventDateTime,
+  table.eventTable td.eventDate.postponed .eventDateTime,
+  table.eventTable td.eventDate.rescheduled .eventDateTime {
+    text-decoration: line-through;
+  }
+  
+  table.eventTable td.eventDate .eventStatus {
+    margin: 0.2em;
+    text-align: center;
+  }
+  
+  table.eventTable td .eventStatus span {
+    background-color: #B6D8EA; /* #336699; */
+    color: #336699;
+    display: inline-block;
+    font-size: 90%;
+    padding: 2px 5px;
+    
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;    
   }
 
+  .vevent .portalMessage.eventStatus strong {
+    font-size: 110%;
+  }
+  
   .eventDetails {
     background-color: #336699;
     border: 1px solid #336699;
