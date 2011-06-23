@@ -99,16 +99,18 @@
 
                         <td tal:attributes="class python:object.getEventStatus() + ' eventDate'">
                           <span class="eventDateTime">
-                            <tal:sameday tal:condition="python:startDay==endDay">
-                              <span tal:replace="python:toLocalizedTime(starts, long_format=1)">[When it starts]</span>
-                            </tal:sameday>
-                            <tal:differentday tal:condition="python:startDay!=endDay">
-                              <span tal:replace="startDay">[Day the event starts]</span> &#8212; <span tal:replace="endDay">[Day the event ends]</span>
-                            </tal:differentday>
+                            <span>
+                              <tal:sameday tal:condition="python:startDay==endDay">
+                                <span tal:replace="python:toLocalizedTime(starts, long_format=1)">[When it starts]</span>
+                              </tal:sameday>
+                              <tal:differentday tal:condition="python:startDay!=endDay">
+                                <span tal:replace="startDay">[Day the event starts]</span> &#8212; <span tal:replace="endDay">[Day the event ends]</span>
+                              </tal:differentday>
+                            </span>
                           </span>
                           <div class="eventStatus">
                             <span tal:condition="python: object.getEventStatus() != 'scheduled'"
-                                  tal:attributes="class python:object.getEventStatus()"
+                                  tal:attributes="class python:object.getEventStatus() + ' eventStatusLabel'"
                                   tal:content="python: object.getEventStatus().capitalize()">
                               Event status
                             </span>

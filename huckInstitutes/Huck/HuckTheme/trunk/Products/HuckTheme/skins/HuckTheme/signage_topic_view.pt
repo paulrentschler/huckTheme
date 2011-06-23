@@ -77,6 +77,33 @@
         padding: 0;
       }
     
+      .eventDate .eventDateTime span {
+        color: black;
+      }
+      
+      .eventDate.canceled .eventDateTime,
+      .eventDate.postponed .eventDateTime,
+      .eventDate.rescheduled .eventDateTime {
+        text-decoration: line-through;
+        color: #FF6633;
+      }
+
+      .eventDate .eventStatus {
+        margin: 0.2em;
+        text-align: center;
+      }
+
+      .eventStatus span {
+        background-color: #B6D8EA; /* #336699; */
+        color: #336699;
+        display: inline-block;
+        font-size: 90%;
+        padding: 2px 5px;
+
+        border-radius: 5px;
+        -moz-border-radius: 5px;
+        -webkit-border-radius: 5px;    
+      }
     </style>
   </head>
 
@@ -101,35 +128,43 @@
                              startDay      python: toLocalizedTime(starts, long_format=0);
                              endDay        python: toLocalizedTime(ends, long_format=0);" >
             
-              <tal:cancelled tal:condition="not: obj/eventCanceled">
-              
-                <h1>
-                  <a href="#"
-                     tal:attributes="href url"
-                     tal:content="title_or_id">
-                    [speaker / event title]</a>
-                </h1>
-                <tal:institution tal:condition="obj/speakerInstitution">
-                  <h2 tal:content="obj/speakerInstitution">[speaker's institution]</h2>
-                </tal:institution>
-                <h3 class="eventDate">
-                  <tal:sameday tal:condition="python:startDay==endDay">
-                    <span tal:replace="python:toLocalizedTime(starts, long_format=1)">[When it starts]</span>                 
-                  </tal:sameday>
-                  <tal:differentday tal:condition="python:startDay!=endDay">
-                    <span tal:replace="startDay">[Day the event starts]</span> &#8212; <span tal:replace="endDay">[Day the event ends]</span>
-                  </tal:differentday>
-                </h3>
-                <div class="eventDesc"
-                     tal:define="desc obj/Description;
-                                 noTitle python:'o be announced' in desc">
-                  <span tal:condition="not: noTitle"
-                        tal:replace="desc">
-                    [talk title]
+              <h1>
+                <a href="#"
+                   tal:attributes="href url"
+                   tal:content="title_or_id">
+                  [speaker / event title]</a>
+              </h1>
+              <tal:institution tal:condition="obj/speakerInstitution">
+                <h2 tal:content="obj/speakerInstitution">[speaker's institution]</h2>
+              </tal:institution>
+              <h3 tal:attributes="class python:obj.getEventStatus() + ' eventDate'">
+                <span class="eventDateTime">
+                  <span>
+                    <tal:sameday tal:condition="python:startDay==endDay">
+                      <span tal:replace="python:toLocalizedTime(starts, long_format=1)">[When it starts]</span>                 
+                    </tal:sameday>
+                    <tal:differentday tal:condition="python:startDay!=endDay">
+                      <span tal:replace="startDay">[Day the event starts]</span> &#8212; <span tal:replace="endDay">[Day the event ends]</span>
+                    </tal:differentday>
                   </span>
-                </div>
+                </span>
+                <span class="eventStatus">
+                  <span tal:condition="python: obj.getEventStatus() != 'scheduled'"
+                        tal:attributes="class python:obj.getEventStatus()"
+                        tal:content="python: obj.getEventStatus().capitalize()">
+                    Event status
+                  </span>
+                </span>
+              </h3>
+              <div class="eventDesc"
+                   tal:define="desc obj/Description;
+                               noTitle python:'o be announced' in desc">
+                <span tal:condition="not: noTitle"
+                      tal:replace="desc">
+                  [talk title]
+                </span>
+              </div>
 
-              </tal:cancelled>
             </div>
           </tal:brain>
         </tal:listing>

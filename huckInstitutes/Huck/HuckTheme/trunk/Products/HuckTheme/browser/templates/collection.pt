@@ -103,19 +103,21 @@
              tal:define="talkEventObj python:obj.getObject();"
              tal:attributes="class python:talkEventObj.getEventStatus() + ' eventDate'">
           <span class="eventDateTime">
-            <tal:sameday tal:condition="python: startDay == endDay">
-              <span tal:condition="starts" tal:replace="starts">[single day event: show date and time]</span>
-            </tal:sameday>
-            <tal:multiday tal:condition="python: startDay != endDay">
-              <span tal:condition="starts" tal:replace="startDay">[multi-day event: show its start date]</span>
-              <tal:hasendday tal:condition="ends"> to
-                <span tal:replace="endDay">[multi-day event: show its end date]</span>
-               </tal:hasendday>
-            </tal:multiday>
+            <span>
+              <tal:sameday tal:condition="python: startDay == endDay">
+                <span tal:condition="starts" tal:replace="starts">[single day event: show date and time]</span>
+              </tal:sameday>
+              <tal:multiday tal:condition="python: startDay != endDay">
+                <span tal:condition="starts" tal:replace="startDay">[multi-day event: show its start date]</span>
+                <tal:hasendday tal:condition="ends"> to
+                  <span tal:replace="endDay">[multi-day event: show its end date]</span>
+                 </tal:hasendday>
+              </tal:multiday>
+            </span>
           </span>
           <span class="eventStatus">
             <span tal:condition="python: talkEventObj.getEventStatus() != 'scheduled'"
-                  tal:attributes="class python:talkEventObj.getEventStatus()"
+                  tal:attributes="class python:talkEventObj.getEventStatus() + ' eventStatusLabel'"
                   tal:content="python: talkEventObj.getEventStatus().capitalize()">
               Event status
             </span>
