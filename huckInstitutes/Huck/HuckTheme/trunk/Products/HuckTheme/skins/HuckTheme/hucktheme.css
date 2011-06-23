@@ -110,6 +110,10 @@
     background: url(header-bg.png) 0 -24px repeat-x;
     width: 100%;
   }
+  
+  body.popup {
+    background: transparent;
+  }
 
   #visual-portal-wrapper,
   #visual-header-wrapper,
@@ -1149,6 +1153,12 @@
   .eventDetails table td {
     color: black;
     width: 16em;
+  }
+  
+  .eventDetails table td.canceled,
+  .eventDetails table td.postponed,
+  .eventDetails table td.rescheduled {
+    text-decoration: line-through;
   }
 
   #meetTheSpeaker {

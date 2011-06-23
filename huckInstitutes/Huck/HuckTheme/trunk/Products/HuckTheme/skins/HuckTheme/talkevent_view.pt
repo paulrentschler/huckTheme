@@ -46,8 +46,22 @@
             </metal:field>
           </h2>
         
-          <div class="portalMessage" tal:condition="here/eventCanceled|nothing">
-            PLEASE NOTE: This event has been canceled!
+          <div class="portalMessage eventStatus" tal:condition="here/eventCanceled|nothing">
+            <strong>Please Note:</strong> This event has been canceled!
+          </div>
+          
+          <div class="portalMessage eventStatus" 
+               tal:define="rescheduledEvent here/getRescheduledEvent|nothing"
+               tal:condition="python: not context.getEventCanceled() and context.getEventPostponed()">
+            
+            <tal:rescheduled tal:condition="rescheduledEvent">
+              <strong>Please Note:</strong> This event has been 
+              <a tal:attributes="href python:rescheduledEvent[0].absolute_url()">rescheduled for <span tal:content="python:here.toLocalizedTime(rescheduledEvent[0].start(), long_format=1)">[new date]</span></a>.
+            </tal:rescheduled>
+            
+            <tal:postponed tal:condition="not: rescheduledEvent">
+              <strong>Please Note:</strong> This event has been postponed! A new date and time will be announced later.
+            </tal:postponed>
           </div>
 
           <div tal:replace="structure provider:plone.abovecontentbody" />
@@ -58,7 +72,7 @@
               <tbody>
                 <tr>
                   <th i18n:translate="event_when">When</th>
-                  <td>
+                  <td tal:attributes="class python:here.getEventStatus()">
                     <tal:differentday tal:condition="python:not here.start().Date() == here.end().Date()">
                       <abbr metal:define-macro="startdate-field-view"
                             class="dtstart"
