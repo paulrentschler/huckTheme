@@ -1,0 +1,3 @@
+<a id="psu-logo" href="http://www.psu.edu" title="The Pennsylvania State University">
+  <img tal:replace="structure context/psu-logo.png" />
+</a>
