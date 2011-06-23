@@ -1122,10 +1122,15 @@
     font-weight: bold;
   }
 
+  .eventDate .eventDateTime span {
+    color: black;
+  }
+  
   .eventDate.canceled .eventDateTime,
   .eventDate.postponed .eventDateTime,
   .eventDate.rescheduled .eventDateTime {
     text-decoration: line-through;
+    color: #FF6633;
   }
   
   .eventDate .eventStatus {
@@ -1133,8 +1138,8 @@
     text-align: center;
   }
   
-  .eventStatus span {
-    background-color: #B6D8EA; /* #336699; */
+  .eventStatus span.eventStatusLabel {
+    background-color: #B6D8EA;
     color: #336699;
     display: inline-block;
     font-size: 90%;
@@ -1171,7 +1176,8 @@
     width: 6em;
   }
 
-  .eventDetails table td {
+  .eventDetails table td,
+  .eventDetails table td span {
     color: black;
     width: 16em;
   }
@@ -1180,6 +1186,7 @@
   .eventDetails table td.postponed,
   .eventDetails table td.rescheduled {
     text-decoration: line-through;
+    color: #FF6633;
   }
 
   #meetTheSpeaker {
