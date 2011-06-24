@@ -109,6 +109,18 @@
   body {
     background: url(header-bg.png) 0 -24px repeat-x;
     width: 100%;
+    
+    /* there is a horizontal scroll bar that shows up in the
+        search bar with IE7. These codes, turn the scroll bar
+        white to blend with the page since the scroll bar is
+        a result of the form being displayed inline. */
+    scrollbar-face-color: #FFFFFF;
+    scrollbar-arrow-color: #FFFFFF;
+    scrollbar-track-color: #FFFFFF;
+    scrollbar-shadow-color: rgb(255,255,255);
+    scrollbar-highlight-color: rgb(255,255,255);
+    scrollbar-3dlight-color: #FFFFFF;
+    scrollbar-darkshadow-Color: #FFFFFF;
   }
   
   body.popup {
@@ -124,16 +136,9 @@
     width: 980px;
   }
 
-  #visual-header-wrapper {
-    /* this is needed otherwise the entire header blows up
-       in most browsers except for IE7 */
-    border-top: 1px solid white;
-  }
 
   /* ----- HEADER ----- */
   #portal-top {
-    /*
-    background: url(header-bg.png) 0 -24px repeat-x; */
     height: 150px;
   }
 
@@ -696,11 +701,8 @@
   #portal-searchbox {
     clear: none;
     float: none;
-    height: 30px;
+    height: 45px;
     margin: 0;
-/*
-    margin-top: 117px;
-    */
     padding: 5px 5px 0 0;
     position: relative;
     text-align: right;
@@ -1214,7 +1216,7 @@
 
     #portal-logo {
       float: right;
-      margin: 15px 15px 6px 0;
+      margin: 16px 15px 6px 0;
     }
     
     #portal-logo img {
