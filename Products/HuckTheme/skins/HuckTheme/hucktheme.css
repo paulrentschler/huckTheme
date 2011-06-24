@@ -643,7 +643,9 @@
     background-color: transparent;
     border: 0 none;
     margin-top: 100px;
+    .margin-top: 0;       /* read by IE 6 & 7 only and fixes the positioning */
     padding: 0;
+    .padding-top: 60px;   /* read by IE 6 & 7 only and fixes the positioning */
   }
 
   #portal-personaltools li {
