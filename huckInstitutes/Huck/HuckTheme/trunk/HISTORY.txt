@@ -106,3 +106,10 @@ HuckTheme 3.1.0 (23 June 2011)
    when showing a talk event.
 * Updated the Berg Signage view to support the
    "canceled", "postponed", or "rescheduled" indicators.
+
+
+HuckTheme 3.x (Unreleased)
+-------------------------------------
+* Release name: fadeToBlue
+* Tweaked the CSS for the personal bar so that it
+   appears in the right place in IE 6 and 7.
