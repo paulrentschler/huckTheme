@@ -64,13 +64,22 @@
               expression="python:here.id=='physiology'" 
               inline="False" 
               />
-              
+
   <javascript id="physiologytour.js"
               cacheable="False"
               compression="safe" 
               cookable="False"
               enabled="True" 
               expression="python:here.id=='physiology'" 
+              inline="False" 
+              />
+
+  <javascript id="registration-form.js"
+              cacheable="False"
+              compression="safe" 
+              cookable="False"
+              enabled="True" 
+              expression="python:here.id=='registration-form'" 
               inline="False" 
               />
 
