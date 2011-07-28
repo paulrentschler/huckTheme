@@ -95,27 +95,43 @@
                                       startDay      python:toLocalizedTime(starts, long_format=0);
                                       endDay        python:toLocalizedTime(ends, long_format=0);
                                       where         python:obj.location.strip();
-                                      object        python:obj.getObject()">
+                                      object        python:obj.getObject();">
 
-                        <td tal:attributes="class python:object.getEventStatus() + ' eventDate'">
-                          <span class="eventDateTime">
-                            <span>
-                              <tal:sameday tal:condition="python:startDay==endDay">
-                                <span tal:replace="python:toLocalizedTime(starts, long_format=1)">[When it starts]</span>
-                              </tal:sameday>
-                              <tal:differentday tal:condition="python:startDay!=endDay">
-                                <span tal:replace="startDay">[Day the event starts]</span> &#8212; <span tal:replace="endDay">[Day the event ends]</span>
-                              </tal:differentday>
+                        <tal:talk tal:condition="isTalk">
+                          <td tal:attributes="class python:object.getEventStatus() + ' eventDate'">
+                            <span class="eventDateTime">
+                              <span>
+                                <tal:sameday tal:condition="python:startDay==endDay">
+                                  <span tal:replace="python:toLocalizedTime(starts, long_format=1)">[When it starts]</span>
+                                </tal:sameday>
+                                <tal:differentday tal:condition="python:startDay!=endDay">
+                                  <span tal:replace="startDay">[Day the event starts]</span> &#8212; <span tal:replace="endDay">[Day the event ends]</span>
+                                </tal:differentday>
+                              </span>
                             </span>
-                          </span>
-                          <div class="eventStatus">
-                            <span tal:condition="python: object.getEventStatus() != 'scheduled'"
-                                  tal:attributes="class python:object.getEventStatus() + ' eventStatusLabel'"
-                                  tal:content="python: object.getEventStatus().capitalize()">
-                              Event status
+                            <div class="eventStatus">
+                              <span tal:condition="python: object.getEventStatus() != 'scheduled'"
+                                    tal:attributes="class python:object.getEventStatus() + ' eventStatusLabel'"
+                                    tal:content="python: object.getEventStatus().capitalize()">
+                                Event status
+                              </span>
+                            </div>
+                          </td>
+                        </tal:talk>
+                        <tal:notTalk tal:condition="not: isTalk">
+                          <td>
+                            <span class="eventDateTime">
+                              <span>
+                                <tal:sameday tal:condition="python:startDay==endDay">
+                                  <span tal:replace="python:toLocalizedTime(starts, long_format=1)">[When it starts]</span>
+                                </tal:sameday>
+                                <tal:differentday tal:condition="python:startDay!=endDay">
+                                  <span tal:replace="startDay">[Day the event starts]</span> &#8212; <span tal:replace="endDay">[Day the event ends]</span>
+                                </tal:differentday>
+                              </span>
                             </span>
-                          </div>
-                        </td>
+                          </td>
+                        </tal:notTalk>
                         <td>
                           <a class="eventTitle" tal:attributes="href url">
                             <span tal:replace="title_or_id">[list the name of the speaker if it's a talk or the event if it's something else]</span>
