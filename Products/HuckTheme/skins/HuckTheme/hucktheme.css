@@ -1193,6 +1193,10 @@
     color: #FF6633;
   }
 
+  .vevent table.listing tbody tr td h3 {
+    margin-top: 0;
+  }
+
   #meetTheSpeaker {
     background-color: #DEE7EC;
     clear: both;
