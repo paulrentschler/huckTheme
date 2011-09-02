@@ -28,7 +28,7 @@ jq(document).ready( function () {
   
   if (flashSupported) {
     // insert the launching image
-    jq("div.video-right").prepend('<a id="tour-launcher" href=""><img src="/education/physiology/images/interactive-tour.jpg" width="300" height="50" alt="Image of a translucent head on a DNA strand background used to launch a flash-based interactive tour of the Physiology Graduate program. All content is also available through the various pages of this web site." /></a>');
+    jq("div.video-right").prepend('<a id="tour-launcher" href=""><img src="/education/physiology/images/tour-launch-g.jpg" width="300" height="50" alt="Image of a translucent head on a DNA strand background used to launch a flash-based interactive tour of the Physiology Graduate program. All content is also available through the various pages of this web site." /></a>');
 
     // insert the overlay that will hold the flash tour
     jq("body").append('<div id="showcase-tour"><a href="" class="close" id="showcase-tour-close"></a><iframe src="/physio-tour/index.html" width="740" height="550" frameborder="0"><p>Sorry, your browser does not support the use of inline frames (iframes).</p><p>All the content contained in this showcase is available through our web site.</p></iframe></div>');
