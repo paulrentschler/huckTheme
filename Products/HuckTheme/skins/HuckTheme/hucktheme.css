@@ -544,6 +544,11 @@
     .section-welcome #portal-column-two div.portletStaticText {
       margin-bottom: 1.5em;
     }
+    
+    .section-welcome dl#featured,
+    .section-welcome dl#upcoming-events {
+      background-color: #EEF3F5;
+    }
 
 
 
