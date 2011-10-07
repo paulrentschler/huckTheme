@@ -77,6 +77,10 @@
           <tal:comment tal:replace="nothing">
             In here will be code to display an image associated with the TalkEventType object
           </tal:comment>
+          <div class="dateInPortlet">
+            <span tal:content="python: startDay.split(' ')[1]">starting month</span>
+            <div tal:content="python: startDay.split(' ')[2][0:2]">starting day</div>
+          </div>
         </tal:talkevent>
 
         <div class="eventTitle">
