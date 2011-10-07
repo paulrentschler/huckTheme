@@ -393,10 +393,10 @@
       display: block;
       float: left;
       font-size: 0.8em;
-      margin: 0.25em 0.5em 0.25em 0;
+      margin: 0.25em 0.5em 4em 0;
       text-align: center;
       text-transform: uppercase;
-      width: 4em;
+      width: 3.5em;
       
       border: 1px solid #8DCAEA;
       border-radius: 5px; 
