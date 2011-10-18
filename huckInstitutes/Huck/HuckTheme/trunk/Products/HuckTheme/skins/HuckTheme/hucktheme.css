@@ -585,6 +585,25 @@
 
 
 
+  /* ----- CONTENT WELL PORTLETS (FACILITIES) ----- */
+    .section-facilities .portletsAboveContentA .portletWrapper {
+      background-color: #EEF3F5;
+      border: 1px solid #336699;
+      float: right;
+      margin: 4em 0 1em 1em;
+      width: 180px;
+
+      border-radius: 5px;
+      -moz-border-radius: 5px; 
+      -webkit-border-radius: 5px; 
+    }
+
+    .section-facilities .portletsAboveContentA .portlet {
+      padding-bottom: 0;
+    }
+
+
+
   /* ----- FOOTER PORTLETS ----- */
     #footer-portlets {
       margin-top: -33px;
