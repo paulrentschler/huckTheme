@@ -6,6 +6,7 @@
     - for links: make the url point to the remote url and not the local object url
     - for events: added description (talk title) and date/time
     - for news items: added description, image, and custom more link
+    - for announcements: added description and publication date
     - for people: added photo and job title
     - added the portlet id as a CSS ID attribute on the dl tag
     - removed the condition that does not display a link in the header if the
@@ -40,9 +41,10 @@
                     is_event_other python: 'event' in item_type;
                     is_event python: is_event_talk or is_event_conference or is_event_training or is_event_other;
                     is_news python: 'news' in item_type;
+                    is_announcement python: 'announcement' in item_type;
                     is_link python: 'link' in item_type;
                     is_person python: 'person' in item_type;
-                    is_other python: not is_news and not is_event and not is_link and not is_person;"
+                    is_other python: not is_news and not is_announcement and not is_event and not is_link and not is_person;"
         tal:attributes="class python:oddrow and 'portletItem even' or 'portletItem odd'">
 
       <a tal:condition="is_link"
@@ -170,6 +172,31 @@
           &raquo;&nbsp;Full article&hellip;
         </a>
       </tal:newsitem>
+
+
+      <tal:announcement tal:condition="is_announcement"
+                        tal:define="pubdate python: toLocalizedTime(hasattr(obj, 'EffectiveDate') and obj.EffectiveDate, long_format=1);">
+                    
+        <div class="articleTitle">
+          <a href="#"
+             tal:attributes="href string:${obj/getURL}/view;
+                             title obj/Title">
+            <span tal:content="obj/Title">[announcement title]</span>
+          </a>
+        </div>
+        <tal:description tal:condition="obj/Description">
+          <span class="itemDescription" tal:content="obj/Description">[description]</span>
+        </tal:description>
+        <tal:pubdate tal:condition="python: obj.EffectiveDate != 'None'">
+          <div class="itemPubDate" tal:content="pubdate">[publication date]</div>
+        </tal:pubdate>
+        <a href="#"
+           class="moreInfo"
+           tal:attributes="href string:${obj/getURL}/view;
+                           title obj/Title" >
+          &raquo;&nbsp;Details&hellip;
+        </a>
+      </tal:announcement>
 
 
       <tal:person tal:condition="is_person"
