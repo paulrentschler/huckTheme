@@ -186,9 +186,18 @@
     padding-left: 1em;
     padding-right: 1em;
   }
+  
+  #portal-columns #portal-column-content.sr {
+    margin-right: 0px !important;
+  }
+  
+  #portal-columns #portal-column-two {
+    background-color: white;
+  }
 
   #portal-columns #portal-column-two .visualPadding {
     margin-top: 1.5em;
+    padding: 2em 0 1em 1em;
   }
 
 
@@ -507,6 +516,10 @@
     .portletsBelowContentE .portlet,
     .portletsBelowContentF .portlet {
       border: 0 none;
+    }
+
+    #portlets-below {
+      clear: both;
     }
 
     .portletsBelowContentA {
