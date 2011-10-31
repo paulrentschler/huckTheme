@@ -439,6 +439,15 @@
     }
 
 
+    /* ----- ANNOUNCEMENTS PORTLET ----- */
+    #announcements.portletCollection {
+      border: 1px solid #336699;
+      border-radius: 5px; 
+      -moz-border-radius: 5px; 
+      -webkit-border-radius: 5px;
+    }
+
+
 
   /* ----- PEOPLE PORTLET ----- */
     .portlet .person .headshot {
