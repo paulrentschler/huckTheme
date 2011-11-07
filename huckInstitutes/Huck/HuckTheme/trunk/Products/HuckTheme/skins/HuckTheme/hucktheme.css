@@ -924,6 +924,10 @@
 
 
   /* ----- NEWS CONTENT ----- */
+    .newsImageContainer {
+      width: 302px;
+    }
+    
     .callout {
       color: #FF6633;
       padding: 0 4em 0 2em;
@@ -935,6 +939,85 @@
       font-weight: normal;
     }
 
+
+
+  /* ----- PUBLICATION SYNOPSIS CONTENT ----- */
+    #additional-information {
+      background-color: #EEF3F5;
+      border-radius: 6px;
+      -moz-border-radius: 6px;
+      -webkit-border-radius: 6px;
+      padding: 0.5em;
+    }
+    
+    #additional-information h2 {
+      background: none repeat scroll 0 0 transparent;
+      border: medium none;
+      display: block;
+      height: 1px;
+      margin: -1px 0 0 -1px;
+      overflow: hidden;
+      padding: 0;
+      width: 1px;
+    }
+    
+    #featured-authors {
+      display: inline-block;
+      vertical-align: top;
+      width: 45%;
+    }
+    
+    #featured-authors ul {
+      list-style-image: none;
+      list-style-type: none;
+      margin: 1em 0;
+    }
+
+    #featured-authors ul li {
+      clear: both;
+      margin-top: 0.5em;
+    }
+    
+    #featured-authors .headshot {
+      float: left;
+      text-align: right;
+      width: 100px;
+    }
+    
+    #featured-authors .name {
+      font-size: 130%;
+    }
+
+    #featured-authors .name a {
+      border-bottom: none;
+    }
+    
+    #featured-authors .title {
+      font-size: 80%;
+      line-height: 1.3em;
+      margin-top: 0.3em;
+    }
+    
+    #paper-details {
+      display: inline-block;
+      border-left: 1px solid #336699;
+      margin: 0 0 0 1.0em;
+      padding-left: 0.9em;
+      vertical-align: top;
+      width: 50%;
+    }
+    
+    #paper-details dl dt {
+      clear: left;
+      float: left;
+      text-align: right;
+      width: 6em;
+    }
+    
+    #paper-details dl dd {
+      margin: 0 0 0 7em;
+      padding: 0 0 0.5em 0;
+    }
 
 
 /* -------------------------------------------------------- */
