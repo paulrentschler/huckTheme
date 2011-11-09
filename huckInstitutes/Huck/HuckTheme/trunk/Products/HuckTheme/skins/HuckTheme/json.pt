@@ -1,0 +1,79 @@
+<tal:topiccontents define="topicContents python:here.queryCatalog(batch=False);">
+  <tal:listing condition="topicContents"
+               tal:define="specialtyObj context/findSpecialtyForTopic;
+                           specialtyName context/Title;">
+    {[
+      <tal:rows tal:repeat="brain topicContents">
+        <tal:onlypeople tal:define="brainID brain/id;
+                                    thisIsAPerson python:brainID != '0';"
+                        tal:condition="thisIsAPerson">
+          <tal:record tal:define="person brain/getObject;
+                                  classific string:${person/getClassifications};
+                                  isStudent python:'student' in classific;
+                                  campusLocation string:${person/campus};">
+
+            { "<span tal:replace="brainID" />": {
+              <tal:headshot tal:define="photo person/image|here/no-photo-available.png|nothing"
+                            tal:condition="photo">
+                <tal:nophoto tal:define="width python: 50;
+                                         height python:int(width * (float(photo.height)/float(photo.width)));
+                                         href photo/absolute_url;
+                                         alt string:No photo available for this person;"
+                             tal:condition="not: person/image|nothing">
+                  photo: {
+                    url: <span tal:replace="href" />,
+                    alt: <span tal:replace="alt" />,
+                    width: <span tal:replace="width" />,
+                    height: <span tal:replace="height" />
+                  },
+                </tal:nophoto>
+                <tal:photo tal:define="width python: 50;
+                                       height python:int(width * (float(photo.height)/float(photo.width)));
+                                       href string:${person/absolute_url}/image_thumb;
+                                       alt person/Title;"
+                           tal:condition="person/image|nothing">
+                  photo: {
+                    url: <span tal:replace="href" />,
+                    alt: <span tal:replace="alt" />,
+                    width: <span tal:replace="width" />,
+                    height: <span tal:replace="height" />
+                  },
+                </tal:photo>
+              </tal:headshot>
+              
+              "firstname": "<span tal:replace="person/getFirstName" />",
+              "lastname": "<span tal:replace="person/getLastName" />",
+              "nickname": "<span tal:replace="person/nickName" />",
+              "emailaddress": "<span tal:replace="person/getEmail" />",
+              "officephone": "<span tal:replace="person/getOfficePhone" />",
+              
+              <tal:jobtitles tal:condition="person/getJobTitles">
+                "jobtitles": {
+                  <tal:titles tal:repeat="jobTitle person/getJobTitles">
+                    "<span tal:replace="jobTitle" />"<span tal:condition="not: repeat/jobTitle/end" tal:replace="string:, " />
+                  </tal:titles>
+                },
+              </tal:jobtitles>
+              
+              <tal:campuses tal:condition="person/campus">
+                "campus": {
+                  <tal:campus tal:repeat="aCampus person/campus">
+                    "<span tal:replace="aCampus" />"<span tal:condition="not: repeat/aCampus/end" tal:replace="string:, " />
+                  </tal:campus>
+                },
+              </tal:campuses>
+              
+              <tal:research tal:condition="nocall:specialtyObj">
+                "researchSummary": "<span tal:replace="structure python:specialtyObj.getSpecialtyInformation(person).getResearchTopic()" />",
+              </tal:research>
+              
+              "expired": <span tal:replace="python: person.contentExpired()" />,
+              "url": "<span tal:replace="person/absolute_url" />"
+            } }
+          </tal:record>
+        </tal:onlypeople>
+        <span tal:condition="not: repeat/brain/end" tal:replace="string:, " />
+      </tal:rows>
+    ]}
+  </tal:listing>
+</tal:topiccontents>
