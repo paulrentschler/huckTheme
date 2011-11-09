@@ -66,7 +66,7 @@
               <tal:research tal:condition="nocall:specialtyObj">
                 <tal:formatResearch tal:define="rawSummary python:specialtyObj.getSpecialtyInformation(person).getResearchTopic();
                                                 cleanSummary python:rawSummary.replace(chr(34), chr(92) + chr(34))">
-                  "researchSummary": "<span tal:replace="structure cleanSummary" />",
+                  "researchtopic": "<span tal:replace="structure cleanSummary" />",
                 </tal:formatResearch>
               </tal:research>
               
