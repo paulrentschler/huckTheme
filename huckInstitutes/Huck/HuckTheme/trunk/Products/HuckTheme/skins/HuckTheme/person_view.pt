@@ -148,7 +148,6 @@
         </div>
         
         <div class="terminationDetails"
-             tal:define="termdetails context/getTerminationDetails;"
              tal:condition="isExpired">
           <h2 tal:condition="showExpired">Termination message</h2>
           <p class="discreet"
@@ -157,7 +156,7 @@
             now that the person is not associated with the Huck Institutes.
           </p>
           <div class="biography">
-            <div tal:content="structure context/getTerminationDetails">[termination details]</div>
+            <div tal:content="structure context/terminationDetails">[termination details]</div>
           </div>
         </div>
         
