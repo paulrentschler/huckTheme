@@ -1621,16 +1621,24 @@
 /* -------------------------------------------------------- */
 
 #equipmentSidebar {
-  background-color: #EEF3F5;
+  background-color: #CFE4EF;
   -moz-border-radius: 5px;
   -khtml-border-radius: 5px;
   -webkit-border-radius: 5px;
   border-radius: 5px;
   float: right;
-  margin-left: 0.5em;
-  padding-left: 10px;
-  padding-top: 10px;
+  margin: 0 0 1em 1em;
+  padding: 10px 10px 0 10px;
   width: 210px;
+}
+
+#equipmentSidebar .equipmentImageContainer p.discreet {
+  width: 200px;
+}
+
+#equipmentSidebar dl.documentationList {
+  margin-top: 0;
+  margin-bottom: 2em;
 }
 
 #equipmentSidebar dl.documentationList dd {
