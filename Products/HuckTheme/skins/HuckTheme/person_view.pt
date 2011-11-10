@@ -159,7 +159,7 @@
           <div class="biography">
             <div tal:content="structure context/getTerminationDetails">[termination details]</div>
           </div>
-        </tal:terminationDetails>
+        </div>
         
         <div class="advisors"
              tal:define="advisors python:context.getReferences(relationship='people_advisors')"
