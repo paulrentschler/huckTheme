@@ -99,7 +99,7 @@
              <tal:highlight tal:condition="python:section == 'welcome'"
                             tal:define="highlights python: context.portal_catalog.searchResults(
                                                              Subject = 'spotlight: highlight',
-                                                             Type = { 'query': ['News Item', ],
+                                                             Type = { 'query': ['News Item', 'Publication Synopsis', ],
                                                                       'operator': 'or' },
                                                              review_state = 'published',
                                                              sort_on = 'Date',
