@@ -48,7 +48,8 @@
 
   <body>
     <div tal:define="caption here/imageCaption|nothing;
-                     imageWidth here/width"
+                     imageWidth here/width;
+                     altText here/imageCaption|here/Description|nothing;"
          tal:attributes="style string:width: ${imageWidth}px;"
          id="region-content"
          class="visualWrapper">
@@ -56,13 +57,13 @@
          tal:attributes="href request/HTTP_REFERER"
          tal:condition="request/HTTP_REFERER"
          ><span i18n:translate="label_back_to_site">Back to site</span
-         ><br /><tal:block replace="structure here/tag" /></a>
+         ><br /><tal:block replace="structure python:context.tag(alt=altText, title=altText)" /></a>
 
       <a href=""
          tal:attributes="href here/portal_url"
          tal:condition="not: request/HTTP_REFERER"
          ><span i18n:translate="label_home">Home</span
-         ><br /><tal:block replace="structure here/tag" /></a>
+         ><br /><tal:block replace="structure python:context.tag(alt=altText, title=altText)" /></a>
          
       <div class="caption">
         <tal:caption tal:condition="caption">
