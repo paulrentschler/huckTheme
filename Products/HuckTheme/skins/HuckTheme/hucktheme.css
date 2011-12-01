@@ -1431,6 +1431,14 @@
       border: none;
       margin: 0.25em 0.5em;
     }
+    
+    div#content img.image-right {
+      border-bottom: 0.5em solid white;
+      border-left: 0.5em solid white;
+      border-right: none;
+      border-top: 0.5em solid white;
+      margin: 0;
+    }
 
 
 
