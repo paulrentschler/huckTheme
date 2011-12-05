@@ -42,6 +42,7 @@
                     is_event python: is_event_talk or is_event_conference or is_event_training or is_event_other;
                     is_news python: 'news' in item_type;
                     is_announcement python: 'announcement' in item_type;
+                    is_synopsis python: 'synopsis' in item_type;
                     is_link python: 'link' in item_type;
                     is_person python: 'person' in item_type;
                     is_other python: not is_news and not is_announcement and not is_event and not is_link and not is_person;"
@@ -197,6 +198,49 @@
           &raquo;&nbsp;Details&hellip;
         </a>
       </tal:announcement>
+
+
+      <tal:synopsis tal:condition="is_synopsis"
+                    tal:define="synopsisObj python: obj.getObject();">
+                    
+        <div class="articleTitle">
+          <a href="#"
+             tal:attributes="href string:${obj/getURL}/view;
+                             title obj/Title">
+            <span tal:content="obj/Title">[synopsis title]</span>
+          </a>
+        </div>
+        <a href="#" class="imageInPortlet"
+           tal:condition="synopsisObj/image|nothing"
+           tal:attributes="href string:${obj/getURL}/view;
+                           title obj/Title;">
+          <img src="" tal:replace="structure synopsisObj/image_tile|nothing" />
+        </a>
+        <tal:description tal:condition="obj/Description">
+          <span class="itemDescription" tal:content="obj/Description">[description]</span>
+        </tal:description>
+        <ul>
+          <li>
+            <a href="" tal:attributes="href obj/getURL;
+                                       title obj/pretty_title_or_id">
+              Read longer synopsis</a>
+          </li>
+          <li tal:define="journalUrl python: synopsisObj.paperUrl;
+                          pubYear    python: synopsisObj.paperYear;
+                          pubTitle   python: synopsisObj.paperTitle;
+                          pubJournal python: synopsisObj.paperJournal;"
+              tal:condition="journalUrl">
+            <a href="" tal:attributes="href journalUrl;
+                                       title pubTitle">
+              Read paper on journal website</a>:
+            <span class="paperTitle" tal:content="pubTitle">[paper's title]</span>
+            <span class="paperJournal" tal:content="pubJournal">[Journal]</span>
+            <tal:pubYear tal:condition="pubYear">
+              (<span class="paperYear" tal:content="pubYear">[publication year]</span>)
+            </tal:pubYear>
+          </li>
+        </ul>
+      </tal:synopsis>
 
 
       <tal:person tal:condition="is_person"
