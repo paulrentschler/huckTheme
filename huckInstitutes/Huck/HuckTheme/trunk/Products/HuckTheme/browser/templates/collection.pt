@@ -45,7 +45,7 @@
                     is_synopsis python: 'synopsis' in item_type;
                     is_link python: 'link' in item_type;
                     is_person python: 'person' in item_type;
-                    is_other python: not is_news and not is_announcement and not is_event and not is_link and not is_person;"
+                    is_other python: not is_news and not is_announcement and not is_synopsis and not is_event and not is_link and not is_person;"
         tal:attributes="class python:oddrow and 'portletItem even' or 'portletItem odd'">
 
       <a tal:condition="is_link"
@@ -210,7 +210,7 @@
             <span tal:content="obj/Title">[synopsis title]</span>
           </a>
         </div>
-        <a href="#" class="imageInPortlet"
+        <a href="#" class="imageInPortlet synopsisImage"
            tal:condition="synopsisObj/image|nothing"
            tal:attributes="href string:${obj/getURL}/view;
                            title obj/Title;">
@@ -219,7 +219,7 @@
         <tal:description tal:condition="obj/Description">
           <span class="itemDescription" tal:content="obj/Description">[description]</span>
         </tal:description>
-        <ul>
+        <ul class="synopsisDetails">
           <li>
             <a href="" tal:attributes="href obj/getURL;
                                        title obj/pretty_title_or_id">
@@ -233,7 +233,7 @@
             <a href="" tal:attributes="href journalUrl;
                                        title pubTitle">
               Read paper on journal website</a>:
-            <span class="paperTitle" tal:content="pubTitle">[paper's title]</span>
+            <span class="paperTitle" tal:content="pubTitle">[paper's title]</span>,
             <span class="paperJournal" tal:content="pubJournal">[Journal]</span>
             <tal:pubYear tal:condition="pubYear">
               (<span class="paperYear" tal:content="pubYear">[publication year]</span>)
