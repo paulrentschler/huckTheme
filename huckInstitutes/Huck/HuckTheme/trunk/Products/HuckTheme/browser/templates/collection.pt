@@ -233,7 +233,7 @@
             <a href="" tal:attributes="href journalUrl;
                                        title pubTitle">
               Read paper on journal website</a>:
-            <span class="paperTitle" tal:content="pubTitle">[paper's title]</span>,
+            <span class="paperTitle"><span tal:replace="pubTitle">[paper's title]</span>,</span>
             <span class="paperJournal" tal:content="pubJournal">[Journal]</span>
             <tal:pubYear tal:condition="pubYear">
               (<span class="paperYear" tal:content="pubYear">[publication year]</span>)
