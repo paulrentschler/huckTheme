@@ -439,12 +439,33 @@
     }
 
 
-    /* ----- ANNOUNCEMENTS PORTLET ----- */
+  /* ----- ANNOUNCEMENTS PORTLET ----- */
     #announcements.portletCollection {
       border: 1px solid #336699;
       border-radius: 5px; 
       -moz-border-radius: 5px; 
       -webkit-border-radius: 5px;
+    }
+
+
+  /* ----- SYNOPSES PORTLET ----- */
+    .portlet .imageInPortlet.synopsisImage {
+      float: right;
+      margin: 0.25em 0 0.25em 0.5em;
+    }
+    
+    .documentContent .portlet ul.synopsisDetails {
+      list-style-image: none;
+      list-style-type: none;
+      margin: 0.5em 0 0 2em;
+    }
+    
+    .synopsisDetails .paperTitle {
+      color: #666;
+    }
+    
+    .synopsisDetails .paperJournal {
+      font-style: italic;
     }
 
 
