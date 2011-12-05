@@ -214,7 +214,7 @@
            tal:condition="synopsisObj/image|nothing"
            tal:attributes="href string:${obj/getURL}/view;
                            title obj/Title;">
-          <img src="" tal:replace="structure synopsisObj/image_tile|nothing" />
+          <img src="" tal:replace="structure synopsisObj/image_thumb|nothing" />
         </a>
         <tal:description tal:condition="obj/Description">
           <span class="itemDescription" tal:content="obj/Description">[description]</span>
