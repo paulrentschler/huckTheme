@@ -13,238 +13,237 @@
     <title tal:content="here/Title">Title</title>
   </head>
   
-  <body tal:define = "classificationList python:[c.id for c in context.getClassifications()];
-                      isFaculty python: 'faculty' in classificationList;
-                      isPostdoc python: 'postdocs' in classificationList;
-                      isStudent python: 'gradstudents' in classificationList;
-                      isResearcher python: isFaculty or isPostdoc or isStudent;
-                      isAdmin python: 'dmin' in classificationList;
-                      isExpired python:context.contentExpired();" >
-    <p tal:condition="python: isExpired">
-      This person is no longer associated with the organization.
-    </p>
-    
-    <div class="headshot" tal:condition="context/image_normal|nothing">
-      <img tal:replace="structure python:context.getWrappedField('image').tag(context)">
+  <body>
+    <div tal:condition="not: python:context.portal_type == 'FSDPerson'">
+      <h1 tal:content="here/Title" />
     </div>
     
-    <h1>
-      <span class="given-name" tal:content="context/getFirstName">[First Name]</span>
-      <span class="additional-name" tal:content="context/getMiddleName | nothing">[Middle Name]</span>
-      <tal:nickname tal:condition="context/nickName">
-        "<span class="nick-name" tal:content="context/nickName">[Nick Name]</span>"
-      </tal:nickname>
-      <span class="family-name" tal:content="context/getLastName">[Last Name]</span>
-      <span class="honorific-suffix" tal:content="context/getSuffix">[ suffix i.e. Dr]</span>
-    </h1>
+    <div tal:condition="python:context.portal_type == 'FSDPerson'">
+      <p tal:condition="python:context.contentExpired()">
+        This person is no longer associated with the organization.
+      </p>
     
-    <ul class="jobTitle"
-        tal:condition="python: context.getJobTitles()">
-      <li class="title" tal:condition="context/getJobTitles" 
-                        tal:repeat="jobTitle context/getJobTitles"
-                        tal:content="jobTitle">
-        [job title]
-      </li>
-    </ul>
+      <div tal:condition="context/terminationDetails"
+           tal:content="structure context/terminationDetails" />
     
-    <dl>
-      <dt>Email</dt>
-      <dd tal:condition="context/getEmail"
-          tal:attributes="class string:email"
-          tal:content="structure python:context.spamProtect(context.getEmail())" />
-          
-      <dt>Phone</dt>
-      <dd tal:condition="context/getOfficePhone"
-          tal:content="context/getOfficePhone">[phone number]</dd>
-          
-      <dt>Fax</dt>
-      <dd tal:define="fax python: context.get('fax')"
-          tal:condition="context/fax"
-          tal:content="context/fax">[fax number]</dd>
-          
-      <dt>Campus</dt>
-      <dd tal:define="where context/campus"
-          tal:condition="python:len(where)>1">
-        <span tal:repeat="campus context/campus" tal:content="campus">[campus]</span>
-      </dd>
-      
-      <dt>Office</dt>
-      <dd tal:condition="context/getOfficeAddress">
-        <span tal:content="structure python:context.getOfficeAddress().replace('\n', ', ')">
-          [office address]</span><tal:city tal:condition="context/getOfficeCity">,</tal:city>
-        <span tal:content="context/getOfficeCity">
-          [office city]</span><tal:state tal:condition="context/getOfficeState">, </tal:state>
-        <span tal:content="context/getOfficeState">
-          [office state]</span>
-        <span tal:content="context/getOfficePostalCode">[postal zip code]</span>
-      </dd>
-    </dl>
+      <div class="headshot" tal:condition="context/image_normal|nothing">
+        <img tal:replace="structure python:context.getWrappedField('image').tag(context)">
+      </div>
     
-    <tal:education tal:condition="context/getEducation">
-      <h2>Education</h2>
-      <ul class="list">
-        <li tal:repeat="degree context/getEducation">
-          <span tal:content="degree" />
+      <h1>
+        <span class="given-name" tal:content="context/getFirstName">[First Name]</span>
+        <span class="additional-name" tal:content="context/getMiddleName | nothing">[Middle Name]</span>
+        <tal:nickname tal:condition="context/nickName">
+          "<span class="nick-name" tal:content="context/nickName">[Nick Name]</span>"
+        </tal:nickname>
+        <span class="family-name" tal:content="context/getLastName">[Last Name]</span>
+        <span class="honorific-suffix" tal:content="context/getSuffix">[ suffix i.e. Dr]</span>
+      </h1>
+    
+      <ul class="jobTitle"
+          tal:condition="python: context.getJobTitles()">
+        <li class="title" tal:condition="context/getJobTitles" 
+                          tal:repeat="jobTitle context/getJobTitles"
+                          tal:content="jobTitle">
+          [job title]
         </li>
       </ul>
-    </tal:education>
     
-    <tal:biography tal:define="biography context/getBiography;
-                               emptyBiography python: len(biography) <= 11;"
-                   tal:condition="not: emptyBiography">
-      <h2>
-        <span tal:condition="isResearcher">Research interests</span>
-        <span tal:condition="not:isResearcher">Contact regarding</span>
-      </h2>
-      <div tal:content="structure context/getBiography">[biography]</div>
-    </tal:biography>
-          
-    <div tal:condition="python: context.getWebsites()">
-      <h2>Websites</h2>
-      <ul class="list websites">
-        <li tal:repeat="website context/getWebsites">
-          <a class='url' href="" 
-             tal:attributes="href website"
-             tal:content="website" />
-        </li>
-      </ul>
-    </div>
-    
-    <tal:advisors tal:define="advisors python:context.getReferences(relationship='people_advisors')"
-                  tal:condition="advisors">
-      <h2>Faculty advisors</h2> 
-      <ul>
-        <li tal:repeat="advisor advisors">
-          <a tal:define="url advisor/absolute_url;
-                         name advisor/Title"
-             tal:attributes="href url"
-             tal:content="name">[Advisor's Full Name]</a>
-        </li>
-      </ul>
-    </tal:advisors>
-    
-    <tal:advisees tal:define="advisees python:context.getReferences(relationship='advisors_people')"
-                  tal:condition="advisees">
-      <h2>Students I advise</h2> 
-      <ul>
-        <li tal:repeat="advisee advisees">
-          <a tal:define="url advisee/absolute_url;
-                         name advisee/Title"
-             tal:attributes="href url"
-             tal:content="name">Advisee's Full Name</a>
-        </li>
-      </ul>
-    </tal:advisees>
-
-    <div tal:define="courses context/getCourses"
-         tal:condition="courses">
-      <h2>Courses</h2>
-      <dl tal:repeat="course courses">
-        <dt tal:condition="not: course/getRemoteUrl"
-            tal:content="course/Title" />
-        <dd tal:content="structure course/Description" />
-      </dl>
-    </div>
-
-    <div tal:define="departmentsList context/getDepartments"
-         tal:condition="departmentsList">
-      <h2>Departments</h2>
       <dl>
-        <tal:block tal:repeat="eachDepartment departmentsList">
-          <dt tal:content="eachDepartment/Title" />
-          <dd tal:define="personMembershipInformation python:eachDepartment.getMembershipInformation(context);">
-            <tal:block tal:condition="personMembershipInformation/getPosition" 
-                       tal:replace="structure personMembershipInformation/getPosition">               
-            </tal:block>                                
-          </dd>
-        </tal:block>
-      </dl>
-    </div>
-    
-    <h2>Dates</h2>
-    <dl>
-      <dt>Effective date:</dt>
-      <dd tal:content="context/EffectiveDate">[Effective Date]</dd>
+        <dt>Email</dt>
+        <dd tal:condition="context/getEmail"
+            tal:attributes="class string:email"
+            tal:content="structure python:context.spamProtect(context.getEmail())" />
+          
+        <dt>Phone</dt>
+        <dd tal:condition="context/getOfficePhone"
+            tal:content="context/getOfficePhone">[phone number]</dd>
+          
+        <dt>Fax</dt>
+        <dd tal:define="fax python: context.get('fax')"
+            tal:condition="context/fax"
+            tal:content="context/fax">[fax number]</dd>
+          
+        <dt>Campus</dt>
+        <dd tal:define="where context/campus"
+            tal:condition="python:len(where)>1">
+          <span tal:repeat="campus context/campus" tal:content="campus">[campus]</span>
+        </dd>
       
-      <dt>Expiration date:</dt>
-      <dd tal:content="context/ExpirationDate">[Expiration Date]</dd>
-    </dl>
+        <dt>Office</dt>
+        <dd tal:condition="context/getOfficeAddress">
+          <span tal:content="structure python:context.getOfficeAddress().replace('\n', ', ')">
+            [office address]</span><tal:city tal:condition="context/getOfficeCity">,</tal:city>
+          <span tal:content="context/getOfficeCity">
+            [office city]</span><tal:state tal:condition="context/getOfficeState">, </tal:state>
+          <span tal:content="context/getOfficeState">
+            [office state]</span>
+          <span tal:content="context/getOfficePostalCode">[postal zip code]</span>
+        </dd>
+      </dl>
     
-    <tal:classifications tal:define="classifications context/getClassifications"
-                         tal:condition="classifications">
-      <h2>Classifications</h2>
-      <ul class="list classifications">
-        <li tal:repeat="classification classifications"
-            tal:content="classification/Title">
-          [Classification]
-        </li>
-      </ul>
-    </tal:classifications>
+      <tal:education tal:condition="context/getEducation">
+        <h2>Education</h2>
+        <ul class="list">
+          <li tal:repeat="degree context/getEducation">
+            <span tal:content="degree" />
+          </li>
+        </ul>
+      </tal:education>
     
-    <tal:categories tal:define="categories context/Subject|nothing"
-                    tal:condition="categories">
-      <h2>Keywords</h2>
-      <ul class="list categories">
-        <li tal:repeat="category categories"
-            tal:content="category">
-          [Category]
-        </li>
-      </ul>
-    </tal:categories>
+      <tal:biography tal:define="biography context/getBiography;
+                                 emptyBiography python: len(biography) <= 11;"
+                     tal:condition="not: emptyBiography">
+        <h2>Research interests / Contact regarding</h2>
+        <div tal:content="structure context/getBiography">[biography]</div>
+      </tal:biography>
+          
+      <div tal:condition="python: context.getWebsites()">
+        <h2>Websites</h2>
+        <ul class="list websites">
+          <li tal:repeat="website context/getWebsites">
+            <a class='url' href="" 
+               tal:attributes="href website"
+               tal:content="website" />
+          </li>
+        </ul>
+      </div>
     
-    <tal:specialties tal:define="specialtyTuples context/getSpecialties" 
-                     tal:condition="specialtyTuples">
-      <h2>Specialties</h2>
-      <dl>
-        <tal:block tal:repeat="eachSpecialtyTuple specialtyTuples">
-          <tal:block tal:define="specialtyBrain python:eachSpecialtyTuple[0];
-                                 personSpecialtyData python:eachSpecialtyTuple[1].getContentObject();">
-            <dt tal:content="specialtyBrain/Title" />
-            <dd tal:define="researchTopic personSpecialtyData/getResearchTopic"
-                tal:condition="researchTopic"
-                tal:content="structure researchTopic" />
+      <tal:advisors tal:define="advisors python:context.getReferences(relationship='people_advisors')"
+                    tal:condition="advisors">
+        <h2>Faculty advisors</h2> 
+        <ul>
+          <li tal:repeat="advisor advisors">
+            <a tal:define="url advisor/absolute_url;
+                           name advisor/Title"
+               tal:attributes="href url"
+               tal:content="name">[Advisor's Full Name]</a>
+          </li>
+        </ul>
+      </tal:advisors>
+    
+      <tal:advisees tal:define="advisees python:context.getReferences(relationship='advisors_people')"
+                    tal:condition="advisees">
+        <h2>Students I advise</h2> 
+        <ul>
+          <li tal:repeat="advisee advisees">
+            <a tal:define="url advisee/absolute_url;
+                           name advisee/Title"
+               tal:attributes="href url"
+               tal:content="name">Advisee's Full Name</a>
+          </li>
+        </ul>
+      </tal:advisees>
+
+      <div tal:define="courses context/getCourses"
+           tal:condition="courses">
+        <h2>Courses</h2>
+        <dl tal:repeat="course courses">
+          <dt tal:condition="not: course/getRemoteUrl"
+              tal:content="course/Title" />
+          <dd tal:content="structure course/Description" />
+        </dl>
+      </div>
+
+      <div tal:define="departmentsList context/getDepartments"
+           tal:condition="departmentsList">
+        <h2>Departments</h2>
+        <dl>
+          <tal:block tal:repeat="eachDepartment departmentsList">
+            <dt tal:content="eachDepartment/Title" />
+            <dd tal:define="personMembershipInformation python:eachDepartment.getMembershipInformation(context);">
+              <tal:block tal:condition="personMembershipInformation/getPosition" 
+                         tal:replace="structure personMembershipInformation/getPosition">               
+              </tal:block>                                
+            </dd>
           </tal:block>
-        </tal:block>
-      </dl>
-    </tal:specialties>
+        </dl>
+      </div>
     
-    <tal:labs tal:define="labsList context/getCommittees"
-              tal:condition="labsList">
-      <h2>Labs</h2>
+      <h2>Dates</h2>
       <dl>
-        <tal:block tal:repeat="eachLab labsList">
-          <dt tal:content="eachLab/Description" />
-          <dd tal:define="personMembershipInformation
-                          python:eachLab.getMembershipInformation(context);">
-            <p tal:condition="personMembershipInformation/getPosition" 
-               tal:content="structure personMembershipInformation/getPosition" />
-          </dd>
-        </tal:block>
+        <dt>Effective date:</dt>
+        <dd tal:content="context/EffectiveDate">[Effective Date]</dd>
+      
+        <dt>Expiration date:</dt>
+        <dd tal:content="context/ExpirationDate">[Expiration Date]</dd>
       </dl>
-    </tal:labs>
     
-    <tal:assistants tal:define="assistants context/getAssistants;"
-                    tal:condition="assistants">
-      <h2>Assistants</h2>
-      <ul tal:repeat="assistant assistants">
-        <li tal:define="url assistant/absolute_url;
-                        name assistant/Title">
-          <span tal:content="name">[Assistant's Full Name]</span>
-        </li>
-      </ul>
-    </tal:assistants>
+      <tal:classifications tal:define="classifications context/getClassifications"
+                           tal:condition="classifications">
+        <h2>Classifications</h2>
+        <ul class="list classifications">
+          <li tal:repeat="classification classifications"
+              tal:content="classification/Title">
+            [Classification]
+          </li>
+        </ul>
+      </tal:classifications>
     
-    <tal:bosses tal:define="bosses python:context.getReferences(relationship='assistants_people');"
-                tal:condition="bosses">
-      <h2>Assistant to</h2> 
-      <ul tal:repeat="boss bosses">
-        <li tal:content="boss/Title" />
-      </ul>
-    </tal:bosses>
+      <tal:categories tal:define="categories context/Subject|nothing"
+                      tal:condition="categories">
+        <h2>Keywords</h2>
+        <ul class="list categories">
+          <li tal:repeat="category categories"
+              tal:content="category">
+            [Category]
+          </li>
+        </ul>
+      </tal:categories>
     
-    <tal:todo tal:replace="nothing">
-      TODO: Add zope groups assigned to
-    </tal:todo>
+      <tal:specialties tal:define="specialtyTuples context/getSpecialties" 
+                       tal:condition="specialtyTuples">
+        <h2>Specialties</h2>
+        <dl>
+          <tal:block tal:repeat="eachSpecialtyTuple specialtyTuples">
+            <tal:block tal:define="specialtyBrain python:eachSpecialtyTuple[0];
+                                   personSpecialtyData python:eachSpecialtyTuple[1].getContentObject();">
+              <dt tal:content="specialtyBrain/Title" />
+              <dd tal:define="researchTopic personSpecialtyData/getResearchTopic"
+                  tal:condition="researchTopic"
+                  tal:content="structure researchTopic" />
+            </tal:block>
+          </tal:block>
+        </dl>
+      </tal:specialties>
     
+      <tal:labs tal:define="labsList context/getCommittees"
+                tal:condition="labsList">
+        <h2>Labs</h2>
+        <dl>
+          <tal:block tal:repeat="eachLab labsList">
+            <dt tal:content="eachLab/Description" />
+            <dd tal:define="personMembershipInformation
+                            python:eachLab.getMembershipInformation(context);">
+              <p tal:condition="personMembershipInformation/getPosition" 
+                 tal:content="structure personMembershipInformation/getPosition" />
+            </dd>
+          </tal:block>
+        </dl>
+      </tal:labs>
+    
+      <tal:assistants tal:define="assistants context/getAssistants;"
+                      tal:condition="assistants">
+        <h2>Assistants</h2>
+        <ul tal:repeat="assistant assistants">
+          <li tal:define="url assistant/absolute_url;
+                          name assistant/Title">
+            <span tal:content="name">[Assistant's Full Name]</span>
+          </li>
+        </ul>
+      </tal:assistants>
+    
+      <tal:bosses tal:define="bosses python:context.getReferences(relationship='assistants_people');"
+                  tal:condition="bosses">
+        <h2>Assistant to</h2> 
+        <ul tal:repeat="boss bosses">
+          <li tal:content="boss/Title" />
+        </ul>
+      </tal:bosses>
+    
+      <tal:todo tal:replace="nothing">
+        TODO: Add zope groups assigned to
+      </tal:todo>
+    </div>
   </body>
 </html>
