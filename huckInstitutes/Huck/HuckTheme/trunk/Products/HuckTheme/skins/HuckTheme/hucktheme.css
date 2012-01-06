@@ -1443,7 +1443,10 @@
 
   /* ----- IMAGES ----- */
     .image-caption-right {
-      border: none;
+      border-bottom: 0.5em solid white;
+      border-left: 0.5em solid white;
+      border-right: none;
+      border-top: 0.5em solid white;
       float: right;
       width: 200px;
     }
