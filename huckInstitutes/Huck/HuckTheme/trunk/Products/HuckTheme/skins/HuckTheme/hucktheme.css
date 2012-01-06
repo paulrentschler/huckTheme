@@ -968,6 +968,7 @@
       border-radius: 6px;
       -moz-border-radius: 6px;
       -webkit-border-radius: 6px;
+      clear: both;
       padding: 0.5em;
     }
     
