@@ -175,6 +175,8 @@
     background-color: white;
     margin-top: -100px;
     padding-top: 0;
+    position: relative;
+    z-index: 20;
   }
   
   #portal-columns #portal-column-one .visualPadding {
@@ -917,7 +919,8 @@
     }
 
     .actionMenu .actionMenuContent {
-      z-index: 10;
+      position: absolute;
+      z-index: 22;
     }
     
     .actionMenu .actionMenuContent ul {
