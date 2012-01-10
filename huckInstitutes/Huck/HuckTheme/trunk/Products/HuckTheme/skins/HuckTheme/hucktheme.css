@@ -1434,13 +1434,18 @@
       text-align: center;
     }
 
-    .portletSectionLogo {
+    .portletSectionLogo,
+    .portlet-static-section-logo {
       margin-top: 3px;
       margin-left: 3px;
     }
     
     .section-welcome .portletSectionLogo {
       margin-bottom: 2em;
+    }
+    
+    div.portletStaticText.portlet-static-section-logo {
+      padding: 0;
     }
 
 
