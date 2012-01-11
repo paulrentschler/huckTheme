@@ -89,11 +89,12 @@
              metal:define-slot="column_one_slot">
              
            <div class="portletSectionLogo highlight-container"
-                tal:define="section python:context.getSectionFromURL()[8:];">
+                tal:define="sectionLogo context/findSectionLogo;
+                            section python:context.getSectionFromURL()[8:];">
                             
              <tal:image tal:condition="python:section != 'welcome'">
                <img class="image-inline" width="246"
-                    src="http://www.huck.psu.edu/_images/section-logo-default.jpg" />
+                    tal:attributes="src sectionLogo" />
              </tal:image>
              
              <tal:highlight tal:condition="python:section == 'welcome'"
@@ -107,7 +108,7 @@
                                                                                                );">
                <tal:image tal:condition="not: highlights">
                  <img class="image-inline" width="246"
-                      src="/_images/section-logo-default.jpg" />
+                      tal:attributes="src sectionLogo" />
                </tal:image>
 
                <tal:haveHighlights tal:condition="highlights">
