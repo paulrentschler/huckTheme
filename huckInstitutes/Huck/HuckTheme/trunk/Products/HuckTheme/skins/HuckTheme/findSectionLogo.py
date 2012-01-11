@@ -7,10 +7,12 @@
 #
 
 # define the default logo
-defaultLogo = context.logos['section-logo-default.jpg']
-
-# define the resulting logo
-logoResult = defaultLogo.absolute_url()
+try:
+    defaultLogo = context.logos['section-logo-default.jpg']
+    logoResult = defaultLogo.absolute_url()
+except:
+    defaultLogo = 'http://www.huck.psu.edu/_images/section-logo-default.jpg'
+    logoResult = defaultLogo
 
 
 # break the absolute url into pieces at the slash (/)
@@ -22,30 +24,33 @@ section = context.getSectionFromURL().replace('section-', '')
 
 # if there is a section, look for a logo
 if section <> "":
-  sectionIndex = urlParts.index(section)
-  
-  # make sure the url goes beyond the major section
-  if (len(urlParts) - 1) > sectionIndex:
-    # define the name of the section logo
-    sectionId = urlParts[sectionIndex + 1]
-    sectionLogoName = sectionId + '-logo.jpg'
+    sectionIndex = urlParts.index(section)
+    
+    # make sure the url goes beyond the major section
+    if (len(urlParts) - 1) > sectionIndex:
+        # define the name of the section logo
+        sectionId = urlParts[sectionIndex + 1]
+        sectionLogoName = sectionId + '-logo.jpg'
 
 
     # see if a section logo exists in the site
     logoObjs = context.portal_catalog(id = sectionLogoName)
     if len(logoObjs) > 0:
-      #logoResult = logoObjs[0].getObject()
-      logoResult = ""
-      for i in range(0, sectionIndex + 2):
-        logoResult += urlParts[i] + "/"
+        #logoResult = logoObjs[0].getObject()
+        logoResult = ""
+        for i in range(0, sectionIndex + 2):
+            logoResult += urlParts[i] + "/"
         
-      logoResult += sectionLogoName
+        logoResult += sectionLogoName
 
     else:
-      # see if a default section logo exists
-      defaultSectionLogoName = section + '-' + sectionLogoName
-      if defaultSectionLogoName in context.logos:
-        logoResult = context.logos[defaultSectionLogoName].absolute_url()
+        # see if a default section logo exists
+        defaultSectionLogoName = section + '-' + sectionLogoName
+        try:
+            if defaultSectionLogoName in context.logos:
+                logoResult = context.logos[defaultSectionLogoName].absolute_url()
+        except:
+            pass
 
 # return the logo object
 return logoResult
