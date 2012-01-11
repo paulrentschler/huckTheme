@@ -33,15 +33,15 @@ if section <> "":
         sectionLogoName = sectionId + '-logo.jpg'
 
 
-    # see if a section logo exists in the site
-    logoObjs = context.portal_catalog(id = sectionLogoName)
-    if len(logoObjs) > 0:
-        #logoResult = logoObjs[0].getObject()
-        logoResult = ""
-        for i in range(0, sectionIndex + 2):
-            logoResult += urlParts[i] + "/"
+        # see if a section logo exists in the site
+        logoObjs = context.portal_catalog(id = sectionLogoName)
+        if len(logoObjs) > 0:
+            #logoResult = logoObjs[0].getObject()
+            logoResult = ""
+            for i in range(0, sectionIndex + 2):
+                logoResult += urlParts[i] + "/"
         
-        logoResult += sectionLogoName
+            logoResult += sectionLogoName
 
     else:
         # see if a default section logo exists
