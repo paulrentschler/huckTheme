@@ -1451,14 +1451,16 @@
 
 
   /* ----- IMAGES ----- */
-    .image-caption-right {
+    .image-caption-right,
+    .image-caption-left {
       border-bottom: 0.5em solid white;
       border-left: 0.5em solid white;
       border-right: none;
       border-top: 0.5em solid white;
-      float: right;
       width: 200px;
     }
+    .image-caption-right { float: right; }
+    .image-caption-left  { float: left;  }
 
     .plain img {
       border: none;
