@@ -1453,6 +1453,7 @@
   /* ----- IMAGES ----- */
     .image-caption-right,
     .image-caption-left {
+      background-color: white;
       border-bottom: 0.5em solid white;
       border-left: 0.5em solid white;
       border-right: none;
