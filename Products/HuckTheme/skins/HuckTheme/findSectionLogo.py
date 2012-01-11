@@ -43,14 +43,14 @@ if section <> "":
         
             logoResult += sectionLogoName
 
-    else:
-        # see if a default section logo exists
-        defaultSectionLogoName = section + '-' + sectionLogoName
-        try:
-            if defaultSectionLogoName in context.logos:
-                logoResult = context.logos[defaultSectionLogoName].absolute_url()
-        except:
-            pass
+        else:
+            # see if a default section logo exists
+            defaultSectionLogoName = section + '-' + sectionLogoName
+            try:
+                if defaultSectionLogoName in context.logos:
+                    logoResult = context.logos[defaultSectionLogoName].absolute_url()
+            except:
+                pass
 
 # return the logo object
 return logoResult
