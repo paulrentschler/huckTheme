@@ -94,7 +94,8 @@
                             
              <tal:image tal:condition="python:section != 'welcome'">
                <img class="image-inline" width="246"
-                    tal:attributes="src sectionLogo" />
+                    tal:attributes="src python:sectionLogo[0];
+                                    alt python:sectionLogo[1]" />
              </tal:image>
              
              <tal:highlight tal:condition="python:section == 'welcome'"
@@ -108,7 +109,8 @@
                                                                                                );">
                <tal:image tal:condition="not: highlights">
                  <img class="image-inline" width="246"
-                      tal:attributes="src sectionLogo" />
+                      tal:attributes="src python:sectionLogo[0];
+                                      alt python:sectionLogo[1]" />
                </tal:image>
 
                <tal:haveHighlights tal:condition="highlights">
