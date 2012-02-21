@@ -1,0 +1,30 @@
+.documentContent #content div.abstract {
+    margin-bottom: 4em;
+}
+
+dl#document-toc {
+    background-color: #EEF3F5;
+    float: none;
+    width: 100%;
+}
+
+dl#document-toc dt:before {
+    content: "Table of ";
+}
+
+dl#document-toc dd ol li {
+    font-size: 120%;
+}
+
+dl#document-toc dd ol li ol {
+    list-style-type: lower-alpha;
+    margin: 0 0 0 2em;
+}
+
+dl#document-toc dd ol li ol li {
+    font-size: 80%;
+}
+
+dl#document-toc dd ol ol ol {
+    display: none;
+}
