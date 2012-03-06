@@ -15,7 +15,7 @@
 
   <stylesheet title=""
               id="retreatAbstracts.css"
-              condition="python:'retreats/abstracts-' in here.absolute_url()"
+              expression="python:'retreats/abstracts-' in here.absolute_url()"
               media="all" rel="stylesheet" rendering="import"
               cacheable="True" compression="safe" cookable="False"
               enabled="1" expression=""/>
