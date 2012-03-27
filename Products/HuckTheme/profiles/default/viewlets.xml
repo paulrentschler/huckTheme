@@ -16,6 +16,9 @@
     <viewlet name="plone.site_actions" />
     <viewlet name="plone.searchbox" />
   </hidden>
+  <hidden manager="plone.abovecontent" skinname="HuckTheme">
+    <viewlet name="plone.path_bar" />
+</hidden>
   
   <hidden manager="plone.belowcontenttitle" skinname="HuckTheme">
     <viewlet name="plone.belowcontenttitle.documentbyline" />
