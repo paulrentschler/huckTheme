@@ -158,11 +158,11 @@
 
 
   /* ----- CONTENT ----- */
-  /* MAY NOT NEED THIS ANYMORE 
+  /* MAY NOT NEED THIS ANYMORE */ 
   #portal-columns {
-    margin-left: 126px;
-    width: 852px !important; 
-  } */
+   /* margin-left: 126px; 
+    width: 852px !important; */
+  } 
 
 /*
   table#portal-columns td {
@@ -177,7 +177,9 @@
     margin-top: -100px;
     padding-top: 0;
     position: relative;
-    z-index: 20;
+    z-index: 9;
+    width: 252px;
+    margin-left: -871px;
   }
   
   #portal-columns #portal-column-one .visualPadding {
@@ -188,6 +190,11 @@
     padding-bottom: 1em;
     padding-left: 1em;
     padding-right: 1em;
+    margin-left: -628px;
+  }
+  
+  #portal-columns #portal-column-content.width-3\:4  /* changing what 75% says from sunburst */{
+      width: 602px !important;
   }
   
   #portal-columns #portal-column-content.sr {
@@ -949,7 +956,7 @@
 
     .documentByLine {
       color: #666666;
-      margin-left: 1em;
+      margin-left: 360px;
     }
 
 
@@ -1696,3 +1703,5 @@
 .template-manage-portlets #portal-columns #portal-column-one {
     margin-top: 0px;
 }
+
+#edit-bar { margin-top: 48px;}
