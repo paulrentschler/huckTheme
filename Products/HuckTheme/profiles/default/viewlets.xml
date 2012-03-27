@@ -41,6 +41,7 @@
     <viewlet name="Products.HuckTheme.psulogo" />
     <viewlet name="plone.header" />
     <viewlet name="Products.HuckTheme.searchbox" />
+    <viewlet name="Products.HuckTheme.document_byline" />
   </order>
 
   <order manager="plone.portalheader" skinname="HuckTheme">
@@ -53,8 +54,8 @@
   <order manager="plone.contentviews" skinname="HuckTheme">
     <viewlet name="plone.contentviews" />
     <viewlet name="plone.contentactions" />
-    <viewlet name="Products.HuckTheme.documentbyline"
-             insert-after="plone.contentactions" />
+    <!-- ><viewlet name="Products.HuckTheme.documentbyline"
+             insert-after="plone.contentactions" /> -->
     <viewlet name="contentwellportlets.portletsabovecontent" />
   </order>
 

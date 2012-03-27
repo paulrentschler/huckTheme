@@ -158,10 +158,11 @@
 
 
   /* ----- CONTENT ----- */
+  /* MAY NOT NEED THIS ANYMORE 
   #portal-columns {
     margin-left: 126px;
-    width: 852px !important;
-  }
+    width: 852px !important; 
+  } */
 
 /*
   table#portal-columns td {
@@ -749,20 +750,26 @@
   #portal-personaltools {
     background-color: transparent;
     border: 0 none;
-    margin-top: 100px;
+    margin-top: 64px;
     .margin-top: 0;       /* read by IE 6 & 7 only and fixes the positioning */
     padding: 0;
     .padding-top: 60px;   /* read by IE 6 & 7 only and fixes the positioning */
-  }
-
-  #portal-personaltools li {
-    display: list-item;
     float: left;
+  }
+  
+  #portal-personaltools dt, #portal-personaltools dd {
+   background-color: #CFE4EF;   
+  }
+  
+  
+  #portal-personaltools li {
     margin-bottom: 0;
   }
 
   #portal-personaltools li a {
-    color: #CCCCCC;
+   background-color: #CFE4EF;   
+   color: #205C90;
+   display: block;
   }
 
   #portal-personaltools li a:hover {
@@ -924,7 +931,7 @@
     }
     
     .actionMenu .actionMenuContent ul {
-      background: #CCCCCC none repeat scroll 0 0;
+     /* background: #CCCCCC none repeat scroll 0 0; */
       border-color: #797979;
     }
 
