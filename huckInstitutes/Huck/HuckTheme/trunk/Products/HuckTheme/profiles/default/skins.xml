@@ -4,7 +4,7 @@
           meta_type="Filesystem Directory View"
           directory="Products.HuckTheme:skins/HuckTheme" />
           
-  <skin-path name="HuckTheme" based-on="Plone Default">
+  <skin-path name="HuckTheme" based-on="Sunburst Theme">
     <layer name="HuckTheme" insert-after="custom"/>
   </skin-path>
 </object>

@@ -11,6 +11,7 @@
   </hidden>
 
   <hidden manager="plone.portalheader" skinname="HuckTheme">
+    <viewlet name="plone.path_bar" />
     <viewlet name="plone.logo" />
     <viewlet name="plone.site_actions" />
     <viewlet name="plone.searchbox" />
@@ -43,6 +44,7 @@
     <viewlet name="plone.global_sections" />
     <viewlet name="Products.HuckTheme.logo" />
     <viewlet name="Products.HuckTheme.personal_bar" />
+    <viewlet name="plone.personal_bar" />
   </order>
 
   <order manager="plone.contentviews" skinname="HuckTheme">
