@@ -1692,3 +1692,7 @@
   font-size: 0.9em;
   margin-left: 1em;
 }
+
+.template-manage-portlets #portal-columns #portal-column-one {
+    margin-top: 0px;
+}
