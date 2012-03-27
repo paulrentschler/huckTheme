@@ -64,6 +64,85 @@
           <property name="visible">False</property>
         </object>
 
+      <!-- Add portlet management links -->
+        <object name="manage_portlets" meta_type="CMF Action" i18n:domain="plone">
+          <property name="title" i18n:translate="">Manage Portlets</property>
+          <property name="description" i18n:translate=""></property>
+          <property name="url_expr">string:${portal_url}/@@manage-portlets</property>
+          <property name="link_target"></property>
+          <property name="icon_expr"></property>
+          <property name="available_expr"></property>
+          <property name="permissions">
+            <element value="Plone Site Setup: Overview"/>
+          </property>
+          <property name="visible">True</property>
+        </object>
+
+        <object name="manage-default-page-portlets" meta_type="CMF Action" i18n:domain="plone">
+          <property name="title" i18n:translate="">Manage Default Page Portlets</property>
+          <property name="description" i18n:translate=""></property>
+          <property name="url_expr">string:${view/contextUrl}/@@manage-portlets</property>
+          <property name="link_target"></property>
+          <property name="icon_expr"></property>
+          <property name="available_expr"></property>
+          <property name="permissions">
+            <element value="Plone Site Setup: Overview"/>
+          </property>
+          <property name="visible">True</property>
+        </object>
+
+        <object name="manage-header-portlets" meta_type="CMF Action" i18n:domain="plone">
+          <property name="title" i18n:translate="">Manage Header Portlets</property>
+          <property name="description" i18n:translate=""></property>
+          <property name="url_expr">string:${portal_url}/@@manage-portletsinheader</property>
+          <property name="link_target"></property>
+          <property name="icon_expr"></property>
+          <property name="available_expr"></property>
+          <property name="permissions">
+            <element value="Plone Site Setup: Overview"/>
+          </property>
+          <property name="visible">True</property>
+        </object>
+        
+        <object name="manage-portlets-above-content" meta_type="CMF Action" i18n:domain="plone">
+          <property name="title" i18n:translate="">Manage Portlets Above Content</property>
+          <property name="description" i18n:translate=""></property>
+          <property name="url_expr">string:${portal_url}/@@manage-portletsabovecontent</property>
+          <property name="link_target"></property>
+          <property name="icon_expr"></property>
+          <property name="available_expr"></property>
+          <property name="permissions">
+            <element value="Plone Site Setup: Overview"/>
+          </property>
+          <property name="visible">True</property>
+        </object>
+        
+        <object name="manage-portlets-below-content" meta_type="CMF Action" i18n:domain="plone">
+          <property name="title" i18n:translate="">Manage Portlets Below Content</property>
+          <property name="description" i18n:translate=""></property>
+          <property name="url_expr">string:${portal_url}/@@manage-portletsbelowcontent</property>
+          <property name="link_target"></property>
+          <property name="icon_expr"></property>
+          <property name="available_expr"></property>
+          <property name="permissions">
+            <element value="Plone Site Setup: Overview"/>
+          </property>
+          <property name="visible">True</property>
+        </object>
+        
+        <object name="manage-footer-portlets" meta_type="CMF Action" i18n:domain="plone">
+          <property name="title" i18n:translate="">Manage Footer Portlets</property>
+          <property name="description" i18n:translate=""></property>
+          <property name="url_expr">string:${portal_url}/@@manage-portletsfooter</property>
+          <property name="link_target"></property>
+          <property name="icon_expr"></property>
+          <property name="available_expr"></property>
+          <property name="permissions">
+            <element value="Plone Site Setup: Overview"/>
+          </property>
+          <property name="visible">True</property>
+        </object>
+        
     </object>
     <!-- Not sure why this is here (might create the My Profile link) -->
     <!--   hiding this assuming it controls the My Profile link cause we need the space
