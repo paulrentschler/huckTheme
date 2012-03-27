@@ -196,13 +196,16 @@
   #portal-columns #portal-column-content.width-3\:4  /* changing what 75% says from sunburst */{
       width: 602px !important;
   }
-  
+  #portal-columns #portal-column-content.width-1\:2  /* changing what 50% says from sunburst */ {
+    width: 375px;
+  }
   #portal-columns #portal-column-content.sr {
     margin-right: 0px !important;
   }
   
   #portal-columns #portal-column-two {
     background-color: white;
+    width: 202px;
   }
 
   #portal-columns #portal-column-two .visualPadding {
@@ -916,13 +919,14 @@
       color: #666666;
     }
 
-    .contentActions {
+   /* .contentActions {
       border-bottom: 1px solid #797979;
       background-color: #CCCCCC;
       border-left: 1px solid #797979;
       border-right: 1px solid #797979;
       color: #666666;
     }
+    */
 
     .contentActions li {
       border-left: 1px solid #797979;
@@ -1704,4 +1708,16 @@
     margin-top: 0px;
 }
 
+.template-manage-portlets #portal-columns #portal-column-one {
+    width: 22.75%;
+    margin-left: -98.875%;
+}
+
+.template-manage-portlets #portal-columns #portal-column-content {
+    margin-left: -73.875%;
+    
+}
+.template-manage-portlets #portal-columns {
+    margin-top: 14px;
+}
 #edit-bar { margin-top: 48px;}
