@@ -32,6 +32,7 @@
   <hidden manager="plone.portalfooter" skinname="HuckTheme">
     <viewlet name="plone.footer" />
     <viewlet name="plone.colophon" />
+    <viewlet name="plone.site_actions" />
   </hidden>
 
 
