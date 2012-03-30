@@ -101,5 +101,14 @@
             template="templates/collection.pt"
             layer=".interfaces.IThemeSpecific"
             />
+    
+    <!-- Sunburst special view -->
+    <browser:page
+        for="*"
+        name="HuckThemeColumnControl"
+        class=".columncontrol.ColumnControl"
+        permission="zope.Public"
+        allowed_interface=".interfaces.IColumnControl"
+        />                
 
 </configure>
