@@ -179,7 +179,7 @@
     position: relative;
     z-index: 9;
     width: 252px;
-    margin-left: -871px;
+    margin-left: -854px;
   }
   
   #portal-columns #portal-column-one .visualPadding {
@@ -188,17 +188,15 @@
 
   #portal-columns #portal-column-content {
     padding-bottom: 1em;
-    padding-left: 1em;
-    padding-right: 1em;
   }
   
   #portal-columns #portal-column-content.width-3\:4  /* changing what 75% says from sunburst */{
       width: 602px !important;
-      margin-left: -628px;
+      margin-left: -602px;
   }
   #portal-columns #portal-column-content.width-1\:2  /* changing what 50% says from sunburst */ {
-    width: 375px;
-    margin-left: -628px;
+    width: 380px;
+    margin-left: -602px;
   }
   #portal-columns #portal-column-content.sr {
     margin-right: 0px !important;
@@ -207,6 +205,7 @@
   #portal-columns #portal-column-two {
     background-color: white;
     width: 202px;
+    margin-left: -21.875%;
   }
 
   #portal-columns #portal-column-two .visualPadding {
@@ -234,7 +233,7 @@
 
     #siteActions {
       float: right;
-      margin: 2em 0 1em;
+      margin: 1em 0;
       padding-right: 0.5em;
       text-align: right;
     }
@@ -243,6 +242,8 @@
       float: none;
       margin: 0;
       padding: 0;
+      font-size: 80%;
+      text-align: right;
     }
 
     #siteActions #portal-siteactions li {
@@ -274,6 +275,7 @@
       line-height: 1em;
       padding: 0 0 0 0.5em;
       text-align: left;
+      font-size: 80%;
     }
 
     #portal-footer p {
@@ -961,7 +963,8 @@
 
     .documentByLine {
       color: #666666;
-      margin-left: 360px;
+      margin-left: 387px;
+      font-size: 80%;
     }
 
 
@@ -1721,4 +1724,11 @@
 .template-manage-portlets #portal-columns {
     margin-top: 14px;
 }
-#edit-bar { margin-top: 48px;}
+#edit-bar { margin-top: 48px; margin-left: 0.5em;}
+#content { margin-left: 0.5em;}
+div.width-full {
+    width: 100%;
+}
+div.position-0 {
+    margin-left: -100%;
+}
