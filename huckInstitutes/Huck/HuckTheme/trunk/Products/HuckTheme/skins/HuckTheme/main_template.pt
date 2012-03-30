@@ -54,7 +54,7 @@
                   sl python:plone_view.have_portlets('plone.leftcolumn', view);
                   sr python:plone_view.have_portlets('plone.rightcolumn', view);
                   body_class python:plone_view.bodyClass(template, view);
-                  sunburst_view python:context.restrictedTraverse('@@sunburstview')"
+                  sunburst_view python:context.restrictedTraverse('@@HuckThemeColumnControl')"
     tal:attributes="class body_class;
                     dir python:isRTL and 'rtl' or 'ltr'">
 
@@ -70,7 +70,7 @@
         </div>
     <div id="portal-columns" class="row">
 
-        <div id="portal-column-content" class="cell" tal:attributes="class python:sunburst_view.getColumnsClass(view)">
+        <div id="portal-column-content" class="cell"  tal:attributes="class python:sunburst_view.getColumnsClass(view)">
 
             <div id="viewlet-above-content" tal:content="structure provider:plone.abovecontent" tal:condition="not:ajax_load" />
 
@@ -144,7 +144,9 @@
         <div id="portal-column-one"
             class="cell width-1:4 position-0"
             metal:define-slot="column_one_slot"
-            tal:attributes="class python:isRTL and 'cell width-1:4 position-3:4' or 'cell width-1:4 position-0'">
+            tal:attributes="class python:isRTL and 'cell width-1:4 position-3:4' or 'cell width-1:4 position-0'"
+            tal:define="sl python: True"
+            tal:condition="sl">
 <div class="portletSectionLogo highlight-container"
                 tal:define="sectionLogo context/findSectionLogo;
                             section python:context.getSectionFromURL()[8:];">
