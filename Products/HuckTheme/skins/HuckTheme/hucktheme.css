@@ -771,7 +771,18 @@
   }
   
   #portal-personaltools dt, #portal-personaltools dd {
-   background-color: #CFE4EF;   
+    /*background-color: #CFE4EF;   */
+    background-color: #336699;
+  }
+
+  #portal-personaltools dd.actionMenuContent a:link,
+  #portal-personaltools dd.actionMenuContent a:visited {
+    color: #CFE4EF;
+  }
+
+  #portal-personaltools dd.actionMenuContent a:hover {
+    background-color: #CFE4EF;
+    color: #336699;
   }
   
   
@@ -779,13 +790,17 @@
     margin-bottom: 0;
   }
 
-  #portal-personaltools li a {
-   background-color: #CFE4EF;   
-   color: #205C90;
-   display: block;
+  #portal-personaltools dt.actionMenuHeader a {
+    /*
+    background-color: #CFE4EF;   
+    color: #205C90;
+    */
+    background-color: #336699;
+    color: #CCCCCC;
+    display: block;
   }
 
-  #portal-personaltools li a:hover {
+  #portal-personaltools dt.actionMenuHeader a:hover {
     text-decoration: underline;
   }
 
