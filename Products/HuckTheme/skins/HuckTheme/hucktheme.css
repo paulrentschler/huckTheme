@@ -981,9 +981,22 @@
       font-size: 70%;
     }
 
+    /* change the editing bar from green to gray */
     #edit-bar {
+      background-color: #DDDDDD;
+      border-color: #DDDDDD;
       margin-left: 0.5em;
       margin-top: 36px;
+      padding: 0;
+    }
+    #content-views { background-color: #DDDDDD; }
+    #content-views a { color: black; }
+    #contentActionMenus { background-color: #DDDDDD; }
+    #contentActionMenus dl.actionMenu a, 
+    #contentActionMenus dl.actionMenu.activated dd {
+      background-color: #DDDDDD;
+      border-bottom-color: #DDDDDD;
+      color: black;
     }
 
 
