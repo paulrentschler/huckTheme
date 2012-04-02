@@ -136,7 +136,15 @@
     width: 980px;
   }
 
+  div.width-full {
+    width: 100%;
+  }
 
+  div.position-0 {
+    margin-left: -100%;
+  }
+  
+  
   /* ----- HEADER ----- */
   #portal-top {
     height: 150px;
@@ -158,19 +166,9 @@
 
 
   /* ----- CONTENT ----- */
-  /* MAY NOT NEED THIS ANYMORE */ 
-  #portal-columns {
-   /* margin-left: 126px; 
-    width: 852px !important; */
-  } 
-
-/*
-  table#portal-columns td {
-    background-color: transparent;
-    padding-top: 110px;
-    vertical-align: top;
+  #content {
+    margin-left: 0.5em;
   }
-*/
 
   #portal-columns #portal-column-one {
     background-color: white;
@@ -372,6 +370,27 @@
   .portletFooter {
     background-color: transparent;
     border: 0 none;
+  }
+
+
+
+  /* ----- MANAGING PORTLETS ----- */
+
+  .template-manage-portlets #portal-columns #portal-column-one {
+      margin-top: 0px;
+  }
+
+  .template-manage-portlets #portal-columns #portal-column-one {
+      width: 22.75%;
+      margin-left: -98.875%;
+  }
+
+  .template-manage-portlets #portal-columns #portal-column-content {
+      margin-left: -73.875%;
+    
+  }
+  .template-manage-portlets #portal-columns {
+      margin-top: 14px;
   }
 
 
@@ -1740,31 +1759,3 @@
   margin-left: 1em;
 }
 
-.template-manage-portlets #portal-columns #portal-column-one {
-    margin-top: 0px;
-}
-
-.template-manage-portlets #portal-columns #portal-column-one {
-    width: 22.75%;
-    margin-left: -98.875%;
-}
-
-.template-manage-portlets #portal-columns #portal-column-content {
-    margin-left: -73.875%;
-    
-}
-.template-manage-portlets #portal-columns {
-    margin-top: 14px;
-}
-
-  #content {
-    margin-left: 0.5em;
-  }
-
-  div.width-full {
-    width: 100%;
-  }
-
-  div.position-0 {
-    margin-left: -100%;
-  }
