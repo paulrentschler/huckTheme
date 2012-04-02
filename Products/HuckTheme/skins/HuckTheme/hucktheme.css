@@ -907,6 +907,7 @@
     .managePortletsFallback,
     .managePortletsAboveLink,
     .managePortletsBelowLink,
+    .manageInHeaderPortletsLink,
     .manageFooterPortletsLink {
       display: none;
     }
