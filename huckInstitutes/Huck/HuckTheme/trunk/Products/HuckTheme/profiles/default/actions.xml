@@ -19,6 +19,19 @@
           <property name="visible">True</property>
         </object>
 
+      <!-- Change the accessibility link  -->   
+        <object name="accessibility" meta_type="CMF Action" i18n:domain="plone">
+          <property name="title" i18n:translate="">Accessibility</property>
+          <property name="description" i18n:translate=""></property>
+          <property name="url_expr">string:${globals_view/navigationRootUrl}/accessibility</property>
+          <property name="icon_expr"></property>
+          <property name="available_expr"></property>
+          <property name="permissions">
+            <element value="View"/>
+          </property>
+          <property name="visible">True</property>
+        </object>
+
       <!-- Add the login link to the site actions -->
         <object name="login" meta_type="CMF Action" i18n:domain="plone">
           <property name="title" i18n:translate="">Log in</property>
