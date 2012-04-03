@@ -923,7 +923,7 @@
 
   /* ----- MANAGE PORTLET LINKS ----- */
     .managePortletsLink,
-    .managePortletsFallback,
+    a.managePortletsFallback,
     .managePortletsAboveLink,
     .managePortletsBelowLink,
     .manageInHeaderPortletsLink,
