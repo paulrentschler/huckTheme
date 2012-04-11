@@ -55,12 +55,13 @@
   <order manager="plone.contentviews" skinname="HuckTheme">
     <viewlet name="plone.contentviews" />
     <viewlet name="plone.contentactions" />
-    <!-- ><viewlet name="Products.HuckTheme.documentbyline"
+    <!-- <viewlet name="Products.HuckTheme.documentbyline"
              insert-after="plone.contentactions" /> -->
     <viewlet name="contentwellportlets.portletsabovecontent" />
   </order>
 
   <order manager="plone.portalfooter" skinname="HuckTheme">
+    <viewlet name="contentwellportlets.footerportlets" insert-before="Products.HuckTheme.weblion" />
     <viewlet name="Products.HuckTheme.weblion" insert-before="plone.analytics" />
     <viewlet name="Products.HuckTheme.footer" insert-before="Products.HuckTheme.weblion" />
     <viewlet name="Products.HuckTheme.site_actions" insert-before="Products.HuckTheme.footer" />
