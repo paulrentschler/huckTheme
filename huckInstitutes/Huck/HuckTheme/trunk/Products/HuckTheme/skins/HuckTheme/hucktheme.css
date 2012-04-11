@@ -1070,6 +1070,15 @@
       width: 302px;
     }
     
+    #content div.newsImageContainer p.discreet {
+      background-color: white;
+      color: #666666;
+      font-weight: normal;
+      padding: 0;
+      position: static;
+      width: 302px;
+    }
+    
     .callout {
       color: #FF6633;
       padding: 0 4em 0 2em;
