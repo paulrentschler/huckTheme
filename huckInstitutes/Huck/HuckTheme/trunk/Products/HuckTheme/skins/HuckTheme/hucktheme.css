@@ -302,13 +302,17 @@
   .portlet  {
     background-color: transparent;
     border: 0 none;
-    font-size: 90%;
+    /*font-size: 90%;*/
     margin: 1px 0 1em;
   }
   
   dl.portlet,
   div.portletStaticText {
     padding: 0.5em;
+  }
+  
+  dl.portlet a:link {
+  	border: none;
   }
 
   .portlet a.tile {
@@ -332,7 +336,7 @@
     background-color: transparent;
     border: 0 none;
     color: black;
-    font-size: 130%;
+    font-size: 110%;
     font-weight: bold;
     padding: 0;
     text-transform: none;
@@ -362,9 +366,18 @@
   .portletItem  a {
     line-height: 1.3em;
   }
+  
+  dl.portlet ul.navTreeLevel0 > .navTreeItem {
+  	line-height: 1.5em;
+  }
 
   .portletCollection .portletItem {
     clear: both;
+  }
+  
+  dl.portlet.portletCollection dd.portletItem {
+    border-bottom: 0.1em dotted #DDDDDD;
+    padding: 0.25em 1em;
   }
 
   .portletFooter {
@@ -397,7 +410,7 @@
 
   /* ----- LEFT COLUMN PORTLETS ----- */
     #portal-column-one .portlet {
-      font-size: 100%;
+      /*font-size: 100%;*/
     }
     
     #portal-column-one .portlet .even {
