@@ -580,12 +580,14 @@
 
 
   /* ----- CONTENT WELL PORTLETS ----- */
+    /* This is handled automatically now
     .portletsBelowContentA { width: 99%; }
     .portletsBelowContentB { width: 49%; }
     .portletsBelowContentC { width: 49%; }
     .portletsBelowContentD { width: 32%; }
     .portletsBelowContentE { width: 32%; }
     .portletsBelowContentF { width: 32%; }
+    */
 
     .portletsBelowContentA .portlet,
     .portletsBelowContentB .portlet,
@@ -600,6 +602,7 @@
       clear: both;
     }
 
+	/*
     .portletsBelowContentA {
       padding: 0.5em;
     }
@@ -612,10 +615,13 @@
       float: left;
       padding: 0;
     }
+    */
 
+	/*
     #portlets-below .even {
       background-color: transparent;
     }
+    */
     
     #portlets-below .portlet {
       padding: 0;
@@ -697,45 +703,70 @@
 
 
   /* ----- FOOTER PORTLETS ----- */
-    #footer-portlets {
-      margin-top: -33px;
+    #portlets-footer {
+      margin-top: -31px;
     }
 
-    #footer-portlets .portlet {
+    #portlets-footer .portlet {
       background-color: transparent;
       border: 0 none;
-      font-size: 100%;
+      font-size: 70%;
     }
 
-    #footer-portlets .portlet .portletHeader {
+    #portlets-footer dl.portlet dt.portletHeader,
+    #portlets-footer div.portletHeader {
+      background-color: transparent;
+      font-size: 130%;
       margin-bottom: 10px;
+      padding: 0;
     }
     
-    #footer-portlets dd.portletItem .navTreeItem a {
+    #portlets-footer dl.portlet.portletCollection dd.portletItem,
+    #portlets-footer dl.portlet ul.navTreeLevel0 > .navTreeItem {
+      border: none;
+      margin: 0;
+      padding: 0.25em;
+    }
+    
+    #portlets-footer dl.portlet dt.portletHeader a:hover,
+    #portlets-footer div.portletHeader a:hover {
+      color: black !important;
+      text-decoration: none;
+    }
+    
+    #portlets-footer dl.portlet.portletCollection dd.portletItem a:hover,
+    #portlets-footer dl.portlet ul.navTreeLevel0 > .navTreeItem a:hover {
       color: black !important;
     }
     
-    #footer-portlets dd.portletItem .portletNavigationTree .navTreeCurrentNode,
-    #footer-portlets dd.portletItem .portletNavigationTree .navTreeItemInPath {
+    #portlets-footer dd.portletItem .navTreeItem a {
+      color: black !important;
+      padding: 0;
+    }
+    
+    #portlets-footer dd.portletItem .portletNavigationTree .navTreeCurrentNode,
+    #portlets-footer dd.portletItem .portletNavigationTree .navTreeItemInPath {
       background-color: transparent;
     }
     
-    #footer-portlets dd.portletItem .navTreeCurrentNode a.navTreeCurrentItem {
+    #portlets-footer dd.portletItem .navTreeCurrentNode a.navTreeCurrentItem {
       border: 0 none !important;
     }
     
-    #footer-portlets .even {
+    #portlets-footer .even {
       background-color: transparent;
     }
 
-    #footer-portlets .FooterPortletA,
-    #footer-portlets .FooterPortletB,
-    #footer-portlets .FooterPortletC,
-    #footer-portlets .FooterPortletD,
-    #footer-portlets .FooterPortletE {
+	/*
+    #portlets-footer .FooterPortletA,
+    #portlets-footer .FooterPortletB,
+    #portlets-footer .FooterPortletC,
+    #portlets-footer .FooterPortletD,
+    #portlets-footer .FooterPortletE {
       float: left;
       width: 20%;
     }
+    */
 
 
 
