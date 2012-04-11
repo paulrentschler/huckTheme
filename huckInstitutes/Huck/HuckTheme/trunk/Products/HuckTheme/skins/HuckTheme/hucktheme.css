@@ -38,6 +38,14 @@
     padding: 5px;
   }
   
+  .even {
+    background-color: #EEF3F5;
+  }
+  
+  .odd {
+    background-color: transparent;
+  }
+  
   
   /* ----- HOLIDAY - OFFICE CLOSED NOTICE ----- */
   .vacation_msg {
@@ -617,11 +625,9 @@
     }
     */
 
-	/*
     #portlets-below .even {
       background-color: transparent;
     }
-    */
     
     #portlets-below .portlet {
       padding: 0;
@@ -649,6 +655,7 @@
 
     #portlets-below .portlet dd.portletItem {
       /* min-height: 70px;    this was because of the images in news items */
+      border: none;
       line-height: 1.5em;
       padding: 0 0.5em 2em 0.5em;
     }
@@ -666,14 +673,7 @@
     }
   
     .section-welcome #portlets-below {
-      margin-top: -2em;
-    }
-    .section-welcome #portal-column-two {
-      width: 170px;
-    }
-
-    .section-welcome #portal-column-two div.portletStaticText {
-      margin-bottom: 1.5em;
+      margin-top: -1em;
     }
     
     .section-welcome dl#featured,
@@ -1559,6 +1559,7 @@
     }
     
     .section-welcome .portletSectionLogo {
+      font-size: 75%;
       margin-bottom: 2em;
     }
     
