@@ -6,6 +6,11 @@
 /* ----------------------- GLOBAL ------------------------- */
 /* -------------------------------------------------------- */
 
+  h1, h2, h3, h4, h5, h6 {
+    font-family: Verdana,"Helvetica Neue",Arial,FreeSans,sans-serif;
+    font-weight: normal;
+  }
+  
   a {
     color: #336699;
   }
@@ -1225,7 +1230,16 @@
     font-size: 100%;
   }
 
-  table.listing th, table.data th {
+  table.listing th,
+  table.listing tr.odd th,
+  table.data th {
+    border-bottom: 1px solid #8CACBB;
+    border-right: 1px solid #8CACBB;
+    border-top: 1px solid #8CACBB;
+  }
+  
+  table.listing th,
+  table.data th {
     background-color: #B6D8EA;
     text-align: left;
   }
@@ -1244,6 +1258,10 @@
 
   table tr {
     vertical-align: top;
+  }
+  
+  table.vertical td {
+    border-color: #8CACBB;
   }
 
   table.plain {
@@ -1492,23 +1510,25 @@
   }
 
   .eventDetails .eventDetailsLabel {
+    border: none;
     color: white;
+    font-size: 1.25em;
     margin: 1px 5px;
   }
   
-  .eventDetails table {
+  #content .eventDetails table {
     margin: 0;
     padding: 0;
   }
 
   .eventDetails table th {
     background-color: white;
-    color: &dtml-discreetColor;;
     width: 6em;
   }
 
-  .eventDetails table td,
-  .eventDetails table td span {
+  #content .eventDetails table tbody td,
+  #content .eventDetails table tbody td span {
+    background-color: white;
     color: black;
     width: 16em;
   }
