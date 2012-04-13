@@ -81,8 +81,8 @@
             In here will be code to display an image associated with the TalkEventType object
           </tal:comment>
           <div class="dateInPortlet">
-            <span tal:content="python: startDay.split(' ')[1]">starting month</span>
-            <div tal:content="python: startDay.split(' ')[2][0:2]">starting day</div>
+            <span tal:content="python: startDay.split(' ')[0]">starting month</span>
+            <div tal:content="python: startDay.split(' ')[1][0:2]">starting day</div>
           </div>
         </tal:talkevent>
 
@@ -94,11 +94,13 @@
             [event title / speaker's name]
           </a>
           <tal:talkevent tal:condition="is_event_talk">
-            (<span class="speakerInstitution"
-                  tal:define="talkEventObj python:obj.getObject();"
-                  tal:content="talkEventObj/speakerInstitution">
-              [speaker's institution]
-            </span>)
+            <tal:showInstitution tal:define="talkEventObj python:obj.getObject();"
+                                 tal:condition="talkEventObj/speakerInstitution">
+              (<span class="speakerInstitution"
+                    tal:content="talkEventObj/speakerInstitution">
+                [speaker's institution]
+              </span>)
+            </tal:showInstitution>
           </tal:talkevent>
         </div>
         
