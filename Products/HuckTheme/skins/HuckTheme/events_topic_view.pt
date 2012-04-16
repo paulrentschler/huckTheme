@@ -22,34 +22,19 @@
 
 
   <body>
-    <div metal:fill-slot="main">
-      <metal:main_macro define-macro="main">
+    <metal:content-core fill-slot="content-core">
+      <metal:block define-macro="content-core">
         <metal:body define-macro="body_macro"
                     tal:define="kssClassesView context/@@kss_field_decorator_view;
                                 getKssClasses nocall:kssClassesView/getKssClassesInlineEditable;
-                                templateId template/getId">
-
-
-          <div tal:replace="structure provider:plone.abovecontenttitle" />
-
-          <h1 class="documentFirstHeading"> 
-            <metal:field use-macro="python:here.widget('title', mode='view')">
-              Title
-            </metal:field>
-          </h1>
-
-          <div tal:replace="structure provider:plone.belowcontenttitle" />
-
-          <p class="documentDescription">
-            <metal:field use-macro="python:here.widget('description', mode='view')">
-              Description
-            </metal:field>
-          </p>
-
-          <div tal:replace="structure provider:plone.abovecontentbody" />
+                                templateId template/getId;
+                                isAnon context/@@plone_portal_state/anonymous;">
+    
 
           <metal:listingmacro define-macro="listing">
-            <tal:topiccontents define="topicContents python:here.queryCatalog(batch=True);
+            <tal:topiccontents define="toLocalizedTime nocall:context/@@plone/toLocalizedTime;
+                                       use_view_action site_properties/typesUseViewActionInListings|python:();
+                                       topicContents python:here.queryCatalog(batch=True);
                                        batch topicContents;">
 
               <tal:listing condition="topicContents">
@@ -198,18 +183,16 @@
 
         <metal:body define-macro="folderlisting_macro">
           <tal:subtopics condition="here/hasSubtopics|nothing"
-                         define="folderContents here/getFolderContents">
+                         define="folderContents here/listSubtopics|nothing">
             <h2 i18n:domain="atcontenttypes"
-                i18n:translate="heading_contained_collections">
+                i18n:translate="heading_contained_collections"
+                id="atct_subtopics_header">
                 See also
             </h2>
             <metal:list metal:use-macro="here/base/macros/folderlisting"/>
           </tal:subtopics>
         </metal:body>
-
-        <div tal:replace="structure provider:plone.belowcontentbody" />
-
-      </metal:main_macro>
-    </div>
+      </metal:block>
+    </metal:content-core>
   </body>
 </html>
