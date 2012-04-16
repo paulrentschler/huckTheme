@@ -67,22 +67,31 @@
   
   
   /* ----- FOLDER SUMMARY VIEW ENTRIES ----- */
+    /*
     .tileItem {
       border-top: 0 none;
     }
+    */
   
-    .tileImage {
-      margin: 2.2em 0 2.5em 0.5em;
+    #content img.tileImage {
+      margin: 0 0 2.5em 0.5em;
     }
   
+    h2.tileHeadline {
+      border-bottom: none;
+      font-size: 1.25em;
+    }
+    
     .tileHeadline a {
       text-decoration: underline;
     }
   
+    /*
     .tileHeadline a:hover {
       color: #FF6633 !important;
       text-decoration: none;
     }
+    */
 
     /* Styles for Sub-Folder View */
     .tileItem dl {
