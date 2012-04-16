@@ -13,7 +13,10 @@
     <metal:portlet define-macro="portlet">
 
       <dl class="portlet portletSearch" 
-          id="people-search">
+          id="people-search"
+          tal:define="portal_state context/@@plone_portal_state;
+                      portal context/@@plone_portal_state/portal;
+                      portal_url portal_state/portal_url;">
         <dt class="portletHeader" >
           <span class="portletTopLeft"></span>
           Search for a person
@@ -28,15 +31,13 @@
             <label for="searchGadget" class="hiddenStructure"
                    i18n:translate="text_search">search for: </label>
             <input id="peopleSearchbox"
-                   tabindex=""
                    name="Title"
                    type="text"
                    size="20"
                    value=""
                    alt="search"
                    title="search"
-                   tal:attributes="value request/Title|nothing;
-                                   tabindex tabindex/next"
+                   tal:attributes="value request/Title|nothing"
                    class="visibility:visible" />
 
             <tal:comment tal:replace="nothing">
@@ -52,7 +53,6 @@
                    type="submit"
                    value="go"
                    accesskey="accesskeys-search"
-                   tal:attributes="tabindex tabindex/next"
                    i18n:attributes="value; accesskey" />
           </form>
           <div class="formHelp">
