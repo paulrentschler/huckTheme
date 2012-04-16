@@ -44,11 +44,13 @@
   }
   
   .even {
-    background-color: #EEF3F5;
+    /*background-color: #EEF3F5;*/
   }
   
-  .odd {
-    background-color: transparent;
+  .odd,
+  table.listing tbody tr.odd,
+  table.listing tbody tr.odd td {
+    background-color: #EEF3F5;
   }
   
   
@@ -630,7 +632,7 @@
     }
     */
 
-    #portlets-below .even {
+    #portlets-below .odd {
       background-color: transparent;
     }
     
@@ -758,7 +760,7 @@
       border: 0 none !important;
     }
     
-    #portlets-footer .even {
+    #portlets-footer .odd {
       background-color: transparent;
     }
 
@@ -1227,12 +1229,12 @@
   */
 
   table.listing {
+    border-bottom: 1px solid #8CACBB;
+    border-left: 1px solid #8CACBB;
     font-size: 100%;
   }
 
-  table.listing th,
-  table.listing tr.odd th,
-  table.data th {
+  table.listing tr.odd th {
     border-bottom: 1px solid #8CACBB;
     border-right: 1px solid #8CACBB;
     border-top: 1px solid #8CACBB;
@@ -1241,6 +1243,8 @@
   table.listing th,
   table.data th {
     background-color: #B6D8EA;
+    border: 1px solid #8CACBB;
+    color: black;
     text-align: left;
   }
 
@@ -1248,6 +1252,10 @@
     display: none;
   }
 
+  table.listing td {
+    border-right: 1px solid #8CACBB;
+  }
+  
   table.listing a:hover {
     color: &dtml-linkActiveColor;;
   }
