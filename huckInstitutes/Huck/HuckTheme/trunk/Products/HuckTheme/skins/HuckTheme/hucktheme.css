@@ -73,6 +73,15 @@
     }
     */
   
+    .template-folder_summary_view #content ul {
+      list-style-type: none;
+      margin-left: 0;
+    }
+
+    .template-folder_summary_view #content ul li {
+      clear: both;
+    }
+    
     #content img.tileImage {
       margin: 0 0 2.5em 0.5em;
     }
