@@ -23,94 +23,105 @@
              tal:define="classificationExists nocall:classification | nothing;
                          classificationContext python:classificationExists and context.contextualClassification(classification) or context;">
           <div class="tabularView">
-            <table class="listing"
-                   tal:attributes="summary string:A list of people classified as ${classificationContext/Title}">
-              <metal:block define-slot="classification_header" tal:condition="nocall:classificationExists">
-                <caption class="classification">
-                  <metal:block define-macro="classification_header_link">
-                    <a tal:define="normalizeString nocall:context/@@plone/normalizeString"
-                       tal:attributes="name python:normalizeString(classificationContext.Title());
-                                       href python:'%s?classification=%s' % (here.absolute_url(), classification.id)"
-                       tal:content="classificationContext/Title"><tal:comment replace="nothing">[classification]</tal:comment></a>
-                  </metal:block>
-                </caption>
-              </metal:block>
-              <metal:block define-macro="list_people">
-                <tal:block tal:define="classificationExists nocall:classification | nothing;
-                                       classificationContext python:classificationExists and context.contextualClassification(classification) or context;
-                                       classificationName classificationContext/Title | nothing;
-                                       people classificationContext/getSortedPeople;"
-                           tal:condition="people">
-                  <thead>
-                    <metal:block define-slot="table_headings">
-                      <tr>
-                        <th class="column" i18n:translate="FacultyStaffDirectory_name">
-                          Name
-                        </th>
-                        <th class="column">
-                          Job title(s)
-                        </th>
-                        <th class="column" i18n:translate="FacultyStaffDirectory_phone">
-                          Phone
-                        </th>
-                        <th class="column" i18n:translate="FacultyStaffDirectory_email">
-                          Email
-                        </th>
-                        <th class="column">
-                          Research area(s)
-                        </th>
-                      </tr>
+            <metal:table_macro define-macro="classification_table">
+              <tal:block tal:define="classificationExists nocall:classification | nothing;
+                                     classificationContext python:classificationExists and context.contextualClassification(classification) or context;
+                                     classificationName classificationContext/Title | nothing;
+                                     people classificationContext/getSortedPeople;">
+                
+                <metal:table_slot define-slot="classification_table">
+                  <table class="listing"
+                         tal:condition="people"
+                         tal:attributes="summary string:A list of people classified as ${classificationContext/Title}">
+                    
+                    <metal:block define-macro="classification_header">
+                      <metal:block define-slot="classification_header" tal:condition="nocall:classificationExists">
+                        <caption class="classification">
+                          <metal:block define-macro="classification_header_link">
+                            <a tal:define="normalizeString nocall:context/@@plone/normalizeString"
+                               tal:attributes="name python:normalizeString(classificationContext.Title());
+                                               href python:'%s?classification=%s' % (here.absolute_url(), classification.id)"
+                               tal:content="classificationContext/Title"><tal:comment replace="nothing">[classification]</tal:comment></a>
+                          </metal:block>
+                        </caption>
+                      </metal:block>
                     </metal:block>
-                  </thead>
-                  <tbody>
-                    <tal:block tal:repeat="person people">
-                      <tr tal:define="oddrow repeat/person/odd"
-                          tal:attributes="class python:test(oddrow, 'even', 'odd')">
-                        <metal:block define-slot="table_cells">
-                          <td class="personName">
-                            <a href="" 
-                               tal:attributes="href person/absolute_url"
-                               tal:content="string:${person/getLastName}, ${person/getFirstName}" />
-                          </td>
-                          <td>
-                            <ul tal:condition="person/getJobTitles" class="jobTitle">
-                              <li tal:repeat="jobTitle person/getJobTitles" 
-                                  tal:content="jobTitle">[job title]
-                              </li>
-                            </ul>                
-                            <span tal:condition="not: person/getJobTitles">&nbsp;</span>
-                          </td>
-                          <td class="officePhone">
-                            <span tal:condition="person/getOfficePhone"
-                                  tal:content="person/getOfficePhone">[phone number]</span>
-                            <span tal:condition="not: person/getOfficePhone">&nbsp;</span>
-                          </td>
-                          <td>
-                            <span class="emailAddress"
-                                  tal:condition="person/getEmail" 
-                                  tal:replace="structure python:person.spamProtectFSD(person.getEmail())" />
-                            <span tal:condition="not: person/getEmail">&nbsp;</span>
-                          </td>
-                          <td>
-                            <ul tal:condition="person/getSpecialties" class="specialties">
-                              <tal:block tal:repeat="specialtyTuple person/getSpecialties">
-                                <li tal:define="specialty python:specialtyTuple[0];
-                                                personSpecialtyData python:specialtyTuple[1];
-                                                specialtyURL python:specialty.getObject().absolute_url();"
-                                    tal:condition="python: 'dministration' not in specialty.Title">
-                                  <a tal:attributes="href specialtyURL">
-                                    <span tal:content="specialty/Title">[name of specialty]</span></a>
-                                </li>
-                              </tal:block>
-                            </ul>
-                          </td>
+                    
+                    <metal:list_people define-macro="list_people">
+                      <thead>
+                        <metal:block define-slot="table_headings">
+                          <tr>
+                            <th class="column" i18n:translate="FacultyStaffDirectory_name">
+                              Name
+                            </th>
+                            <th class="column">
+                              Job title(s)
+                            </th>
+                            <th class="column" i18n:translate="FacultyStaffDirectory_phone">
+                              Phone
+                            </th>
+                            <th class="column" i18n:translate="FacultyStaffDirectory_email">
+                              Email
+                            </th>
+                            <th class="column">
+                              Research area(s)
+                            </th>
+                          </tr>
                         </metal:block>
-                      </tr>
-                    </tal:block>
-                  </tbody>
-                </tal:block>
-              </metal:block>
-            </table>
+                      </thead>
+                      
+                      <tbody>
+                        <tal:block tal:repeat="person people">
+                          <tr tal:define="oddrow repeat/person/odd"
+                              tal:attributes="class python:test(oddrow, 'even', 'odd')">
+                            <metal:block define-slot="table_cells">
+                              <td class="personName">
+                                <a href="" 
+                                   tal:attributes="href person/absolute_url"
+                                   tal:content="string:${person/getLastName}, ${person/getFirstName}" />
+                              </td>
+                              <td>
+                                <ul tal:condition="person/getJobTitles" class="jobTitle">
+                                  <li tal:repeat="jobTitle person/getJobTitles" 
+                                      tal:content="jobTitle">[job title]
+                                  </li>
+                                </ul>                
+                                <span tal:condition="not: person/getJobTitles">&nbsp;</span>
+                              </td>
+                              <td class="officePhone">
+                                <span tal:condition="person/getOfficePhone"
+                                      tal:content="person/getOfficePhone">[phone number]</span>
+                                <span tal:condition="not: person/getOfficePhone">&nbsp;</span>
+                              </td>
+                              <td>
+                                <span class="emailAddress"
+                                      tal:condition="person/getEmail" 
+                                      tal:replace="structure python:person.spamProtectFSD(person.getEmail())" />
+                                <span tal:condition="not: person/getEmail">&nbsp;</span>
+                              </td>
+                              <td>
+                                <ul tal:condition="person/getSpecialties" class="specialties">
+                                  <tal:block tal:repeat="specialtyTuple person/getSpecialties">
+                                    <li tal:define="specialty python:specialtyTuple[0];
+                                                    personSpecialtyData python:specialtyTuple[1];
+                                                    specialtyURL python:specialty.getObject().absolute_url();"
+                                        tal:condition="python: 'dministration' not in specialty.Title">
+                                      <a tal:attributes="href specialtyURL">
+                                        <span tal:content="specialty/Title">[name of specialty]</span></a>
+                                    </li>
+                                  </tal:block>
+                                </ul>
+                              </td>
+                            </metal:block>
+                          </tr>
+                        </tal:block>
+                      </tbody>
+                    </metal:list_people>
+                  
+                  </table>
+                </metal:table_slot>
+              </tal:block>
+            </metal:table_macro>
           </div>
         </div>
       </metal:content-core>

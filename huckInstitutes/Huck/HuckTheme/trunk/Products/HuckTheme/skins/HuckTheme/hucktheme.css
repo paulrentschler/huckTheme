@@ -1440,8 +1440,19 @@
 
 
   /* ----- TABULAR VIEW ----- */
-    #content .facultyStaffDirectory .tabularView th.classification {
-      font-size: 100%;
+    #content .facultyStaffDirectory .tabularView table {
+      margin-top: 1em;
+    }
+    
+    #content .facultyStaffDirectory .tabularView table caption {
+    	border-bottom: 1px solid #CCCCCC;
+    	color: #444444;
+      font-size: 1.75em;
+      font-weight: normal;
+      letter-spacing: -0.05em;
+      line-height: 1.5em;
+      margin-bottom: 0.3em;
+      text-align: left;
     }
 
     #content .facultyStaffDirectory .tabularView td.contactDetails .contactInfo {
