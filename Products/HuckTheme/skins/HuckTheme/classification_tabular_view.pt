@@ -13,7 +13,6 @@
       - remove the classification headings when displaying a facility (inTechFacPeople)
         - inTechFacPeople is defined in specialty_view
       - added job title(s) and research area(s) columns with corresponding headers
-      - removed document actions as we don't need a "print this" link
   </tal:comment>
 
 

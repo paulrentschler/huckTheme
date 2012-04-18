@@ -1429,42 +1429,43 @@
 
 
   /* ----- STANDARD VIEW ----- */
-    .facultyStaffDirectory .standardView .headshot img {
+    #content .facultyStaffDirectory .standardView .headshot img {
       border: 0 none;
     }
-    .facultyStaffDirectory .standardView ul.jobTitle li {
+    
+    #content .facultyStaffDirectory .standardView ul.jobTitle li {
       font-style: italic;
     }
 
 
 
   /* ----- TABULAR VIEW ----- */
-    .facultyStaffDirectory .tabularView th.classification {
+    #content .facultyStaffDirectory .tabularView th.classification {
       font-size: 100%;
     }
 
-    .facultyStaffDirectory .tabularView td.contactDetails .contactInfo {
+    #content .facultyStaffDirectory .tabularView td.contactDetails .contactInfo {
       font-size: 85%;
     }
 
 
 
   /* ----- TABULAR VIEW (NO BORDERS) ----- */
-    .facultyStaffDirectory .tabularView table.noBorders {
+    #content .facultyStaffDirectory .tabularView table.noBorders {
       border: 0;
       border-collapse: collapse;
     }
 
-    .facultyStaffDirectory .tabularView table.noBorders th,
-    .facultyStaffDirectory .tabularView table.noBorders td {
+    #content .facultyStaffDirectory .tabularView table.noBorders th,
+    #content .facultyStaffDirectory .tabularView table.noBorders td {
       border: 0;
       padding: 8px 3px;
     }
     
-    .facultyStaffDirectory .tabularView table td.personPhoto {      width: 50px;  }
-    .facultyStaffDirectory .tabularView table td.personName {       width: 30%;  }
-    .facultyStaffDirectory .tabularView table td.contactDetails {   width: 20%;  }
-    .facultyStaffDirectory .tabularView table td.specialtyColumn {  width: 50%;  }
+    #content .facultyStaffDirectory .tabularView table td.personPhoto {      width: 50px;  }
+    #content .facultyStaffDirectory .tabularView table td.personName {       width: 30%;  }
+    #content .facultyStaffDirectory .tabularView table td.contactDetails {   width: 20%;  }
+    #content .facultyStaffDirectory .tabularView table td.specialtyColumn {  width: 50%;  }
 
 
 
