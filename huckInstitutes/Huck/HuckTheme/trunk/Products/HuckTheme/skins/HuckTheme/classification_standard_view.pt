@@ -68,10 +68,10 @@
                   
                   <div class="caption cell width-13 position-4">
                     <metal:block define-slot="person_caption">
-                      <h2 class="personName">
+                      <h3 class="personName">
                         <a tal:attributes="href person/absolute_url"
                            tal:content="person/Title"><tal:comment replace="nothing">[Name]</tal:comment></a>
-                      </h2>
+                      </h3>
                       <ul tal:condition="person/getJobTitles" class="jobTitle">
                           <li tal:repeat="jobTitle person/getJobTitles"
                               tal:content="jobTitle" />
