@@ -36,6 +36,10 @@
     font-weight: normal;
   }
   
+  .hiddenStructure {
+  	display: inline-block;
+  }
+  
   .alert {
     background-color: #EEF3F5;
     border: 1px solid #336699;
@@ -1263,10 +1267,13 @@
   }
   
   table.listing th,
-  table.data th {
+  table.data th,
+  #content .facultyStaffDirectory .tabularView thead th {
     background-color: #B6D8EA;
     border: 1px solid #8CACBB;
     color: black;
+    font-size: 1em;
+    padding: 0.5em 1em;
     text-align: left;
   }
 
