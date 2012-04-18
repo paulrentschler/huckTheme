@@ -77,12 +77,12 @@
     }
     */
   
-    .template-folder_summary_view #content ul {
+    #content ul.accessibleListing {
       list-style-type: none;
       margin-left: 0;
     }
 
-    .template-folder_summary_view #content ul li {
+    #content ul.accessibleListing li {
       clear: both;
     }
     
