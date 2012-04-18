@@ -26,15 +26,8 @@
             <tal:block metal:use-macro="classification/classification_standard_view/macros/list_people">
               
               <tal:block metal:fill-slot="classification_header"
-                         tal:define="classificationName classificationContext/Title;
-                                     isFacultyClassification python: 'aculty' in classificationName;
-                                     displayAdminClassificationName python:inAdminPeople and not isFacultyClassification;">
-                <h2 tal:condition="python: not inTechFacPeople and not inAdminPeople">
-                  <span tal:replace="classificationContext/Title">[classification]</span>
-                </h2>
-                <h2 tal:condition="python: inAdminPeople and displayAdminClassificationName">
-                  <span tal:replace="classificationContext/Title">[classification]</span>
-                </h2>
+                         tal:define="classificationName classificationContext/Title;">
+                <h2 tal:content="classificationContext/Title">[classification]</h2>
               </tal:block>
               
               <metal:block fill-slot="person_caption">
