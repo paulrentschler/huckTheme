@@ -24,7 +24,7 @@
       <metal:block define-macro="listing" extend-macro="context/folder_listing/macros/content-core">
         <!-- we don't want the dl -->
         <metal:entries fill-slot="entries">
-          <ul>
+          <ul class="accessibleListing">
             <metal:block use-macro="context/folder_listing/macros/entries">
               <metal:entry fill-slot="entry">
                 <li class="tileItem visualIEFloatFix"

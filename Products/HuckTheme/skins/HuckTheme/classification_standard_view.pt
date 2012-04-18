@@ -41,61 +41,63 @@
                 </h2>
               </metal:block>
               
-              <div class="listing row" tal:repeat="person people">
-                <div class="headshot cell width-3 position-0">
-                  <metal:block define-slot="person_headshot">
-                    <a href=""
-                       tal:define="noPhoto here/no-photo-available.png;
-                                   height python:int(width * (float(noPhoto.height)/float(noPhoto.width)));"
-                       tal:attributes="href person/absolute_url">
-                      
-                      <tal:block condition="not: person/image_thumb|nothing">
-                          <img src="" alt="No photo available for this person"
-                               class="no-photo"
-                               tal:attributes="src noPhoto/absolute_url;
-                                               width width;
-                                               height height;" />
-                      </tal:block>
-                      
-                      <tal:block condition="person/image_thumb|nothing">
-                        <img src="" alt=""
-                             tal:replace="structure python:person.getScaledImageByWidth(width)" />
-                      </tal:block>
-                    </a>
-                  </metal:block>
-                </div>
-                
-                <div class="caption cell width-13 position-4">
-                  <metal:block define-slot="person_caption">
-                    <h2 class="personName">
-                      <a tal:attributes="href person/absolute_url"
-                         tal:content="person/Title"><tal:comment replace="nothing">[Name]</tal:comment></a>
-                    </h2>
-                    <ul tal:condition="person/getJobTitles" class="jobTitle">
-                        <li tal:repeat="jobTitle person/getJobTitles"
-                            tal:content="jobTitle" />
-                    </ul>
-                    <div tal:condition="person/getOfficePhone"
-                         class="officePhone">
-                      <span class="hiddenStructure">Phone number</span>
-                      <span tal:content="person/getOfficePhone">[office phone]</span>
-                    </div>
-                    <div tal:condition="person/getEmail"
-                         class="emailAddress">
-                      <span class="hiddenStructure">Email address</span>
-                      <span tal:content="structure python:person.spamProtectFSD(person.getEmail())">[email address]</span>
-                    </div>
-                    <div class="moreInfo hiddenStructure">
-                      <a tal:attributes="href person/absolute_url"
-                         i18n:translate="FacultyStaffDirectory_moreAbout">
-                        More about
-                        <span i18n:name="more-about-person-title" tal:replace="person/Title">[Name]</span></a>
-                    </div>
-                  </metal:block>
-                </div>
-                
-                <div class="visualClear"><!--  --></div>
-              </div>
+              <ul class="accessibleListing">
+                <li class="listing row" tal:repeat="person people">
+                  <div class="headshot cell width-3 position-0">
+                    <metal:block define-slot="person_headshot">
+                      <a href=""
+                         tal:define="noPhoto here/no-photo-available.png;
+                                     height python:int(width * (float(noPhoto.height)/float(noPhoto.width)));"
+                         tal:attributes="href person/absolute_url">
+                        
+                        <tal:block condition="not: person/image_thumb|nothing">
+                            <img src="" alt="No photo available for this person"
+                                 class="no-photo"
+                                 tal:attributes="src noPhoto/absolute_url;
+                                                 width width;
+                                                 height height;" />
+                        </tal:block>
+                        
+                        <tal:block condition="person/image_thumb|nothing">
+                          <img src="" alt=""
+                               tal:replace="structure python:person.getScaledImageByWidth(width)" />
+                        </tal:block>
+                      </a>
+                    </metal:block>
+                  </div>
+                  
+                  <div class="caption cell width-13 position-4">
+                    <metal:block define-slot="person_caption">
+                      <h2 class="personName">
+                        <a tal:attributes="href person/absolute_url"
+                           tal:content="person/Title"><tal:comment replace="nothing">[Name]</tal:comment></a>
+                      </h2>
+                      <ul tal:condition="person/getJobTitles" class="jobTitle">
+                          <li tal:repeat="jobTitle person/getJobTitles"
+                              tal:content="jobTitle" />
+                      </ul>
+                      <div tal:condition="person/getOfficePhone"
+                           class="officePhone">
+                        <span class="hiddenStructure">Phone number</span>
+                        <span tal:content="person/getOfficePhone">[office phone]</span>
+                      </div>
+                      <div tal:condition="person/getEmail"
+                           class="emailAddress">
+                        <span class="hiddenStructure">Email address</span>
+                        <span tal:content="structure python:person.spamProtectFSD(person.getEmail())">[email address]</span>
+                      </div>
+                      <div class="moreInfo hiddenStructure">
+                        <a tal:attributes="href person/absolute_url"
+                           i18n:translate="FacultyStaffDirectory_moreAbout">
+                          More about
+                          <span i18n:name="more-about-person-title" tal:replace="person/Title">[Name]</span></a>
+                      </div>
+                    </metal:block>
+                  </div>
+                  
+                  <div class="visualClear"><!--  --></div>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
