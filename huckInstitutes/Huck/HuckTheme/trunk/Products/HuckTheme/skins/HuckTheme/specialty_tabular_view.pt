@@ -4,26 +4,26 @@
       i18n:domain="FacultyStaffDirectory">
 
 
-<tal:comment tal:replace="nothing">
-  Created by: Paul Rentschler
-  Description: used to display specialties in either the tabular format
-  Based on: specialty_tabular_view.pt (from FSD 2.1.3)
-  Changes:
-    - changed the information that is displayed to be:
-      - name
-      - job title(s)
-      - phone number
-      - e-mail address
-      - campus
-      - research topic
-    - removed the link for the classification heading
-    - hid the table headings
-  Notes:
-    - some conditions used are defined in specialty_view.pt
-    - a column is provided for displaying images for each person but
-      this feature is commented out because of a lack of faculty
-      photos
-</tal:comment>
+  <tal:comment tal:replace="nothing">
+    Created by: Paul Rentschler
+    Description: used to display specialties in either the tabular format
+    Based on: specialty_tabular_view.pt (from FSD 3.1.1)
+    Changes:
+      - changed the information that is displayed to be:
+        - name
+        - job title(s)
+        - phone number
+        - e-mail address
+        - campus
+        - research topic
+      - removed the link for the classification heading
+      - hid the table headings
+    Notes:
+      - some conditions used are defined in specialty_view.pt
+      - a column is provided for displaying images for each person but
+        this feature is commented out because of a lack of faculty
+        photos
+  </tal:comment>
 
 
   <body>
@@ -32,52 +32,42 @@
       <div class="tabularView">
         <table class="noBorders">
           <tbody>
-                  
             <metal:block use-macro="here/specialty_view/macros/list_classifications">
-
               <metal:block fill-slot="single_classification">
-
                 <tal:block metal:use-macro="classification/classification_tabular_view/macros/list_people">
 
                   <tal:block metal:fill-slot="classification_header"
                              tal:define="isFacultyClassification python: 'aculty' in classificationName;
                                          displayAdminClassificationName python:inAdminPeople and not isFacultyClassification;">
-                    <tr tal:condition="python: not inTechFacPeople and not inAdminPeople">
-                      <th colspan="3" class="classification">
-                        <h2 tal:content="classificationContext/Title">[classification]</h2>
-                      </th>
-                    </tr>
-                    <tr tal:condition="python: inAdminPeople and displayAdminClassificationName">
-                      <th colspan="3" class="classification">
-                        <h2 tal:content="classificationContext/Title">[classification]</h2>
-                      </th>
-                    </tr>
+                    <caption class="classification">
+                      <tal:block tal:condition="python: not inTechFacPeople and not inAdminPeople">
+                          <span tal:replace="classificationContext/Title">[classification]</span>
+                      </tal:block>
+                      <tal:block tal:condition="python: inAdminPeople and displayAdminClassificationName">
+                          <span tal:replace="classificationContext/Title">[classification]</span>
+                      </tal:block>
+                    </caption>
                   </tal:block>
                   
                   <tal:block metal:fill-slot="table_headings">
                     <tr class="hide">
-<tal:comment tal:replace="nothing">
-  ** REMOVED due to lack of images **                  
                       <th class="column">Photo</th>
-</tal:comment>
-                      <th class="column" i18n:translate="FacultyStaffDirectory_name">
+                      <th class="column">
                         Name / job title
                       </th>
                       <th class="column">E-mail / phone / campus</th>
                       <th class="column">
                         <span tal:condition="inResearchSpecialty">
-                          Interests include:
+                          Interests include
                         </span>
                         <span tal:condition="not: inResearchSpecialty">
-                          Responsibilities include:
+                          Responsibilities include
                         </span>
                       </th>
                     </tr>
                   </tal:block>
                   
                   <tal:block metal:fill-slot="table_cells">
-<tal:comment tal:replace="nothing">
-  ** REMOVED due to lack of images **                  
                     <td class="personPhoto">
                       <a href=""
                          tal:define="noPhoto here/no-photo-available.png;
@@ -85,11 +75,11 @@
                                      height python:int(width * (float(noPhoto.height)/float(noPhoto.width)));"
                          tal:attributes="href person/absolute_url">
                         <tal:block condition="not: person/image_thumb|nothing">
-                            <img src="" alt="No photo available for this person"
-                                 class="no-photo"
-                                 tal:attributes="src noPhoto/absolute_url;
-                                                 width width;
-                                                 height height;" />
+                          <img src="" alt="No photo available for this person"
+                               class="no-photo"
+                               tal:attributes="src noPhoto/absolute_url;
+                                               width width;
+                                               height height;" />
                         </tal:block>
 
                         <tal:block condition="person/image_thumb|nothing">
@@ -98,7 +88,6 @@
                         </tal:block>
                       </a>
                     </td>
-</tal:comment>
                     <td class="personName">
                       <a href="" 
                          tal:attributes="href person/absolute_url"
@@ -159,17 +148,12 @@
                       </tal:gradFaculty>
                     </td>
                   </tal:block>
-                  
                 </tal:block>
-
               </metal:block>
-
             </metal:block>
-
           </tbody>
         </table>
       </div>
-
     </metal:block>
   </body>
 </html>
