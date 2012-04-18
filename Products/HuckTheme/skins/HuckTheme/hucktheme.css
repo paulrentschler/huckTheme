@@ -1340,34 +1340,69 @@
 /* -------------------------------------------------------- */
 
   .hasPhoneNumber {
-    background:transparent url(phone_icon.gif) no-repeat scroll left bottom;
-    padding-left:10px;
+    background: transparent url(phone_icon.gif) no-repeat scroll left top;
+    padding-left: 10px;
   }
 
-  .facultyStaffDirectory ul.jobTitle li {
+  #content .facultyStaffDirectory .tabularView ul.jobTitle li {
     font-size: 93%;
+    font-weight: normal;
     line-height: 1.1em;
     list-style-image: none;
     list-style-type: none;
     margin: 0.5em 0 0 0;
   }
-
-
+  
 
   /* ----- PERSON VIEW ----- */
-    .facultyStaffDirectory.personView .headshot {
-      background-color: white;
-      border-left: 2em solid white;
-      border-right: 2em solid white;
-      margin: 5em 0 0 0 !important;
+    #content .facultyStaffDirectory.personView h2 {
+      margin-top: 0.5em;
     }
-
-    .facultyStaffDirectory.personView #administrativeInformation {
-      margin-top: 5em;
+    
+    #content .facultyStaffDirectory.personView #personalInformation {
+      background-color: #EEF3F5;
+			border: 1px solid #EEF3F5;
+      border-radius: 5px; 
+			-moz-border-radius: 5px; 
+			-webkit-border-radius: 5px; 
+      padding: 0.3em;
     }
+    
+    #content .facultyStaffDirectory.personView .headshot {
+      background-color: #EEF3F5;
+      border-left: 2em solid #EEF3F5;
+      float: right;
+    }
+    
+    #content .facultyStaffDirectory.personView .adr {
+      margin-top: 0;
+    }
+    
+    #content .facultyStaffDirectory.personView .pair h3.label {
+      display: inline-block;
+      font-size: 0.9em;
+      font-weight: normal;
+      width: 4em;
+    }
+    
+    #content .facultyStaffDirectory.personView .pair p.value {
+      display: inline-block;
+      margin-bottom: 0;
+    }
+    
+    #content .facultyStaffDirectory.personView .websites h3 {
+      font-size: 0.9em;
+      font-weight: normal;
+      margin-bottom: 0;
+		}
+		
+		#content .facultyStaffDirectory.personView .websites ul {
+		  margin: 0 0 0.5em 1em;
+		}
 
-    .facultyStaffDirectory.personView #administrativeInformation h3 {
-      color: #FF6633;
+    .facultyStaffDirectory.personView #administrativeInformation,
+    .facultyStaffDirectory.personView #personListings {
+      margin-top: 3em;
     }
 
     .facultyStaffDirectory.personView #administrativeInformation .labs dl {

@@ -67,9 +67,17 @@
               </dd>
             </dl>
             
-            
+            <p tal:condition="python:not showExpired"
+               i18n:translate="FacultyStaffDirectory_expired_notice">
+              This person is no longer associated with the Huck Institutes of the Life Sciences.
+            </p>
+          </div>
+
+
+          <div class="row" id="personalInformation"
+               tal:condition="showExpired">
             <tal:block tal:condition="showExpired">
-              <div class="headshot cell width-4 position-12"
+              <div class="headshot"
                    tal:condition="context/image_normal|nothing">
                 <img src="" alt=""
                      tal:replace="structure python:context.getWrappedField('image').tag(context, scale='normal',  css_class='photo')" />
@@ -85,52 +93,63 @@
                 <tal:comment replace="nothing">[job title]</tal:comment>
               </li>
             </ul>
-            <p tal:condition="python:not showExpired"
-               i18n:translate="FacultyStaffDirectory_expired_notice">
-              This person is no longer associated with the Huck Institutes of the Life Sciences.
-            </p>
             
             
             <tal:contact tal:condition="showExpired">
-              <h2>Contact Information</h2>
-              <ul class="list">
-                <li tal:condition="context/getEmail">
-                  <span i18n:translate="FacultyStaffDirectory_label_email">Email</span>:
-                  <span class="email"
-                        tal:content="structure python:context.spamProtectFSD(context.getEmail())" />
-                </li>
-                <li class="tel officePhone"
-                    tal:condition="context/getOfficePhone">
-                  <span class="type" i18n:translate="FacultyStaffDirectory_label_officePhone">Office Phone</span>:
-                  <span class="value" tal:content="context/getOfficePhone"><tal:comment replace="nothing">[office phone number]</tal:comment></span>
-                </li>
-                <li class="tel fax" tal:define="fax python: context.get('fax')" tal:condition="context/fax">
-                  <span class="type">Fax</span>:
-                  <span class="value" tal:content="context/fax"><tal:comment replace="nothing">[fax number]</tal:comment></span>
-                </li>
-                <li class="campus" tal:define="where context/campus" tal:condition="python:len(where)>1" >
-                  <span class="type">Campus</span>:
-                  <span class="value"
-                        tal:repeat="campus context/campus"
-                        tal:content="campus"><tal:comment replace="nothing">[campus]</tal:comment></span>
-                </li>
-                <li class="adr" tal:condition="context/getOfficeAddress" >
-                  <span class="type">Office</span>:
-                  <span class="value street-address"
-                        tal:content="structure python:context.getOfficeAddress().replace('\n', '<br />')" /><br />
-                  <span class="value locality" tal:content="context/getOfficeCity">
-                    <tal:comment replace="nothing">[office city]</tal:comment></span><tal:state tal:condition="python: context.getOfficeCity() and context.getOfficeState()">, </tal:state>
-                  <span class="value region" tal:content="context/getOfficeState">
-                    <tal:comment replace="nothing">[office state]</tal:comment></span>
-                  <span class="value postal-code" tal:content="context/getOfficePostalCode">
-                    <tal:comment replace="nothing">[postal zip code]</tal:comment></span>
-                </li>
-              </ul>
+              <h2 class="hiddenStructure">Contact Information</h2>
+              <h3 class="hiddenStructure">Office Address</h3>
+              <div class="adr"
+                   tal:condition="context/getOfficeAddress">
+                <span class="street-address" tal:content="structure python:context.getOfficeAddress().replace('\n', '<br />')" /><br />
+                <span class="locality" tal:content="context/getOfficeCity" ><tal:comment replace="nothing">[office city]</tal:comment>
+                  </span><tal:state tal:condition="python: context.getOfficeCity() and context.getOfficeState()">, </tal:state>
+                <span class="region" tal:content="context/getOfficeState"><tal:comment replace="nothing">[office state]</tal:comment></span>
+                <span class="postal-code" tal:content="context/getOfficePostalCode"><tal:comment replace="nothing">[postal zip code]</tal:comment></span>
+              </div>
+              
+              <tal:email tal:condition="context/getEmail">
+                <h3 class="hiddenStructure">Email address</h3>
+                <p class="email" tal:content="structure python:context.spamProtectFSD(context.getEmail())" />
+              </tal:email>
+              
+              <div class="pair" tal:condition="context/getOfficePhone">
+                <h3 class="label">Phone</h3>
+                <p class="value" tal:content="context/getOfficePhone"><tal:comment replace="nothing">[office phone number]</tal:comment></p>
+              </div>
+              
+              <div class="pair" tal:define="fax python: context.get('fax')"
+                       tal:condition="context/fax">
+                <h3 class="label">Fax</h3>
+                <p class="value" tal:content="context/fax"><tal:comment replace="nothing">[fax number]</tal:comment></p>
+              </div>
+              
+              <div class="pair" tal:define="where context/campus"
+                                tal:condition="python: len(where) > 1">
+								<h3 class="label">Campus</h3>
+                <p class="value"
+                   tal:repeat="campus context/campus"
+                   tal:content="campus"><tal:comment replace="nothing">[campus]</tal:comment></p>
+              </div>
+              
+							<div tal:condition="context/getWebsites"
+									 class="websites">
+								<h3 i18n:translate="FacultyStaffDirectory_label_websites_heading">Other websites about me</h3>
+								<ul>
+									<li tal:repeat="website context/getWebsites">
+										<a class='url' href=""
+											 tal:attributes="href website"
+											 tal:content="website" />
+									</li>
+								</ul>
+							</div>
             </tal:contact>
-            
+          </div>
+          
+          
+          <div class="row" id="biographyInformation">  
             <div tal:condition="python: showExpired and context.getEducation()"
                  class="education">
-              <h2 i18n:translate="FacultyStaffDirectory_label_education_heading">Education</h2>
+              <h2 i18n:translate="FacultyStaffDirectory_label_education_heading">Degrees</h2>
               <ul class="list">
                 <li tal:repeat="degree context/getEducation">
                   <span tal:content="degree" />
@@ -138,7 +157,7 @@
               </ul>
             </div>
 
-            <div tal:condition="python: showExpired and len(context.getBiography()) <= 11" class="biography">
+            <div tal:condition="python: showExpired and len(context.getBiography()) > 11" class="biography">
               <h2>
                 <span tal:condition="isResearcher">Research interests</span>
                 <span tal:condition="not:isResearcher">Contact regarding&hellip;</span>
@@ -156,19 +175,6 @@
                 now that the person is not associated with the Huck Institutes.
               </p>
               <span tal:content="structure context/getTerminationDetails" />
-            </div>
-            
-            
-            <div tal:condition="python: showExpired and context.getWebsites()"
-                 class="websites">
-              <h2 i18n:translate="FacultyStaffDirectory_label_websites_heading">Other websites about me</h2>
-              <ul>
-                <li tal:repeat="website context/getWebsites">
-                  <a class='url' href=""
-                     tal:attributes="href website"
-                     tal:content="website" />
-                </li>
-              </ul>
             </div>
             
             
@@ -223,17 +229,17 @@
           <div id="personListings"
                class="row"
                tal:condition="isEditor">
-            <h2>Personnel Listings</h2>
+            <h2>Personnel listings</h2>
             <dl class="portalMessage info">
               <dt>Note</dt>
               <dd>
                 <strong>You are seeing this because you can edit this profile.</strong><br />
-                This is how <tal:person tal:content="context/Title" /> will appear in faculty listings
+                This is how <tal:person tal:content="context/getFirstName" /> will appear in faculty listings
                 and contact pages throughout the site.
               </dd>
             </dl>
             
-            <div class="specialties defList"
+            <div class="specialties"
                  tal:define="specialtyTuples context/getSpecialties" 
                  tal:condition="specialtyTuples">
               <tal:block tal:repeat="eachSpecialtyTuple specialtyTuples">
@@ -367,19 +373,20 @@
               <dd>You are seeing this because you can manage this profile.</dd>
             </dl>
             
-            <div class="publishExpireDates">
+            <div class="publishExpireDates"
+                 tal:define="toLocalizedTime nocall:context/@@plone/toLocalizedTime;">
               <h3>Effective and expiration dates</h3>
               <dl>
                 <dt>
                   <span class="label">Effective date:</span>
-                  <span class="value" tal:content="context/EffectiveDate">[Effective Date]</span>
+                  <span class="value" tal:content="python:toLocalizedTime(context.EffectiveDate(), long_format=1)">[Effective Date]</span>
                 </dt>
                 <dd class="discreet">
                   Used to control the order of people in certain lists.
                 </dd>
                 <dt>
                   <span class="label">Expiration date:</span>
-                  <span class="value" tal:content="context/ExpirationDate">[Expiration Date]</span>
+                  <span class="value" tal:content="python:toLocalizedTime(context.ExpirationDate(), long_format=1)">[Expiration Date]</span>
                 </dt>
                 <dd class="discreet">
                   Used to indicate when the person has left the Huck Institutes.
