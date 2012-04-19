@@ -4,100 +4,67 @@
       i18n:domain="plone">
 
 
-<tal:comment tal:replace="nothing">
-  Created by: Paul Rentschler
-  Description: used to display collections that contain people. The output
-                has been customized to display the information about people
-                in a more meaningful way
-  Based on: topic_view.pt
-  Requires: findSpecialtyForTopic.py
-  Changes:
-    - Renamed the table headings (they were created from the field names, which doesn't describe
-       the contents well e.g. the description field is actually the title of the talk).
-    - Got rid of the icons
-    - Changed the default message that appears if the collection contains no people
-    - Removed the "up one level" link
-    - Added ids and classes to allow more detailed formatting
-    - Removed the list of sub-topics because it's in the left side navigation
-</tal:comment>
+  <tal:comment tal:replace="nothing">
+    Created by: Paul Rentschler
+    Description: used to display collections that contain people. The output
+                  has been customized to display the information about people
+                  in a more meaningful way
+    Based on: topic_view.pt
+    Requires: findSpecialtyForTopic.py
+    Changes:
+      - Renamed the table headings (they were created from the field names, which doesn't describe
+         the contents well e.g. the description field is actually the title of the talk).
+      - Got rid of the icons
+      - Changed the default message that appears if the collection contains no people
+      - Removed the "up one level" link
+      - Added ids and classes to allow more detailed formatting
+      - Removed the list of sub-topics because it's in the left side navigation
+  </tal:comment>
 
 
   <body>
-    <div metal:fill-slot="main"
-         tal:define="limitToCampus string:all">
-      <metal:main_macro define-macro="main">
+    <div metal:fill-slot="content-core"
+         tal:define="isAnon context/@@plone_portal_state/anonymous;
+                     limitToCampus string:all">
+      <metal:block define-macro="content-core">
         <metal:body define-macro="body_macro"
                     tal:define="kssClassesView context/@@kss_field_decorator_view;
                                 getKssClasses nocall:kssClassesView/getKssClassesInlineEditable;
-                                templateId template/getId;
-                                isAnon context/@@plone_portal_state/anonymous;">
-
-
-          <div tal:replace="structure provider:plone.abovecontenttitle" />
-
-          <h1 class="documentFirstHeading"> 
-            <metal:field use-macro="python:here.widget('title', mode='view')">
-              Title
-            </metal:field>
-          </h1>
-
-          <div tal:replace="structure provider:plone.belowcontenttitle" />
-
-          <p class="documentDescription">
-            <metal:field use-macro="python:here.widget('description', mode='view')">
-              Description
-            </metal:field>
-          </p>
-
-          <div tal:replace="structure provider:plone.abovecontentbody" />
-
-          <div metal:define-macro="text-field-view"
-               id="parent-fieldname-text" class="stx"
-               tal:define="kss_class python:getKssClasses('text', templateId=templateId, macro='text-field-view');
-                           text here/getText|nothing"
-               tal:condition="text"
-               tal:attributes="class python:test(here.Format() in ('text/structured',
-                                                 'text/x-rst', ), 'stx' + kss_class, 'plain' + kss_class)">
-             <div metal:define-slot="inside" tal:replace="structure text">The body</div>
-          </div>
-
-          <metal:subtopiclist define-macro="folderlisting_macro" tal:replace="nothing">
-<tal:comment tal:replace="nothing">
-  ** Removed this as it's in the left side navigation
-</tal:comment>
-            <div id="subtopics" tal:condition="nocall:python:context.getFolderContents({'portal_type':'Topic'})">
-              <h3 condition="here/hasSubtopics|nothing">Jump to the subset of these people that work in:</h3>
-              <ul tal:define="topicBrains python:context.getFolderContents({'portal_type':'Topic'})" >
-                <li tal:repeat="topic topicBrains" class="portletItem">
-                  <a href="#"
-                     tal:attributes="href topic/getURL"
-                     tal:content="topic/Title">
-                    [sub-collection]</a>
-                </li>
-              </ul>
-            </div>
-          </metal:subtopiclist>
+                                templateId template/getId;">
 
           <metal:listingmacro define-macro="listing">
             <tal:topiccontents define="topicContents python:here.queryCatalog(batch=True);
+                                       use_view_action site_properties/typesUseViewActionInListings|python:();
                                        batch topicContents;">
 
+              <div metal:define-macro="text-field-view"
+                   id="parent-fieldname-text" class="stx"
+                   tal:define="kss_class python:getKssClasses('text',
+                               templateId=templateId, macro='text-field-view');
+                               text here/getText|nothing"
+                   tal:condition="text"
+                   tal:attributes="class python:test(here.Format() in ('text/structured',
+                                         'text/x-rst', ), 'stx' + kss_class, 'plain' + kss_class)">
+                <div metal:define-slot="inside" tal:replace="structure text">The body</div>
+              </div>
+
               <tal:listing condition="topicContents">
+                
                 <div class="facultyStaffDirectory">
                   <div class="tabularView">
-
                     <table class="noBorders"
                            tal:define="specialtyObj context/findSpecialtyForTopic;
                                        specialtyName context/Title;
                                        whereAreWe context/absolute_url;
-                                       inContactUs python:'contact' in whereAreWe;
-                                       inEducation python:'education' in whereAreWe">
+                                       inContactUs python:'contact' in whereAreWe;"
+                           tal:attributes="summary string:A list of ${context/Description}">
+                      <caption tal:content="context/Title"
+                               class="hiddenStructure">[collection title]</caption>
+                      
                       <thead>
                         <metal:headings define-slot="table_headings">
-                          <tr class="hide">
-                            <tal:photo tal:condition="python: inContactUs or inEducation">
-                              <th class="column hide">Photo</th>
-                            </tal:photo>
+                          <tr class="hiddenStructure">
+                            <th class="column">Photo</th>
                             <th class="column">Name</th>
                             <th class="column">E-mail / phone</th>
                             <th class="column">
@@ -107,6 +74,7 @@
                           </tr>
                         </metal:headings>
                       </thead>
+                      
                       <tbody>
                         <tal:rows tal:repeat="brain topicContents">
                           <tal:onlypeople tal:define="brainID brain/id;
@@ -122,29 +90,26 @@
                                   tal:attributes="class python:test(limitToCampus == 'all', rowClass, '')">
 
                                 <metal:tablecells define-slot="table_cell">
-                                  <tal:photo tal:condition="python: inContactUs or inEducation">
-                                    <td class="personPhoto">
-                                      <a href=""
-                                         tal:define="noPhoto here/no-photo-available.png;
-                                                     width python: 50;
-                                                     height python:int(width * (float(noPhoto.height)/float(noPhoto.width)));"
-                                         tal:attributes="href person/absolute_url"
-                                         tal:condition="python: inContactUs or isStudent">
-                                        <tal:block condition="not: person/image_thumb|nothing">
-                                          <img src="" alt="No photo available for this person"
-                                               class="no-photo"
-                                               tal:attributes="src noPhoto/absolute_url;
-                                                               width width;
-                                                               height height;" />
-                                        </tal:block>
+                                  <td class="personPhoto">
+                                    <a href=""
+                                       tal:define="noPhoto here/no-photo-available.png;
+                                                   width python: 50;
+                                                   height python:int(width * (float(noPhoto.height)/float(noPhoto.width)));"
+                                       tal:attributes="href person/absolute_url">
+                                      <tal:block condition="not: person/image_thumb|nothing">
+                                        <img src="" alt="No photo available for this person"
+                                             class="no-photo"
+                                             tal:attributes="src noPhoto/absolute_url;
+                                                             width width;
+                                                             height height;" />
+                                      </tal:block>
 
-                                        <tal:block condition="person/image_thumb|nothing">
-                                          <img src="" alt=""
-                                               tal:replace="structure python:person.getScaledImageByWidth(width)" />
-                                        </tal:block>
-                                      </a>
-                                    </td>
-                                  </tal:photo>
+                                      <tal:block condition="person/image_thumb|nothing">
+                                        <img src="" alt=""
+                                             tal:replace="structure python:person.getScaledImageByWidth(width)" />
+                                      </tal:block>
+                                    </a>
+                                  </td>
 
                                   <td class="personName">
                                     <a tal:attributes="href person/absolute_url">
@@ -189,12 +154,6 @@
                                                   isFaculty python:'aculty' in personClassificationsList;
                                                   isGradProgFaculty python:isFaculty and isGradAdmin;">
 
-                                    <tal:incontactus tal:condition="python: inContactUs and inEducation">
-                                      <tal:adminstaff tal:condition="isGradAdmin">
-                                      </tal:adminstaff>
-                                    </tal:incontactus>
-                                    <tal:notincontactus tal:condition="python: not(inContactUs and inEducation)">
-                                    </tal:notincontactus>
                                     <span tal:condition="nocall:specialtyObj"
                                           tal:replace="structure python:specialtyObj.getSpecialtyInformation(person).getResearchTopic()">
                                       [summary of research or responsibilities]
@@ -225,28 +184,27 @@
                             </tal:cells>
                           </tal:onlypeople>
                         </tal:rows>
-                      </tbody>
+                      </tbody>                      
                     </table>
-          
                   </div>
                 </div>
               </tal:listing>
 
-               <p class="discreet"
-                  tal:condition="python: not topicContents and here.listCriteria()"
-                  i18n:domain="atcontenttypes"
-                  i18n:translate="description_no_items_in_topic">
-                 Oops. We didn't find anyone in this category.
-               </p>
+              <p class="discreet"
+                 tal:condition="python: not topicContents and here.listCriteria()"
+                 i18n:domain="atcontenttypes"
+                 i18n:translate="description_no_items_in_topic">
+                Oops. We didn't find anyone in this category.
+              </p>
 
-                <tal:onlyforadmins tal:condition="not: isAnon">
-                  <p class="discreet"
-                     tal:condition="not: here/listCriteria"
-                     i18n:domain="atcontenttypes"
-                     i18n:translate="description_no_criteria_in_topic">
-                    There are currently no criteria on which to search.
-                    Please add them using the 'criteria' tab.
-                  </p>
+              <tal:onlyforadmins tal:condition="not: isAnon">
+                <p class="discreet"
+                   tal:condition="not: here/listCriteria"
+                   i18n:domain="atcontenttypes"
+                   i18n:translate="description_no_criteria_in_topic">
+                  There are currently no criteria on which to search.
+                  Please add them using the 'criteria' tab.
+                </p>
               </tal:onlyforadmins>
 
               <!-- Navigation -->
@@ -255,10 +213,11 @@
             </tal:topiccontents>
           </metal:listingmacro>
         </metal:body>
-
-        <div tal:replace="structure provider:plone.belowcontentbody" />
-
-      </metal:main_macro>
+      </metal:block>
     </div>
+    
+    <tal:block tal:replace="nothing">
+
+    </tal:block>
   </body>
 </html>

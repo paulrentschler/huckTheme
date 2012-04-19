@@ -1481,29 +1481,29 @@
 
 
   /* ----- TABULAR VIEW (ADVISORS) ----- */
-    .facultyStaffDirectory .tabularView dl.advisors {
+    #content .facultyStaffDirectory .tabularView dl.advisors {
       font-size: 93%;
       margin-top: -0.5em;
     }
 
-    .facultyStaffDirectory .tabularView dl.advisors dt {
+    #content .facultyStaffDirectory .tabularView dl.advisors dt {
       font-weight: normal;
     }
 
-    .facultyStaffDirectory .tabularView dl.advisors dd {
-      margin: -1.1em 0 0 4.6em;
+    #content .facultyStaffDirectory .tabularView dl.advisors dd {
+      margin: -1.3em 0 0 4.6em;
     }
 
-    .facultyStaffDirectory .tabularView dl.advisors ul {
+    #content .facultyStaffDirectory .tabularView dl.advisors ul {
       margin: 0;
     }
 
-    .facultyStaffDirectory .tabularView dl.advisors ul li {
-      display: inline;
+    #content .facultyStaffDirectory .tabularView dl.advisors ul li {
+      display: inline-block;
       line-height: 1.1em;
       list-style-image: none;
       list-style-type: none;
-      margin: 0;
+      margin: 0 0 0.3em 0;
     }
 
 
