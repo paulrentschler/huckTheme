@@ -35,7 +35,7 @@
                 </tal:comment>
                 <table class="noBorders"
                        tal:define="peopleByEffective classificationContext/getSortedPeople;
-                                   people python: peopleByEffective.sort(lambda x,y: cmp(y.effective(), x.effective()));
+                                   people python: peopleByEffective.sort(lambda y,x: cmp(y.effective(), x.effective()));
                                    people peopleByEffective;"
                        tal:condition="people"
                        tal:attributes="summary string:A list of people classified as ${classificationContext/Title} in ${context/Title}">

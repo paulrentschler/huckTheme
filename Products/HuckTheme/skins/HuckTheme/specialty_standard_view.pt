@@ -23,64 +23,77 @@
       <div class="standardView">   
         <metal:block use-macro="here/specialty_view/macros/list_classifications">
           <metal:block fill-slot="single_classification">
-            <tal:block metal:use-macro="classification/classification_standard_view/macros/list_people">
+            <tal:block metal:use-macro="classification/classification_standard_view/macros/classification_listing">
               
-              <tal:block metal:fill-slot="classification_header"
-                         tal:define="classificationName classificationContext/Title;">
-                <h2 tal:content="classificationContext/Title">[classification]</h2>
-              </tal:block>
-              
-              <metal:block fill-slot="person_caption">
-                <h3 class="personName">
-                  <a tal:attributes="href person/absolute_url"
-                     tal:content="person/Title"><tal:comment replace="nothing">[Name]</tal:comment></a>
-                </h3>
-                
-                <ul tal:condition="person/getJobTitles" class="jobTitle">
-                    <li tal:repeat="jobTitle person/getJobTitles"
-                        tal:content="jobTitle" />
-                </ul>
-                
-                <p>
-                  <span tal:condition="person/getOfficePhone"
-                       class="officePhone">
-                    <span class="hiddenStructure">Phone number</span>
-                    <span tal:content="person/getOfficePhone">[office phone]</span>
-                  </span>
-                  &#149;
-                  <span tal:condition="person/getEmail"
-                       class="emailAddress">
-                    <span class="hiddenStructure">Email address</span>
-                    <span tal:content="structure python:person.spamProtectFSD(person.getEmail())">[email address]</span>
-                  </span>
-                </p>
-                
-                <div tal:define="personSpecialtyData python:context.getSpecialtyInformation(person);">
-                  <div>Research interests:</div>
-                  <tal:block tal:condition="personSpecialtyData/getResearchTopic" 
-                             tal:replace="structure personSpecialtyData/getResearchTopic">               
-                  </tal:block>
+              <metal:listing fill-slot="classification_listing">
+                <div class="classificationListing" tal:condition="people">
                   
-                  <span tal:condition="python:checkPermission('Modify portal content', person)"
-                        class="discreet">[
-                    <a tal:attributes="href python:'%s/edit' % personSpecialtyData.absolute_url()">
-                      <tal:block tal:condition="personSpecialtyData/getResearchTopic"
-                                 i18n:translate="FacultyStaffDirectory_editResearchTopic">
-                        Edit research topic</tal:block>
-                      <tal:block tal:condition="not:personSpecialtyData/getResearchTopic"
-                                 i18n:translate="FacultyStaffDirectory_assignResearchTopic">
-                        Assign a research topic</tal:block>
-                    </a>
-                  ]</span>                                        
-                </div>
-                
-                <div class="moreInfo hiddenStructure">
-                  <a tal:attributes="href person/absolute_url"
-                     i18n:translate="FacultyStaffDirectory_moreAbout">
-                    More about
-                    <span i18n:name="more-about-person-title" tal:replace="person/Title">[Name]</span></a>
-                </div>
+              <metal:block define-macro="classification_header">
+                <metal:block use-macro="classification/classification_standard_view/macros/classification_header">
+                  <tal:block metal:fill-slot="classification_header">
+                    <h2 tal:content="classificationContext/Title">[classification]</h2>
+                  </tal:block>
+                </metal:block>
               </metal:block>
+              
+              <metal:block define-macro="list_people">
+                <metal:list_people use-macro="classification/classification_standard_view/macros/list_people">
+                  <metal:block fill-slot="person_caption">
+                    <h3 class="personName">
+                      <a tal:attributes="href person/absolute_url"
+                         tal:content="person/Title"><tal:comment replace="nothing">[Name]</tal:comment></a>
+                    </h3>
+                
+                    <ul tal:condition="person/getJobTitles" class="jobTitle">
+                        <li tal:repeat="jobTitle person/getJobTitles"
+                            tal:content="jobTitle" />
+                    </ul>
+                
+                    <p>
+                      <span tal:condition="person/getOfficePhone"
+                           class="officePhone">
+                        <span class="hiddenStructure">Phone number</span>
+                        <span tal:content="person/getOfficePhone">[office phone]</span>
+                      </span>
+                      &#149;
+                      <span tal:condition="person/getEmail"
+                           class="emailAddress">
+                        <span class="hiddenStructure">Email address</span>
+                        <span tal:content="structure python:person.spamProtectFSD(person.getEmail())">[email address]</span>
+                      </span>
+                    </p>
+                
+                    <div tal:define="personSpecialtyData python:context.getSpecialtyInformation(person);">
+                      <div>Research interests:</div>
+                      <tal:block tal:condition="personSpecialtyData/getResearchTopic" 
+                                 tal:replace="structure personSpecialtyData/getResearchTopic">               
+                      </tal:block>
+                  
+                      <span tal:condition="python:checkPermission('Modify portal content', person)"
+                            class="discreet">[
+                        <a tal:attributes="href python:'%s/edit' % personSpecialtyData.absolute_url()">
+                          <tal:block tal:condition="personSpecialtyData/getResearchTopic"
+                                     i18n:translate="FacultyStaffDirectory_editResearchTopic">
+                            Edit research topic</tal:block>
+                          <tal:block tal:condition="not:personSpecialtyData/getResearchTopic"
+                                     i18n:translate="FacultyStaffDirectory_assignResearchTopic">
+                            Assign a research topic</tal:block>
+                        </a>
+                      ]</span>                                        
+                    </div>
+                
+                    <div class="moreInfo hiddenStructure">
+                      <a tal:attributes="href person/absolute_url"
+                         i18n:translate="FacultyStaffDirectory_moreAbout">
+                        More about
+                        <span i18n:name="more-about-person-title" tal:replace="person/Title">[Name]</span></a>
+                    </div>
+                  </metal:block>
+                </metal:list_people>
+              </metal:block>
+              
+                </div>
+              </metal:listing>
               
             </tal:block>
           </metal:block>
