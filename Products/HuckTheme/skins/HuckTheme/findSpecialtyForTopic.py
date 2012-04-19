@@ -6,8 +6,9 @@
 #
 
 if (u'crit__getRawSpecialties_ATReferenceCriterion' in [c.id for c in context.listCriteria()]):
-  specialtyUID= context.getCriterion('getRawSpecialties_ATReferenceCriterion').getCriteriaItems()[0][1]['query'][0]
-  return context.archetype_tool.lookupObject(specialtyUID)
+  specialtyUID = context.getCriterion('getRawSpecialties_ATReferenceCriterion').getCriteriaItems()[0][1]['query'][0]
+  #return context.archetype_tool.lookupObject(specialtyUID)
+  return context.portal_catalog(UID=specialtyUID)[0].getObject()
 
 else:
   return None
