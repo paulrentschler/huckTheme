@@ -215,9 +215,5 @@
         </metal:body>
       </metal:block>
     </div>
-    
-    <tal:block tal:replace="nothing">
-
-    </tal:block>
   </body>
 </html>
