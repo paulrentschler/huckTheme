@@ -19,9 +19,9 @@
 
 
   <body>
-    <div metal:fill-slot="main"
+    <div metal:fill-slot="content-core"
          tal:define="limitToCampus string:niversity">
-      <metal:main_macro define-macro="main">
+      <metal:main_macro define-macro="content-core">
 
         <div metal:use-macro="here/people_topic_view/macros/body_macro">[list people at University Park]</div>
 
