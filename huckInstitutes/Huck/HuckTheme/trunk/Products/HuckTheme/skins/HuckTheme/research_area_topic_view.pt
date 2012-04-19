@@ -21,32 +21,14 @@
 
 
   <body>
-    <div metal:fill-slot="main"
-         tal:define="limitToCampus string:all">
-      <metal:main_macro define-macro="main">
+    <div metal:fill-slot="content-core">
+      <metal:block define-macro="content-core">
         <metal:body define-macro="body_macro"
                     tal:define="kssClassesView context/@@kss_field_decorator_view;
                                 getKssClasses nocall:kssClassesView/getKssClassesInlineEditable;
-                                templateId template/getId">
+                                templateId template/getId;
+                                isAnon context/@@plone_portal_state/anonymous;">
 
-
-          <div tal:replace="structure provider:plone.abovecontenttitle" />
-
-          <h1 class="documentFirstHeading"> 
-            <metal:field use-macro="python:here.widget('title', mode='view')">
-              Title
-            </metal:field>
-          </h1>
-
-          <div tal:replace="structure provider:plone.belowcontenttitle" />
-
-          <p class="documentDescription">
-            <metal:field use-macro="python:here.widget('description', mode='view')">
-              Description
-            </metal:field>
-          </p>
-
-          <div tal:replace="structure provider:plone.abovecontentbody" />
 
           <div id="people-column-one">
             <div metal:define-macro="text-field-view"
@@ -59,23 +41,6 @@
                <div metal:define-slot="inside" tal:replace="structure text">The body</div>
             </div>
           </div>
-
-          <metal:subtopiclist define-macro="folderlisting_macro" tal:replace="nothing">
-<tal:comment tal:replace="nothing">
-  ** Removed this as it's in the left side navigation
-</tal:comment>
-            <div id="subtopics" tal:condition="nocall:python:context.getFolderContents({'portal_type':'Topic'})">
-              <h3 condition="here/hasSubtopics|nothing">Jump to the subset of these people that work in:</h3>
-              <ul tal:define="topicBrains python:context.getFolderContents({'portal_type':'Topic'})" >
-                <li tal:repeat="topic topicBrains" class="portletItem">
-                  <a href="#"
-                     tal:attributes="href topic/getURL"
-                     tal:content="topic/Title">
-                    [sub-collection]</a>
-                </li>
-              </ul>
-            </div>
-          </metal:subtopiclist>
 
           <metal:listingmacro define-macro="listing">
             <tal:topiccontents define="topicContents python:here.queryCatalog(batch=False);
@@ -99,10 +64,12 @@
                     <table class="noBorders"
                            tal:define="specialtyObj context/findSpecialtyForTopic;
                                        specialtyName context/Title;
-                                       whereAreWe context/absolute_url;">
+                                       whereAreWe context/absolute_url;"
+                           tal:attributes="summary string:A list of researchers working in ${context/Title}">
+                      <caption class="hiddenStructure">Researchers</caption>
                       <thead>
                         <metal:headings define-slot="table_headings">
-                          <tr class="hide">
+                          <tr class="hiddenStructure">
                             <th class="column">Photo</th>
                             <th class="column">Name and job title</th>
                           </tr>
@@ -114,7 +81,6 @@
                                                       thisIsAPerson python:brainID != '0';">
                             <tal:cells tal:condition="thisIsAPerson">
                               <tr tal:define="person brain/getObject;
-                                              classific string:${person/getClassifications};
                                               oddrow repeat/brain/odd;
                                               rowClass python:test(oddrow, 'even', 'odd');"
                                   tal:attributes="class rowClass">
@@ -141,11 +107,7 @@
                                     </a>
                                   </td>
 
-                                  <td class="personSummary"
-                                      tal:define="personClassificationsList string:${person/getClassifications};
-                                                  isGradAdmin python: 'rogram' in personClassificationsList;
-                                                  isFaculty python:'aculty' in personClassificationsList;
-                                                  isGradProgFaculty python:isFaculty and isGradAdmin;">
+                                  <td class="personSummary">
                                     <a tal:attributes="href person/absolute_url">
                                       <span tal:replace="string:${person/getLastName}, ${person/getFirstName}">
                                         [person's name]</span>
@@ -217,8 +179,6 @@
                       </tal:rows>
                     </dl>
 
-
-
                   </tal:listing>
                   
                 </tal:affiliates>
@@ -227,10 +187,7 @@
             </tal:topiccontents>
           </metal:listingmacro>
         </metal:body>
-
-        <div tal:replace="structure provider:plone.belowcontentbody" />
-
-      </metal:main_macro>
+      </metal:block>
     </div>
   </body>
 </html>
