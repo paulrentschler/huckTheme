@@ -42,7 +42,11 @@
                    tal:condition="text"
                    tal:attributes="class python:test(here.Format() in ('text/structured',
                                                          'text/x-rst', ), 'stx' + kss_class, 'plain' + kss_class)">
-                <div metal:define-slot="inside" tal:replace="structure text">The body</div>
+                <div metal:define-slot="inside"
+                     tal:define="subheadings python:text.replace('</h3>', '</h4>').replace('<h3>', '<h4>');
+                                 headings    python:subheadings.replace('</h2>', '</h3>').replace('<h2>', '<h3>');
+                                 text        headings"
+                     tal:replace="structure text">The body</div>
               </div>
               
               <h2 tal:condition="topicContents">
@@ -150,7 +154,7 @@
             <p>
               <strong>Edit</strong> this page and change the <strong>Body</strong> content to the
               description of the course. An automatic heading of <em>"Course overview"</em> will be
-              added to this section of text, so avoid using headings and stick with sub-headings.
+              added to this section of text.
             </p>
             <h3>Syllabi</h3>
             <ul>
@@ -178,9 +182,6 @@
             </h2>
             <metal:list metal:use-macro="here/base/macros/folderlisting"/>
           </tal:subtopics>
-
-          <!-- Navigation -->
-          <div metal:use-macro="here/batch_macros/macros/navigation" />
 
         </metal:body>
       </metal:block>
