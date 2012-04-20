@@ -111,39 +111,43 @@
                             </span>
                           </tal:campus>
                         </td>
-                        <td class="specialtyColumn"
-                            tal:define="personSpecialtyData python:context.getSpecialtyInformation(person);
-                                        isGradAdmin python: 'rogram' in classificationName;
-                                        personClassificationsList string:${person/getClassifications};
-                                        isFaculty python:'aculty' in personClassificationsList;
-                                        isGradProgFaculty python:isFaculty and isGradAdmin;">
-      
-                          <tal:notGradFaculty tal:condition="not: isGradProgFaculty">
-                            <tal:specialty tal:condition="personSpecialtyData/getResearchTopic"
-                                           tal:replace="structure personSpecialtyData/getResearchTopic">
-                              [summary of research or responsibilities]
-                            </tal:specialty>
+                        <metal:block define-slot="specialty_column">
+                          <td class="specialtyColumn"
+                              tal:define="personSpecialtyData python:context.getSpecialtyInformation(person);
+                                          isGradAdmin python: 'rogram' in classificationName;
+                                          personClassificationsList string:${person/getClassifications};
+                                          isFaculty python:'aculty' in personClassificationsList;
+                                          isGradProgFaculty python:isFaculty and isGradAdmin;">
                             
-                            <span tal:condition="python:checkPermission('Modify portal content', person)"
-                                  class="discreet">[
-                                <a tal:attributes="href python:'%s/edit' % personSpecialtyData.absolute_url()">
-                                  <tal:block tal:condition="personSpecialtyData/getResearchTopic"
-                                             i18n:translate="FacultyStaffDirectory_editResearchTopic">
-                                    Edit research topic</tal:block>
-                                  <tal:block tal:condition="not:personSpecialtyData/getResearchTopic"
-                                             i18n:translate="FacultyStaffDirectory_assignResearchTopic">
-                                    Assign a research topic</tal:block>
-                                </a>
-                            ]</span>
-                          </tal:notGradFaculty>
+                            <metal:block define-macro="specialty_column_content">
+                              <tal:notGradFaculty tal:condition="not: isGradProgFaculty">
+                                <tal:specialty tal:condition="personSpecialtyData/getResearchTopic"
+                                               tal:replace="structure personSpecialtyData/getResearchTopic">
+                                  [summary of research or responsibilities]
+                                </tal:specialty>
+                            
+                                <span tal:condition="python:checkPermission('Modify portal content', person)"
+                                      class="discreet">[
+                                    <a tal:attributes="href python:'%s/edit' % personSpecialtyData.absolute_url()">
+                                      <tal:block tal:condition="personSpecialtyData/getResearchTopic"
+                                                 i18n:translate="FacultyStaffDirectory_editResearchTopic">
+                                        Edit research topic</tal:block>
+                                      <tal:block tal:condition="not:personSpecialtyData/getResearchTopic"
+                                                 i18n:translate="FacultyStaffDirectory_assignResearchTopic">
+                                        Assign a research topic</tal:block>
+                                    </a>
+                                ]</span>
+                              </tal:notGradFaculty>
                         
-                          <tal:gradFaculty tal:condition="isGradProgFaculty">
-                            <span>
-                              Contact regarding curriculum, selection of advisors, and other academic aspects of the 
-                              <span tal:replace="object_title">[Name of graduate program here]</span> program
-                            </span>
-                          </tal:gradFaculty>
-                        </td>
+                              <tal:gradFaculty tal:condition="isGradProgFaculty">
+                                <span>
+                                  Contact regarding curriculum, selection of advisors, and other academic aspects of the 
+                                  <span tal:replace="object_title">[Name of graduate program here]</span> program
+                                </span>
+                              </tal:gradFaculty>
+                            </metal:block>
+                          </td>
+                        </metal:block>
                       </tal:block>
                     </metal:list_people>
                   </metal:block>
