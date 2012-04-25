@@ -10,7 +10,8 @@
                    wf_tool tools/workflow;
                    getInfoFor python:wf_tool.getInfoFor;
                    site_properties context/portal_properties/site_properties;
-                   use_view_action site_properties/typesUseViewActionInListings|python:();">
+                   use_view_action site_properties/typesUseViewActionInListings|python:();
+                   toLocalizedTime nocall:context/@@plone/toLocalizedTime;">
     <h2 i18n:translate="label_related_items">See also</h2>
     <ul>
       <tal:related repeat="item related">
@@ -36,7 +37,8 @@
                 [Talk Title]</a>
               &mdash;
               <span class="relatedTalkDate"
-                    tal:content="python:item.toLocalizedTime(item.start(), long_format=1)">
+                    tal:define="starts python: toLocalizedTime(hasattr(item, 'start') and item.start, long_format=1);"
+                    tal:content="starts">
                 [Event starting date/time]</span>
           </tal:talkEvent>
 
