@@ -52,8 +52,7 @@
                          isAdmin python: 'dmin' in classificationList;
                          isExpired python:context.contentExpired();
                          isEditor python:checkPermission('Modify portal content', context);
-                         isManager python:checkPermission('
-                         FacultyStaffDirectory: Add or Remove People', context);
+                         isManager python:checkPermission('FacultyStaffDirectory: Add or Remove People', context);
                          showExpired python: not isExpired or (isExpired and isEditor)" >
 
           <div class="row">
