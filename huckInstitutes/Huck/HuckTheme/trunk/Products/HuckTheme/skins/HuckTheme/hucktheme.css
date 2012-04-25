@@ -126,6 +126,16 @@
   
   
   
+  /* ----- FORMS ----- */
+    div.formControls {
+      margin: 1em 0;
+    }
+    
+    .template-search_form div.formControls {
+      margin-top: 2em;
+    }
+    
+  
   /* ----- WATERMARK ----- */
     .watermark {
       background: url("draft.png") repeat scroll 0 0 #FAFAFA;
