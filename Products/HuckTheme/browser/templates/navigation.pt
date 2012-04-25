@@ -1,33 +1,34 @@
 <tal:block i18n:domain="plone">
-
-<tal:comment tal:replace="nothing">
-  Created by: Catherine Williams
-  Description: used to display navigation portlets.
-  Based on: navigation.pt
-  Changes:
-    - text in the portlet header will always appear
-    - portlet header will always be the name of the main section we're in
-</tal:comment>
-
-
+  
+  <tal:comment tal:replace="nothing">
+    Created by: Catherine Williams
+    Description: used to display navigation portlets.
+    Based on: navigation.pt
+    Changes:
+      - text in the portlet header will always appear
+      - portlet header will always be the name of the main section we're in
+  </tal:comment>
+  
+  
   <dl class="portlet portletNavigationTree"  
-      tal:define="root view/navigation_root">
-
+      tal:define="root view/navigation_root;
+                  useViewTitle python:view.title() == 'Navigation';">
+    
     <dt class="portletHeader">
       <span class="portletTopLeft"></span>
       <a href="#" 
          class="tile"
-         tal:condition="not:view/title"
+         tal:condition="useViewTitle"
          tal:attributes="href root/absolute_url" 
          tal:content="root/Title">[Name of the section we're in]</a>
       <a href="#" 
           class="tile"
-          tal:condition="view/title"
+          tal:condition="not: useViewTitle"
           tal:attributes="href root/absolute_url"
           tal:content="view/title">[Whatever we've specified when managing portlets]</a>
       <span class="portletTopRight"></span>
     </dt>
-
+    
     <dd class="portletItem lastItem">
       <ul class="portletNavigationTree navTreeLevel0">
         <li class="navTreeItem"
