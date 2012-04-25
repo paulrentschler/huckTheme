@@ -1924,6 +1924,10 @@
 /* -------------------- HUCK ENTITIES --------------------- */
 /* -------------------------------------------------------- */
 
+.template-equipment_view div#relatedItemBox {
+	display: none;
+}
+
 #equipmentSidebar {
   background-color: #CFE4EF;
   -moz-border-radius: 5px;
@@ -1934,6 +1938,12 @@
   margin: 0 0 1em 1em;
   padding: 10px 10px 0 10px;
   width: 200px;
+}
+
+#equipmentSidebar #equipmentRelated h2,
+#equipmentSidebar #equipmentDocumentation h2 {
+	border-bottom: none;
+	font-size: 1.25em;
 }
 
 #equipmentSidebar dl.documentationList {
