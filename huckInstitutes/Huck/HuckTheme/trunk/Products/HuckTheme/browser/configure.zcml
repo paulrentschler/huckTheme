@@ -56,6 +56,15 @@
           permission="zope2.View"
           />
 
+    <!-- The customized document related items -->
+      <browser:viewlet
+          name="Products.HuckTheme.relateditems"
+          manager="plone.app.layout.viewlets.interfaces.IBelowContentBody"
+          class=".viewlets.ContentRelatedItems"
+          layer=".interfaces.IThemeSpecific"
+          permission="zope2.View"
+          />
+
     <!-- The customized footer -->
       <browser:viewlet
           name="Products.HuckTheme.footer"
