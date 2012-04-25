@@ -27,6 +27,7 @@
   
   <hidden manager="plone.belowcontentbody" skinname="HuckTheme">
     <viewlet name="plone.abovecontenttitle.documentactions" />
+    <viewlet name="plone.belowcontentbody.relateditems" />
   </hidden>
 
   <hidden manager="plone.belowcontent" skinname="HuckTheme">
@@ -62,6 +63,10 @@
     <!-- <viewlet name="Products.HuckTheme.documentbyline"
              insert-after="plone.contentactions" /> -->
     <viewlet name="contentwellportlets.portletsabovecontent" />
+  </order>
+
+  <order manager="plone.belowcontentbody" skinname="HuckTheme">
+    <viewlet name="Products.HuckTheme.relateditems" />
   </order>
 
   <order manager="plone.portalfooter" skinname="HuckTheme">

@@ -18,6 +18,9 @@ class SearchBoxViewlet(common.SearchBoxViewlet):
 class SiteActionsViewlet(common.SiteActionsViewlet):
     index = ViewPageTemplateFile('templates/site_actions.pt')
 
+class ContentRelatedItems(content.ContentRelatedItems):
+    index = ViewPageTemplateFile('templates/document_relateditems.pt')
+
 class DocumentBylineViewlet(content.DocumentBylineViewlet):
     index = ViewPageTemplateFile('templates/document_byline.pt')
 
