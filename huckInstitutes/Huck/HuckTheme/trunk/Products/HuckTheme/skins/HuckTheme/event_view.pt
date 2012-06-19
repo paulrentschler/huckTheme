@@ -125,14 +125,27 @@
             <div class="eventDetail">
               <h3>Contact Person</h3>
               <div>
-                <a id="parent-fieldname-contactEmail"
-                   tal:condition="contact_email"
-                   tal:replace="structure python: context.spamProtect(mailaddress=contact_email, mailname=contact_name, cssclass='email fn')"
+                <div class="fn"
+                     tal:condition="contact_name"
+                     tal:content="contact_name">
+                  Contact Name
+                </div>
+                
+                <div tal:condition="contact_email">
+                  <span class="hiddenStructure"
+                        tal:condition="contact_name">
+                    <span tal:replace="contact_name" />'s email address
+                  </span>
+                  <span class="hiddenStructure"
+                        tal:condition="not: contact_name">
+                    Email address to contact about the event
+                  </span>
+                  <a id="parent-fieldname-contactEmail"
+                     tal:replace="structure python: context.spamProtect(mailaddress=contact_email, mailname=contact_email, cssclass='email fn')"
                    />
-                <span class="fn"
-                      tal:condition="not: contact_email"
-                      tal:content="contact_name" />
+                </div>
                 <div tal:condition="context/contact_phone">
+                  <span class="hiddenStructure">Phone number to call about the event</span>
                   <span class="tel">
                     <metal:field use-macro="python:context.widget('contactPhone', mode='view')">
                       Phone number
