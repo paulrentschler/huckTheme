@@ -1615,6 +1615,53 @@
     font-size: 110%;
   }
   
+  
+  
+  #content .eventDetails {
+    border-collapse: collapse;
+    border-spacing: 0;    
+    border: 3px solid #336699;
+    font-size: 90%;
+    margin: 1em 0em 1em 0em;
+    width: 22em;
+  }
+
+  #content .eventDetails h2 {
+    background: #336699;
+    border-bottom: 1px solid #336699;
+    color: white;
+    font-size: 1.25em;
+    font-weight: normal;
+    padding: 0.25em 0.5em;
+    margin-top: 0em;
+  }
+
+  #content .eventDetails .eventDetail {
+    clear: both;
+  }
+
+  #content .eventDetails .eventDetail h3,
+  #content .eventDetails .eventDetail > div {
+    padding: 2%;
+  }
+
+  #content .eventDetails .eventDetail h3 {
+    font-size: 1em;
+    font-weight: bold;
+    float: left;
+    margin: 0 0 0.5em 0;
+    /*padding: 0em 0em 1em 0em;*/
+    text-align: right ! important;
+    width: 37%;
+  }
+
+  #content .eventDetails .eventDetail div {
+    float: left;
+    /*padding: 0em 0.5em 0.25em 0.5em;*/
+    width: 55%;
+  } 
+  
+/*
   .eventDetails {
     background-color: #336699;
     border: 1px solid #336699;
@@ -1651,6 +1698,7 @@
     text-decoration: line-through;
     color: #FF6633;
   }
+*/
 
   .vevent table.listing tbody tr td h3,
   .vevent table.listing tbody tr td h4 {
