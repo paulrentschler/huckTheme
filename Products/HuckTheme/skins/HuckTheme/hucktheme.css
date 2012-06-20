@@ -63,6 +63,34 @@
   }
   
   
+  /* ----- BIG BUTTON ----- */
+  div.big-button {
+      margin-top: 1.5em;
+  }
+
+  div.big-button a {
+      background-color: #336699;
+      color: white;
+      font-size: 1.2em;
+      padding: 0.8em 1.2em;
+
+      border-radius: 10px; 
+      -moz-border-radius: 10px; 
+      -webkit-border-radius: 10px; 
+      border: 1px solid #0099FF !important;
+  }
+
+  div.big-button a:visited {
+      color: white;
+  }
+
+  div.big-button a:hover {
+      background-color: #0099FF;
+      color: white;
+      border: 1px solid #336699 !important;
+  }
+  
+  
   /* ----- HOLIDAY - OFFICE CLOSED NOTICE ----- */
   .vacation_msg {
     background-color: #ffcccc;
@@ -1128,6 +1156,10 @@
 
   /* ----- NEWS CONTENT ----- */
     .newsImageContainer {
+      background-color: white;
+      border-bottom: 0.5em solid white;
+      border-left: 1em solid white;
+      margin: 0;
       width: 302px;
     }
     
