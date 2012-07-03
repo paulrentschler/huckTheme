@@ -293,6 +293,27 @@
 
 
 
+  /* ----- CONTENT COLUMNS ----- */
+    #content div.columns-3 div {
+      float: left;
+      width: 33%;
+    }
+    
+    #content ul.image-grid {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+    
+    #content ul.image-grid li a,
+    #content ul.image-grid li img,
+    #content ul.image-grid li div.caption {
+      border: none;
+      display: block;
+    }
+
+
+
   /* ----- FOOTER ----- */
     #footer {
       background: url("footer-bg.png") repeat-x scroll left top #336699;
@@ -2034,3 +2055,18 @@
   margin-left: 1em;
 }
 
+
+
+
+/* -------------------------------------------------------- */
+/* --------------- CONTENT CUSTOMIZATIONS ----------------- */
+/* -------------------------------------------------------- */
+
+#content #ecology-study-systems ul.image-grid li {
+  height: 160px;
+}
+
+#content #ecology-study-systems ul.image-grid li img,
+#content #ecology-study-systems ul.image-grid li a {
+  width: 128px;
+}
