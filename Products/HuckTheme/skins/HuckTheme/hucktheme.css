@@ -671,6 +671,10 @@
       margin: 0;
     }
     
+    dl.portlet ul.navTree .navTreeCurrentItem {
+      margin-left: 0;
+    }
+    
     dd.portletItem .portletNavigationTree .navTreeCurrentNode,
     dd.portletItem .portletNavigationTree .navTreeItemInPath {
       background-color: #EEF3F5;
