@@ -1176,7 +1176,7 @@
 
 
   /* ----- NEWS CONTENT ----- */
-    .newsImageContainer {
+    #content div.newsImageContainer {
       background-color: white;
       border-bottom: 0.5em solid white;
       border-left: 1em solid white;
@@ -1198,10 +1198,11 @@
       padding: 0 4em 0 2em;
     }
     
-    .pullquote {
-      color: #FF6633;
-      font-size: 120%;
-      font-weight: normal;
+    #content .pullquote {
+      background-color: white;
+      border-left: 4px solid #8CACBB;
+      margin: 0 0 0.5em 1em;
+      padding-left: 0.5em;
     }
 
 
