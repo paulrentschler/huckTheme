@@ -1662,7 +1662,7 @@
     
     border-radius: 5px;
     -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;    
+    -webkit-border-radius: 5px;
   }
 
   .vevent .portalMessage.eventStatus strong {
@@ -1671,10 +1671,15 @@
   
   
   
+  #content .eventDetailsWrapper {
+    border: 2px solid #336699;
+  }
+  
   #content .eventDetails {
+    background-color: white;
     border-collapse: collapse;
     border-spacing: 0;    
-    border: 2px solid #336699;
+    border-left: 1em solid white;
     font-size: 90%;
     margin: 1em 0em 1em 1em;
     width: 24em;
