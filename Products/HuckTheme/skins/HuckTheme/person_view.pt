@@ -322,19 +322,9 @@
                                     tal:replace="structure researchTopic">
                                 [summary of research or responsibilities]
                               </span>
-                              <span class="discreet">[
-                                <a tal:attributes="href python:'%s/edit' % personSpecialtyData.absolute_url()">
-                                  <tal:block tal:condition="researchTopic"
-                                             i18n:translate="FacultyStaffDirectory_editResearchTopic">
-                                    Edit research topic</tal:block>
-                                  <tal:block tal:condition="not:researchTopic"
-                                             i18n:translate="FacultyStaffDirectory_assignResearchTopic">
-                                    Assign a research topic</tal:block>
-                                </a>
-                              ]</span>
 
                               <dl tal:define="advisors python:context.getReferences(relationship='people_advisors')"
-                                  tal:condition="python: advisors and not inContactUs"
+                                  tal:condition="python: advisors"
                                   class="advisors contactInfo">
                                 <dt>
                                   <tal:solo tal:condition="python: len(advisors) == 1">Advisor:</tal:solo>
@@ -351,6 +341,17 @@
                                   </ul>
                                 </dd>
                               </dl>
+
+                              <span class="discreet">[
+                                <a tal:attributes="href python:'%s/edit' % personSpecialtyData.absolute_url()">
+                                  <tal:block tal:condition="researchTopic"
+                                             i18n:translate="FacultyStaffDirectory_editResearchTopic">
+                                    Edit research topic</tal:block>
+                                  <tal:block tal:condition="not:researchTopic"
+                                             i18n:translate="FacultyStaffDirectory_assignResearchTopic">
+                                    Assign a research topic</tal:block>
+                                </a>
+                              ]</span>
                             </td>
                           </tr>
                         </tbody>
