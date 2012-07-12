@@ -785,11 +785,30 @@
 
 
   /* ----- CONTENT WELL PORTLETS (FACILITIES) ----- */
-    .section-facilities .portletsAboveContentA .portletWrapper {
+    .section-facilities div#portlets-above {
+      float: none;
+      position: static;
+      width: auto;
+    }
+    
+    .section-facilities div#portlets-above div.AbovePortletManager1 {
+      float: none;
+      left: 0;
+      margin-left: 0;
+      position: static;
+      width: auto;
+    }
+
+    .portaltype-portlet-holder.section-facilities div#content {
+      clear: none;
+    }
+    
+    .section-facilities .portletsAboveContentA .portletWrapper,
+    .section-facilities .AbovePortletManager1 .portletWrapper {
       background-color: #EEF3F5;
       border: 1px solid #336699;
       float: right;
-      margin: 4em 0 1em 1em;
+      margin: 6em 0 1em 1em;
       width: 180px;
 
       border-radius: 5px;
@@ -797,8 +816,16 @@
       -webkit-border-radius: 5px; 
     }
 
-    .section-facilities .portletsAboveContentA .portlet {
+    .section-facilities .portletsAboveContentA .portlet,
+    .section-facilities .AbovePortletManager1 .portlet {
       padding-bottom: 0;
+    }
+    
+    .section-facilities .AbovePortletManager1 .portletHeader {
+      background-color: transparent;
+      border: 0 none;
+      font-size: 130%;
+      padding: 0;
     }
 
 
