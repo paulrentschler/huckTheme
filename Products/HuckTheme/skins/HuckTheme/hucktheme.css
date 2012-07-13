@@ -1901,6 +1901,7 @@
 
   /* ----- VIDEOS ----- */
     .video-right {
+      background-color: white;
       border: none;
       border-left: 10px solid white;
       float: right;
