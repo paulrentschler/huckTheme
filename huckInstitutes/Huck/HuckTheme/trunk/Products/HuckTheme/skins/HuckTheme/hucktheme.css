@@ -163,6 +163,35 @@
       margin-top: 2em;
     }
     
+  /* ----- PORTAL MESSAGES ----- */
+    div.portalMessage {
+      background-color: #ffffe3;
+      border: 1px solid #996;
+      clear: both;
+      line-height: 1.25em;
+      margin: 1em 0;
+    }
+    
+    div.portalMessage a,
+    #content div.portalMessage a {
+        color: black;
+        border-bottom: 1px solid #888;
+    }
+    
+    div.portalMessage strong {
+      background-color: #996;
+      color: White;
+      display: inline-block;
+      font-weight: bold;
+      margin: 0 0.5em 0 0;
+      padding: 0.5em 0.75em;
+    }
+    
+    div.portalMessage.warning        { background-color: #fd7; border-color: #d80; }
+    div.portalMessage.warning strong { background-color: #d80; }
+    div.portalMessage.error          { background-color: #fdc; border-color: #d00; }
+    div.portalMessage.error strong   { background-color: #d00; }
+  
   
   /* ----- WATERMARK ----- */
     .watermark {
