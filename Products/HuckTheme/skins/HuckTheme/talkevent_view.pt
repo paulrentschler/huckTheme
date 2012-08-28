@@ -39,22 +39,22 @@
                                       templateId template/getId;
                                       toLocalizedTime nocall:context/@@plone/toLocalizedTime;">
 
-        <div class="portalMessage eventStatus" tal:condition="context/eventCanceled|nothing">
-          <strong>Please Note:</strong> This event has been canceled!
+        <div class="portalMessage warning eventStatus" tal:condition="context/eventCanceled|nothing">
+          <strong>Please Note</strong> This event has been canceled!
         </div>
 
-        <div class="portalMessage eventStatus" 
+        <div class="portalMessage warning eventStatus" 
              tal:define="rescheduledEvent context/getRescheduledEvent|nothing"
              tal:condition="python: not context.getEventCanceled() and context.getEventPostponed()">
 
           <tal:rescheduled tal:condition="rescheduledEvent">
-            <strong>Please Note:</strong> This event has been 
+            <strong>Please Note</strong> This event has been 
             <a tal:attributes="href python:rescheduledEvent[0].absolute_url()">rescheduled for
               <span tal:content="python:toLocalizedTime(rescheduledEvent[0].start(), long_format=1)">[new date]</span></a>.
           </tal:rescheduled>
 
           <tal:postponed tal:condition="not: rescheduledEvent">
-            <strong>Please Note:</strong> This event has been postponed! A new date and time will be announced later.
+            <strong>Please Note</strong> This event has been postponed! A new date and time will be announced later.
           </tal:postponed>
         </div>
         
