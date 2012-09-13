@@ -1289,9 +1289,12 @@
     }
     
     #featured-authors {
+      padding: 0 0 0 1em;
+/*
       display: inline-block;
       vertical-align: top;
       width: 45%;
+*/
     }
     
     #featured-authors ul {
@@ -1326,12 +1329,15 @@
     }
     
     #paper-details {
-      display: inline-block;
       border-left: 1px solid #336699;
+      padding: 1em 0 0 0;
+/*
+      display: inline-block;
       margin: 0 0 0 1.0em;
       padding-left: 0.9em;
       vertical-align: top;
       width: 50%;
+*/
     }
     
     #paper-details dl dt {
