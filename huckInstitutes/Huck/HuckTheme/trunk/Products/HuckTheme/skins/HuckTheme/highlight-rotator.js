@@ -73,7 +73,7 @@ jq(document).ready(function() {
            */
 
         // define the timing interval
-        var timerInterval = 5000;  // milliseconds
+        var timerInterval = 10000;  // milliseconds
 
         // setup the timer and store it's reference in "play"
         play = setInterval(function() {
