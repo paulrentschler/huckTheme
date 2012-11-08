@@ -1886,17 +1886,29 @@
     .image-caption-left {
       background-color: white;
       border-bottom: 0.5em solid white;
-      border-left: 0.5em solid white;
-      border-right: none;
       border-top: 0.5em solid white;
       width: 200px;
     }
-    .image-caption-right { float: right; }
-    .image-caption-left  { float: left;  }
+    .image-caption-right {
+        border-left: 1em solid white;
+        border-right: none;
+        float: right;
+    }
+    .image-caption-left  {
+        border-left: none;
+        border-right: 1em solid white;
+        float: left;
+    }
 
     .plain img {
       border: none;
       margin: 0.25em 0.5em;
+    }
+
+    .image-caption-right img,
+    .image-caption-left img {
+        border: none !important;
+        margin: 0 !important;
     }
     
     div#content img.image-right {
